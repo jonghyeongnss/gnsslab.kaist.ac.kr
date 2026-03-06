@@ -1,0 +1,30 @@
+# ─────────────────────────────────────────
+#  KAIST GNSS Lab · Jekyll Configuration
+# ─────────────────────────────────────────
+
+title: GNSS Lab · KAIST
+description: Global Navigation Satellite System Laboratory, Department of Aerospace Engineering, KAIST
+url: "https://jonghyeongnss.github.io"
+baseurl: "/gnsslab.kaist.ac.kr"
+
+author:
+  name: Prof. Jiyun Lee
+  email: jiyunlee@kaist.ac.kr
+
+# ── Build settings ──
+theme: null
+markdown: kramdown
+permalink: pretty
+
+# ── Plugins ──
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# ── Exclude from build ──
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - .DS_Store

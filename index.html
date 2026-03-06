@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GNSS Lab · KAIST Aerospace Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:    #050d1a;
+      --navy2:   #091628;
+      --navy3:   #0e2040;
+      --panel:   #0a1929;
+      --border:  #1a3050;
+      --border2: #243d60;
+      --gold:    #c8a84b;
+      --gold2:   #e8c96a;
+      --cyan:    #4ab8d8;
+      --cyan2:   #7dd4ec;
+      --text:    #c8d8e8;
+      --bright:  #eaf2fc;
+      --dim:     #5a7898;
+      --mid:     #8aaac8;
+      --serif:   'Crimson Pro', Georgia, serif;
+      --display: 'Bebas Neue', sans-serif;
+      --ui:      'Rajdhani', sans-serif;
+      --mono:    'DM Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy);
+      color: var(--text);
+      font-family: var(--ui);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── STARFIELD ── */
+    #stars-canvas {
+      position: fixed; inset: 0;
+      z-index: 0; pointer-events: none;
+      opacity: 0.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3rem;
+      background: rgba(5,13,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
+    .nav-brand-main {
+      font-family: var(--display);
+      font-size: 1.55rem;
+      letter-spacing: 0.06em;
+      color: var(--bright);
+      line-height: 1;
+    }
+    .nav-brand-main span { color: var(--gold); }
+    .nav-brand-sub {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--dim);
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
+    .nav-links li { position: relative; }
+    .nav-links a {
+      display: block;
+      padding: 0 1.2rem;
+      height: 64px; line-height: 64px;
+      font-family: var(--ui);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+      border-left: 1px solid transparent;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 1.2rem; right: 1.2rem;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--bright); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links li:first-child a { border-left: 1px solid var(--border); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 64px 2rem 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Earth + orbit SVG */
+    .hero-visual {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 0; pointer-events: none;
+      opacity: 0; animation: fadeIn 1.5s ease forwards 0.3s;
+    }
+    .hero-visual svg { width: min(720px, 90vw); height: auto; }
+
+    /* Orbit animations */
+    @keyframes orbit1 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes orbit2 { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+    @keyframes orbit3 { from { transform: rotate(120deg); } to { transform: rotate(480deg); } }
+    @keyframes pulse { 0%,100%{opacity:0.6;} 50%{opacity:1;} }
+    @keyframes earthSpin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+    .orbit-ring-1 { transform-origin: 360px 360px; animation: orbit1 18s linear infinite; }
+    .orbit-ring-2 { transform-origin: 360px 360px; animation: orbit2 28s linear infinite; }
+    .orbit-ring-3 { transform-origin: 360px 360px; animation: orbit3 12s linear infinite; }
+    .sat-pulse { animation: pulse 2.5s ease-in-out infinite; }
+
+    /* Hero text */
+    .hero-content {
+      position: relative; z-index: 2;
+      opacity: 0; transform: translateY(24px);
+      animation: fadeUp 0.9s ease forwards 0.6s;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; width: 2.5rem; height: 1px; background: var(--gold); opacity: 0.6;
+    }
+
+    h1.hero-title {
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 6vw, 5.2rem);
+      letter-spacing: 0.06em;
+      color: var(--bright);
+      line-height: 1.05;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 0 60px rgba(74,184,216,0.25);
+    }
+    h1.hero-title span { color: var(--cyan); }
+
+    .hero-subtitle {
+      font-family: var(--serif);
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-style: italic;
+      color: var(--mid);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .hero-divider {
+      width: 3rem; height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 auto 1.4rem;
+    }
+
+    .hero-affil {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      line-height: 1.9;
+    }
+    .hero-affil strong { color: var(--mid); font-weight: 400; }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      z-index: 2;
+      opacity: 0; animation: fadeIn 1s ease forwards 2s;
+    }
+    .hero-scroll span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+    .scroll-line { width: 1px; height: 2.5rem; background: linear-gradient(to bottom, var(--dim), transparent); animation: scrollDrop 1.8s ease-in-out infinite; }
+    @keyframes scrollDrop { 0%{transform:scaleY(0);transform-origin:top;} 50%{transform:scaleY(1);transform-origin:top;} 51%{transform:scaleY(1);transform-origin:bottom;} 100%{transform:scaleY(0);transform-origin:bottom;} }
+
+    /* ── SECTION BASE ── */
+    section { position: relative; z-index: 1; }
+    .sec-label {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: var(--mono); font-size: 0.68rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.8rem;
+    }
+    .sec-label::before { content:''; width:1.8rem; height:1px; background:var(--gold); }
+    h2.sec-title {
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: 0.05em;
+      color: var(--bright);
+      margin-bottom: 0.5rem;
+    }
+    .sec-desc { font-size: 1rem; color: var(--mid); max-width: 52ch; line-height: 1.8; }
+
+    /* ── RESEARCH SECTION ── */
+    .research-section {
+      background: var(--navy2);
+      padding: 6rem 5rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .research-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+    .view-all-btn {
+      font-family: var(--mono); font-size: 0.7rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cyan); text-decoration: none;
+      border: 1px solid var(--border2);
+      padding: 0.5rem 1.2rem;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .view-all-btn:hover { background: var(--cyan); color: var(--navy); border-color: var(--cyan); }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .res-card {
+      background: var(--panel);
+      padding: 2.4rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s;
+      cursor: default;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+    .res-card::before {
+      content: '';
+      position: absolute; top:0; left:0; right:0; height:2px;
+      background: linear-gradient(to right, var(--gold), var(--cyan));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .res-card:hover { background: var(--navy3); }
+    .res-card:hover::before { transform: scaleX(1); }
+    .res-card-num {
+      font-family: var(--mono); font-size: 0.62rem;
+      color: var(--dim); letter-spacing: 0.1em;
+      margin-bottom: 1.4rem;
+    }
+    .res-card-icon {
+      font-size: 1.6rem; margin-bottom: 1rem;
+      filter: grayscale(0.3);
+    }
+    .res-card-title {
+      font-family: var(--ui); font-size: 1.12rem; font-weight: 600;
+      color: var(--bright); margin-bottom: 0.8rem; line-height: 1.3;
+      letter-spacing: 0.02em;
+    }
+    .res-card-desc { font-size: 0.9rem; color: var(--mid); line-height: 1.78; }
+    .res-card-arrow {
+      position: absolute; bottom: 1.6rem; right: 1.6rem;
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--dim); transition: color 0.2s, transform 0.2s;
+    }
+    .res-card:hover .res-card-arrow { color: var(--cyan); transform: translateX(4px); }
+
+    /* ── NEWS SECTION ── */
+    .news-section {
+      background: var(--navy);
+      padding: 6rem 5rem;
+    }
+    .news-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+    .news-list { display: flex; flex-direction: column; gap: 0; }
+    .news-item {
+      display: grid;
+      grid-template-columns: 110px auto 1fr auto;
+      gap: 0 2rem;
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .news-item:first-child { border-top: 1px solid var(--border); }
+    .news-item.visible { opacity: 1; transform: translateY(0); }
+    .news-date {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--dim); letter-spacing: 0.04em; padding-top: 0.1rem;
+    }
+    .news-tag {
+      font-family: var(--mono); font-size: 0.6rem;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid var(--border2);
+      color: var(--cyan); letter-spacing: 0.06em;
+      text-transform: uppercase; white-space: nowrap; align-self: start;
+      margin-top: 0.05rem;
+    }
+    .news-tag.award { color: var(--gold); border-color: var(--gold); opacity: 0.8; }
+    .news-tag.pub { color: #7ec87e; border-color: #3a6e3a; }
+    .news-body {}
+    .news-title {
+      font-size: 1rem; font-weight: 500;
+      color: var(--bright); margin-bottom: 0.2rem; line-height: 1.4;
+    }
+    .news-detail { font-size: 0.86rem; color: var(--mid); }
+    .news-link {
+      font-family: var(--mono); font-size: 0.65rem;
+      color: var(--dim); text-decoration: none;
+      letter-spacing: 0.06em; padding-top: 0.1rem;
+      transition: color 0.2s;
+      white-space: nowrap; align-self: start;
+    }
+    .news-link:hover { color: var(--cyan); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy2);
+      border-top: 1px solid var(--border);
+      padding: 4rem 5rem 2.5rem;
+      position: relative; z-index: 1;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .footer-brand {}
+    .footer-brand-name {
+      font-family: var(--display);
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      color: var(--bright);
+      margin-bottom: 0.2rem;
+    }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-sub {
+      font-family: var(--mono); font-size: 0.6rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--dim); margin-bottom: 1.4rem;
+    }
+    .footer-brand p {
+      font-size: 0.86rem; color: var(--dim);
+      max-width: 32ch; line-height: 1.8;
+    }
+    .footer-col-title {
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a {
+      font-size: 0.86rem; color: var(--dim); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--bright); }
+    .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-info-row {
+      display: flex; gap: 0.8rem; align-items: flex-start;
+    }
+    .footer-info-icon { font-size: 0.9rem; opacity: 0.6; flex-shrink: 0; margin-top: 1px; }
+    .footer-info-text { font-size: 0.82rem; color: var(--dim); line-height: 1.6; }
+    .footer-info-text a { color: var(--cyan); text-decoration: none; }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom span {
+      font-family: var(--mono); font-size: 0.62rem;
+      color: var(--dim); letter-spacing: 0.05em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn { to { opacity:1; } }
+    .reveal { opacity:0; transform:translateY(18px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .research-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .research-section, .news-section, footer { padding-left: 2rem; padding-right: 2rem; }
+      nav { padding: 0 1.5rem; }
+      .nav-links a { padding: 0 0.7rem; font-size: 0.72rem; }
+      .news-item { grid-template-columns: 90px 1fr; }
+      .news-tag, .news-link { display: none; }
+    }
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .research-header, .news-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Starfield canvas -->
+<canvas id="stars-canvas"></canvas>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-brand-main">GNSS <span>KAIST</span></div>
+    <div class="nav-brand-sub">Global Navigation Satellite System</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="people.html">People</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <!-- Earth + Satellites SVG -->
+  <div class="hero-visual">
+    <svg viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Glow behind earth -->
+      <circle cx="360" cy="360" r="160" fill="none" stroke="#4ab8d8" stroke-width="0.5" opacity="0.1"/>
+      <circle cx="360" cy="360" r="145" fill="url(#earthGlow)" opacity="0.6"/>
+
+      <!-- Earth -->
+      <defs>
+        <radialGradient id="earthGlow" cx="40%" cy="35%">
+          <stop offset="0%" stop-color="#1a6090"/>
+          <stop offset="40%" stop-color="#0d3d6b"/>
+          <stop offset="100%" stop-color="#030f1e"/>
+        </radialGradient>
+        <radialGradient id="earthGlow2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#4ab8d8" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#4ab8d8" stop-opacity="0"/>
+        </radialGradient>
+        <clipPath id="earthClip">
+          <circle cx="360" cy="360" r="145"/>
+        </clipPath>
+      </defs>
+
+      <!-- Atmosphere glow -->
+      <circle cx="360" cy="360" r="158" fill="url(#earthGlow2)"/>
+
+      <!-- Earth sphere -->
+      <circle cx="360" cy="360" r="145" fill="url(#earthGlow)" stroke="#1a4a70" stroke-width="1"/>
+
+      <!-- Continents (simplified shapes) -->
+      <g clip-path="url(#earthClip)" opacity="0.5">
+        <!-- North America -->
+        <ellipse cx="290" cy="320" rx="38" ry="45" fill="#1a7a4a" transform="rotate(-15 290 320)"/>
+        <!-- Europe/Africa -->
+        <ellipse cx="375" cy="345" rx="22" ry="55" fill="#1a7a4a" transform="rotate(5 375 345)"/>
+        <!-- Asia -->
+        <ellipse cx="440" cy="310" rx="55" ry="40" fill="#1a7a4a" transform="rotate(-10 440 310)"/>
+        <!-- South America -->
+        <ellipse cx="305" cy="400" rx="20" ry="38" fill="#1a7a4a" transform="rotate(10 305 400)"/>
+        <!-- Australia -->
+        <ellipse cx="455" cy="410" rx="22" ry="16" fill="#1a7a4a"/>
+      </g>
+
+      <!-- Terminator line -->
+      <path d="M 360 215 Q 430 290 360 505" stroke="#4ab8d8" stroke-width="0.8" opacity="0.2" fill="none"/>
+
+      <!-- Orbit ring 1 — equatorial -->
+      <ellipse cx="360" cy="360" rx="240" ry="60" stroke="#4ab8d8" stroke-width="0.8" opacity="0.25" fill="none"/>
+      <!-- Orbit ring 2 — inclined -->
+      <ellipse cx="360" cy="360" rx="260" ry="80" stroke="#c8a84b" stroke-width="0.8" opacity="0.2" fill="none" transform="rotate(-35 360 360)"/>
+      <!-- Orbit ring 3 — polar-ish -->
+      <ellipse cx="360" cy="360" rx="200" ry="280" stroke="#4ab8d8" stroke-width="0.7" opacity="0.15" fill="none" transform="rotate(20 360 360)"/>
+
+      <!-- Satellite group 1 (equatorial orbit) -->
+      <g class="orbit-ring-1">
+        <g transform="translate(600, 360)">
+          <rect x="-10" y="-4" width="20" height="8" rx="1" fill="#4ab8d8" class="sat-pulse"/>
+          <rect x="-18" y="-1.5" width="6" height="3" fill="#4ab8d8" opacity="0.6"/>
+          <rect x="12" y="-1.5" width="6" height="3" fill="#4ab8d8" opacity="0.6"/>
+        </g>
+      </g>
+
+      <!-- Satellite group 2 (inclined orbit) -->
+      <g transform="rotate(-35 360 360)">
+        <g class="orbit-ring-2">
+          <g transform="translate(620, 360)">
+            <rect x="-9" y="-4" width="18" height="7" rx="1" fill="#c8a84b" class="sat-pulse" style="animation-delay:0.8s"/>
+            <rect x="-16" y="-1.5" width="6" height="3" fill="#c8a84b" opacity="0.6"/>
+            <rect x="11" y="-1.5" width="6" height="3" fill="#c8a84b" opacity="0.6"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- Satellite group 3 (faster, small) -->
+      <g transform="rotate(20 360 360)">
+        <g class="orbit-ring-3">
+          <g transform="translate(560, 360)">
+            <rect x="-7" y="-3" width="14" height="6" rx="1" fill="#7dd4ec" class="sat-pulse" style="animation-delay:1.5s"/>
+            <rect x="-13" y="-1" width="5" height="2" fill="#7dd4ec" opacity="0.6"/>
+            <rect x="9" y="-1" width="5" height="2" fill="#7dd4ec" opacity="0.6"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- Signal lines from satellites to earth -->
+      <line x1="360" y1="215" x2="490" y2="300" stroke="#4ab8d8" stroke-width="0.6" stroke-dasharray="4 6" opacity="0.2"/>
+      <line x1="360" y1="505" x2="230" y2="390" stroke="#c8a84b" stroke-width="0.6" stroke-dasharray="4 6" opacity="0.2"/>
+    </svg>
+  </div>
+
+  <!-- Text content -->
+  <div class="hero-content">
+    <div class="hero-eyebrow">KAIST · Aerospace Engineering</div>
+    <h1 class="hero-title">Global Navigation<br><span>Satellite System</span> Lab</h1>
+    <div class="hero-divider"></div>
+    <div class="hero-affil">
+      <strong>Korea Advanced Institute of Science and Technology</strong><br>
+      Department of Aerospace Engineering
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<!-- ── RESEARCH SECTION ── -->
+<section class="research-section" id="research">
+  <div class="research-header">
+    <div>
+      <p class="sec-label reveal">Research Areas</p>
+      <h2 class="sec-title reveal">Our Work</h2>
+      <p class="sec-desc reveal">We develop algorithms and systems at the intersection of GNSS signal processing, atmospheric remote sensing, and satellite navigation.</p>
+    </div>
+    <a href="research.html" class="view-all-btn reveal">View All Research &rarr;</a>
+  </div>
+
+  <div class="research-grid">
+    <a href="research.html#ro" class="res-card reveal">
+      <p class="res-card-num">01</p>
+      <div class="res-card-icon">🌐</div>
+      <h3 class="res-card-title">GNSS Radio Occultation</h3>
+      <p class="res-card-desc">Retrieving atmospheric profiles from bending angle measurements using phase matching, Abel inversion, and wavelet-based signal processing for the lower troposphere.</p>
+      <span class="res-card-arrow">&rarr;</span>
+    </a>
+    <a href="research.html#positioning" class="res-card reveal reveal-d1">
+      <p class="res-card-num">02</p>
+      <div class="res-card-icon">📡</div>
+      <h3 class="res-card-title">Satellite Navigation & Positioning</h3>
+      <p class="res-card-desc">Developing integrity monitoring, error correction, and positioning algorithms for GPS, GLONASS, Galileo, and the Korean Positioning System (KPS).</p>
+      <span class="res-card-arrow">&rarr;</span>
+    </a>
+    <a href="research.html#ionosphere" class="res-card reveal reveal-d2">
+      <p class="res-card-num">03</p>
+      <div class="res-card-icon">⚡</div>
+      <h3 class="res-card-title">Ionospheric Modeling</h3>
+      <p class="res-card-desc">Characterizing and correcting ionospheric delays for single- and dual-frequency GNSS receivers, with applications to aviation safety and precision navigation.</p>
+      <span class="res-card-arrow">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ── NEWS SECTION ── -->
+<section class="news-section" id="news">
+  <div class="news-header">
+    <div>
+      <p class="sec-label reveal">Latest Updates</p>
+      <h2 class="sec-title reveal">News</h2>
+    </div>
+    <a href="news.html" class="view-all-btn reveal">All News &rarr;</a>
+  </div>
+
+  <div class="news-list">
+    <div class="news-item">
+      <span class="news-date">2025. 06</span>
+      <span class="news-tag pub">Publication</span>
+      <div class="news-body">
+        <p class="news-title">New paper accepted — Wavelet-Transform Phase Matching for Lower Troposphere RO</p>
+        <p class="news-detail">Journal of Geophysical Research · Atmospheres</p>
+      </div>
+      <a href="#" class="news-link">Read &rarr;</a>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2025. 05</span>
+      <span class="news-tag award">Award</span>
+      <div class="news-body">
+        <p class="news-title">Best Student Paper Award at ION GNSS+ 2025</p>
+        <p class="news-detail">Institute of Navigation · Tampa, FL</p>
+      </div>
+      <a href="#" class="news-link">Read &rarr;</a>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2025. 03</span>
+      <span class="news-tag">Conference</span>
+      <div class="news-body">
+        <p class="news-title">Presentation at EGU General Assembly 2025 — Vienna, Austria</p>
+        <p class="news-detail">Session on GNSS Remote Sensing and Atmospheric Applications</p>
+      </div>
+      <a href="#" class="news-link">Read &rarr;</a>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2025. 02</span>
+      <span class="news-tag">Recruit</span>
+      <div class="news-body">
+        <p class="news-title">We are recruiting MS/PhD students for Fall 2025</p>
+        <p class="news-detail">Interested candidates please contact Prof. Jiyun Lee</p>
+      </div>
+      <a href="#" class="news-link">Contact &rarr;</a>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2024. 12</span>
+      <span class="news-tag pub">Publication</span>
+      <div class="news-body">
+        <p class="news-title">LSW Algorithm paper published — Local Spectral Width for Multipath Detection</p>
+        <p class="news-detail">GPS Solutions · Springer</p>
+      </div>
+      <a href="#" class="news-link">Read &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="footer-brand-name">GNSS <span>KAIST</span></div>
+      <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
+      <p>We advance the science and engineering of satellite-based navigation and remote sensing, developing algorithms that connect space signals to real-world applications.</p>
+    </div>
+
+    <!-- Quick links -->
+    <div class="footer-col">
+      <p class="footer-col-title">Quick Links</p>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+
+    <!-- Research -->
+    <div class="footer-col">
+      <p class="footer-col-title">Research</p>
+      <ul>
+        <li><a href="research.html#ro">GNSS Radio Occultation</a></li>
+        <li><a href="research.html#positioning">Satellite Navigation</a></li>
+        <li><a href="research.html#ionosphere">Ionospheric Modeling</a></li>
+        <li><a href="publications.html">Publications</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact / Location -->
+    <div class="footer-col">
+      <p class="footer-col-title">Contact & Location</p>
+      <div class="footer-info">
+        <div class="footer-info-row">
+          <span class="footer-info-icon">📍</span>
+          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea<br>KAIST, Aerospace Eng. Bldg.</span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">✉️</span>
+          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">🔗</span>
+          <span class="footer-info-text"><a href="https://ae.kaist.ac.kr" target="_blank">ae.kaist.ac.kr</a></span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">👤</span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
+    <span>Built with GitHub Pages</span>
+  </div>
+</footer>
+
+<script>
+  /* ── Starfield ── */
+  const canvas = document.getElementById('stars-canvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  function initStars() {
+    stars = [];
+    const count = Math.floor((canvas.width * canvas.height) / 5000);
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.2 + 0.2,
+        alpha: Math.random() * 0.7 + 0.1,
+        speed: Math.random() * 0.003 + 0.001,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function drawStars(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      const a = s.alpha * (0.5 + 0.5 * Math.sin(t * s.speed + s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200,220,255,${a})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+
+  resize();
+  initStars();
+  requestAnimationFrame(drawStars);
+  window.addEventListener('resize', () => { resize(); initStars(); });
+
+  /* ── Scroll reveal ── */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .news-item').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
