@@ -76,7 +76,14 @@
       line-height: 1;
     }
     .nav-brand-main span { color: var(--cyan); }
-
+    .nav-brand-sub {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--dim);
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
 
     .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
     .nav-links li { position: relative; }
@@ -425,7 +432,6 @@
 <nav>
   <a href="#" class="nav-brand">
     <div class="nav-brand-main"><span>GNSS</span> KAIST</div>
-    <div class="nav-brand-sub">Global Navigation Satellite System</div>
   </a>
   <ul class="nav-links">
     <li><a href="#">Home</a></li>
