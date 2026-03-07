@@ -31,7 +31,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background: var(--navy);
+      background: #020810;
       color: var(--text);
       font-family: var(--ui);
       font-weight: 300;
@@ -43,7 +43,7 @@
     #stars-canvas {
       position: fixed; inset: 0;
       z-index: 0; pointer-events: none;
-      opacity: 0.7;
+      opacity: 1;
     }
 
     /* ── NAV ── */
@@ -54,9 +54,19 @@
 	  gap: 5rem;
       padding: 0 3rem;
       background: rgba(5,13,26,0.92);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(8px);
+	  background: transparent;
+	  backdrop-filter: none;
+	  border-bottom: none;
     }
 
+	nav.scrolled {
+	  background: rgba(2,8,16,0.85);
+	  backdrop-filter: blur(12px);
+	  border-bottom: 1px solid rgba(26,48,80,0.5);
+	  transition: background 0.3s ease;
+	}
+	
     .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
     .nav-brand-main {
       font-family: var(--display);
@@ -154,7 +164,7 @@
       font-family: var(--display);
       font-size: clamp(2.4rem, 6vw, 5.2rem);
       letter-spacing: 0.06em;
-      color: var(--cyan);
+      color: var(--bright);
       line-height: 1.05;
       margin-bottom: 0.6rem;
       text-shadow: 0 0 60px rgba(74,184,216,0.25);
@@ -789,6 +799,10 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal, .news-item').forEach(el => io.observe(el));
+  
+  window.addEventListener('scroll', () => {
+	document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
 </script>
 </body>
 </html>
