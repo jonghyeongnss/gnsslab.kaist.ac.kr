@@ -98,7 +98,30 @@
     }
     .nav-links a:hover { color: var(--cyan); }
     .nav-links a:hover::after { transform: scaleX(1); }
-
+	.has-dropdown { position: relative; }
+	.dropdown {
+	  position: absolute; top: 100%; left: 0;
+	  background: rgba(2,8,16,0.97);
+	  backdrop-filter: blur(12px);
+	  border: 1px solid var(--border2);
+	  min-width: 140px; list-style: none;
+	  opacity: 0; pointer-events: none;
+	  transform: translateY(6px);
+	  transition: opacity 0.2s ease, transform 0.2s ease;
+	  z-index: 200;
+	}
+	.has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+	.dropdown a {
+	  display: block; padding: 0.6rem 1.2rem;
+	  font-size: 0.8rem !important; font-weight: 400 !important;
+	  color: var(--mid) !important;
+	  border-bottom: 1px solid var(--border);
+	  letter-spacing: 0.08em;
+	}
+	.dropdown li:last-child a { border-bottom: none; }
+	.dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
+	.dropdown a::after { display: none !important; }
+	
     .hero {
       position: relative;
       min-height: 100vh;
@@ -334,7 +357,14 @@
   <ul class="nav-links">
     <li><a href="#">Home</a></li>
     <li><a href="news.html">News</a></li>
-    <li><a href="people.html">People</a></li>
+    <li class="has-dropdown">
+	  <a href="people.html">People</a>
+	  <ul class="dropdown">
+		<li><a href="people.html#professor">Professor</a></li>
+		<li><a href="people.html#students">Students</a></li>
+		<li><a href="people.html#staff">Staff</a></li>
+	  </ul>
+	</li>
     <li><a href="research.html">Research</a></li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="gallery.html">Gallery</a></li>
