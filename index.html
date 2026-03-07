@@ -39,34 +39,29 @@
       overflow-x: hidden;
     }
 
-    /* ── STARFIELD ── */
     #stars-canvas {
       position: fixed; inset: 0;
       z-index: 0; pointer-events: none;
       opacity: 1;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 64px;
       display: flex; align-items: center; justify-content: flex-start;
-	  gap: 5rem;
+      gap: 5rem;
       padding: 1rem 3rem 0;
-      background: rgba(5,13,26,0.92);
-      backdrop-filter: blur(8px);
-	  background: transparent;
-	  backdrop-filter: none;
-	  border-bottom: none;
+      background: transparent;
+      backdrop-filter: none;
+      border-bottom: none;
+    }
+    nav.scrolled {
+      background: rgba(2,8,16,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(26,48,80,0.5);
+      transition: background 0.3s ease;
     }
 
-	nav.scrolled {
-	  background: rgba(2,8,16,0.85);
-	  backdrop-filter: blur(12px);
-	  border-bottom: 1px solid rgba(26,48,80,0.5);
-	  transition: background 0.3s ease;
-	}
-	
     .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
     .nav-brand-main {
       font-family: var(--display);
@@ -76,14 +71,6 @@
       line-height: 1;
     }
     .nav-brand-main span { color: var(--cyan); }
-    .nav-brand-sub {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      color: var(--dim);
-      text-transform: uppercase;
-      margin-top: 1px;
-    }
 
     .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
     .nav-links li { position: relative; }
@@ -99,7 +86,6 @@
       color: var(--mid);
       text-decoration: none;
       transition: color 0.2s;
-      border-left: 1px solid transparent;
     }
     .nav-links a::after {
       content: '';
@@ -113,7 +99,6 @@
     .nav-links a:hover { color: var(--bright); }
     .nav-links a:hover::after { transform: scaleX(1); }
 
-    /* ── HERO ── */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -125,7 +110,6 @@
       z-index: 1;
     }
 
-    /* Earth + orbit SVG */
     .hero-visual {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
@@ -134,25 +118,14 @@
     }
     .hero-visual svg { width: min(720px, 90vw); height: auto; }
 
-    /* Orbit animations */
-    @keyframes orbit1 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes orbit2 { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
-    @keyframes orbit3 { from { transform: rotate(120deg); } to { transform: rotate(480deg); } }
     @keyframes pulse { 0%,100%{opacity:0.6;} 50%{opacity:1;} }
-    @keyframes earthSpin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
-
-    .orbit-ring-1 { transform-origin: 360px 360px; animation: orbit1 18s linear infinite; }
-    .orbit-ring-2 { transform-origin: 360px 360px; animation: orbit2 28s linear infinite; }
-    .orbit-ring-3 { transform-origin: 360px 360px; animation: orbit3 12s linear infinite; }
     .sat-pulse { animation: pulse 2.5s ease-in-out infinite; }
 
-    /* Hero text */
     .hero-content {
       position: relative; z-index: 2;
       opacity: 0; transform: translateY(24px);
       animation: fadeUp 0.9s ease forwards 0.6s;
     }
-
 
     h1.hero-title {
       font-family: var(--display);
@@ -200,7 +173,6 @@
     .scroll-line { width: 1px; height: 2.5rem; background: linear-gradient(to bottom, var(--dim), transparent); animation: scrollDrop 1.8s ease-in-out infinite; }
     @keyframes scrollDrop { 0%{transform:scaleY(0);transform-origin:top;} 50%{transform:scaleY(1);transform-origin:top;} 51%{transform:scaleY(1);transform-origin:bottom;} 100%{transform:scaleY(0);transform-origin:bottom;} }
 
-    /* ── SECTION BASE ── */
     section { position: relative; z-index: 1; }
     .sec-label {
       display: inline-flex; align-items: center; gap: 0.6rem;
@@ -218,17 +190,13 @@
     }
     .sec-desc { font-size: 1rem; color: var(--mid); max-width: 52ch; line-height: 1.8; }
 
-    /* ── RESEARCH SECTION ── */
     .research-section {
       background: var(--navy2);
       padding: 6rem 5rem;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-    .research-header {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 3.5rem;
-    }
+    .research-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; }
     .view-all-btn {
       font-family: var(--mono); font-size: 0.7rem;
       letter-spacing: 0.1em; text-transform: uppercase;
@@ -249,13 +217,9 @@
     .res-card {
       background: var(--panel);
       padding: 2.4rem 2rem;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
       transition: background 0.25s;
-      cursor: default;
-      text-decoration: none;
-      display: block;
-      color: inherit;
+      cursor: default; text-decoration: none; display: block; color: inherit;
     }
     .res-card::before {
       content: '';
@@ -266,37 +230,15 @@
     }
     .res-card:hover { background: var(--navy3); }
     .res-card:hover::before { transform: scaleX(1); }
-    .res-card-num {
-      font-family: var(--mono); font-size: 0.62rem;
-      color: var(--dim); letter-spacing: 0.1em;
-      margin-bottom: 1.4rem;
-    }
-    .res-card-icon {
-      font-size: 1.6rem; margin-bottom: 1rem;
-      filter: grayscale(0.3);
-    }
-    .res-card-title {
-      font-family: var(--ui); font-size: 1.12rem; font-weight: 600;
-      color: var(--bright); margin-bottom: 0.8rem; line-height: 1.3;
-      letter-spacing: 0.02em;
-    }
+    .res-card-num { font-family: var(--mono); font-size: 0.62rem; color: var(--dim); letter-spacing: 0.1em; margin-bottom: 1.4rem; }
+    .res-card-icon { font-size: 1.6rem; margin-bottom: 1rem; filter: grayscale(0.3); }
+    .res-card-title { font-family: var(--ui); font-size: 1.12rem; font-weight: 600; color: var(--bright); margin-bottom: 0.8rem; line-height: 1.3; letter-spacing: 0.02em; }
     .res-card-desc { font-size: 0.9rem; color: var(--mid); line-height: 1.78; }
-    .res-card-arrow {
-      position: absolute; bottom: 1.6rem; right: 1.6rem;
-      font-family: var(--mono); font-size: 0.7rem;
-      color: var(--dim); transition: color 0.2s, transform 0.2s;
-    }
+    .res-card-arrow { position: absolute; bottom: 1.6rem; right: 1.6rem; font-family: var(--mono); font-size: 0.7rem; color: var(--dim); transition: color 0.2s, transform 0.2s; }
     .res-card:hover .res-card-arrow { color: var(--cyan); transform: translateX(4px); }
 
-    /* ── NEWS SECTION ── */
-    .news-section {
-      background: var(--navy);
-      padding: 6rem 5rem;
-    }
-    .news-header {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 3rem;
-    }
+    .news-section { background: var(--navy); padding: 6rem 5rem; }
+    .news-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
     .news-list { display: flex; flex-direction: column; gap: 0; }
     .news-item {
       display: grid;
@@ -310,95 +252,33 @@
     }
     .news-item:first-child { border-top: 1px solid var(--border); }
     .news-item.visible { opacity: 1; transform: translateY(0); }
-    .news-date {
-      font-family: var(--mono); font-size: 0.7rem;
-      color: var(--dim); letter-spacing: 0.04em; padding-top: 0.1rem;
-    }
-    .news-tag {
-      font-family: var(--mono); font-size: 0.6rem;
-      padding: 0.2rem 0.6rem;
-      border: 1px solid var(--border2);
-      color: var(--cyan); letter-spacing: 0.06em;
-      text-transform: uppercase; white-space: nowrap; align-self: start;
-      margin-top: 0.05rem;
-    }
+    .news-date { font-family: var(--mono); font-size: 0.7rem; color: var(--dim); letter-spacing: 0.04em; padding-top: 0.1rem; }
+    .news-tag { font-family: var(--mono); font-size: 0.6rem; padding: 0.2rem 0.6rem; border: 1px solid var(--border2); color: var(--cyan); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; align-self: start; margin-top: 0.05rem; }
     .news-tag.award { color: var(--gold); border-color: var(--gold); opacity: 0.8; }
     .news-tag.pub { color: #7ec87e; border-color: #3a6e3a; }
-    .news-body {}
-    .news-title {
-      font-size: 1rem; font-weight: 500;
-      color: var(--bright); margin-bottom: 0.2rem; line-height: 1.4;
-    }
+    .news-title { font-size: 1rem; font-weight: 500; color: var(--bright); margin-bottom: 0.2rem; line-height: 1.4; }
     .news-detail { font-size: 0.86rem; color: var(--mid); }
-    .news-link {
-      font-family: var(--mono); font-size: 0.65rem;
-      color: var(--dim); text-decoration: none;
-      letter-spacing: 0.06em; padding-top: 0.1rem;
-      transition: color 0.2s;
-      white-space: nowrap; align-self: start;
-    }
+    .news-link { font-family: var(--mono); font-size: 0.65rem; color: var(--dim); text-decoration: none; letter-spacing: 0.06em; padding-top: 0.1rem; transition: color 0.2s; white-space: nowrap; align-self: start; }
     .news-link:hover { color: var(--cyan); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy2);
-      border-top: 1px solid var(--border);
-      padding: 4rem 5rem 2.5rem;
-      position: relative; z-index: 1;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.8fr 1fr 1fr 1fr;
-      gap: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2rem;
-    }
-    .footer-brand {}
-    .footer-brand-name {
-      font-family: var(--display);
-      font-size: 1.4rem;
-      letter-spacing: 0.06em;
-      color: var(--bright);
-      margin-bottom: 0.2rem;
-    }
+    footer { background: var(--navy2); border-top: 1px solid var(--border); padding: 4rem 5rem 2.5rem; position: relative; z-index: 1; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: 1.4rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
     .footer-brand-name span { color: var(--gold); }
-    .footer-brand-sub {
-      font-family: var(--mono); font-size: 0.6rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--dim); margin-bottom: 1.4rem;
-    }
-    .footer-brand p {
-      font-size: 0.86rem; color: var(--dim);
-      max-width: 32ch; line-height: 1.8;
-    }
-    .footer-col-title {
-      font-family: var(--mono); font-size: 0.65rem;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.2rem;
-    }
+    .footer-brand-sub { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-bottom: 1.4rem; }
+    .footer-brand p { font-size: 0.86rem; color: var(--dim); max-width: 32ch; line-height: 1.8; }
+    .footer-col-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-col ul a {
-      font-size: 0.86rem; color: var(--dim); text-decoration: none;
-      transition: color 0.2s;
-    }
+    .footer-col ul a { font-size: 0.86rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
     .footer-col ul a:hover { color: var(--bright); }
     .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
-    .footer-info-row {
-      display: flex; gap: 0.8rem; align-items: flex-start;
-    }
+    .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
     .footer-info-icon { font-size: 0.9rem; opacity: 0.6; flex-shrink: 0; margin-top: 1px; }
     .footer-info-text { font-size: 0.82rem; color: var(--dim); line-height: 1.6; }
     .footer-info-text a { color: var(--cyan); text-decoration: none; }
-    .footer-bottom {
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .footer-bottom span {
-      font-family: var(--mono); font-size: 0.62rem;
-      color: var(--dim); letter-spacing: 0.05em;
-    }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom span { font-family: var(--mono); font-size: 0.62rem; color: var(--dim); letter-spacing: 0.05em; }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
     @keyframes fadeIn { to { opacity:1; } }
     .reveal { opacity:0; transform:translateY(18px); transition: opacity 0.65s ease, transform 0.65s ease; }
@@ -407,7 +287,6 @@
     .reveal-d2 { transition-delay: 0.2s; }
     .reveal-d3 { transition-delay: 0.3s; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       .research-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -425,10 +304,8 @@
 </head>
 <body>
 
-<!-- Starfield canvas -->
 <canvas id="stars-canvas"></canvas>
 
-<!-- ── NAV ── -->
 <nav>
   <a href="#" class="nav-brand">
     <div class="nav-brand-main"><span>GNSS</span> KAIST</div>
@@ -443,16 +320,9 @@
   </ul>
 </nav>
 
-<!-- ── HERO ── -->
 <div class="hero">
-  <!-- Earth + Satellites SVG -->
   <div class="hero-visual">
     <svg viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Glow behind earth -->
-      <circle cx="360" cy="360" r="160" fill="none" stroke="#4ab8d8" stroke-width="0.5" opacity="0.1"/>
-      <circle cx="360" cy="360" r="145" fill="url(#earthGlow)" opacity="0.6"/>
-
-      <!-- Earth -->
       <defs>
         <radialGradient id="earthGlow" cx="40%" cy="35%">
           <stop offset="0%" stop-color="#1a6090"/>
@@ -466,83 +336,102 @@
         <clipPath id="earthClip">
           <circle cx="360" cy="360" r="145"/>
         </clipPath>
-		<path id="orbit-path-1" d="M 600,360 A 240,60 0 1,1 599.9,360"/>
-		<path id="orbit-path-2" d="M 620,360 A 260,80 0 1,1 619.9,360"/>
-		<path id="orbit-path-3" d="M 560,360 A 200,280 0 1,1 559.9,360"/>
+        <!-- 타원 궤도 경로 — 각 궤도선과 동일한 rx,ry,transform -->
+        <path id="orbit-path-1" d="M 600,360 A 240,60 0 1,1 119.999,360 A 240,60 0 1,1 600,360"/>
+        <path id="orbit-path-2" d="M 620,360 A 260,80 0 1,1 99.999,360 A 260,80 0 1,1 620,360"/>
+        <path id="orbit-path-3" d="M 560,360 A 200,280 0 1,1 159.999,360 A 200,280 0 1,1 560,360"/>
       </defs>
 
-      <!-- Atmosphere glow -->
+      <!-- Glow -->
+      <circle cx="360" cy="360" r="160" fill="none" stroke="#4ab8d8" stroke-width="0.5" opacity="0.1"/>
+      <!-- Atmosphere -->
       <circle cx="360" cy="360" r="158" fill="url(#earthGlow2)"/>
-
-      <!-- Earth sphere -->
+      <!-- Earth -->
       <circle cx="360" cy="360" r="145" fill="url(#earthGlow)" stroke="#1a4a70" stroke-width="1"/>
-
-      <!-- Continents (simplified shapes) -->
+      <!-- Continents -->
       <g clip-path="url(#earthClip)" opacity="0.5">
-        <!-- North America -->
         <ellipse cx="290" cy="320" rx="38" ry="45" fill="#1a7a4a" transform="rotate(-15 290 320)"/>
-        <!-- Europe/Africa -->
         <ellipse cx="375" cy="345" rx="22" ry="55" fill="#1a7a4a" transform="rotate(5 375 345)"/>
-        <!-- Asia -->
         <ellipse cx="440" cy="310" rx="55" ry="40" fill="#1a7a4a" transform="rotate(-10 440 310)"/>
-        <!-- South America -->
         <ellipse cx="305" cy="400" rx="20" ry="38" fill="#1a7a4a" transform="rotate(10 305 400)"/>
-        <!-- Australia -->
         <ellipse cx="455" cy="410" rx="22" ry="16" fill="#1a7a4a"/>
       </g>
-
-      <!-- Terminator line -->
+      <!-- Terminator -->
       <path d="M 360 215 Q 430 290 360 505" stroke="#4ab8d8" stroke-width="0.8" opacity="0.2" fill="none"/>
 
-      <!-- Orbit ring 1 — equatorial -->
-      <ellipse cx="360" cy="360" rx="240" ry="60" stroke="#4ab8d8" stroke-width="0.8" opacity="0.25" fill="none"/>
-      <!-- Orbit ring 2 — inclined -->
-      <ellipse cx="360" cy="360" rx="260" ry="80" stroke="#c8a84b" stroke-width="0.8" opacity="0.2" fill="none" transform="rotate(-35 360 360)"/>
-      <!-- Orbit ring 3 — polar-ish -->
-      <ellipse cx="360" cy="360" rx="200" ry="280" stroke="#4ab8d8" stroke-width="0.7" opacity="0.15" fill="none" transform="rotate(20 360 360)"/>
+      <!-- 궤도선 — orbit-path와 동일한 타원/기울기 -->
+      <ellipse cx="360" cy="360" rx="240" ry="60" stroke="#4ab8d8" stroke-width="1.2" opacity="0.45" fill="none"/>
+      <ellipse cx="360" cy="360" rx="260" ry="80" stroke="#c8a84b" stroke-width="1.2" opacity="0.4" fill="none" transform="rotate(-35 360 360)"/>
+      <ellipse cx="360" cy="360" rx="200" ry="280" stroke="#4ab8d8" stroke-width="1.0" opacity="0.35" fill="none" transform="rotate(20 360 360)"/>
 
-      <!-- Satellite group 1 (equatorial orbit) — GPS IIF style -->
-		<g class="orbit-ring-1">
-		  <g>
-		    <animateMotion dur="18s" repeatCount="indefinite">
-			  <mpath href="#orbit-path-1"/>
-		    </animateMotion>
-		    <!-- 위성 SVG 내용 그대로 -->
-		  </g>
+      <!-- 위성 1 — 적도 타원 궤도 (rx=240, ry=60) -->
+      <g>
+        <animateMotion dur="18s" repeatCount="indefinite"
+          path="M 600,360 A 240,60 0 1,1 119.999,360 A 240,60 0 1,1 600,360"/>
+        <rect x="-30" y="-7" width="14" height="14" rx="1" fill="#1a2d5a" stroke="#4ab8d8" stroke-width="0.5"/>
+        <line x1="-25" y1="-7" x2="-25" y2="7" stroke="#4ab8d8" stroke-width="0.4" opacity="0.5"/>
+        <line x1="-20" y1="-7" x2="-20" y2="7" stroke="#4ab8d8" stroke-width="0.4" opacity="0.5"/>
+        <rect x="-30" y="-1.5" width="14" height="3" fill="#1a2d5a" opacity="0.9"/>
+        <rect x="-9" y="-6" width="18" height="12" rx="2" fill="#b0bec5" class="sat-pulse"/>
+        <rect x="-7" y="-4" width="14" height="8" rx="1" fill="#90a4ae"/>
+        <line x1="-7" y1="0" x2="7" y2="0" stroke="#607d8b" stroke-width="0.5"/>
+        <rect x="16" y="-7" width="14" height="14" rx="1" fill="#1a2d5a" stroke="#4ab8d8" stroke-width="0.5"/>
+        <line x1="21" y1="-7" x2="21" y2="7" stroke="#4ab8d8" stroke-width="0.4" opacity="0.5"/>
+        <line x1="26" y1="-7" x2="26" y2="7" stroke="#4ab8d8" stroke-width="0.4" opacity="0.5"/>
+        <rect x="16" y="-1.5" width="14" height="3" fill="#1a2d5a" opacity="0.9"/>
+        <path d="M -4 6 Q 0 12 4 6" stroke="#4ab8d8" stroke-width="1" fill="none" opacity="0.8"/>
+        <line x1="0" y1="7" x2="0" y2="11" stroke="#4ab8d8" stroke-width="0.7" opacity="0.8"/>
+        <line x1="0" y1="-6" x2="0" y2="-11" stroke="#c8a84b" stroke-width="0.7" opacity="0.8"/>
+        <path d="M -2 -11 Q 0 -14 2 -11" stroke="#c8a84b" stroke-width="0.8" fill="none" opacity="0.8"/>
+      </g>
 
-		</g>
+      <!-- 위성 2 — 기울어진 타원 (rx=260, ry=80, rotate=-35) -->
+      <g transform="rotate(-35 360 360)">
+        <g>
+          <animateMotion dur="28s" repeatCount="indefinite"
+            path="M 620,360 A 260,80 0 1,1 99.999,360 A 260,80 0 1,1 620,360"/>
+          <rect x="-28" y="-6" width="13" height="12" rx="1" fill="#1a2d5a" stroke="#c8a84b" stroke-width="0.5"/>
+          <line x1="-23" y1="-6" x2="-23" y2="6" stroke="#c8a84b" stroke-width="0.4" opacity="0.5"/>
+          <line x1="-19" y1="-6" x2="-19" y2="6" stroke="#c8a84b" stroke-width="0.4" opacity="0.5"/>
+          <rect x="-28" y="-1.5" width="13" height="3" fill="#1a2d5a" opacity="0.9"/>
+          <rect x="-8" y="-5" width="16" height="10" rx="2" fill="#b0bec5" class="sat-pulse" style="animation-delay:0.8s"/>
+          <rect x="-6" y="-3.5" width="12" height="7" rx="1" fill="#90a4ae"/>
+          <line x1="-6" y1="0" x2="6" y2="0" stroke="#607d8b" stroke-width="0.5"/>
+          <rect x="15" y="-6" width="13" height="12" rx="1" fill="#1a2d5a" stroke="#c8a84b" stroke-width="0.5"/>
+          <line x1="20" y1="-6" x2="20" y2="6" stroke="#c8a84b" stroke-width="0.4" opacity="0.5"/>
+          <line x1="24" y1="-6" x2="24" y2="6" stroke="#c8a84b" stroke-width="0.4" opacity="0.5"/>
+          <rect x="15" y="-1.5" width="13" height="3" fill="#1a2d5a" opacity="0.9"/>
+          <path d="M -3 5 Q 0 10 3 5" stroke="#c8a84b" stroke-width="1" fill="none" opacity="0.8"/>
+          <line x1="0" y1="6" x2="0" y2="9" stroke="#c8a84b" stroke-width="0.7" opacity="0.8"/>
+          <line x1="0" y1="-5" x2="0" y2="-10" stroke="#c8a84b" stroke-width="0.7" opacity="0.7"/>
+          <path d="M -2 -10 Q 0 -13 2 -10" stroke="#c8a84b" stroke-width="0.8" fill="none" opacity="0.7"/>
+        </g>
+      </g>
 
-		<!-- Satellite group 2 (inclined orbit) — GPS IIF gold -->
-	    <g class="orbit-ring-2">
-		  <g transform="rotate(-35 360 360)">
-		    <g>
-			  <animateMotion dur="28s" repeatCount="indefinite">
-			    <mpath href="#orbit-path-2"/>
-			  </animateMotion>
-			  <!-- 위성 SVG 내용 -->
-		    </g>
-		  </g>
-	    </g>
+      <!-- 위성 3 — 세로 타원 (rx=200, ry=280, rotate=20) -->
+      <g transform="rotate(20 360 360)">
+        <g>
+          <animateMotion dur="12s" repeatCount="indefinite"
+            path="M 560,360 A 200,280 0 1,1 159.999,360 A 200,280 0 1,1 560,360"/>
+          <rect x="-22" y="-5" width="10" height="10" rx="1" fill="#1a2d5a" stroke="#7dd4ec" stroke-width="0.5"/>
+          <line x1="-18" y1="-5" x2="-18" y2="5" stroke="#7dd4ec" stroke-width="0.4" opacity="0.5"/>
+          <rect x="-22" y="-1" width="10" height="2" fill="#1a2d5a" opacity="0.9"/>
+          <rect x="-7" y="-4" width="14" height="8" rx="2" fill="#b0bec5" class="sat-pulse" style="animation-delay:1.5s"/>
+          <rect x="-5" y="-2.5" width="10" height="5" rx="1" fill="#90a4ae"/>
+          <rect x="12" y="-5" width="10" height="10" rx="1" fill="#1a2d5a" stroke="#7dd4ec" stroke-width="0.5"/>
+          <line x1="16" y1="-5" x2="16" y2="5" stroke="#7dd4ec" stroke-width="0.4" opacity="0.5"/>
+          <rect x="12" y="-1" width="10" height="2" fill="#1a2d5a" opacity="0.9"/>
+          <path d="M -2 4 Q 0 8 2 4" stroke="#7dd4ec" stroke-width="0.8" fill="none" opacity="0.7"/>
+          <line x1="0" y1="5" x2="0" y2="8" stroke="#7dd4ec" stroke-width="0.6" opacity="0.7"/>
+        </g>
+      </g>
 
-		<!-- Satellite group 3 (polar, compact GPS) -->
-		<g class="orbit-ring-3">
-		  <g transform="rotate(20 360 360)">
-		    <g>
-			  <animateMotion dur="12s" repeatCount="indefinite">
-			    <mpath href="#orbit-path-3"/>
-			  </animateMotion>
-			  <!-- 위성 SVG 내용 -->
-		    </g>
-		  </g>
-		</g>
-
-      <!-- Signal lines from satellites to earth -->
+      <!-- Signal lines -->
       <line x1="360" y1="215" x2="490" y2="300" stroke="#4ab8d8" stroke-width="0.6" stroke-dasharray="4 6" opacity="0.2"/>
       <line x1="360" y1="505" x2="230" y2="390" stroke="#c8a84b" stroke-width="0.6" stroke-dasharray="4 6" opacity="0.2"/>
     </svg>
   </div>
 
-  <!-- Text content -->
   <div class="hero-content">
     <div class="hero-eyebrow"></div>
     <h1 class="hero-title"><span>G</span>lobal <span>N</span>avigation<br><span>S</span>atellite <span>S</span>ystem Lab</h1>
@@ -559,7 +448,6 @@
   </div>
 </div>
 
-<!-- ── RESEARCH SECTION ── -->
 <section class="research-section" id="research">
   <div class="research-header">
     <div>
@@ -569,7 +457,6 @@
     </div>
     <a href="research.html" class="view-all-btn reveal">View All Research &rarr;</a>
   </div>
-
   <div class="research-grid">
     <a href="research.html#ro" class="res-card reveal">
       <p class="res-card-num">01</p>
@@ -595,7 +482,6 @@
   </div>
 </section>
 
-<!-- ── NEWS SECTION ── -->
 <section class="news-section" id="news">
   <div class="news-header">
     <div>
@@ -604,7 +490,6 @@
     </div>
     <a href="news.html" class="view-all-btn reveal">All News &rarr;</a>
   </div>
-
   <div class="news-list">
     <div class="news-item">
       <span class="news-date">2025. 06</span>
@@ -654,17 +539,13 @@
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
 <footer>
   <div class="footer-grid">
-    <!-- Brand -->
     <div class="footer-brand">
       <div class="footer-brand-name">GNSS <span>KAIST</span></div>
       <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
       <p>We advance the science and engineering of satellite-based navigation and remote sensing, developing algorithms that connect space signals to real-world applications.</p>
     </div>
-
-    <!-- Quick links -->
     <div class="footer-col">
       <p class="footer-col-title">Quick Links</p>
       <ul>
@@ -676,8 +557,6 @@
         <li><a href="gallery.html">Gallery</a></li>
       </ul>
     </div>
-
-    <!-- Research -->
     <div class="footer-col">
       <p class="footer-col-title">Research</p>
       <ul>
@@ -687,8 +566,6 @@
         <li><a href="publications.html">Publications</a></li>
       </ul>
     </div>
-
-    <!-- Contact / Location -->
     <div class="footer-col">
       <p class="footer-col-title">Contact & Location</p>
       <div class="footer-info">
@@ -711,7 +588,6 @@
       </div>
     </div>
   </div>
-
   <div class="footer-bottom">
     <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
     <span>Built with GitHub Pages</span>
@@ -719,7 +595,6 @@
 </footer>
 
 <script>
-  /* ── Starfield ── */
   const canvas = document.getElementById('stars-canvas');
   const ctx = canvas.getContext('2d');
   let stars = [];
@@ -761,16 +636,15 @@
   requestAnimationFrame(drawStars);
   window.addEventListener('resize', () => { resize(); initStars(); });
 
-  /* ── Scroll reveal ── */
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal, .news-item').forEach(el => io.observe(el));
-  
+
   window.addEventListener('scroll', () => {
-	document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 40);
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 40);
   });
 </script>
 </body>
