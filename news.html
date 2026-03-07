@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>News · GNSS Lab KAIST</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:    #050d1a;
+      --navy2:   #091628;
+      --navy3:   #0e2040;
+      --panel:   #0a1929;
+      --border:  #1a3050;
+      --border2: #243d60;
+      --gold:    #c8a84b;
+      --gold2:   #e8c96a;
+      --cyan:    #3EC1D3;
+      --cyan2:   #45E0FF;
+      --text:    #c8d8e8;
+      --bright:  #F5F7FA;
+      --dim:     #5a7898;
+      --mid:     #9FB3C8;
+      --serif:   'Crimson Pro', Georgia, serif;
+      --display: 'Bebas Neue', sans-serif;
+      --ui:      'Rajdhani', sans-serif;
+      --mono:    'DM Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #F5F7FA;
+      color: #1c2b3a;
+      font-family: var(--ui);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    #stars-canvas { display: none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center; justify-content: flex-start;
+      gap: 5rem; padding: 1rem 3rem 0;
+      background: rgba(245,247,250,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #d0dce8;
+    }
+    .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
+    .nav-brand-main { font-family: var(--display); font-size: 2.5rem; letter-spacing: 0.06em; color: #0e1e2e; line-height: 1; }
+    .nav-brand-main span { color: var(--cyan); }
+    .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
+    .nav-links li { position: relative; }
+    .nav-links a {
+      display: block; padding: 0 1.2rem;
+      font-family: var(--ui); font-size: 1.3rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #5a7898; text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a.active { color: var(--cyan); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 1.2rem; right: 1.2rem;
+      height: 2px; background: var(--gold);
+      transform: scaleX(0); transition: transform 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+
+    /* PAGE HEADER */
+    .page-header {
+      position: relative; z-index: 1;
+      padding: 9rem 5rem 4rem;
+      border-bottom: 1px solid #d0dce8;
+      background: #F5F7FA;
+    }
+    .page-header-eyebrow {
+      font-family: var(--mono); font-size: 0.72rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .page-header-eyebrow::before { content:''; width:2rem; height:1px; background:var(--gold); }
+    .page-header h1 {
+      font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem);
+      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .page-header-desc {
+      font-family: var(--serif); font-style: italic;
+      font-size: 1.15rem; color: #5a7898; max-width: 48ch;
+    }
+
+    /* CONTROLS */
+    .controls {
+      position: sticky; top: 64px; z-index: 50;
+      background: rgba(245,247,250,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #d0dce8;
+      padding: 1rem 5rem;
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+    }
+
+    .search-wrap {
+      position: relative; flex: 1; min-width: 200px; max-width: 320px;
+    }
+    .search-wrap input {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #c0d0e0;
+      color: #1c2b3a;
+      font-family: var(--mono); font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      padding: 0.55rem 0.8rem 0.55rem 2.2rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-wrap input::placeholder { color: #8aaac8; }
+    .search-wrap input:focus { border-color: var(--cyan); }
+    .search-icon {
+      position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%);
+      color: #8aaac8; font-size: 0.8rem; pointer-events: none;
+    }
+
+    .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .filter-btn {
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid #c0d0e0;
+      color: #5a7898;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { color: #1c2b3a; border-color: #8aaac8; }
+    .filter-btn.active { color: #fff; background: var(--cyan); border-color: var(--cyan); }
+
+    .filter-divider { width: 1px; height: 1.5rem; background: #d0dce8; }
+
+    .result-count {
+      font-family: var(--mono); font-size: 0.65rem;
+      color: #8aaac8; letter-spacing: 0.06em;
+      margin-left: auto;
+    }
+    .result-count span { color: var(--cyan); }
+
+    .timeline-wrap {
+      position: relative; z-index: 1;
+      padding: 0 5rem 6rem;
+      background: #F5F7FA;
+    }
+
+    .year-block { margin-top: 4rem; }
+
+    .year-label {
+      display: flex; align-items: center; gap: 1.5rem;
+      margin-bottom: 0; position: relative;
+    }
+    .year-label h2 {
+      font-family: var(--display); font-size: 5rem;
+      color: #d0dce8; letter-spacing: 0.08em;
+      line-height: 1; user-select: none;
+      transition: color 0.3s;
+    }
+    .year-block:hover .year-label h2 { color: #b0c4d8; }
+    .year-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(to right, #d0dce8, transparent);
+    }
+
+    .timeline-items {
+      padding-left: 2rem;
+      border-left: 1px solid #d0dce8;
+      margin-left: 1rem;
+      margin-top: 0.5rem;
+      display: flex; flex-direction: column; gap: 0;
+    }
+
+    .news-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      gap: 0 2rem;
+      padding: 1.5rem 1.5rem 1.5rem 2rem;
+      border-bottom: 1px solid #e4edf5;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .news-item:first-child { border-top: 1px solid #e4edf5; }
+    .news-item:hover { background: #edf3f9; }
+
+    .news-item::before {
+      content: '';
+      position: absolute; left: -5px; top: 50%; transform: translateY(-50%);
+      width: 9px; height: 9px; border-radius: 50%;
+      background: #c0d0e0;
+      border: 1px solid #a0b8cc;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .news-item:hover::before { background: var(--cyan); border-color: var(--cyan); }
+
+    .news-date {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: #8aaac8; letter-spacing: 0.04em;
+      padding-top: 0.15rem; align-self: start;
+    }
+
+    .news-body { align-self: center; }
+    .news-title {
+      font-size: 0.98rem; font-weight: 500;
+      color: #1c2b3a; margin-bottom: 0.2rem; line-height: 1.45;
+      transition: color 0.2s;
+    }
+    .news-item:hover .news-title { color: #0e7fa8; }
+    .news-detail { font-size: 0.82rem; color: #5a7898; }
+
+    .news-arrow {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: #a0b8cc; align-self: center;
+      transition: color 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .news-item:hover .news-arrow { color: var(--cyan); transform: translateX(4px); }
+
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(180,200,220,0.5);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: #fff;
+      border: 1px solid #d0dce8;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      max-width: 640px; width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+
+    .modal-close {
+      position: absolute; top: 1.2rem; right: 1.4rem;
+      font-family: var(--mono); font-size: 0.7rem;
+      color: #8aaac8; cursor: pointer;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: none; border: none;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: #1c2b3a; }
+
+    .modal-date {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: #8aaac8; letter-spacing: 0.06em;
+      margin-bottom: 0.8rem;
+    }
+    .modal-title {
+      font-family: var(--ui); font-size: 1.35rem; font-weight: 600;
+      color: #0e1e2e; line-height: 1.4; margin-bottom: 0.5rem;
+    }
+    .modal-venue {
+      font-size: 0.88rem; color: #5a7898;
+      margin-bottom: 1.6rem; padding-bottom: 1.4rem;
+      border-bottom: 1px solid #e4edf5;
+    }
+    .modal-desc {
+      font-family: var(--serif); font-size: 1.05rem;
+      color: #2a3a4a; line-height: 1.85;
+      margin-bottom: 1.8rem;
+    }
+    .modal-link {
+      font-family: var(--mono); font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cyan); text-decoration: none;
+      border: 1px solid #c0d0e0;
+      padding: 0.5rem 1.2rem;
+      display: inline-block;
+      transition: background 0.2s, color 0.2s;
+    }
+    .modal-link:hover { background: var(--cyan); color: #fff; }
+
+    .no-results {
+      display: none; text-align: center;
+      padding: 5rem 2rem;
+      font-family: var(--mono); font-size: 0.8rem;
+      color: #8aaac8; letter-spacing: 0.08em;
+    }
+    .no-results.visible { display: block; }
+
+    footer {
+      background: #0e1e2e;
+      border-top: 1px solid #1a3050;
+      padding: 4rem 5rem 2.5rem; position: relative; z-index: 1;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 3rem; padding-bottom: 3rem;
+      border-bottom: 1px solid #1a3050; margin-bottom: 2rem;
+    }
+    .footer-brand-name { font-family: var(--display); font-size: 3.0rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-sub { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-col-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: 0.88rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--bright); }
+    .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
+    .footer-info-icon { font-size: 0.9rem; opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
+    .footer-info-text { font-size: 0.85rem; color: var(--dim); line-height: 1.6; }
+    .footer-info-text a { color: var(--cyan); text-decoration: none; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom span { font-family: var(--mono); font-size: 0.65rem; color: var(--dim); letter-spacing: 0.05em; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .year-block { animation: fadeUp 0.5s ease both; }
+
+    @media (max-width: 960px) {
+      .page-header, .timeline-wrap, .controls { padding-left: 2rem; padding-right: 2rem; }
+      .news-item { grid-template-columns: 80px 1fr; }
+      .news-tag, .news-arrow { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .controls { gap: 0.8rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="stars-canvas"></canvas>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-brand-main"><span>GNSS</span> KAIST</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="news.html" class="active">News</a></li>
+    <li><a href="people.html">People</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-eyebrow">GNSS Lab · KAIST</div>
+  <h1>News</h1>
+  <p class="page-header-desc">Latest updates from the lab — publications, conferences, awards, and announcements.</p>
+</div>
+
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="search-input" placeholder="Search news..."/>
+  </div>
+
+  <div class="filter-divider"></div>
+
+  <div class="filter-group" id="year-filters">
+    <button class="filter-btn active" data-year="all">All Years</button>
+    <button class="filter-btn" data-year="2025">2025</button>
+    <button class="filter-btn" data-year="2024">2024</button>
+    <button class="filter-btn" data-year="2023">2023</button>
+  </div>
+
+  <div class="result-count"><span id="count">10</span> items</div>
+</div>
+
+<div class="timeline-wrap" id="timeline">
+  <!-- populated by JS -->
+</div>
+
+<div class="no-results" id="no-results">No results found.</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modal-close">✕ Close</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">GNSS <span>KAIST</span></div>
+      <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Quick Links</p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Research</p>
+      <ul>
+        <li><a href="research.html#integrity">GNSS Integrity</a></li>
+        <li><a href="research.html#leo">LEO PNT</a></li>
+        <li><a href="research.html#remote-sensing">Remote Sensing</a></li>
+        <li><a href="publications.html">Publications</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Contact & Location</p>
+      <div class="footer-info">
+        <div class="footer-info-row">
+          <span class="footer-info-icon">📍</span>
+          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">✉️</span>
+          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">👤</span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
+  </div>
+</footer>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+const NEWS = [
+  {
+    id: 1, year: 2025, date: '2025. 06', cat: 'publication',
+    title: 'New paper accepted — Wavelet-Transform Phase Matching for Lower Troposphere RO',
+    venue: 'Journal of Geophysical Research · Atmospheres',
+    desc: 'Our new paper presents the Wavelet-Transform-based Phase Matching (WTPM) algorithm for COSMIC-2 data, using Synchrosqueezed Wavelet Transform (SST) to address cross-term interference in time-frequency analysis of GNSS radio occultation signals in the lower troposphere.',
+    link: '#'
+  },
+  {
+    id: 2, year: 2025, date: '2025. 05', cat: 'award',
+    title: 'Best Student Paper Award at ION GNSS+ 2025',
+    venue: 'Institute of Navigation · Tampa, FL',
+    desc: 'Hyeon Park received the Best Student Paper Award at ION GNSS+ 2025 for the paper on Local Spectral Width (LSW) algorithm for multipath detection in GNSS radio occultation bending angle profiles.',
+    link: '#'
+  },
+  {
+    id: 3, year: 2025, date: '2025. 03', cat: 'conference',
+    title: 'Presentation at EGU General Assembly 2025 — Vienna, Austria',
+    venue: 'Session on GNSS Remote Sensing and Atmospheric Applications',
+    desc: 'Lab members presented research on improved bending angle retrieval algorithms for the lower troposphere at the EGU General Assembly 2025 in Vienna, Austria.',
+    link: '#'
+  },
+  {
+    id: 4, year: 2025, date: '2025. 02', cat: 'recruit',
+    title: 'We are recruiting MS/PhD students for Fall 2025',
+    venue: 'KAIST Aerospace Engineering',
+    desc: 'The GNSS Lab at KAIST is looking for motivated MS and PhD students interested in satellite navigation, GNSS signal processing, and atmospheric remote sensing. Interested candidates please contact Prof. Jiyun Lee.',
+    link: 'mailto:jiyunlee@kaist.ac.kr'
+  },
+  {
+    id: 5, year: 2024, date: '2024. 12', cat: 'publication',
+    title: 'LSW Algorithm paper published — Local Spectral Width for Multipath Detection',
+    venue: 'GPS Solutions · Springer',
+    desc: 'The Local Spectral Width (LSW) algorithm paper has been published in GPS Solutions. The algorithm uses STFT-based spectral width calculation and CDF-based threshold crossing to detect multipath regions in RO bending angle profiles.',
+    link: '#'
+  },
+  {
+    id: 6, year: 2024, date: '2024. 09', cat: 'conference',
+    title: 'ION GNSS+ 2024 — Multiple Presentations from the Lab',
+    venue: 'Institute of Navigation · Baltimore, MD',
+    desc: 'The GNSS Lab presented multiple papers at ION GNSS+ 2024, covering topics including KPS ionospheric modeling, GNSS integrity, and radio occultation signal processing.',
+    link: '#'
+  },
+  {
+    id: 7, year: 2024, date: '2024. 04', cat: 'conference',
+    title: 'Presentation at EGU General Assembly 2024',
+    venue: 'Session on Atmospheric Remote Sensing · Vienna, Austria',
+    desc: 'Research on tropospheric refraction angle calculation algorithms and Phase Matching techniques was presented at the EGU General Assembly 2024.',
+    link: '#'
+  },
+  {
+    id: 8, year: 2023, date: '2023. 11', cat: 'award',
+    title: 'Outstanding Paper Award — Korean Society for Aeronautical & Space Sciences',
+    venue: 'KSAS Fall Conference 2023',
+    desc: 'The paper on NeQuick-G Az parameter optimization for the Korean Positioning System received the Outstanding Paper Award at the KSAS Fall Conference 2023.',
+    link: '#'
+  },
+  {
+    id: 9, year: 2023, date: '2023. 09', cat: 'publication',
+    title: 'NeQuick-G Ionospheric Model Adaptation for KPS Published',
+    venue: 'Journal of Positioning, Navigation, and Timing',
+    desc: 'Our paper on adapting the NeQuick-G ionospheric model for the Korean Positioning System (KPS), including three Az parameter optimization methods, has been published.',
+    link: '#'
+  },
+  {
+    id: 10, year: 2023, date: '2023. 03', cat: 'recruit',
+    title: 'Lab welcomes new graduate students for Spring 2023',
+    venue: 'KAIST Aerospace Engineering',
+    desc: 'The GNSS Lab welcomes new MS and PhD students joining for the Spring 2023 semester. Research topics include GNSS integrity monitoring, LEO PNT, and atmospheric remote sensing.',
+    link: '#'
+  }
+];
+
+// ─── STATE ──────────────────────────────────────────────────────────────────
+let activeYear = 'all';
+let searchQuery = '';
+
+// ─── RENDER ─────────────────────────────────────────────────────────────────
+function filtered() {
+  return NEWS.filter(n => {
+    const yearOk = activeYear === 'all' || n.year === parseInt(activeYear);
+    const q = searchQuery.toLowerCase();
+    const searchOk = !q || n.title.toLowerCase().includes(q) || n.venue.toLowerCase().includes(q) || n.desc.toLowerCase().includes(q);
+    return yearOk && searchOk;
+  });
+}
+
+function render() {
+  const items = filtered();
+  const timeline = document.getElementById('timeline');
+  const noResults = document.getElementById('no-results');
+  document.getElementById('count').textContent = items.length;
+
+  if (items.length === 0) {
+    timeline.innerHTML = '';
+    noResults.classList.add('visible');
+    return;
+  }
+  noResults.classList.remove('visible');
+
+  const byYear = {};
+  items.forEach(n => {
+    if (!byYear[n.year]) byYear[n.year] = [];
+    byYear[n.year].push(n);
+  });
+
+  const years = Object.keys(byYear).sort((a, b) => b - a);
+
+  timeline.innerHTML = years.map((yr, yi) => `
+    <div class="year-block" style="animation-delay:${yi * 0.08}s">
+      <div class="year-label">
+        <h2>${yr}</h2>
+        <div class="year-line"></div>
+      </div>
+      <div class="timeline-items">
+        ${byYear[yr].map(n => `
+          <div class="news-item" data-id="${n.id}">
+            <span class="news-date">${n.date.replace(/^\d{4}\. /, '')}</span>
+            <div class="news-body">
+              <p class="news-title">${n.title}</p>
+              <p class="news-detail">${n.venue}</p>
+            </div>
+            <span class="news-arrow">→</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  document.querySelectorAll('.news-item').forEach(el => {
+    el.addEventListener('click', () => openModal(parseInt(el.dataset.id)));
+  });
+}
+
+// ─── MODAL ──────────────────────────────────────────────────────────────────
+function openModal(id) {
+  const n = NEWS.find(x => x.id === id);
+  if (!n) return;
+  document.getElementById('modal-content').innerHTML = `
+    <div class="modal-date">${n.date}</div>
+    <h2 class="modal-title">${n.title}</h2>
+    <p class="modal-venue">${n.venue}</p>
+    <p class="modal-desc">${n.desc}</p>
+    ${n.link !== '#' ? `<a href="${n.link}" class="modal-link">View &rarr;</a>` : ''}
+  `;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ─── FILTERS ────────────────────────────────────────────────────────────────
+document.getElementById('year-filters').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  activeYear = btn.dataset.year;
+  document.querySelectorAll('#year-filters .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+});
+
+document.getElementById('search-input').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  render();
+});
+
+// ─── STARS ──────────────────────────────────────────────────────────────────
+const canvas = document.getElementById('stars-canvas');
+const ctx = canvas.getContext('2d');
+let stars = [];
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+function initStars() {
+  stars = [];
+  const count = Math.floor((canvas.width * canvas.height) / 6000);
+  for (let i = 0; i < count; i++) {
+    stars.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+      r: Math.random()*1.1+0.2, alpha: Math.random()*0.6+0.1,
+      speed: Math.random()*0.003+0.001, phase: Math.random()*Math.PI*2 });
+  }
+}
+function drawStars(t) {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  stars.forEach(s => {
+    const a = s.alpha*(0.5+1.0*Math.sin(t*s.speed+s.phase));
+    ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(200,220,255,${a})`; ctx.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+resize(); initStars(); requestAnimationFrame(drawStars);
+window.addEventListener('resize', () => { resize(); initStars(); });
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>
