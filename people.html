@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>People · GNSS Lab KAIST</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:    #050d1a;
+      --navy2:   #091628;
+      --navy3:   #0e2040;
+      --panel:   #0a1929;
+      --border:  #1a3050;
+      --border2: #243d60;
+      --gold:    #c8a84b;
+      --cyan:    #3EC1D3;
+      --cyan2:   #45E0FF;
+      --bright:  #F5F7FA;
+      --dim:     #5a7898;
+      --mid:     #9FB3C8;
+      --serif:   'Crimson Pro', Georgia, serif;
+      --display: 'Bebas Neue', sans-serif;
+      --ui:      'Rajdhani', sans-serif;
+      --mono:    'DM Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #F5F7FA;
+      color: #1c2b3a;
+      font-family: var(--ui);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center; justify-content: flex-start;
+      gap: 5rem; padding: 1rem 3rem 0;
+      background: rgba(245,247,250,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #d0dce8;
+    }
+    .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
+    .nav-brand-main { font-family: var(--display); font-size: 2.5rem; letter-spacing: 0.06em; color: #0e1e2e; line-height: 1; }
+    .nav-brand-main span { color: var(--cyan); }
+    .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
+    .nav-links li { position: relative; }
+    .nav-links a {
+      display: block; padding: 0 1.2rem;
+      font-family: var(--ui); font-size: 1.3rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #5a7898; text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a.active { color: var(--cyan); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 1.2rem; right: 1.2rem;
+      height: 2px; background: var(--gold);
+      transform: scaleX(0); transition: transform 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+
+    .has-dropdown { position: relative; }
+    .dropdown {
+      position: absolute; top: 100%; left: 0;
+      background: rgba(245,247,250,0.98);
+      backdrop-filter: blur(12px);
+      border: 1px solid #d0dce8;
+      min-width: 140px; list-style: none;
+      opacity: 0; pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 200;
+    }
+    .has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown a {
+      display: block; padding: 0.6rem 1.2rem;
+      font-size: 0.8rem !important; font-weight: 400 !important;
+      color: #5a7898 !important;
+      border-bottom: 1px solid #e4edf5;
+      letter-spacing: 0.08em;
+    }
+    .dropdown li:last-child a { border-bottom: none; }
+    .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
+    .dropdown a::after { display: none !important; }
+
+    /* PAGE HEADER */
+    .page-header {
+      position: relative; z-index: 1;
+      padding: 9rem 5rem 4rem;
+      border-bottom: 1px solid #d0dce8;
+      background: #F5F7FA;
+    }
+    .page-header-eyebrow {
+      font-family: var(--mono); font-size: 0.68rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .page-header-eyebrow::before { content:''; width:2rem; height:1px; background:var(--gold); }
+    .page-header h1 {
+      font-family: var(--display); font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .page-header-desc {
+      font-family: var(--serif); font-style: italic;
+      font-size: 1rem; color: #5a7898; max-width: 48ch;
+    }
+
+    /* SECTION */
+    .people-section {
+      padding: 5rem 5rem 4rem;
+      border-bottom: 1px solid #e4edf5;
+    }
+    .people-section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      font-family: var(--mono); font-size: 0.68rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.6rem;
+    }
+    .section-label::before { content:''; width:1.8rem; height:1px; background:var(--gold); }
+    .section-title {
+      font-family: var(--display); font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
+      margin-bottom: 3rem;
+    }
+
+    /* PROFESSOR — featured large card */
+    .professor-card {
+      display: flex; gap: 3.5rem; align-items: flex-start;
+      max-width: 860px;
+    }
+    .professor-photo {
+      width: 200px; height: 240px; flex-shrink: 0;
+      object-fit: cover;
+      background: #dce8f0;
+      display: flex; align-items: center; justify-content: center;
+      color: #8aaac8; font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.1em;
+    }
+    .professor-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .professor-info { padding-top: 0.5rem; }
+    .professor-name {
+      font-family: var(--display); font-size: 2.8rem;
+      letter-spacing: 0.04em; color: #0e1e2e; line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .professor-title {
+      font-family: var(--mono); font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 1.2rem;
+    }
+    .professor-bio {
+      font-family: var(--serif); font-size: 1rem;
+      color: #3a4a5a; line-height: 1.85;
+      margin-bottom: 1.5rem; max-width: 52ch;
+    }
+    .professor-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .prof-link {
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #5a7898; text-decoration: none;
+      border: 1px solid #c0d0e0; padding: 0.4rem 1rem;
+      transition: all 0.2s;
+    }
+    .prof-link:hover { color: var(--cyan); border-color: var(--cyan); }
+
+    /* STUDENT / STAFF GRID */
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .person-card {
+      background: #fff;
+      border: 1px solid #e4edf5;
+      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+      cursor: default;
+    }
+    .person-card:hover {
+      box-shadow: 0 8px 32px rgba(62,193,211,0.1);
+      transform: translateY(-3px);
+      border-color: #b0d4e0;
+    }
+    .person-photo {
+      width: 100%; aspect-ratio: 3/4;
+      background: #dce8f0;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      color: #8aaac8; font-family: var(--mono); font-size: 0.6rem;
+      letter-spacing: 0.08em;
+    }
+    .person-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .person-info { padding: 1rem 1rem 1.1rem; }
+    .person-name {
+      font-family: var(--ui); font-size: 1rem; font-weight: 600;
+      color: #0e1e2e; margin-bottom: 0.2rem; line-height: 1.3;
+    }
+    .person-role {
+      font-family: var(--mono); font-size: 0.62rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 0.5rem;
+    }
+    .person-detail {
+      font-size: 0.8rem; color: #5a7898; line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+    .person-email {
+      font-family: var(--mono); font-size: 0.62rem;
+      color: #8aaac8; text-decoration: none; letter-spacing: 0.02em;
+      transition: color 0.2s; display: block;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .person-email:hover { color: var(--cyan); }
+
+    /* FOOTER */
+    footer {
+      background: #0e1e2e;
+      border-top: 1px solid #1a3050;
+      padding: 4rem 5rem 2.5rem;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 3rem; padding-bottom: 3rem;
+      border-bottom: 1px solid #1a3050; margin-bottom: 2rem;
+    }
+    .footer-brand-name { font-family: var(--display); font-size: 1.4rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-sub { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-col-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: 0.86rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--bright); }
+    .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
+    .footer-info-icon { font-size: 0.9rem; opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
+    .footer-info-text { font-size: 0.82rem; color: var(--dim); line-height: 1.6; }
+    .footer-info-text a { color: var(--cyan); text-decoration: none; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom span { font-family: var(--mono); font-size: 0.62rem; color: var(--dim); letter-spacing: 0.05em; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .reveal { opacity:0; transform:translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-d1 { transition-delay: 0.05s; }
+    .reveal-d2 { transition-delay: 0.10s; }
+    .reveal-d3 { transition-delay: 0.15s; }
+    .reveal-d4 { transition-delay: 0.20s; }
+    .reveal-d5 { transition-delay: 0.25s; }
+
+    @media (max-width: 960px) {
+      .page-header, .people-section, footer { padding-left: 2rem; padding-right: 2rem; }
+      .professor-card { flex-direction: column; gap: 2rem; }
+      .professor-photo { width: 160px; height: 192px; }
+      .people-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 1.5rem; }
+    }
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .people-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-brand-main"><span>GNSS</span> KAIST</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="news.html">News</a></li>
+    <li class="has-dropdown">
+      <a href="people.html" class="active">People</a>
+      <ul class="dropdown">
+        <li><a href="#professor">Professor</a></li>
+        <li><a href="#students">Students</a></li>
+        <li><a href="#staff">Staff</a></li>
+      </ul>
+    </li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-eyebrow">GNSS Lab · KAIST</div>
+  <h1>People</h1>
+  <p class="page-header-desc">Meet the researchers, students, and staff behind our work in satellite navigation and remote sensing.</p>
+</div>
+
+<!-- PROFESSOR -->
+<section class="people-section" id="professor">
+  <p class="section-label reveal">Faculty</p>
+  <h2 class="section-title reveal">Professor</h2>
+
+  <div class="professor-card reveal">
+    <div class="professor-photo">
+      <!-- 사진 추가 시: <img src="images/jiyunlee.jpg" alt="Prof. Jiyun Lee"> -->
+      PHOTO
+    </div>
+    <div class="professor-info">
+      <h3 class="professor-name">Jiyun Lee</h3>
+      <p class="professor-title">Associate Professor · KAIST Aerospace Engineering</p>
+      <p class="professor-bio">
+        Prof. Jiyun Lee leads the GNSS Lab at KAIST, where her research focuses on
+        GNSS integrity monitoring, satellite-based augmentation systems, ionospheric
+        modeling for the Korean Positioning System, and GNSS radio occultation for
+        atmospheric remote sensing.
+      </p>
+      <div class="professor-links">
+        <a href="mailto:jiyunlee@kaist.ac.kr" class="prof-link">✉ Email</a>
+        <a href="https://ae.kaist.ac.kr" target="_blank" class="prof-link">🔗 Lab Page</a>
+        <a href="#" class="prof-link">CV</a>
+        <a href="publications.html" class="prof-link">Publications</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDENTS -->
+<section class="people-section" id="students">
+  <p class="section-label reveal">Graduate Researchers</p>
+  <h2 class="section-title reveal">Students</h2>
+
+  <div class="people-grid">
+
+    <div class="person-card reveal">
+      <div class="person-photo">PHOTO</div>
+      <div class="person-info">
+        <p class="person-name">Hyeon Park</p>
+        <p class="person-role">PhD Student</p>
+        <p class="person-detail">GNSS Radio Occultation · Wavelet Signal Processing</p>
+        <a href="mailto:hyeonpark@kaist.ac.kr" class="person-email">hyeonpark@kaist.ac.kr</a>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d1">
+      <div class="person-photo">PHOTO</div>
+      <div class="person-info">
+        <p class="person-name">Student Name</p>
+        <p class="person-role">PhD Student</p>
+        <p class="person-detail">GNSS Integrity · Aviation</p>
+        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d2">
+      <div class="person-photo">PHOTO</div>
+      <div class="person-info">
+        <p class="person-name">Student Name</p>
+        <p class="person-role">MS Student</p>
+        <p class="person-detail">LEO PNT · Positioning Algorithms</p>
+        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d3">
+      <div class="person-photo">PHOTO</div>
+      <div class="person-info">
+        <p class="person-name">Student Name</p>
+        <p class="person-role">MS Student</p>
+        <p class="person-detail">Ionospheric Modeling · KPS</p>
+        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d4">
+      <div class="person-photo">PHOTO</div>
+      <div class="person-info">
+        <p class="person-name">Student Name</p>
+        <p class="person-role">MS Student</p>
+        <p class="person-detail">Remote Sensing · GNSS-R</p>
+        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d5">
+      <div class="person-photo">PHOTO</div>
+      <div class="person-info">
+        <p class="person-name">Student Name</p>
+        <p class="person-role">MS Student</p>
+        <p class="person-detail">Signal Processing · RO</p>
+        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STAFF -->
+<section class="people-section" id="staff">
+  <p class="section-label reveal">Lab Staff</p>
+  <h2 class="section-title reveal">Staff</h2>
+
+  <div class="people-grid">
+
+    <div class="person-card reveal">
+      <div class="person-photo">PHOTO</div>
+      <div class="person-info">
+        <p class="person-name">Staff Name</p>
+        <p class="person-role">Research Engineer</p>
+        <p class="person-detail">Lab Management · System Administration</p>
+        <a href="mailto:staff@kaist.ac.kr" class="person-email">staff@kaist.ac.kr</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">GNSS <span>KAIST</span></div>
+      <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Quick Links</p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Research</p>
+      <ul>
+        <li><a href="research.html#integrity">GNSS Integrity</a></li>
+        <li><a href="research.html#leo">LEO PNT</a></li>
+        <li><a href="research.html#remote-sensing">Remote Sensing</a></li>
+        <li><a href="publications.html">Publications</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Contact & Location</p>
+      <div class="footer-info">
+        <div class="footer-info-row">
+          <span class="footer-info-icon">📍</span>
+          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">✉️</span>
+          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">👤</span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
