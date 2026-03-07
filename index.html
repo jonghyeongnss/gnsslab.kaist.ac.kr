@@ -697,7 +697,7 @@
   function drawSat(x, y, z, color) {
     const maxR = orbitRadius(orbits[1]);
     const depth = (z + maxR) / (maxR * 2);
-    const base = EARTH_R * 0.035;
+    const base = EARTH_R * 0.01;
     const s = base * (0.7 + 0.5 * depth);
     const alpha = 0.6 + 0.4 * depth;
 
