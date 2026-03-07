@@ -43,8 +43,8 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 3rem;
+      display: flex; align-items: center; justify-content: flex-start; gap: 3rem;
+      padding: 0 4.5rem;
       background: transparent;
       backdrop-filter: none;
       border-bottom: none;
@@ -59,14 +59,14 @@
     .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
     .nav-brand-main {
       font-family: var(--display);
-      font-size: 2.2rem;
+      font-size: 2.0rem;
       letter-spacing: 0.06em;
       color: var(--bright);
       line-height: 1;
     }
     .nav-brand-sub {
       font-family: var(--mono);
-      font-size: 0.6rem;
+      font-size: 0.62rem;
       letter-spacing: 0.12em;
       color: var(--dim);
       text-transform: uppercase;
@@ -77,22 +77,21 @@
     .nav-links li { position: relative; }
     .nav-links a {
       display: block;
-      padding: 0 1.2rem;
+      padding: 0 1.1rem;
       height: 64px; line-height: 64px;
       font-family: var(--ui);
-      font-size: 0.82rem;
+      font-size: 1rem;
       font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--mid);
       text-decoration: none;
       transition: color 0.2s;
-      border-left: 1px solid transparent;
     }
     .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 1.2rem; right: 1.2rem;
+      bottom: 0; left: 1.1rem; right: 1.1rem;
       height: 2px;
       background: var(--gold);
       transform: scaleX(0);
@@ -100,7 +99,6 @@
     }
     .nav-links a:hover { color: var(--bright); }
     .nav-links a:hover::after { transform: scaleX(1); }
-    .nav-links li:first-child a { border-left: 1px solid var(--border); }
 
     /* ── HERO ── */
     .hero {
@@ -571,7 +569,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#cbaca5b8b8a7aaa98ba0aaa2b8bfe5aaa8e5a0b9"><span class="__cf_email__" data-cfemail="f99e978a8a95989bb99298908a8dd7989ad7928b">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">🔗</span>
@@ -579,7 +577,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#3b5152424e55575e5e7b505a52484f155a58155049"><span class="__cf_email__" data-cfemail="aec4c7d7dbc0c2cbcbeec5cfc7ddda80cfcd80c5dc">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -590,7 +588,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ════════════════════════════════════════════
    HERO CANVAS ANIMATION
    - Full-viewport canvas (responsive)
@@ -697,7 +695,7 @@
   function drawSat(x, y, z, color) {
     const maxR = orbitRadius(orbits[1]);
     const depth = (z + maxR) / (maxR * 2);
-    const base = EARTH_R * 0.01;
+    const base = EARTH_R * 0.075;
     const s = base * (0.7 + 0.5 * depth);
     const alpha = 0.6 + 0.4 * depth;
 
@@ -975,13 +973,4 @@ window.addEventListener('scroll', () => {
 
 /* ════════════════════════════════════════════
    SCROLL REVEAL
-════════════════════════════════════════════ */
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal, .news-item').forEach(el => io.observe(el));
-</script>
-</body>
-</html>
+═══════════════════
