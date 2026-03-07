@@ -330,9 +330,12 @@
           <stop offset="100%" stop-color="#030f1e"/>
         </radialGradient>
         <radialGradient id="earthGlow2" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#4ab8d8" stop-opacity="0.15"/>
-          <stop offset="100%" stop-color="#4ab8d8" stop-opacity="0"/>
-        </radialGradient>
+		  <stop offset="0%"   stop-color="#4ab8d8" stop-opacity="0"/>
+		  <stop offset="78%"  stop-color="#4ab8d8" stop-opacity="0"/>
+		  <stop offset="88%"  stop-color="#90d8f0" stop-opacity="0.35"/>
+		  <stop offset="94%"  stop-color="#c8eeff" stop-opacity="0.55"/>
+		  <stop offset="100%" stop-color="#4ab8d8" stop-opacity="0"/>
+		</radialGradient>
         <clipPath id="earthClip">
           <circle cx="360" cy="360" r="145"/>
         </clipPath>
@@ -342,12 +345,10 @@
         <path id="orbit-path-3" d="M 560,360 A 200,280 0 1,1 159.999,360 A 200,280 0 1,1 560,360"/>
       </defs>
 
-      <!-- Glow -->
-      <circle cx="360" cy="360" r="160" fill="none" stroke="#4ab8d8" stroke-width="0.5" opacity="0.1"/>
+
       <!-- Atmosphere -->
-      <circle cx="360" cy="360" r="158" fill="url(#earthGlow2)"/>
-      <!-- Earth -->
-      <circle cx="360" cy="360" r="145" fill="url(#earthGlow)" stroke="#1a4a70" stroke-width="1"/>
+      <circle cx="360" cy="360" r="175" fill="url(#earthGlow2)"/>
+   
       <!-- Continents -->
       <g clip-path="url(#earthClip)" opacity="0.5">
         <ellipse cx="290" cy="320" rx="38" ry="45" fill="#1a7a4a" transform="rotate(-15 290 320)"/>
@@ -359,6 +360,10 @@
       <!-- Terminator -->
       <path d="M 360 215 Q 430 290 360 505" stroke="#4ab8d8" stroke-width="0.8" opacity="0.2" fill="none"/>
 
+      <!-- 궤도선 — orbit-path와 동일한 타원/기울기 -->
+      <ellipse cx="360" cy="360" rx="240" ry="60" stroke="#4ab8d8" stroke-width="1.2" opacity="0.45" fill="none"/>
+      <ellipse cx="360" cy="360" rx="260" ry="80" stroke="#c8a84b" stroke-width="1.2" opacity="0.4" fill="none" transform="rotate(-35 360 360)"/>
+      <ellipse cx="360" cy="360" rx="200" ry="280" stroke="#4ab8d8" stroke-width="1.0" opacity="0.35" fill="none" transform="rotate(20 360 360)"/>
 
       <!-- 위성 1 — 적도 타원 궤도 (rx=240, ry=60) -->
       <g>
