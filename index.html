@@ -8,20 +8,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy:    #050d1a;
-      --navy2:   #091628;
-      --navy3:   #0e2040;
-      --panel:   #0a1929;
-      --border:  #1a3050;
-      --border2: #243d60;
+      --navy:    #f4f6fa;
+	  --navy2:   #e8edf5;
+	  --navy3:   #dde4f0;
+      --panel:   #ffffff;
+	  --border:  #c8d4e8;
+	  --border2: #a8b8d0;
       --gold:    #c8a84b;
       --gold2:   #e8c96a;
       --cyan:    #4ab8d8;
       --cyan2:   #7dd4ec;
-      --text:    #c8d8e8;
-      --bright:  #eaf2fc;
-      --dim:     #5a7898;
-      --mid:     #8aaac8;
+      --text:   #1a2a3a;
+      --bright: #0d1f33;
+	  --dim:    #6a7f98;
+	  --mid:    #3a5570;
       --serif:   'Crimson Pro', Georgia, serif;
       --display: 'Bebas Neue', sans-serif;
       --ui:      'Rajdhani', sans-serif;
@@ -60,7 +60,7 @@
     .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
     .nav-brand-main {
       font-family: var(--display);
-      font-size: 3.1rem;
+      font-size: 2.2rem;
       letter-spacing: 0.06em;
       color: var(--bright);
       line-height: 1;
@@ -68,7 +68,7 @@
     .nav-brand-main span { color: var(--gold); }
     .nav-brand-sub {
       font-family: var(--mono);
-      font-size: 1.55rem;
+      font-size: 1.1rem;
       letter-spacing: 0.12em;
       color: var(--dim);
       text-transform: uppercase;
@@ -82,7 +82,7 @@
       padding: 0 1.2rem;
       height: 64px; line-height: 64px;
       font-family: var(--ui);
-      font-size: 1.64rem;
+      font-size: 1.1rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -433,7 +433,7 @@
 <!-- ── NAV ── -->
 <nav>
   <a href="#" class="nav-brand">
-    <div class="nav-brand-main">GNSS <span>KAIST</span></div>
+    <div class="nav-brand-main">GNSS KAIST</div>
     <div class="nav-brand-sub">Global Navigation Satellite System</div>
   </a>
   <ul class="nav-links">
@@ -541,7 +541,10 @@
   <!-- Text content -->
   <div class="hero-content">
     <div class="hero-eyebrow">KAIST · Aerospace Engineering</div>
-    <h1 class="hero-title">Global Navigation<br><span>Satellite System</span> Lab</h1>
+    <h1 class="hero-title">
+	  <span>G</span>lobal <span>N</span>avigation<br>
+	  <span>S</span>atellite <span>S</span>ystem Lab
+	</h1>
     <div class="hero-divider"></div>
     <div class="hero-affil">
       <strong>Korea Advanced Institute of Science and Technology</strong><br>
@@ -655,7 +658,7 @@
   <div class="footer-grid">
     <!-- Brand -->
     <div class="footer-brand">
-      <div class="footer-brand-name">GNSS <span>KAIST</span></div>
+      <div class="footer-brand-name">GNSS KAIST</div>
       <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
       <p>We advance the science and engineering of satellite-based navigation and remote sensing, developing algorithms that connect space signals to real-world applications.</p>
     </div>
