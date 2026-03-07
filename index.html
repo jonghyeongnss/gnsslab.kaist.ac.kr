@@ -8,20 +8,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy:    #f4f6fa;
-	  --navy2:   #e8edf5;
-	  --navy3:   #dde4f0;
-      --panel:   #ffffff;
-	  --border:  #c8d4e8;
-	  --border2: #a8b8d0;
+      --navy:    #050d1a;
+      --navy2:   #091628;
+      --navy3:   #0e2040;
+      --panel:   #0a1929;
+      --border:  #1a3050;
+      --border2: #243d60;
       --gold:    #c8a84b;
       --gold2:   #e8c96a;
       --cyan:    #4ab8d8;
       --cyan2:   #7dd4ec;
-      --text:   #1a2a3a;
-      --bright: #0d1f33;
-	  --dim:    #6a7f98;
-	  --mid:    #3a5570;
+      --text:    #c8d8e8;
+      --bright:  #eaf2fc;
+      --dim:     #5a7898;
+      --mid:     #8aaac8;
       --serif:   'Crimson Pro', Georgia, serif;
       --display: 'Bebas Neue', sans-serif;
       --ui:      'Rajdhani', sans-serif;
@@ -39,13 +39,6 @@
       overflow-x: hidden;
     }
 
-    /* ── STARFIELD ── */
-    #stars-canvas {
-      position: fixed; inset: 0;
-      z-index: 0; pointer-events: none;
-      opacity: 0.7;
-    }
-
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -53,8 +46,14 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 3rem;
       background: transparent;
-	  backdrop-filter: none;
-	  border-bottom: none;
+      backdrop-filter: none;
+      border-bottom: none;
+      transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(5,13,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
@@ -65,10 +64,9 @@
       color: var(--bright);
       line-height: 1;
     }
-    .nav-brand-main span { color: var(--gold); }
     .nav-brand-sub {
       font-family: var(--mono);
-      font-size: 1.1rem;
+      font-size: 0.6rem;
       letter-spacing: 0.12em;
       color: var(--dim);
       text-transform: uppercase;
@@ -82,7 +80,7 @@
       padding: 0 1.2rem;
       height: 64px; line-height: 64px;
       font-family: var(--ui);
-      font-size: 1.1rem;
+      font-size: 0.82rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -107,61 +105,52 @@
     /* ── HERO ── */
     .hero {
       position: relative;
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 64px 2rem 0;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Canvas fills full hero */
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    /* Gradient overlay: transparent top → dark bottom, for content below */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(5,13,26,0.15) 0%,
+        rgba(5,13,26,0.05) 40%,
+        rgba(5,13,26,0.6)  80%,
+        rgba(5,13,26,1)   100%
+      );
       z-index: 1;
-	  background-image: url('https://eoimages.gsfc.nasa.gov/images/imagerecords/74000/74092/world.200410.3x5400x2700.jpg');
-	  background-size: cover;
-	  background-position: center;
+      pointer-events: none;
     }
-
-	/* hero::before 추가 */
-	.hero::before {
-	  content: '';
-	  position: absolute; inset: 0;
-	  background: linear-gradient(
-		to bottom,
-		rgba(0,0,0,0.35) 0%,
-		rgba(0,0,0,0.15) 50%,
-		rgba(5,13,26,1) 100%
-	  );
-	  z-index: 0;
-	}
-
-    /* Earth + orbit SVG */
-    .hero-visual {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      z-index: 0; pointer-events: none;
-      opacity: 0; animation: fadeIn 1.5s ease forwards 0.3s;
-    }
-    .hero-visual svg { width: min(720px, 90vw); height: auto; }
-
-    /* Orbit animations */
-    @keyframes orbit1 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes orbit2 { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
-    @keyframes orbit3 { from { transform: rotate(120deg); } to { transform: rotate(480deg); } }
-    @keyframes pulse { 0%,100%{opacity:0.6;} 50%{opacity:1;} }
-    @keyframes earthSpin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
-
-    .orbit-ring-1 { transform-origin: 360px 360px; animation: orbit1 18s linear infinite; }
-    .orbit-ring-2 { transform-origin: 360px 360px; animation: orbit2 28s linear infinite; }
-    .orbit-ring-3 { transform-origin: 360px 360px; animation: orbit3 12s linear infinite; }
-    .sat-pulse { animation: pulse 2.5s ease-in-out infinite; }
 
     /* Hero text */
     .hero-content {
-      position: relative; z-index: 2;
-      opacity: 0; transform: translateY(24px);
-      animation: fadeUp 0.9s ease forwards 0.6s;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 64px 2rem 0;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.9s ease forwards 1s;
     }
     .hero-eyebrow {
       font-family: var(--mono);
-      font-size: 1.44rem;
+      font-size: 0.72rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
@@ -171,7 +160,6 @@
     .hero-eyebrow::before, .hero-eyebrow::after {
       content: ''; width: 2.5rem; height: 1px; background: var(--gold); opacity: 0.6;
     }
-
     h1.hero-title {
       font-family: var(--display);
       font-size: clamp(2.4rem, 6vw, 5.2rem);
@@ -179,25 +167,14 @@
       color: var(--bright);
       line-height: 1.05;
       margin-bottom: 0.6rem;
-      text-shadow: 0 0 60px rgba(74,184,216,0.25);
+      text-shadow: 0 0 60px rgba(74,184,216,0.3);
     }
     h1.hero-title span { color: var(--cyan); }
-
-    .hero-subtitle {
-      font-family: var(--serif);
-      font-size: clamp(1rem, 2vw, 1.4rem);
-      font-style: italic;
-      color: var(--mid);
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
-
     .hero-divider {
       width: 3rem; height: 1px;
       background: linear-gradient(to right, transparent, var(--gold), transparent);
       margin: 0 auto 1.4rem;
     }
-
     .hero-affil {
       font-family: var(--mono);
       font-size: 0.75rem;
@@ -212,7 +189,7 @@
       position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
       z-index: 2;
-      opacity: 0; animation: fadeIn 1s ease forwards 2s;
+      opacity: 0; animation: fadeIn 1s ease forwards 2.5s;
     }
     .hero-scroll span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
     .scroll-line { width: 1px; height: 2.5rem; background: linear-gradient(to bottom, var(--dim), transparent); animation: scrollDrop 1.8s ease-in-out infinite; }
@@ -289,10 +266,7 @@
       color: var(--dim); letter-spacing: 0.1em;
       margin-bottom: 1.4rem;
     }
-    .res-card-icon {
-      font-size: 1.6rem; margin-bottom: 1rem;
-      filter: grayscale(0.3);
-    }
+    .res-card-icon { font-size: 1.6rem; margin-bottom: 1rem; filter: grayscale(0.3); }
     .res-card-title {
       font-family: var(--ui); font-size: 1.12rem; font-weight: 600;
       color: var(--bright); margin-bottom: 0.8rem; line-height: 1.3;
@@ -328,10 +302,7 @@
     }
     .news-item:first-child { border-top: 1px solid var(--border); }
     .news-item.visible { opacity: 1; transform: translateY(0); }
-    .news-date {
-      font-family: var(--mono); font-size: 0.7rem;
-      color: var(--dim); letter-spacing: 0.04em; padding-top: 0.1rem;
-    }
+    .news-date { font-family: var(--mono); font-size: 0.7rem; color: var(--dim); letter-spacing: 0.04em; padding-top: 0.1rem; }
     .news-tag {
       font-family: var(--mono); font-size: 0.6rem;
       padding: 0.2rem 0.6rem;
@@ -342,11 +313,7 @@
     }
     .news-tag.award { color: var(--gold); border-color: var(--gold); opacity: 0.8; }
     .news-tag.pub { color: #7ec87e; border-color: #3a6e3a; }
-    .news-body {}
-    .news-title {
-      font-size: 1rem; font-weight: 500;
-      color: var(--bright); margin-bottom: 0.2rem; line-height: 1.4;
-    }
+    .news-title { font-size: 1rem; font-weight: 500; color: var(--bright); margin-bottom: 0.2rem; line-height: 1.4; }
     .news-detail { font-size: 0.86rem; color: var(--mid); }
     .news-link {
       font-family: var(--mono); font-size: 0.65rem;
@@ -372,7 +339,6 @@
       border-bottom: 1px solid var(--border);
       margin-bottom: 2rem;
     }
-    .footer-brand {}
     .footer-brand-name {
       font-family: var(--display);
       font-size: 1.4rem;
@@ -380,41 +346,27 @@
       color: var(--bright);
       margin-bottom: 0.2rem;
     }
-    .footer-brand-name span { color: var(--gold); }
     .footer-brand-sub {
       font-family: var(--mono); font-size: 0.6rem;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--dim); margin-bottom: 1.4rem;
     }
-    .footer-brand p {
-      font-size: 0.86rem; color: var(--dim);
-      max-width: 32ch; line-height: 1.8;
-    }
+    .footer-brand p { font-size: 0.86rem; color: var(--dim); max-width: 32ch; line-height: 1.8; }
     .footer-col-title {
       font-family: var(--mono); font-size: 0.65rem;
       letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 1.2rem;
     }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-col ul a {
-      font-size: 0.86rem; color: var(--dim); text-decoration: none;
-      transition: color 0.2s;
-    }
+    .footer-col ul a { font-size: 0.86rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
     .footer-col ul a:hover { color: var(--bright); }
     .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
-    .footer-info-row {
-      display: flex; gap: 0.8rem; align-items: flex-start;
-    }
+    .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
     .footer-info-icon { font-size: 0.9rem; opacity: 0.6; flex-shrink: 0; margin-top: 1px; }
     .footer-info-text { font-size: 0.82rem; color: var(--dim); line-height: 1.6; }
     .footer-info-text a { color: var(--cyan); text-decoration: none; }
-    .footer-bottom {
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .footer-bottom span {
-      font-family: var(--mono); font-size: 0.62rem;
-      color: var(--dim); letter-spacing: 0.05em;
-    }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom span { font-family: var(--mono); font-size: 0.62rem; color: var(--dim); letter-spacing: 0.05em; }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
@@ -443,11 +395,8 @@
 </head>
 <body>
 
-<!-- Starfield canvas -->
-<canvas id="stars-canvas"></canvas>
-
 <!-- ── NAV ── -->
-<nav>
+<nav id="main-nav">
   <a href="#" class="nav-brand">
     <div class="nav-brand-main">GNSS KAIST</div>
     <div class="nav-brand-sub">Global Navigation Satellite System</div>
@@ -464,103 +413,19 @@
 
 <!-- ── HERO ── -->
 <div class="hero">
-  <!-- Earth + Satellites SVG -->
-  <div class="hero-visual">
-    <svg viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Glow behind earth -->
-      <circle cx="360" cy="360" r="160" fill="none" stroke="#4ab8d8" stroke-width="0.5" opacity="0.1"/>
-      <circle cx="360" cy="360" r="145" fill="url(#earthGlow)" opacity="0.6"/>
+  <!-- Full-viewport canvas animation -->
+  <canvas id="hero-canvas"></canvas>
 
-      <!-- Earth -->
-      <defs>
-        <radialGradient id="earthGlow" cx="40%" cy="35%">
-          <stop offset="0%" stop-color="#1a6090"/>
-          <stop offset="40%" stop-color="#0d3d6b"/>
-          <stop offset="100%" stop-color="#030f1e"/>
-        </radialGradient>
-        <radialGradient id="earthGlow2" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#4ab8d8" stop-opacity="0.15"/>
-          <stop offset="100%" stop-color="#4ab8d8" stop-opacity="0"/>
-        </radialGradient>
-        <clipPath id="earthClip">
-          <circle cx="360" cy="360" r="145"/>
-        </clipPath>
-      </defs>
-
-      <!-- Atmosphere glow -->
-      <circle cx="360" cy="360" r="158" fill="url(#earthGlow2)"/>
-
-      <!-- Earth sphere -->
-      <circle cx="360" cy="360" r="145" fill="url(#earthGlow)" stroke="#1a4a70" stroke-width="1"/>
-
-      <!-- Continents (simplified shapes) -->
-      <g clip-path="url(#earthClip)" opacity="0.5">
-        <!-- North America -->
-        <ellipse cx="290" cy="320" rx="38" ry="45" fill="#1a7a4a" transform="rotate(-15 290 320)"/>
-        <!-- Europe/Africa -->
-        <ellipse cx="375" cy="345" rx="22" ry="55" fill="#1a7a4a" transform="rotate(5 375 345)"/>
-        <!-- Asia -->
-        <ellipse cx="440" cy="310" rx="55" ry="40" fill="#1a7a4a" transform="rotate(-10 440 310)"/>
-        <!-- South America -->
-        <ellipse cx="305" cy="400" rx="20" ry="38" fill="#1a7a4a" transform="rotate(10 305 400)"/>
-        <!-- Australia -->
-        <ellipse cx="455" cy="410" rx="22" ry="16" fill="#1a7a4a"/>
-      </g>
-
-      <!-- Terminator line -->
-      <path d="M 360 215 Q 430 290 360 505" stroke="#4ab8d8" stroke-width="0.8" opacity="0.2" fill="none"/>
-
-      <!-- Orbit ring 1 — equatorial -->
-      <ellipse cx="360" cy="360" rx="240" ry="60" stroke="#4ab8d8" stroke-width="0.8" opacity="0.25" fill="none"/>
-      <!-- Orbit ring 2 — inclined -->
-      <ellipse cx="360" cy="360" rx="260" ry="80" stroke="#c8a84b" stroke-width="0.8" opacity="0.2" fill="none" transform="rotate(-35 360 360)"/>
-      <!-- Orbit ring 3 — polar-ish -->
-      <ellipse cx="360" cy="360" rx="200" ry="280" stroke="#4ab8d8" stroke-width="0.7" opacity="0.15" fill="none" transform="rotate(20 360 360)"/>
-
-      <!-- Satellite group 1 (equatorial orbit) -->
-      <g class="orbit-ring-1">
-        <g transform="translate(600, 360)">
-          <rect x="-10" y="-4" width="20" height="8" rx="1" fill="#4ab8d8" class="sat-pulse"/>
-          <rect x="-18" y="-1.5" width="6" height="3" fill="#4ab8d8" opacity="0.6"/>
-          <rect x="12" y="-1.5" width="6" height="3" fill="#4ab8d8" opacity="0.6"/>
-        </g>
-      </g>
-
-      <!-- Satellite group 2 (inclined orbit) -->
-      <g transform="rotate(-35 360 360)">
-        <g class="orbit-ring-2">
-          <g transform="translate(620, 360)">
-            <rect x="-9" y="-4" width="18" height="7" rx="1" fill="#c8a84b" class="sat-pulse" style="animation-delay:0.8s"/>
-            <rect x="-16" y="-1.5" width="6" height="3" fill="#c8a84b" opacity="0.6"/>
-            <rect x="11" y="-1.5" width="6" height="3" fill="#c8a84b" opacity="0.6"/>
-          </g>
-        </g>
-      </g>
-
-      <!-- Satellite group 3 (faster, small) -->
-      <g transform="rotate(20 360 360)">
-        <g class="orbit-ring-3">
-          <g transform="translate(560, 360)">
-            <rect x="-7" y="-3" width="14" height="6" rx="1" fill="#7dd4ec" class="sat-pulse" style="animation-delay:1.5s"/>
-            <rect x="-13" y="-1" width="5" height="2" fill="#7dd4ec" opacity="0.6"/>
-            <rect x="9" y="-1" width="5" height="2" fill="#7dd4ec" opacity="0.6"/>
-          </g>
-        </g>
-      </g>
-
-      <!-- Signal lines from satellites to earth -->
-      <line x1="360" y1="215" x2="490" y2="300" stroke="#4ab8d8" stroke-width="0.6" stroke-dasharray="4 6" opacity="0.2"/>
-      <line x1="360" y1="505" x2="230" y2="390" stroke="#c8a84b" stroke-width="0.6" stroke-dasharray="4 6" opacity="0.2"/>
-    </svg>
-  </div>
+  <!-- Dark gradient overlay (bottom fade to navy) -->
+  <div class="hero-overlay"></div>
 
   <!-- Text content -->
   <div class="hero-content">
     <div class="hero-eyebrow">KAIST · Aerospace Engineering</div>
     <h1 class="hero-title">
-	  <span>G</span>lobal <span>N</span>avigation<br>
-	  <span>S</span>atellite <span>S</span>ystem Lab
-	</h1>
+      <span>G</span>lobal <span>N</span>avigation<br>
+      <span>S</span>atellite <span>S</span>ystem Lab
+    </h1>
     <div class="hero-divider"></div>
     <div class="hero-affil">
       <strong>Korea Advanced Institute of Science and Technology</strong><br>
@@ -672,14 +537,11 @@
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-grid">
-    <!-- Brand -->
     <div class="footer-brand">
       <div class="footer-brand-name">GNSS KAIST</div>
       <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
       <p>We advance the science and engineering of satellite-based navigation and remote sensing, developing algorithms that connect space signals to real-world applications.</p>
     </div>
-
-    <!-- Quick links -->
     <div class="footer-col">
       <p class="footer-col-title">Quick Links</p>
       <ul>
@@ -691,8 +553,6 @@
         <li><a href="gallery.html">Gallery</a></li>
       </ul>
     </div>
-
-    <!-- Research -->
     <div class="footer-col">
       <p class="footer-col-title">Research</p>
       <ul>
@@ -702,8 +562,6 @@
         <li><a href="publications.html">Publications</a></li>
       </ul>
     </div>
-
-    <!-- Contact / Location -->
     <div class="footer-col">
       <p class="footer-col-title">Contact & Location</p>
       <div class="footer-info">
@@ -726,7 +584,6 @@
       </div>
     </div>
   </div>
-
   <div class="footer-bottom">
     <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
     <span>Built with GitHub Pages</span>
@@ -734,55 +591,397 @@
 </footer>
 
 <script>
-  /* ── Starfield ── */
-  const canvas = document.getElementById('stars-canvas');
+/* ════════════════════════════════════════════
+   HERO CANVAS ANIMATION
+   - Full-viewport canvas (responsive)
+   - EPIC earth image (fully illuminated)
+   - 3 orbital planes with GPS-style satellites
+   - Signal trails with ripple on impact
+════════════════════════════════════════════ */
+(function() {
+  const canvas = document.getElementById('hero-canvas');
   const ctx = canvas.getContext('2d');
-  let stars = [];
+
+  // Canvas dimensions — match viewport, earth centered
+  let W, H, CX, CY, EARTH_R;
 
   function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    CX = W / 2;
+    CY = H / 2;
+    EARTH_R = Math.min(W, H) * 0.20;
   }
+  resize();
+  window.addEventListener('resize', resize);
 
-  function initStars() {
-    stars = [];
-    const count = Math.floor((canvas.width * canvas.height) / 5000);
-    for (let i = 0; i < count; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.2 + 0.2,
-        alpha: Math.random() * 0.7 + 0.1,
-        speed: Math.random() * 0.003 + 0.001,
-        phase: Math.random() * Math.PI * 2
-      });
+  // ── Earth image (DSCOVR EPIC — fully illuminated) ──
+  const earthImg = new Image();
+  earthImg.crossOrigin = 'anonymous';
+  earthImg.src = 'https://epic.gsfc.nasa.gov/archive/natural/2025/12/08/jpg/epic_1b_20251208005516.jpg';
+
+  // ── Orbits ──
+  const orbits = [
+    {
+      radius: 0.38, speed: 0.0004, tilt: 15, color: '#4ab8d8',
+      sats: [
+        { angle: 0,           signalTimer: 0,   signalInterval: 180 },
+        { angle: Math.PI,     signalTimer: 90,  signalInterval: 180 },
+      ]
+    },
+    {
+      radius: 0.48, speed: 0.00025, tilt: -40, color: '#c8a84b',
+      sats: [
+        { angle: 0,               signalTimer: 60,  signalInterval: 200 },
+        { angle: Math.PI * 2/3,   signalTimer: 120, signalInterval: 200 },
+        { angle: Math.PI * 4/3,   signalTimer: 180, signalInterval: 200 },
+      ]
+    },
+    {
+      radius: 0.32, speed: 0.0006, tilt: 70, color: '#a0e8a0',
+      sats: [
+        { angle: Math.PI / 2,   signalTimer: 40,  signalInterval: 160 },
+        { angle: Math.PI * 1.5, signalTimer: 140, signalInterval: 160 },
+      ]
     }
+  ];
+
+  // ── Signals ──
+  let signals = [];
+
+  // ── Stars ──
+  const STAR_COUNT = 320;
+  const stars = Array.from({ length: STAR_COUNT }, () => ({
+    rx: Math.random(), ry: Math.random(),   // relative position
+    r:  Math.random() * 1.1 + 0.2,
+    alpha: Math.random() * 0.6 + 0.1,
+    phase: Math.random() * Math.PI * 2,
+    speed: Math.random() * 0.002 + 0.0005
+  }));
+
+  let t = 0;
+
+  // ── Helpers ──
+  function orbitRadius(orb) { return orb.radius * Math.min(W, H); }
+
+  function orbitPoint(orbit, angle) {
+    const tiltRad = orbit.tilt * Math.PI / 180;
+    const r = orbitRadius(orbit);
+    const x3 = Math.cos(angle) * r;
+    const y3 = Math.sin(angle) * r;
+    return {
+      x: CX + x3,
+      y: CY + y3 * Math.cos(tiltRad),
+      z: y3 * Math.sin(tiltRad)
+    };
   }
 
-  function drawStars(t) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  function drawOrbitRing(orbit) {
+    const tiltRad = orbit.tilt * Math.PI / 180;
+    const r = orbitRadius(orbit);
+    const ry = r * Math.abs(Math.cos(tiltRad));
+    ctx.save();
+    ctx.translate(CX, CY);
+    ctx.beginPath();
+    ctx.ellipse(0, 0, r, ry, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = orbit.color;
+    ctx.globalAlpha = 0.18;
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 8]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+  }
+
+  // ── GPS-style satellite ──
+  function drawSat(x, y, z, color) {
+    const maxR = orbitRadius(orbits[1]);
+    const depth = (z + maxR) / (maxR * 2);
+    const base = EARTH_R * 0.075;
+    const s = base * (0.7 + 0.5 * depth);
+    const alpha = 0.6 + 0.4 * depth;
+
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.translate(x, y);
+
+    const bodyW = s * 13, bodyH = s * 8;
+
+    // Body gradient
+    const bodyGrad = ctx.createLinearGradient(-bodyW/2, -bodyH/2, bodyW/2, bodyH/2);
+    bodyGrad.addColorStop(0,   '#d8dde8');
+    bodyGrad.addColorStop(0.4, '#a8b0c0');
+    bodyGrad.addColorStop(1,   '#606878');
+    ctx.fillStyle = bodyGrad;
+    ctx.beginPath();
+    ctx.roundRect(-bodyW/2, -bodyH/2, bodyW, bodyH, s * 1.2);
+    ctx.fill();
+
+    // Body highlight
+    ctx.strokeStyle = '#e8eef8';
+    ctx.lineWidth = s * 0.6;
+    ctx.globalAlpha = alpha * 0.5;
+    ctx.stroke();
+
+    // Body panel separation lines
+    ctx.strokeStyle = '#505868';
+    ctx.lineWidth = s * 0.4;
+    ctx.globalAlpha = alpha * 0.6;
+    [0.35, 0.65].forEach(frac => {
+      ctx.beginPath();
+      ctx.moveTo(-bodyW/2 + bodyW * frac, -bodyH/2);
+      ctx.lineTo(-bodyW/2 + bodyW * frac,  bodyH/2);
+      ctx.stroke();
+    });
+
+    // Solar panel arms
+    ctx.strokeStyle = '#9098a8';
+    ctx.lineWidth = s * 1.2;
+    ctx.globalAlpha = alpha * 0.9;
+    ctx.beginPath(); ctx.moveTo(-bodyW/2, 0); ctx.lineTo(-bodyW/2 - s*7, 0); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo( bodyW/2, 0); ctx.lineTo( bodyW/2 + s*7, 0); ctx.stroke();
+
+    // Solar panels
+    const panelW = s * 14, panelH = s * 7;
+    const panelGrad = ctx.createLinearGradient(0, -panelH/2, 0, panelH/2);
+    panelGrad.addColorStop(0,   '#1a2d5a');
+    panelGrad.addColorStop(0.3, '#1e3a7a');
+    panelGrad.addColorStop(0.7, '#162856');
+    panelGrad.addColorStop(1,   '#0d1e3e');
+    ctx.fillStyle = panelGrad;
+    ctx.globalAlpha = alpha * 0.95;
+    const lx = -bodyW/2 - s*7 - panelW;
+    const rx =  bodyW/2 + s*7;
+    ctx.fillRect(lx, -panelH/2, panelW, panelH);
+    ctx.fillRect(rx, -panelH/2, panelW, panelH);
+
+    // Panel cell grid
+    ctx.strokeStyle = '#2a4a8a';
+    ctx.lineWidth = s * 0.3;
+    ctx.globalAlpha = alpha * 0.5;
+    [lx, rx].forEach(px => {
+      for (let ci = 1; ci < 5; ci++) {
+        ctx.beginPath();
+        ctx.moveTo(px + panelW*ci/5, -panelH/2);
+        ctx.lineTo(px + panelW*ci/5,  panelH/2);
+        ctx.stroke();
+      }
+      for (let ri = 1; ri < 3; ri++) {
+        ctx.beginPath();
+        ctx.moveTo(px,          -panelH/2 + panelH*ri/3);
+        ctx.lineTo(px + panelW, -panelH/2 + panelH*ri/3);
+        ctx.stroke();
+      }
+      ctx.strokeStyle = '#3a5a9a';
+      ctx.lineWidth = s * 0.5;
+      ctx.globalAlpha = alpha * 0.7;
+      ctx.strokeRect(px, -panelH/2, panelW, panelH);
+    });
+
+    // Panel sheen
+    ctx.fillStyle = 'rgba(120,160,255,0.08)';
+    ctx.globalAlpha = alpha;
+    ctx.fillRect(lx, -panelH/2, panelW, panelH * 0.3);
+    ctx.fillRect(rx, -panelH/2, panelW, panelH * 0.3);
+
+    // Earth-pointing dish (bottom)
+    ctx.strokeStyle = '#b0b8c8';
+    ctx.lineWidth = s * 0.8;
+    ctx.globalAlpha = alpha * 0.9;
+    ctx.beginPath(); ctx.moveTo(0, bodyH/2); ctx.lineTo(0, bodyH/2 + s*5); ctx.stroke();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = s * 1.2;
+    ctx.beginPath();
+    ctx.arc(0, bodyH/2 + s*5, s*4, Math.PI*0.15, Math.PI*0.85);
+    ctx.stroke();
+    ctx.fillStyle = color;
+    ctx.globalAlpha = alpha * 0.8;
+    ctx.beginPath(); ctx.arc(0, bodyH/2 + s*5, s*0.8, 0, Math.PI*2); ctx.fill();
+
+    // Nav antenna (top)
+    ctx.strokeStyle = '#c8d0e0';
+    ctx.lineWidth = s * 0.6;
+    ctx.globalAlpha = alpha * 0.7;
+    ctx.beginPath(); ctx.moveTo(0, -bodyH/2); ctx.lineTo(0, -bodyH/2 - s*4); ctx.stroke();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = s * 1.0;
+    ctx.globalAlpha = alpha * 0.85;
+    ctx.beginPath();
+    ctx.arc(0, -bodyH/2 - s*4, s*2.5, Math.PI, Math.PI*2);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  // ── Signal launch ──
+  function launchSignal(sx, sy, color) {
+    const angle = Math.random() * Math.PI * 2;
+    const tx = CX + Math.cos(angle) * EARTH_R * 0.6;
+    const ty = CY + Math.sin(angle) * EARTH_R * 0.6;
+    signals.push({ sx, sy, tx, ty, progress: 0, color, alpha: 1 });
+  }
+
+  // ── Draw signals ──
+  function drawSignals() {
+    signals = signals.filter(s => s.progress <= 1.15);
+    signals.forEach(s => {
+      s.progress += 0.012;
+      const p = Math.min(s.progress, 1);
+      const cx2 = s.sx + (s.tx - s.sx) * p;
+      const cy2 = s.sy + (s.ty - s.sy) * p;
+      s.alpha = s.progress < 0.8 ? 1 : 1 - (s.progress - 0.8) / 0.35;
+
+      const p0 = Math.max(0, p - 0.18);
+      const cx0 = s.sx + (s.tx - s.sx) * p0;
+      const cy0 = s.sy + (s.ty - s.sy) * p0;
+      const grad = ctx.createLinearGradient(cx0, cy0, cx2, cy2);
+      grad.addColorStop(0, 'rgba(0,0,0,0)');
+      grad.addColorStop(1, s.color);
+
+      ctx.save();
+      ctx.globalAlpha = s.alpha * 0.85;
+      ctx.beginPath(); ctx.moveTo(cx0, cy0); ctx.lineTo(cx2, cy2);
+      ctx.strokeStyle = grad; ctx.lineWidth = 1.5; ctx.stroke();
+
+      ctx.beginPath(); ctx.arc(cx2, cy2, 2.5, 0, Math.PI*2);
+      ctx.fillStyle = s.color; ctx.globalAlpha = s.alpha; ctx.fill();
+
+      if (s.progress > 0.88 && s.progress < 1.1) {
+        const rp = (s.progress - 0.88) / 0.22;
+        ctx.beginPath(); ctx.arc(s.tx, s.ty, rp*14, 0, Math.PI*2);
+        ctx.strokeStyle = s.color; ctx.lineWidth = 1.2;
+        ctx.globalAlpha = (1 - rp) * 0.7; ctx.stroke();
+      }
+      ctx.restore();
+    });
+  }
+
+  // ── Draw earth ──
+  function drawEarth() {
+    ctx.save();
+
+    // Outer glow
+    const glow = ctx.createRadialGradient(CX, CY, EARTH_R*0.8, CX, CY, EARTH_R*1.6);
+    glow.addColorStop(0, 'rgba(74,184,216,0.10)');
+    glow.addColorStop(1, 'rgba(74,184,216,0)');
+    ctx.beginPath(); ctx.arc(CX, CY, EARTH_R*1.6, 0, Math.PI*2);
+    ctx.fillStyle = glow; ctx.fill();
+
+    // Clip to circle
+    ctx.beginPath(); ctx.arc(CX, CY, EARTH_R, 0, Math.PI*2); ctx.clip();
+
+    if (earthImg.complete && earthImg.naturalWidth > 0) {
+      // EPIC image is square (2048×2048) — draw as sphere fill with slow rotation
+      const slowAngle = t * 0.00003;
+      const iW = earthImg.naturalWidth, iH = earthImg.naturalHeight;
+      // Crop to square center, scale to diameter
+      const d = EARTH_R * 2;
+      const offset = (slowAngle % 1) * iW;
+      // tile horizontally
+      ctx.drawImage(earthImg, offset, 0, iW, iH, CX - EARTH_R, CY - EARTH_R, d, d);
+      if (offset > 0) {
+        ctx.drawImage(earthImg, offset - iW, 0, iW, iH, CX - EARTH_R, CY - EARTH_R, d, d);
+      }
+    } else {
+      const g = ctx.createRadialGradient(CX-EARTH_R*0.25, CY-EARTH_R*0.25, 10, CX, CY, EARTH_R);
+      g.addColorStop(0,   '#1a6090');
+      g.addColorStop(0.5, '#0d3d6b');
+      g.addColorStop(1,   '#030f1e');
+      ctx.fillStyle = g;
+      ctx.fillRect(CX-EARTH_R, CY-EARTH_R, EARTH_R*2, EARTH_R*2);
+    }
+    ctx.restore();
+
+    // Atmosphere rim
+    ctx.save();
+    const rim = ctx.createRadialGradient(CX, CY, EARTH_R*0.92, CX, CY, EARTH_R*1.14);
+    rim.addColorStop(0,   'rgba(74,184,216,0.30)');
+    rim.addColorStop(0.5, 'rgba(74,184,216,0.08)');
+    rim.addColorStop(1,   'rgba(74,184,216,0)');
+    ctx.beginPath(); ctx.arc(CX, CY, EARTH_R*1.14, 0, Math.PI*2);
+    ctx.fillStyle = rim; ctx.fill();
+    ctx.restore();
+  }
+
+  // ── Main render loop ──
+  function render() {
+    t++;
+    ctx.clearRect(0, 0, W, H);
+
+    // Background
+    const bg = ctx.createRadialGradient(CX, CY, 0, CX, CY, Math.max(W, H)*0.7);
+    bg.addColorStop(0,   '#0a1525');
+    bg.addColorStop(0.5, '#050d18');
+    bg.addColorStop(1,   '#020810');
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+
+    // Stars
     stars.forEach(s => {
       const a = s.alpha * (0.5 + 0.5 * Math.sin(t * s.speed + s.phase));
       ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(200,220,255,${a})`;
-      ctx.fill();
+      ctx.arc(s.rx * W, s.ry * H, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(210,225,255,${a})`; ctx.fill();
     });
-    requestAnimationFrame(drawStars);
+
+    // Collect satellites with world positions
+    const satList = [];
+    orbits.forEach(orbit => {
+      orbit.sats.forEach(sat => {
+        sat.angle += orbit.speed;
+        const pos = orbitPoint(orbit, sat.angle);
+        satList.push({ orbit, sat, pos });
+        sat.signalTimer++;
+        if (sat.signalTimer >= sat.signalInterval) {
+          sat.signalTimer = 0;
+          launchSignal(pos.x, pos.y, orbit.color);
+        }
+      });
+    });
+
+    // Sort depth (back → front)
+    satList.sort((a, b) => a.pos.z - b.pos.z);
+
+    // Orbit rings
+    orbits.forEach(o => drawOrbitRing(o));
+
+    // Behind-earth satellites
+    satList.filter(s => s.pos.z < 0).forEach(({ orbit, pos }) =>
+      drawSat(pos.x, pos.y, pos.z, orbit.color));
+
+    // Earth
+    drawEarth();
+
+    // Signals
+    drawSignals();
+
+    // Front satellites
+    satList.filter(s => s.pos.z >= 0).forEach(({ orbit, pos }) =>
+      drawSat(pos.x, pos.y, pos.z, orbit.color));
+
+    requestAnimationFrame(render);
   }
 
-  resize();
-  initStars();
-  requestAnimationFrame(drawStars);
-  window.addEventListener('resize', () => { resize(); initStars(); });
+  earthImg.onload  = render;
+  earthImg.onerror = render;
+})();
 
-  /* ── Scroll reveal ── */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal, .news-item').forEach(el => io.observe(el));
+/* ════════════════════════════════════════════
+   NAV scroll behavior — transparent → dark
+════════════════════════════════════════════ */
+const mainNav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  mainNav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ════════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════════ */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal, .news-item').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
