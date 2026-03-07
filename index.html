@@ -616,7 +616,7 @@
   // ── Earth image (DSCOVR EPIC — fully illuminated) ──
   const earthImg = new Image();
   earthImg.crossOrigin = 'anonymous';
-  earthImg.src = 'https://eoimages.gsfc.nasa.gov/images/imagerecords/74000/74092/world.200410.3x5400x2700.jpg';
+  earthImg.src = 'https://epic.gsfc.nasa.gov/archive/natural/2025/12/08/jpg/epic_1b_20251208005516.jpg';
 
   // ── Orbits ──
   const orbits = [
@@ -959,9 +959,8 @@
     requestAnimationFrame(render);
   }
 
-  earthImg.onload  = () => {};
-	earthImg.onerror = () => {};
-	render();
+  earthImg.onload  = render;
+  earthImg.onerror = render;
 })();
 
 /* ════════════════════════════════════════════
@@ -974,4 +973,4 @@ window.addEventListener('scroll', () => {
 
 /* ════════════════════════════════════════════
    SCROLL REVEAL
-═══════════════════
+═══════════════════
