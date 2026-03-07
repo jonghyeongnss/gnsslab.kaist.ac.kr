@@ -50,22 +50,22 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 3rem;
+      display: flex; align-items: center;
+      justify-content: flex-start; gap: 3rem;
+      padding: 0 4.5rem;
       background: rgba(5,13,26,0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
     }
 
     .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
     .nav-brand-main {
       font-family: var(--display);
-      font-size: 1.55rem;
+      font-size: 2rem;
       letter-spacing: 0.06em;
       color: var(--bright);
       line-height: 1;
     }
-    .nav-brand-main span { color: var(--gold); }
+    .nav-brand-main span { color: var(--bright); }
     .nav-brand-sub {
       font-family: var(--mono);
       font-size: 0.6rem;
@@ -82,14 +82,13 @@
       padding: 0 1.2rem;
       height: 64px; line-height: 64px;
       font-family: var(--ui);
-      font-size: 0.82rem;
+      font-size: 1rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--mid);
       text-decoration: none;
       transition: color 0.2s;
-      border-left: 1px solid transparent;
     }
     .nav-links a::after {
       content: '';
@@ -102,7 +101,6 @@
     }
     .nav-links a:hover { color: var(--bright); }
     .nav-links a:hover::after { transform: scaleX(1); }
-    .nav-links li:first-child a { border-left: 1px solid var(--border); }
 
     /* ── HERO ── */
     .hero {
@@ -144,16 +142,11 @@
       animation: fadeUp 0.9s ease forwards 0.6s;
     }
     .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.4rem;
-      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.6rem;
     }
     .hero-eyebrow::before, .hero-eyebrow::after {
-      content: ''; width: 2.5rem; height: 1px; background: var(--gold); opacity: 0.6;
+      content: ''; width: 6rem; height: 1px; background: var(--gold); opacity: 0.7;
     }
 
     h1.hero-title {
@@ -165,11 +158,11 @@
       margin-bottom: 0.6rem;
       text-shadow: 0 0 60px rgba(74,184,216,0.25);
     }
-    h1.hero-title span { color: var(--cyan); }
+    h1.hero-title .hl { color: var(--cyan); }
 
     .hero-subtitle {
       font-family: var(--serif);
-      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-size: clamp(1.1rem, 2.2vw, 1.6rem);
       font-style: italic;
       color: var(--mid);
       margin-bottom: 2rem;
@@ -184,7 +177,7 @@
 
     .hero-affil {
       font-family: var(--mono);
-      font-size: 0.75rem;
+      font-size: 0.92rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--dim);
@@ -501,33 +494,78 @@
       <!-- Orbit ring 3 — polar-ish -->
       <ellipse cx="360" cy="360" rx="200" ry="280" stroke="#4ab8d8" stroke-width="0.7" opacity="0.15" fill="none" transform="rotate(20 360 360)"/>
 
-      <!-- Satellite group 1 (equatorial orbit) -->
+      <!-- Satellite group 1 (equatorial orbit) — GPS IIF style -->
       <g class="orbit-ring-1">
         <g transform="translate(600, 360)">
-          <rect x="-10" y="-4" width="20" height="8" rx="1" fill="#4ab8d8" class="sat-pulse"/>
-          <rect x="-18" y="-1.5" width="6" height="3" fill="#4ab8d8" opacity="0.6"/>
-          <rect x="12" y="-1.5" width="6" height="3" fill="#4ab8d8" opacity="0.6"/>
+          <!-- Solar panel left cells -->
+          <rect x="-30" y="-7" width="14" height="14" rx="1" fill="#1a2d5a" stroke="#4ab8d8" stroke-width="0.5"/>
+          <line x1="-25" y1="-7" x2="-25" y2="7" stroke="#4ab8d8" stroke-width="0.4" opacity="0.5"/>
+          <line x1="-20" y1="-7" x2="-20" y2="7" stroke="#4ab8d8" stroke-width="0.4" opacity="0.5"/>
+          <rect x="-30" y="-1.5" width="14" height="3" fill="#1a2d5a" opacity="0.9"/>
+          <!-- Body -->
+          <rect x="-9" y="-6" width="18" height="12" rx="2" fill="#b0bec5" class="sat-pulse"/>
+          <rect x="-7" y="-4" width="14" height="8" rx="1" fill="#90a4ae"/>
+          <line x1="-7" y1="0" x2="7" y2="0" stroke="#607d8b" stroke-width="0.5"/>
+          <!-- Solar panel right cells -->
+          <rect x="16" y="-7" width="14" height="14" rx="1" fill="#1a2d5a" stroke="#4ab8d8" stroke-width="0.5"/>
+          <line x1="21" y1="-7" x2="21" y2="7" stroke="#4ab8d8" stroke-width="0.4" opacity="0.5"/>
+          <line x1="26" y1="-7" x2="26" y2="7" stroke="#4ab8d8" stroke-width="0.4" opacity="0.5"/>
+          <rect x="16" y="-1.5" width="14" height="3" fill="#1a2d5a" opacity="0.9"/>
+          <!-- Dish antenna (bottom) -->
+          <path d="M -4 6 Q 0 12 4 6" stroke="#4ab8d8" stroke-width="1" fill="none" opacity="0.8"/>
+          <line x1="0" y1="7" x2="0" y2="11" stroke="#4ab8d8" stroke-width="0.7" opacity="0.8"/>
+          <!-- Helical antenna (top) -->
+          <line x1="0" y1="-6" x2="0" y2="-11" stroke="#c8a84b" stroke-width="0.7" opacity="0.8"/>
+          <path d="M -2 -11 Q 0 -14 2 -11" stroke="#c8a84b" stroke-width="0.8" fill="none" opacity="0.8"/>
         </g>
       </g>
 
-      <!-- Satellite group 2 (inclined orbit) -->
+      <!-- Satellite group 2 (inclined orbit) — GPS IIF gold -->
       <g transform="rotate(-35 360 360)">
         <g class="orbit-ring-2">
           <g transform="translate(620, 360)">
-            <rect x="-9" y="-4" width="18" height="7" rx="1" fill="#c8a84b" class="sat-pulse" style="animation-delay:0.8s"/>
-            <rect x="-16" y="-1.5" width="6" height="3" fill="#c8a84b" opacity="0.6"/>
-            <rect x="11" y="-1.5" width="6" height="3" fill="#c8a84b" opacity="0.6"/>
+            <!-- Solar panel left -->
+            <rect x="-28" y="-6" width="13" height="12" rx="1" fill="#1a2d5a" stroke="#c8a84b" stroke-width="0.5"/>
+            <line x1="-23" y1="-6" x2="-23" y2="6" stroke="#c8a84b" stroke-width="0.4" opacity="0.5"/>
+            <line x1="-19" y1="-6" x2="-19" y2="6" stroke="#c8a84b" stroke-width="0.4" opacity="0.5"/>
+            <rect x="-28" y="-1.5" width="13" height="3" fill="#1a2d5a" opacity="0.9"/>
+            <!-- Body -->
+            <rect x="-8" y="-5" width="16" height="10" rx="2" fill="#b0bec5" class="sat-pulse" style="animation-delay:0.8s"/>
+            <rect x="-6" y="-3.5" width="12" height="7" rx="1" fill="#90a4ae"/>
+            <line x1="-6" y1="0" x2="6" y2="0" stroke="#607d8b" stroke-width="0.5"/>
+            <!-- Solar panel right -->
+            <rect x="15" y="-6" width="13" height="12" rx="1" fill="#1a2d5a" stroke="#c8a84b" stroke-width="0.5"/>
+            <line x1="20" y1="-6" x2="20" y2="6" stroke="#c8a84b" stroke-width="0.4" opacity="0.5"/>
+            <line x1="24" y1="-6" x2="24" y2="6" stroke="#c8a84b" stroke-width="0.4" opacity="0.5"/>
+            <rect x="15" y="-1.5" width="13" height="3" fill="#1a2d5a" opacity="0.9"/>
+            <!-- Dish antenna -->
+            <path d="M -3 5 Q 0 10 3 5" stroke="#c8a84b" stroke-width="1" fill="none" opacity="0.8"/>
+            <line x1="0" y1="6" x2="0" y2="9" stroke="#c8a84b" stroke-width="0.7" opacity="0.8"/>
+            <!-- Helical antenna -->
+            <line x1="0" y1="-5" x2="0" y2="-10" stroke="#c8a84b" stroke-width="0.7" opacity="0.7"/>
+            <path d="M -2 -10 Q 0 -13 2 -10" stroke="#c8a84b" stroke-width="0.8" fill="none" opacity="0.7"/>
           </g>
         </g>
       </g>
 
-      <!-- Satellite group 3 (faster, small) -->
+      <!-- Satellite group 3 (polar, compact GPS) -->
       <g transform="rotate(20 360 360)">
         <g class="orbit-ring-3">
           <g transform="translate(560, 360)">
-            <rect x="-7" y="-3" width="14" height="6" rx="1" fill="#7dd4ec" class="sat-pulse" style="animation-delay:1.5s"/>
-            <rect x="-13" y="-1" width="5" height="2" fill="#7dd4ec" opacity="0.6"/>
-            <rect x="9" y="-1" width="5" height="2" fill="#7dd4ec" opacity="0.6"/>
+            <!-- Solar panel left -->
+            <rect x="-22" y="-5" width="10" height="10" rx="1" fill="#1a2d5a" stroke="#7dd4ec" stroke-width="0.5"/>
+            <line x1="-18" y1="-5" x2="-18" y2="5" stroke="#7dd4ec" stroke-width="0.4" opacity="0.5"/>
+            <rect x="-22" y="-1" width="10" height="2" fill="#1a2d5a" opacity="0.9"/>
+            <!-- Body -->
+            <rect x="-7" y="-4" width="14" height="8" rx="2" fill="#b0bec5" class="sat-pulse" style="animation-delay:1.5s"/>
+            <rect x="-5" y="-2.5" width="10" height="5" rx="1" fill="#90a4ae"/>
+            <!-- Solar panel right -->
+            <rect x="12" y="-5" width="10" height="10" rx="1" fill="#1a2d5a" stroke="#7dd4ec" stroke-width="0.5"/>
+            <line x1="16" y1="-5" x2="16" y2="5" stroke="#7dd4ec" stroke-width="0.4" opacity="0.5"/>
+            <rect x="12" y="-1" width="10" height="2" fill="#1a2d5a" opacity="0.9"/>
+            <!-- Dish -->
+            <path d="M -2 4 Q 0 8 2 4" stroke="#7dd4ec" stroke-width="0.8" fill="none" opacity="0.7"/>
+            <line x1="0" y1="5" x2="0" y2="8" stroke="#7dd4ec" stroke-width="0.6" opacity="0.7"/>
           </g>
         </g>
       </g>
@@ -540,8 +578,8 @@
 
   <!-- Text content -->
   <div class="hero-content">
-    <div class="hero-eyebrow">KAIST · Aerospace Engineering</div>
-    <h1 class="hero-title">Global Navigation<br><span>Satellite System</span> Lab</h1>
+    <div class="hero-eyebrow"></div>
+    <h1 class="hero-title"><span class="hl">G</span>lobal <span class="hl">N</span>avigation<br><span class="hl">S</span>atellite <span class="hl">S</span>ystem Lab</h1>
     <div class="hero-divider"></div>
     <div class="hero-affil">
       <strong>Korea Advanced Institute of Science and Technology</strong><br>
@@ -694,7 +732,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#ec8b829f9f808d8eac878d859f98c28d8fc2879e"><span class="__cf_email__" data-cfemail="ed8a839e9e818c8fad868c849e99c38c8ec3869f">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">🔗</span>
@@ -702,7 +740,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#553f3c2c203b393030153e343c26217b34367b3e27"><span class="__cf_email__" data-cfemail="0e6467777b60626b6b4e656f677d7a206f6d20657c">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -714,7 +752,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ── Starfield ── */
   const canvas = document.getElementById('stars-canvas');
   const ctx = canvas.getContext('2d');
@@ -755,15 +793,4 @@
   resize();
   initStars();
   requestAnimationFrame(drawStars);
-  window.addEventListener('resize', () => { resize(); initStars(); });
-
-  /* ── Scroll reveal ── */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal, .news-item').forEach(el => io.observe(el));
-</script>
-</body>
-</html>
+  window.addEventListener('resize', () => { resize();
