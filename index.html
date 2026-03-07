@@ -208,34 +208,56 @@
     .view-all-btn:hover { background: var(--cyan); color: var(--navy); border-color: var(--cyan); }
 
     .research-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .res-card {
-      background: var(--panel);
-      padding: 2.4rem 2rem;
-      position: relative; overflow: hidden;
-      transition: background 0.25s;
-      cursor: default; text-decoration: none; display: block; color: inherit;
-    }
-    .res-card::before {
-      content: '';
-      position: absolute; top:0; left:0; right:0; height:2px;
-      background: linear-gradient(to right, var(--gold), var(--cyan));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-    .res-card:hover { background: var(--navy3); }
-    .res-card:hover::before { transform: scaleX(1); }
-    .res-card-num { font-family: var(--mono); font-size: 0.62rem; color: var(--dim); letter-spacing: 0.1em; margin-bottom: 1.4rem; }
-    .res-card-icon { font-size: 1.6rem; margin-bottom: 1rem; filter: grayscale(0.3); }
-    .res-card-title { font-family: var(--ui); font-size: 1.12rem; font-weight: 600; color: var(--bright); margin-bottom: 0.8rem; line-height: 1.3; letter-spacing: 0.02em; }
-    .res-card-desc { font-size: 0.9rem; color: var(--mid); line-height: 1.78; }
-    .res-card-arrow { position: absolute; bottom: 1.6rem; right: 1.6rem; font-family: var(--mono); font-size: 0.7rem; color: var(--dim); transition: color 0.2s, transform 0.2s; }
-    .res-card:hover .res-card-arrow { color: var(--cyan); transform: translateX(4px); }
+	  display: grid;
+	  grid-template-columns: repeat(3, 1fr);
+	  gap: 3px;
+	  height: 480px;   
+	}
+	.res-card {
+	  position: relative;
+	  overflow: hidden;
+	  text-decoration: none;
+	  display: block;
+	  color: inherit;
+	  cursor: pointer;
+	}
+
+	.res-card-bg {
+	  position: absolute; inset: 0;
+	  background-size: cover;
+	  background-position: center;
+	  transition: transform 0.5s ease;
+	}
+	.res-card:hover .res-card-bg {
+	  transform: scale(1.08);
+	}
+
+	.res-card::before {
+	  content: '';
+	  position: absolute; inset: 0; z-index: 1;
+	  background: linear-gradient(to top, rgba(2,8,16,0.85) 40%, rgba(2,8,16,0.3) 100%);
+	  transition: background 0.4s ease;
+	}
+	.res-card:hover::before {
+	  background: linear-gradient(to top, rgba(2,8,16,0.7) 30%, rgba(2,8,16,0.1) 100%);
+	}
+
+	.res-card-body {
+	  position: absolute; bottom: 0; left: 0; right: 0;
+	  z-index: 2;
+	  padding: 2rem;
+	  transform: translateY(0);
+	  transition: transform 0.4s ease;
+	}
+	.res-card:hover .res-card-body {
+	  transform: translateY(-8px);
+	}
+	.res-card-num { font-family: var(--mono); font-size: 0.62rem; color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+	.res-card-title { font-family: var(--display); font-size: 1.6rem; color: var(--bright); margin-bottom: 0.6rem; line-height: 1.2; letter-spacing: 0.04em; }
+	.res-card-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.7; opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.4s ease, max-height 0.4s ease; }
+	.res-card:hover .res-card-desc { opacity: 1; max-height: 6rem; }
+	.res-card-arrow { font-family: var(--mono); font-size: 0.7rem; color: var(--cyan); margin-top: 0.8rem; display: block; opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease; }
+	.res-card:hover .res-card-arrow { opacity: 1; transform: translateX(4px); }
 
     .news-section { background: var(--navy); padding: 6rem 5rem; }
     .news-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
@@ -358,6 +380,7 @@
         <ellipse cx="455" cy="410" rx="22" ry="16" fill="#1a7a4a"/>
       </g>
 
+
       <!-- 궤도선 — orbit-path와 동일한 타원/기울기 -->
       <ellipse cx="360" cy="360" rx="240" ry="60" stroke="#4ab8d8" stroke-width="1.2" opacity="0.45" fill="none"/>
       <ellipse cx="360" cy="360" rx="260" ry="80" stroke="#c8a84b" stroke-width="1.2" opacity="0.4" fill="none" transform="rotate(-35 360 360)"/>
@@ -457,27 +480,37 @@
     <a href="research.html" class="view-all-btn reveal">View All Research &rarr;</a>
   </div>
   <div class="research-grid">
-    <a href="research.html#ro" class="res-card reveal">
-      <p class="res-card-num">01</p>
-      <div class="res-card-icon">🌐</div>
-      <h3 class="res-card-title">GNSS Radio Occultation</h3>
-      <p class="res-card-desc">Retrieving atmospheric profiles from bending angle measurements using phase matching, Abel inversion, and wavelet-based signal processing for the lower troposphere.</p>
-      <span class="res-card-arrow">&rarr;</span>
+
+	<a href="research.html#integrity" class="res-card reveal">
+	  <div class="res-card-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg');"></div>
+	  <div class="res-card-body">
+		<p class="res-card-num">01</p>
+		<h3 class="res-card-title">GNSS Integrity</h3>
+		<p class="res-card-desc">Developing integrity monitoring and fault detection algorithms to ensure the safety and reliability of GNSS-based navigation for aviation and critical applications.</p>
+		<span class="res-card-arrow">&rarr;</span>
+	  </div>
+	</a>
+
+    <a href="research.html#leo" class="res-card reveal reveal-d1">
+      <div class="res-card-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/ISS_above_the_Pacific_Ocean.jpg/1280px-ISS_above_the_Pacific_Ocean.jpg');"></div>
+      <div class="res-card-body">
+        <p class="res-card-num">02</p>
+        <h3 class="res-card-title">LEO PNT</h3>
+        <p class="res-card-desc">Leveraging Low Earth Orbit satellite signals for positioning, navigation, and timing — enabling resilient alternatives to traditional GNSS in challenging environments.</p>
+        <span class="res-card-arrow">&rarr;</span>
+      </div>
     </a>
-    <a href="research.html#positioning" class="res-card reveal reveal-d1">
-      <p class="res-card-num">02</p>
-      <div class="res-card-icon">📡</div>
-      <h3 class="res-card-title">Satellite Navigation & Positioning</h3>
-      <p class="res-card-desc">Developing integrity monitoring, error correction, and positioning algorithms for GPS, GLONASS, Galileo, and the Korean Positioning System (KPS).</p>
-      <span class="res-card-arrow">&rarr;</span>
+
+    <a href="research.html#remote-sensing" class="res-card reveal reveal-d2">
+      <div class="res-card-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_Eastern_Hemisphere.jpg/1024px-Earth_Eastern_Hemisphere.jpg');"></div>
+      <div class="res-card-body">
+        <p class="res-card-num">03</p>
+        <h3 class="res-card-title">Remote Sensing</h3>
+        <p class="res-card-desc">Using GNSS radio occultation and reflectometry to retrieve atmospheric and surface parameters — from tropospheric bending angles to soil moisture and sea surface height.</p>
+        <span class="res-card-arrow">&rarr;</span>
+      </div>
     </a>
-    <a href="research.html#ionosphere" class="res-card reveal reveal-d2">
-      <p class="res-card-num">03</p>
-      <div class="res-card-icon">⚡</div>
-      <h3 class="res-card-title">Ionospheric Modeling</h3>
-      <p class="res-card-desc">Characterizing and correcting ionospheric delays for single- and dual-frequency GNSS receivers, with applications to aviation safety and precision navigation.</p>
-      <span class="res-card-arrow">&rarr;</span>
-    </a>
+
   </div>
 </section>
 
