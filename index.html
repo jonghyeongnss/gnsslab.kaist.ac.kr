@@ -51,9 +51,8 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 64px;
       display: flex; align-items: flex-end; justify-content: flex-start;
-	  padding-bottom: 10px;
 	  gap: 5rem;
-      padding: 20px 3rem 0;
+      padding: 30px 3rem 0;
       background: rgba(5,13,26,0.92);
       backdrop-filter: blur(8px);
 	  background: transparent;
@@ -157,8 +156,9 @@
 	  margin-bottom: 1.6rem;
 	  display: flex; align-items: center; justify-content: center;
 	}
-	.hero-eyebrow::before, .hero-eyebrow::after {
-	  content: ''; width: 6rem; height: 1px; background: var(--gold); opacity: 0.7;
+	.hero-eyebrow::before{ display: none; }
+	.hero-eyebrow::after {
+	  content: ''; width: 10rem; height: 1px; background: var(--gold); opacity: 0.7;
 	}
 
     h1.hero-title {
@@ -174,7 +174,7 @@
 
     .hero-subtitle {
       font-family: var(--serif);
-      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
       font-style: italic;
       color: var(--mid);
       margin-bottom: 2rem;
