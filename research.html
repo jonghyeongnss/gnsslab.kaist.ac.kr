@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research · GNSS Lab KAIST</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:    #050d1a;
+      --navy2:   #091628;
+      --navy3:   #0e2040;
+      --panel:   #0a1929;
+      --border:  #1a3050;
+      --border2: #243d60;
+      --gold:    #c8a84b;
+      --gold2:   #e8c96a;
+      --cyan:    #3EC1D3;
+      --cyan2:   #45E0FF;
+      --bright:  #F5F7FA;
+      --dim:     #5a7898;
+      --mid:     #9FB3C8;
+      --serif:   'Crimson Pro', Georgia, serif;
+      --display: 'Bebas Neue', sans-serif;
+      --ui:      'Rajdhani', sans-serif;
+      --mono:    'DM Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #F5F7FA;
+      color: #1c2b3a;
+      font-family: var(--ui);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center; justify-content: flex-start;
+      gap: 5rem; padding: 1rem 3rem 0;
+      background: rgba(245,247,250,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #d0dce8;
+    }
+    .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
+    .nav-brand-main { font-family: var(--display); font-size: 2.5rem; letter-spacing: 0.06em; color: #0e1e2e; line-height: 1; }
+    .nav-brand-main span { color: var(--cyan); }
+    .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
+    .nav-links li { position: relative; }
+    .nav-links a {
+      display: block; padding: 0 1.2rem;
+      font-family: var(--ui); font-size: 1.3rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #5a7898; text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a.active { color: var(--cyan); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 1.2rem; right: 1.2rem;
+      height: 2px; background: var(--gold);
+      transform: scaleX(0); transition: transform 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+
+    .has-dropdown { position: relative; }
+    .dropdown {
+      position: absolute; top: 100%; left: 0;
+      background: rgba(245,247,250,0.98);
+      backdrop-filter: blur(12px);
+      border: 1px solid #d0dce8;
+      min-width: 140px; list-style: none;
+      opacity: 0; pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 200;
+    }
+    .has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown a {
+      display: block; padding: 0.6rem 1.2rem;
+      font-size: 0.8rem !important; font-weight: 400 !important;
+      color: #5a7898 !important;
+      border-bottom: 1px solid #e4edf5;
+      letter-spacing: 0.08em;
+    }
+    .dropdown li:last-child a { border-bottom: none; }
+    .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
+    .dropdown a::after { display: none !important; }
+
+    /* PAGE HEADER */
+    .page-header {
+      position: relative; z-index: 1;
+      padding: 9rem 5rem 4rem;
+      border-bottom: 1px solid #d0dce8;
+    }
+    .page-header-eyebrow {
+      font-family: var(--mono); font-size: 2.0rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .page-header-eyebrow::before { content:''; width:2rem; height:1px; background:var(--gold); }
+    .page-header h1 {
+      font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem);
+      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .page-header-desc {
+      font-size: 2.0rem; color: #5a7898; max-width: 60ch;
+      font-family: var(--serif); font-style: italic;
+    }
+
+    /* AREA NAV — 세 분야 빠른 이동 */
+    .area-nav {
+      position: sticky; top: 64px; z-index: 50;
+      background: rgba(245,247,250,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #d0dce8;
+      padding: 0 5rem;
+      display: flex; gap: 0;
+    }
+    .area-nav a {
+      font-family: var(--mono); font-size: 1.2rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #8aaac8; text-decoration: none;
+      padding: 1rem 1.5rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .area-nav a:hover { color: #1c2b3a; border-bottom-color: var(--gold); }
+    .area-nav a.active { color: var(--cyan); border-bottom-color: var(--cyan); }
+
+    /* RESEARCH SECTION */
+    .research-area {
+      padding: 6rem 5rem;
+      border-bottom: 1px solid #e4edf5;
+    }
+    .research-area:last-of-type { border-bottom: none; }
+
+    /* 번호 + 제목 헤더 */
+    .area-header {
+      display: flex; align-items: flex-start; gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .area-num {
+      font-family: var(--display); font-size: 7rem;
+      color: #d0dce8; line-height: 1; user-select: none;
+      flex-shrink: 0; margin-top: -0.5rem;
+    }
+    .area-header-text {}
+    .area-eyebrow {
+      font-family: var(--mono); font-size: 2.0rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.4rem;
+    }
+    .area-title {
+      font-family: var(--display); font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+    .area-subtitle {
+      font-size: 2.0rem; color: #5a7898;
+      font-family: var(--serif); font-style: italic;
+    }
+
+    /* 본문 레이아웃 */
+    .area-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .area-desc {
+      font-family: var(--serif); font-size: 2.0rem;
+      color: #2a3a4a; line-height: 1.9;
+    }
+    .area-desc p + p { margin-top: 1.2rem; }
+
+    /* 토픽 태그 */
+    .area-topics { display: flex; flex-direction: column; gap: 1.5rem; }
+    .topics-label {
+      font-family: var(--mono); font-size: 1.3rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.8rem;
+    }
+    .topic-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .topic-tag {
+      font-family: var(--mono); font-size: 1.2rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid #c0d0e0;
+      color: #5a7898;
+      background: #fff;
+    }
+
+    /* 관련 논문 */
+    .related-pubs {}
+    .related-pubs-label {
+      font-family: var(--mono); font-size: 1.3rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+    .pub-item {
+      padding: 1rem 0;
+      border-top: 1px solid #e4edf5;
+    }
+    .pub-item:last-child { border-bottom: 1px solid #e4edf5; }
+    .pub-title {
+      font-size: 1.4rem; font-weight: 500;
+      color: #1c2b3a; line-height: 1.4; margin-bottom: 0.2rem;
+    }
+    .pub-venue {
+      font-family: var(--mono); font-size: 1.0rem;
+      color: #8aaac8; letter-spacing: 0.04em;
+    }
+
+    /* 배경 이미지 배너 */
+    .area-banner {
+      width: 100%; height: 280px;
+      background-size: cover; background-position: center;
+      margin-bottom: 3.5rem;
+      position: relative; overflow: hidden;
+    }
+    .area-banner::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(245,247,250,0.7) 0%, rgba(245,247,250,0) 60%);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0e1e2e;
+      border-top: 1px solid #1a3050;
+      padding: 4rem 5rem 2.5rem;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 3rem; padding-bottom: 3rem;
+      border-bottom: 1px solid #1a3050; margin-bottom: 2rem;
+    }
+    .footer-brand-name { font-family: var(--display); font-size: 1.4rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-sub { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-col-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: 0.86rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--bright); }
+    .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
+    .footer-info-icon { font-size: 0.9rem; opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
+    .footer-info-text { font-size: 0.82rem; color: var(--dim); line-height: 1.6; }
+    .footer-info-text a { color: var(--cyan); text-decoration: none; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom span { font-family: var(--mono); font-size: 0.62rem; color: var(--dim); letter-spacing: 0.05em; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .reveal { opacity:0; transform:translateY(18px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+
+    @media (max-width: 960px) {
+      .page-header, .research-area, .area-nav, footer { padding-left: 2rem; padding-right: 2rem; }
+      .area-body { grid-template-columns: 1fr; gap: 2.5rem; }
+      .area-nav { padding-left: 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .area-header { flex-direction: column; gap: 0.5rem; }
+      .area-num { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-brand-main"><span>GNSS</span> KAIST</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="news.html">News</a></li>
+    <li class="has-dropdown">
+      <a href="people.html">People</a>
+      <ul class="dropdown">
+        <li><a href="people.html#professor">Professor</a></li>
+        <li><a href="people.html#students">Students</a></li>
+        <li><a href="people.html#staff">Staff</a></li>
+      </ul>
+    </li>
+    <li><a href="research.html" class="active">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-eyebrow">GNSS Lab · KAIST</div>
+  <h1>Research</h1>
+  <p class="page-header-desc">We develop algorithms and systems at the intersection of GNSS signal processing, atmospheric remote sensing, and satellite navigation.</p>
+</div>
+
+<div class="area-nav">
+  <a href="#integrity" class="active">GNSS Integrity</a>
+  <a href="#leo">LEO PNT</a>
+  <a href="#remote-sensing">Remote Sensing</a>
+</div>
+
+<!-- ─── 01 GNSS INTEGRITY ─────────────────────────────────────── -->
+<section class="research-area" id="integrity">
+
+  <div class="area-banner reveal" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg');"></div>
+
+  <div class="area-header reveal">
+    <div class="area-num">01</div>
+    <div class="area-header-text">
+      <p class="area-eyebrow">Research Area</p>
+      <h2 class="area-title">GNSS Integrity</h2>
+      <p class="area-subtitle">Ensuring the safety and reliability of satellite-based navigation</p>
+    </div>
+  </div>
+
+  <div class="area-body">
+    <div class="area-desc reveal">
+      <p>
+        GNSS integrity refers to the ability of a navigation system to provide timely warnings
+        when it should not be used for navigation. Our research develops fault detection and
+        exclusion algorithms, protection level computation, and integrity monitoring frameworks
+        for safety-critical applications including aviation, autonomous vehicles, and maritime navigation.
+      </p>
+      <p>
+        We work closely with standards bodies such as ICAO and RTCA to develop advanced RAIM
+        (Receiver Autonomous Integrity Monitoring) algorithms and satellite-based augmentation
+        system (SBAS) architectures tailored for the Korean airspace and the Korean Positioning System (KPS).
+      </p>
+      <p>
+        Our current focus includes advanced ARAIM (Advanced RAIM) for dual-frequency
+        multi-constellation operations, integrity risk allocation under correlated fault modes,
+        and real-time integrity monitoring for urban air mobility applications.
+      </p>
+    </div>
+
+    <div class="reveal reveal-d1">
+      <div class="area-topics">
+        <p class="topics-label">Key Topics</p>
+        <div class="topic-list">
+          <span class="topic-tag">RAIM / ARAIM</span>
+          <span class="topic-tag">SBAS</span>
+          <span class="topic-tag">Fault Detection</span>
+          <span class="topic-tag">Protection Level</span>
+          <span class="topic-tag">KPS Integrity</span>
+          <span class="topic-tag">Aviation Navigation</span>
+          <span class="topic-tag">Urban Air Mobility</span>
+          <span class="topic-tag">Multi-Constellation</span>
+        </div>
+      </div>
+
+      <div class="related-pubs" style="margin-top: 2rem;">
+        <p class="related-pubs-label">Selected Publications</p>
+        <div class="pub-item">
+          <p class="pub-title">Advanced RAIM for Dual-Frequency Multi-Constellation GNSS</p>
+          <p class="pub-venue">ION GNSS+ · 2024</p>
+        </div>
+        <div class="pub-item">
+          <p class="pub-title">Integrity Monitoring for KPS with NeQuick-G Ionospheric Model</p>
+          <p class="pub-venue">Journal of Positioning, Navigation, and Timing · 2023</p>
+        </div>
+        <div class="pub-item">
+          <p class="pub-title">Protection Level Computation under Correlated Fault Modes</p>
+          <p class="pub-venue">ION GNSS+ · 2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 02 LEO PNT ───────────────────────────────────────────── -->
+<section class="research-area" id="leo">
+
+  <div class="area-banner reveal" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/ISS_above_the_Pacific_Ocean.jpg/1280px-ISS_above_the_Pacific_Ocean.jpg');"></div>
+
+  <div class="area-header reveal">
+    <div class="area-num">02</div>
+    <div class="area-header-text">
+      <p class="area-eyebrow">Research Area</p>
+      <h2 class="area-title">LEO PNT</h2>
+      <p class="area-subtitle">Leveraging Low Earth Orbit satellites for resilient positioning</p>
+    </div>
+  </div>
+
+  <div class="area-body">
+    <div class="area-desc reveal">
+      <p>
+        Low Earth Orbit (LEO) satellite constellations offer significant advantages for
+        positioning, navigation, and timing (PNT) due to their stronger signal power,
+        faster geometry change, and lower propagation delays compared to traditional
+        GNSS in medium Earth orbit.
+      </p>
+      <p>
+        Our research investigates the use of LEO signals — including both dedicated PNT
+        payloads and signals of opportunity from broadband constellations such as Starlink
+        and OneWeb — for standalone positioning and as supplements to traditional GNSS
+        in environments where GNSS is degraded or unavailable.
+      </p>
+      <p>
+        Key research topics include Doppler-based positioning from LEO signals, clock
+        and orbit estimation for LEO satellites, and integrity monitoring frameworks
+        for LEO-augmented navigation systems.
+      </p>
+    </div>
+
+    <div class="reveal reveal-d1">
+      <div class="area-topics">
+        <p class="topics-label">Key Topics</p>
+        <div class="topic-list">
+          <span class="topic-tag">LEO Constellations</span>
+          <span class="topic-tag">Signals of Opportunity</span>
+          <span class="topic-tag">Doppler Positioning</span>
+          <span class="topic-tag">Starlink / OneWeb</span>
+          <span class="topic-tag">Clock Estimation</span>
+          <span class="topic-tag">Orbit Determination</span>
+          <span class="topic-tag">GNSS Augmentation</span>
+          <span class="topic-tag">Resilient PNT</span>
+        </div>
+      </div>
+
+      <div class="related-pubs" style="margin-top: 2rem;">
+        <p class="related-pubs-label">Selected Publications</p>
+        <div class="pub-item">
+          <p class="pub-title">Doppler-Based Positioning Using LEO Broadband Constellation Signals</p>
+          <p class="pub-venue">ION GNSS+ · 2024</p>
+        </div>
+        <div class="pub-item">
+          <p class="pub-title">LEO Clock and Orbit Estimation for PNT Applications</p>
+          <p class="pub-venue">NAVIGATION · 2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 03 REMOTE SENSING ────────────────────────────────────── -->
+<section class="research-area" id="remote-sensing">
+
+  <div class="area-banner reveal" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_Eastern_Hemisphere.jpg/1024px-Earth_Eastern_Hemisphere.jpg');"></div>
+
+  <div class="area-header reveal">
+    <div class="area-num">03</div>
+    <div class="area-header-text">
+      <p class="area-eyebrow">Research Area</p>
+      <h2 class="area-title">Remote Sensing</h2>
+      <p class="area-subtitle">Probing the atmosphere and Earth surface with GNSS signals</p>
+    </div>
+  </div>
+
+  <div class="area-body">
+    <div class="area-desc reveal">
+      <p>
+        GNSS Radio Occultation (RO) is a remote sensing technique that uses GPS and other
+        GNSS signals passing through the Earth's atmosphere to retrieve profiles of
+        temperature, pressure, and water vapor with high vertical resolution and global coverage.
+      </p>
+      <p>
+        Our research focuses on improving RO retrieval algorithms for the lower troposphere,
+        where multipath propagation and super-refraction cause significant challenges.
+        We develop wavelet-based signal processing methods — including the Wavelet-Transform
+        Phase Matching (WTPM) algorithm and Local Spectral Width (LSW) multipath detector —
+        applied to COSMIC-2 and future RO mission data.
+      </p>
+      <p>
+        We also investigate GNSS Reflectometry (GNSS-R) for surface remote sensing,
+        including soil moisture estimation, sea surface height retrieval, and
+        vegetation monitoring using signals reflected from the Earth's surface.
+      </p>
+    </div>
+
+    <div class="reveal reveal-d1">
+      <div class="area-topics">
+        <p class="topics-label">Key Topics</p>
+        <div class="topic-list">
+          <span class="topic-tag">GNSS Radio Occultation</span>
+          <span class="topic-tag">COSMIC-2</span>
+          <span class="topic-tag">Phase Matching</span>
+          <span class="topic-tag">Wavelet Transform</span>
+          <span class="topic-tag">Bending Angle</span>
+          <span class="topic-tag">Lower Troposphere</span>
+          <span class="topic-tag">GNSS-R</span>
+          <span class="topic-tag">Abel Inversion</span>
+          <span class="topic-tag">LSW Algorithm</span>
+          <span class="topic-tag">Multipath Detection</span>
+        </div>
+      </div>
+
+      <div class="related-pubs" style="margin-top: 2rem;">
+        <p class="related-pubs-label">Selected Publications</p>
+        <div class="pub-item">
+          <p class="pub-title">Wavelet-Transform Phase Matching for Lower Troposphere RO</p>
+          <p class="pub-venue">Journal of Geophysical Research · Atmospheres · 2025</p>
+        </div>
+        <div class="pub-item">
+          <p class="pub-title">LSW Algorithm — Local Spectral Width for Multipath Detection</p>
+          <p class="pub-venue">GPS Solutions · Springer · 2024</p>
+        </div>
+        <div class="pub-item">
+          <p class="pub-title">Synchrosqueezed Wavelet Transform for GNSS RO Signal Processing</p>
+          <p class="pub-venue">ION GNSS+ · 2024</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">GNSS <span>KAIST</span></div>
+      <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Quick Links</p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Research</p>
+      <ul>
+        <li><a href="#integrity">GNSS Integrity</a></li>
+        <li><a href="#leo">LEO PNT</a></li>
+        <li><a href="#remote-sensing">Remote Sensing</a></li>
+        <li><a href="publications.html">Publications</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Contact & Location</p>
+      <div class="footer-info">
+        <div class="footer-info-row">
+          <span class="footer-info-icon">📍</span>
+          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">✉️</span>
+          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">👤</span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Area nav active state on scroll
+  const sections = document.querySelectorAll('.research-area');
+  const navLinks = document.querySelectorAll('.area-nav a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.area-nav a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
