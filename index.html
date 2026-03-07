@@ -16,12 +16,12 @@
       --border2: #243d60;
       --gold:    #c8a84b;
       --gold2:   #e8c96a;
-      --cyan:    #4ab8d8;
-      --cyan2:   #7dd4ec;
+      --cyan:    #3EC1D3;
+      --cyan2:   #45E0FF;
       --text:    #c8d8e8;
-      --bright:  #eaf2fc;
+      --bright:  #F5F7FA;
       --dim:     #5a7898;
-      --mid:     #8aaac8;
+      --mid:     #9FB3C8;
       --serif:   'Crimson Pro', Georgia, serif;
       --display: 'Bebas Neue', sans-serif;
       --ui:      'Rajdhani', sans-serif;
@@ -31,7 +31,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background: #020810;
+      background: #020B16;
       color: var(--text);
       font-family: var(--ui);
       font-weight: 300;
@@ -96,7 +96,7 @@
       transform: scaleX(0);
       transition: transform 0.25s ease;
     }
-    .nav-links a:hover { color: var(--bright); }
+    .nav-links a:hover { color: var(--cyan); }
     .nav-links a:hover::after { transform: scaleX(1); }
 
     .hero {
@@ -134,7 +134,7 @@
       color: var(--bright);
       line-height: 1.05;
       margin-bottom: 0.6rem;
-      text-shadow: 0 0 60px rgba(74,184,216,0.25);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8), 0 0 40px rgba(62,193,211,0.3);
     }
     h1.hero-title span { color: var(--cyan); }
 
@@ -158,10 +158,10 @@
       font-size: 1.1rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--dim);
+      color: var(--mid);
       line-height: 1.9;
     }
-    .hero-affil strong { color: var(--mid); font-weight: 400; }
+    .hero-affil strong { color: var(--bright); font-weight: 400; }
 
     .hero-scroll {
       position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
