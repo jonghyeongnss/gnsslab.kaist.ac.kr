@@ -141,14 +141,14 @@
       max-width: 860px;
     }
     .professor-photo {
-      width: 200px; height: 240px; flex-shrink: 0;
+      width: 260px; height: auto; flex-shrink: 0;
       object-fit: cover;
       background: #dce8f0;
       display: flex; align-items: center; justify-content: center;
       color: #8aaac8; font-family: var(--mono); font-size: 2.0rem;
       letter-spacing: 0.1em;
     }
-    .professor-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .professor-photo img { width: 100%; height: auto; display: block; }
     .professor-info { padding-top: 0.5rem; }
     .professor-name {
       font-family: var(--display); font-size: 4.0rem;
@@ -304,12 +304,11 @@
 
 <!-- PROFESSOR -->
 <section class="people-section" id="professor">
-  <p class="section-label reveal">Faculty</p>
   <h2 class="section-title reveal">Professor</h2>
 
   <div class="professor-card reveal">
     <div class="professor-photo">
-      <!-- 사진 추가 시: <img src="images/jiyunlee.jpg" alt="Prof. Jiyun Lee"> -->
+      <img src="images/jiyunlee.jpg" alt="Prof. Jiyun Lee">
       PHOTO
     </div>
     <div class="professor-info">
@@ -333,7 +332,6 @@
 
 <!-- STUDENTS -->
 <section class="people-section" id="students">
-  <p class="section-label reveal">Graduate Researchers</p>
   <h2 class="section-title reveal">Students</h2>
 
   <div class="people-grid">
@@ -403,7 +401,6 @@
 
 <!-- STAFF -->
 <section class="people-section" id="staff">
-  <p class="section-label reveal">Lab Staff</p>
   <h2 class="section-title reveal">Staff</h2>
 
   <div class="people-grid">
