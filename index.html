@@ -48,8 +48,7 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 64px;
-      display: flex; align-items: center; justify-content: flex-start;
-      gap: 5rem;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 3rem 3rem 0;
       background: transparent;
       backdrop-filter: none;
@@ -65,7 +64,7 @@
     .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
     .nav-brand-main {
       font-family: var(--display);
-      font-size: 2.5rem;
+      font-size: clamp(1.4rem, 2.5vw, 2.5rem);
       letter-spacing: 0.06em;
       color: var(--bright);
       line-height: 1;
@@ -311,14 +310,14 @@
     .footer-brand-name { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
     .footer-brand-name span { color: var(--gold); }
     .footer-brand-sub { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-bottom: 1.4rem; }
-    .footer-col-title { font-family: var(--mono); font-size: 1.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col-title { font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 1.1rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-col ul a { font-size: 1.5rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a { font-size: clamp(0.78rem, 1.2vw, 1.2rem); color: var(--dim); text-decoration: none; transition: color 0.2s; }
     .footer-col ul a:hover { color: var(--bright); }
     .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
     .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
-    .footer-info-icon { font-size: 1.5rem; opacity: 0.6; flex-shrink: 0; margin-top: 1px; }
-    .footer-info-text { font-size: 1.5rem; color: var(--dim); line-height: 1.6; }
+    .footer-info-icon { font-size: clamp(0.85rem, 1.3vw, 1.3rem); opacity: 0.6; flex-shrink: 0; margin-top: 1px; }
+    .footer-info-text { font-size: clamp(0.78rem, 1.2vw, 1.2rem); color: var(--dim); line-height: 1.6; }
     .footer-info-text a { color: var(--cyan); text-decoration: none; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
     .footer-bottom span { font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 1.1rem); color: var(--dim); letter-spacing: 0.05em; }
@@ -335,8 +334,10 @@
       .research-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .research-section, .news-section, footer { padding-left: 2rem; padding-right: 2rem; }
-      nav { padding: 0 1.5rem; }
-      .nav-links a { padding: 0 0.7rem; font-size: 0.72rem; }
+      nav { padding: 0 1rem; height: auto; min-height: 64px; flex-wrap: nowrap; align-items: center; }
+      .nav-brand-main { font-size: clamp(1.2rem, 4vw, 1.8rem); white-space: nowrap; }
+      .nav-links { flex-shrink: 1; overflow: hidden; }
+      .nav-links a { padding: 0 0.5rem; font-size: 0.72rem; }
       .news-item { grid-template-columns: 90px 1fr; }
       .news-tag, .news-link { display: none; }
     }
