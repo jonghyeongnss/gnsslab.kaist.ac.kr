@@ -820,6 +820,8 @@ resize();
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  render();
+
   // ── Mobile drawer ──
   const hamburger = document.getElementById('nav-hamburger');
   const drawer    = document.getElementById('nav-drawer');
