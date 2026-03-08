@@ -11,7 +11,7 @@
       --gold:    #c8a84b;
       --cyan:    #3EC1D3;
       --bright:  #F5F7FA;
-      --dim:     #3d5a78;
+      --dim:     #5a7898;
       --serif:   'Crimson Pro', Georgia, serif;
       --display: 'Bebas Neue', sans-serif;
       --ui:      'Rajdhani', sans-serif;
@@ -28,7 +28,7 @@
     .nav-brand-main span { color: var(--cyan); }
     .nav-links { display: flex; list-style: none; align-items: center; }
     .nav-links li { position: relative; }
-    .nav-links a { display: block; padding: 0 1.2rem; font-family: var(--ui); font-size: 1.3rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #3d5a78; text-decoration: none; transition: color 0.2s; }
+    .nav-links a { display: block; padding: 0 1.2rem; font-family: var(--ui); font-size: 1.3rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #5a7898; text-decoration: none; transition: color 0.2s; }
     .nav-links a.active { color: var(--cyan); }
     .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 1.2rem; right: 1.2rem; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s ease; }
     .nav-links a:hover { color: var(--cyan); }
@@ -36,7 +36,7 @@
     .has-dropdown { position: relative; }
     .dropdown { position: absolute; top: 100%; left: 0; background: rgba(245,247,250,0.98); backdrop-filter: blur(12px); border: 1px solid #d0dce8; min-width: 140px; list-style: none; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s ease, transform 0.2s ease; z-index: 200; }
     .has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
-    .dropdown a { display: block; padding: 0.6rem 1.2rem; font-size: 1.1rem !important; font-weight: 600 !important; color: #3d5a78 !important; border-bottom: 1px solid #e4edf5; letter-spacing: 0.08em; }
+    .dropdown a { display: block; padding: 0.6rem 1.2rem; font-size: 1.1rem !important; font-weight: 600 !important; color: #5a7898 !important; border-bottom: 1px solid #e4edf5; letter-spacing: 0.08em; }
     .dropdown li:last-child a { border-bottom: none; }
     .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
     .dropdown a::after { display: none !important; }
@@ -46,7 +46,7 @@
     .page-header-eyebrow { font-family: var(--mono); font-size: 2.0rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
     .page-header-eyebrow::before { content:''; width:2rem; height:1px; background:var(--gold); }
     .page-header h1 { font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem); letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem; }
-    .page-header-desc { font-family: var(--serif); font-style: italic; font-size: 2.0rem; color: #3d5a78; max-width: 52ch; }
+    .page-header-desc { font-family: var(--serif); font-style: italic; font-size: 2.0rem; color: #5a7898; max-width: 52ch; }
 
     /* ── MASONRY GRID ── */
     .gallery-wrap { padding: 4rem 5rem 6rem; }
@@ -154,7 +154,7 @@
     .lightbox-close {
       position: fixed; top: 1.5rem; right: 2rem;
       font-family: var(--mono); font-size: 1.0rem;
-      color: #3d5a78; cursor: pointer;
+      color: #5a7898; cursor: pointer;
       letter-spacing: 0.1em; text-transform: uppercase;
       background: none; border: none; transition: color 0.2s;
       z-index: 10;
@@ -163,7 +163,7 @@
     .lightbox-nav {
       position: fixed; top: 50%; transform: translateY(-50%);
       font-family: var(--mono); font-size: 1.6rem;
-      color: #3d5a78; cursor: pointer; background: none; border: none;
+      color: #5a7898; cursor: pointer; background: none; border: none;
       transition: color 0.2s; z-index: 10; padding: 1rem;
     }
     .lightbox-nav:hover { color: var(--cyan); }
@@ -219,14 +219,7 @@
         <li><a href="people.html#staff">Staff</a></li>
       </ul>
     </li>
-    <li class="has-dropdown">
-      <a href="research.html">Research</a>
-      <ul class="dropdown">
-        <li><a href="research-integrity.html">GNSS Integrity</a></li>
-        <li><a href="research-leo.html">LEO PNT</a></li>
-        <li><a href="research-remote.html">Remote Sensing</a></li>
-      </ul>
-    </li>
+    <li><a href="research.html">Research</a></li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="gallery.html" class="active">Gallery</a></li>
   </ul>
@@ -274,14 +267,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="people.html">People</a></li>
-        <li class="has-dropdown">
-      <a href="research.html">Research</a>
-      <ul class="dropdown">
-        <li><a href="research-integrity.html">GNSS Integrity</a></li>
-        <li><a href="research-leo.html">LEO PNT</a></li>
-        <li><a href="research-remote.html">Remote Sensing</a></li>
-      </ul>
-    </li>
+        <li><a href="research.html">Research</a></li>
         <li><a href="publications.html">Publications</a></li>
         <li><a href="gallery.html">Gallery</a></li>
       </ul>
@@ -304,11 +290,11 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#f0979e83839c9192b09b91998384de9193de9b82"><span class="__cf_email__" data-cfemail="fd9a938e8e919c9fbd969c948e89d39c9ed3968f">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#0e6467777b60626b6b4e656f677d7a206f6d20657c"><span class="__cf_email__" data-cfemail="a7cdceded2c9cbc2c2e7ccc6ced4d389c6c489ccd5">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
         </div>
       </div>
     </div>
@@ -318,7 +304,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ─── DATA ────────────────────────────────────────────────────────────────────
 // 실제 이미지 파일로 교체하세요. src에 images/ 경로를 입력하면 돼요.
 // tall: true → 세로로 긴 이미지 (2배 높이), wide: true → 가로로 긴 이미지
@@ -476,4 +462,11 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') navigate(1);
 });
 
-// ─── REVEAL ──────────────────────────────────�
+// ─── REVEAL ──────────────────────────────────────────────────────────────────
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.04 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

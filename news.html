@@ -20,8 +20,8 @@
       --cyan2:   #45E0FF;
       --text:    #c8d8e8;
       --bright:  #F5F7FA;
-      --dim:     #3d5a78;
-      --mid:     #7a9ab8;
+      --dim:     #5a7898;
+      --mid:     #9FB3C8;
       --serif:   'Crimson Pro', Georgia, serif;
       --display: 'Bebas Neue', sans-serif;
       --ui:      'Rajdhani', sans-serif;
@@ -60,7 +60,7 @@
       display: block; padding: 0 1.2rem;
       font-family: var(--ui); font-size: 1.3rem; font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: #3d5a78; text-decoration: none; transition: color 0.2s;
+      color: #5a7898; text-decoration: none; transition: color 0.2s;
     }
     .nav-links a.active { color: var(--cyan); }
     .nav-links a::after {
@@ -86,7 +86,7 @@
 	.dropdown a {
 	  display: block; padding: 0.6rem 1.2rem;
 	  font-size: 1.1rem !important; font-weight: 600 !important;
-	  color: #3d5a78 !important;
+	  color: #5a7898 !important;
 	  border-bottom: 1px solid #e4edf5;
 	  letter-spacing: 0.08em;
 	}
@@ -115,7 +115,7 @@
     }
     .page-header-desc {
       font-family: var(--serif); font-style: italic;
-      font-size: 2.0rem; color: #3d5a78; max-width: 48ch;
+      font-size: 2.0rem; color: #5a7898; max-width: 48ch;
     }
 
     /* CONTROLS */
@@ -142,11 +142,11 @@
       outline: none;
       transition: border-color 0.2s;
     }
-    .search-wrap input::placeholder { color: #5a7898; }
+    .search-wrap input::placeholder { color: #8aaac8; }
     .search-wrap input:focus { border-color: var(--cyan); }
     .search-icon {
       position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%);
-      color: #5a7898; font-size: 1.4rem; pointer-events: none;
+      color: #8aaac8; font-size: 1.4rem; pointer-events: none;
     }
 
     .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
@@ -155,19 +155,19 @@
       letter-spacing: 0.08em; text-transform: uppercase;
       padding: 0.35rem 0.9rem;
       border: 1px solid #c0d0e0;
-      color: #3d5a78;
+      color: #5a7898;
       background: transparent;
       cursor: pointer;
       transition: all 0.2s;
     }
-    .filter-btn:hover { color: #1c2b3a; border-color: #5a7898; }
+    .filter-btn:hover { color: #1c2b3a; border-color: #8aaac8; }
     .filter-btn.active { color: #fff; background: var(--cyan); border-color: var(--cyan); }
 
     .filter-divider { width: 1px; height: 1.5rem; background: #d0dce8; }
 
     .result-count {
       font-family: var(--mono); font-size: 1.4rem;
-      color: #5a7898; letter-spacing: 0.06em;
+      color: #8aaac8; letter-spacing: 0.06em;
       margin-left: auto;
     }
     .result-count span { color: var(--cyan); }
@@ -229,7 +229,7 @@
 
     .news-date {
       font-family: var(--mono); font-size: 1.4rem;
-      color: #5a7898; letter-spacing: 0.04em;
+      color: #8aaac8; letter-spacing: 0.04em;
       padding-top: 0.15rem; align-self: start;
     }
 
@@ -240,7 +240,7 @@
       transition: color 0.2s;
     }
     .news-item:hover .news-title { color: #0e7fa8; }
-    .news-detail { font-size: 1.4rem; color: #3d5a78; }
+    .news-detail { font-size: 1.4rem; color: #5a7898; }
 
     .news-arrow {
       font-family: var(--mono); font-size: 2.0rem;
@@ -276,7 +276,7 @@
     .modal-close {
       position: absolute; top: 1.2rem; right: 1.4rem;
       font-family: var(--mono); font-size: 0.7rem;
-      color: #5a7898; cursor: pointer;
+      color: #8aaac8; cursor: pointer;
       letter-spacing: 0.1em; text-transform: uppercase;
       background: none; border: none;
       transition: color 0.2s;
@@ -285,7 +285,7 @@
 
     .modal-date {
       font-family: var(--mono); font-size: 0.7rem;
-      color: #5a7898; letter-spacing: 0.06em;
+      color: #8aaac8; letter-spacing: 0.06em;
       margin-bottom: 0.8rem;
     }
     .modal-title {
@@ -293,7 +293,7 @@
       color: #0e1e2e; line-height: 1.4; margin-bottom: 0.5rem;
     }
     .modal-venue {
-      font-size: 0.88rem; color: #3d5a78;
+      font-size: 0.88rem; color: #5a7898;
       margin-bottom: 1.6rem; padding-bottom: 1.4rem;
       border-bottom: 1px solid #e4edf5;
     }
@@ -317,7 +317,7 @@
       display: none; text-align: center;
       padding: 5rem 2rem;
       font-family: var(--mono); font-size: 0.8rem;
-      color: #5a7898; letter-spacing: 0.08em;
+      color: #8aaac8; letter-spacing: 0.08em;
     }
     .no-results.visible { display: block; }
 
@@ -380,14 +380,7 @@
 		<li><a href="people.html#staff">Staff</a></li>
 	  </ul>
 	</li>
-    <li class="has-dropdown">
-      <a href="research.html">Research</a>
-      <ul class="dropdown">
-        <li><a href="research-integrity.html">GNSS Integrity</a></li>
-        <li><a href="research-leo.html">LEO PNT</a></li>
-        <li><a href="research-remote.html">Remote Sensing</a></li>
-      </ul>
-    </li>
+    <li><a href="research.html">Research</a></li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="gallery.html">Gallery</a></li>
   </ul>
@@ -443,14 +436,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="people.html">People</a></li>
-        <li class="has-dropdown">
-      <a href="research.html">Research</a>
-      <ul class="dropdown">
-        <li><a href="research-integrity.html">GNSS Integrity</a></li>
-        <li><a href="research-leo.html">LEO PNT</a></li>
-        <li><a href="research-remote.html">Remote Sensing</a></li>
-      </ul>
-    </li>
+        <li><a href="research.html">Research</a></li>
         <li><a href="publications.html">Publications</a></li>
         <li><a href="gallery.html">Gallery</a></li>
       </ul>
@@ -473,11 +459,11 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#afc8c1dcdcc3cecdefc4cec6dcdb81cecc81c4dd"><span class="__cf_email__" data-cfemail="f4939a8787989596b49f959d8780da9597da9f86">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#1e7477676b70727b7b5e757f776d6a307f7d30756c"><span class="__cf_email__" data-cfemail="dbb1b2a2aeb5b7bebe9bb0bab2a8aff5bab8f5b0a9">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
         </div>
       </div>
     </div>
@@ -487,7 +473,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ─── DATA ───────────────────────────────────────────────────────────────────
 const NEWS = [
   {
@@ -687,4 +673,11 @@ function drawStars(t) {
   });
   requestAnimationFrame(drawStars);
 }
-resize
+resize(); initStars(); requestAnimationFrame(drawStars);
+window.addEventListener('resize', () => { resize(); initStars(); });
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>
