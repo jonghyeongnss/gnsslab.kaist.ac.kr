@@ -90,7 +90,10 @@
     .dropdown li:last-child a { border-bottom: none; }
     .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
     .dropdown a::after { display: none !important; }
-
+	.has-dropdown:has(a[href="research.html"]) .dropdown {
+		min-width: 200px;
+	}
+	
     /* PAGE HEADER */
     .page-header {
       position: relative; z-index: 1;

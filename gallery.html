@@ -40,7 +40,10 @@
     .dropdown li:last-child a { border-bottom: none; }
     .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
     .dropdown a::after { display: none !important; }
-
+	.has-dropdown:has(a[href="research.html"]) .dropdown {
+		min-width: 200px;
+	}
+	
     /* ── PAGE HEADER ── */
     .page-header { padding: 9rem 5rem 4rem; border-bottom: 1px solid #d0dce8; }
     .page-header-eyebrow { font-family: var(--mono); font-size: 2.0rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
