@@ -18,7 +18,7 @@
       --cyan:    #3EC1D3;
       --cyan2:   #45E0FF;
       --bright:  #F5F7FA;
-      --dim:     #5a7898;
+      --dim:     #3d5a78;
       --mid:     #9FB3C8;
       --serif:   'Crimson Pro', Georgia, serif;
       --display: 'Bebas Neue', sans-serif;
@@ -56,7 +56,7 @@
       display: block; padding: 0 1.2rem;
       font-family: var(--ui); font-size: 1.3rem; font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: #5a7898; text-decoration: none; transition: color 0.2s;
+      color: #3d5a78; text-decoration: none; transition: color 0.2s;
     }
     .nav-links a.active { color: var(--cyan); }
     .nav-links a::after {
@@ -83,7 +83,7 @@
     .dropdown a {
       display: block; padding: 0.6rem 1.2rem;
       font-size: 1.1rem !important; font-weight: 600 !important;
-      color: #5a7898 !important;
+      color: #3d5a78 !important;
       border-bottom: 1px solid #e4edf5;
       letter-spacing: 0.08em;
     }
@@ -112,7 +112,7 @@
     }
     .page-header-desc {
       font-family: var(--serif); font-style: italic;
-      font-size: 2.0rem; color: #5a7898; max-width: 48ch;
+      font-size: 2.0rem; color: #3d5a78; max-width: 48ch;
     }
 
     /* SECTION */
@@ -145,7 +145,7 @@
       object-fit: cover;
       background: none;
       display: flex; align-items: center; justify-content: center;
-      color: #8aaac8; font-family: var(--mono); font-size: 2.0rem;
+      color: #7a9ab8; font-family: var(--mono); font-size: 2.0rem;
       letter-spacing: 0.1em;
     }
     .professor-photo img { width: 100%; height: auto; display: block; }
@@ -169,7 +169,7 @@
     .prof-link {
       font-family: var(--mono); font-size: 1.3rem;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: #5a7898; text-decoration: none;
+      color: #3d5a78; text-decoration: none;
       border: 1px solid #c0d0e0; padding: 0.4rem 1rem;
       transition: all 0.2s;
     }
@@ -198,7 +198,7 @@
       background: #dce8f0;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
-      color: #8aaac8; font-family: var(--mono); font-size: 0.6rem;
+      color: #7a9ab8; font-family: var(--mono); font-size: 0.6rem;
       letter-spacing: 0.08em;
     }
     .person-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -213,12 +213,12 @@
       color: var(--cyan); margin-bottom: 0.5rem;
     }
     .person-detail {
-      font-size: 1.0rem; color: #5a7898; line-height: 1.5;
+      font-size: 1.0rem; color: #3d5a78; line-height: 1.5;
       margin-bottom: 0.5rem;
     }
     .person-email {
       font-family: var(--mono); font-size: 1.0rem;
-      color: #8aaac8; text-decoration: none; letter-spacing: 0.02em;
+      color: #7a9ab8; text-decoration: none; letter-spacing: 0.02em;
       transition: color 0.2s; display: block;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
@@ -290,7 +290,14 @@
         <li><a href="#staff">Staff</a></li>
       </ul>
     </li>
-    <li><a href="research.html">Research</a></li>
+    <li class="has-dropdown">
+	  <a href="research.html">Research</a>
+	  <ul class="dropdown">
+		<li><a href="research-integrity.html">GNSS Integrity</a></li>
+		<li><a href="research-leo.html">LEO PNT</a></li>
+		<li><a href="research-remote.html">Remote Sensing</a></li>
+	  </ul>
+	</li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="gallery.html">Gallery</a></li>
   </ul>
