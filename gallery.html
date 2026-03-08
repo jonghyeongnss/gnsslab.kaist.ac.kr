@@ -28,7 +28,7 @@
     .nav-brand-main span { color: var(--cyan); }
     .nav-links { display: flex; list-style: none; align-items: center; }
     .nav-links li { position: relative; }
-    .nav-links a { display: block; padding: 0 1.2rem; font-family: var(--ui); font-size: clamp(0.82rem, 1.3vw, 1.3rem); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #3d5a78; text-decoration: none; transition: color 0.2s; }
+    .nav-links a { display: block; padding: 0 1.2rem; font-family: var(--ui); font-size: 1.3rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #3d5a78; text-decoration: none; transition: color 0.2s; }
     .nav-links a.active { color: var(--cyan); }
     .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 1.2rem; right: 1.2rem; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s ease; }
     .nav-links a:hover { color: var(--cyan); }
@@ -46,10 +46,10 @@
 	
     /* ── PAGE HEADER ── */
     .page-header { padding: 9rem 5rem 4rem; border-bottom: 1px solid #d0dce8; }
-    .page-header-eyebrow { font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
+    .page-header-eyebrow { font-family: var(--mono); font-size: 2.0rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
     .page-header-eyebrow::before { content:''; width:2rem; height:1px; background:var(--gold); }
     .page-header h1 { font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem); letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem; }
-    .page-header-desc { font-family: var(--serif); font-style: italic; font-size: clamp(1.1rem, 2vw, 2.0rem); color: #3d5a78; max-width: 52ch; }
+    .page-header-desc { font-family: var(--serif); font-style: italic; font-size: 2.0rem; color: #3d5a78; max-width: 52ch; }
 
     /* ── MASONRY GRID ── */
     .gallery-wrap { padding: 4rem 5rem 6rem; }
@@ -81,7 +81,7 @@
     }
     .masonry-item:hover .masonry-item-overlay { opacity: 1; }
     .masonry-item-title {
-      font-family: var(--ui); font-size: clamp(0.85rem, 1.4vw, 1.4rem); font-weight: 500;
+      font-family: var(--ui); font-size: 1.4rem; font-weight: 500;
       color: #fff; line-height: 1.3; margin-bottom: 0.3rem;
     }
     .masonry-item-caption {
@@ -141,11 +141,11 @@
       margin-bottom: 1.2rem;
     }
     .lightbox-title {
-      font-family: var(--ui); font-size: clamp(1.0rem, 1.8vw, 1.8rem); font-weight: 600;
+      font-family: var(--ui); font-size: 1.8rem; font-weight: 600;
       color: #f0f5fa; line-height: 1.35; margin-bottom: 0.8rem;
     }
     .lightbox-desc {
-      font-family: var(--serif); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
+      font-family: var(--serif); font-size: 1.4rem;
       color: #7a9ab8; line-height: 1.8; flex: 1;
     }
     .lightbox-meta {
@@ -156,7 +156,7 @@
     }
     .lightbox-close {
       position: fixed; top: 1.5rem; right: 2rem;
-      font-family: var(--mono); font-size: clamp(0.72rem, 1vw, 1.0rem);
+      font-family: var(--mono); font-size: 1.0rem;
       color: #3d5a78; cursor: pointer;
       letter-spacing: 0.1em; text-transform: uppercase;
       background: none; border: none; transition: color 0.2s;
@@ -165,7 +165,7 @@
     .lightbox-close:hover { color: #f0f5fa; }
     .lightbox-nav {
       position: fixed; top: 50%; transform: translateY(-50%);
-      font-family: var(--mono); font-size: clamp(0.95rem, 1.6vw, 1.6rem);
+      font-family: var(--mono); font-size: 1.6rem;
       color: #3d5a78; cursor: pointer; background: none; border: none;
       transition: color 0.2s; z-index: 10; padding: 1rem;
     }
@@ -176,9 +176,9 @@
     /* ── FOOTER ── */
     footer { background: #0e1e2e; border-top: 1px solid #1a3050; padding: 4rem 5rem 2.5rem; }
     .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #1a3050; margin-bottom: 2rem; }
-    .footer-brand-name { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: 3.0rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
     .footer-brand-name span { color: var(--gold); }
-    .footer-brand-sub { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-brand-sub { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
     .footer-col-title { font-family: var(--mono); font-size: 1.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
     .footer-col ul a { font-size: 1.5rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
@@ -189,7 +189,7 @@
     .footer-info-text { font-size: 1.5rem; color: var(--dim); line-height: 1.6; }
     .footer-info-text a { color: var(--cyan); text-decoration: none; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom span { font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 1.1rem); color: var(--dim); letter-spacing: 0.05em; }
+    .footer-bottom span { font-family: var(--mono); font-size: 1.1rem; color: var(--dim); letter-spacing: 0.05em; }
 
     .reveal { opacity:0; transform:translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
@@ -300,11 +300,11 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#d3b4bda0a0bfb2b193b8b2baa0a7fdb2b0fdb8a1"><span class="__cf_email__" data-cfemail="67000914140b0605270c060e1413490604490c15">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#cfa5a6b6baa1a3aaaa8fa4aea6bcbbe1aeace1a4bd"><span class="__cf_email__" data-cfemail="a4cecdddd1cac8c1c1e4cfc5cdd7d08ac5c78acfd6">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
         </div>
       </div>
     </div>
@@ -314,7 +314,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ─── DATA ────────────────────────────────────────────────────────────────────
 // 실제 이미지 파일로 교체하세요. src에 images/ 경로를 입력하면 돼요.
 // tall: true → 세로로 긴 이미지 (2배 높이), wide: true → 가로로 긴 이미지
@@ -467,13 +467,6 @@ document.getElementById('lightbox').addEventListener('click', e => {
   if (e.target === document.getElementById('lightbox')) closeLightbox();
 });
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft') navigate(-1);
-  if (e.key === 'ArrowRight') navigate(1);
-});
-
-// ─── REVEAL ──────────────────────────────────�
-keydown', e => {
   if (e.key === 'Escape') closeLightbox();
   if (e.key === 'ArrowLeft') navigate(-1);
   if (e.key === 'ArrowRight') navigate(1);
