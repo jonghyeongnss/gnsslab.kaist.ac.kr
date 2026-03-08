@@ -742,7 +742,7 @@
       if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal, .news-item').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
