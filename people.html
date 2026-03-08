@@ -467,7 +467,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#87e0e9f4f4ebe6e5c7ece6eef4f3a9e6e4a9ecf5"><span class="__cf_email__" data-cfemail="1f78716c6c737e7d5f747e766c6b317e7c31746d">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
@@ -480,5 +480,12 @@
     <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
   </div>
 </footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
