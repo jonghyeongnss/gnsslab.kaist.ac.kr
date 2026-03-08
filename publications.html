@@ -153,13 +153,13 @@
 
     .year-block { margin-top: 4rem; }
     .year-label { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0; }
-    .year-label h2 { font-family: var(--display); font-size: 5.5rem; color: #a0b8d0; letter-spacing: 0.08em; line-height: 1; user-select: none; transition: color 0.3s; }
+    .year-label h2 { font-family: var(--display); font-size: 5.5rem; color: #5a7898; letter-spacing: 0.08em; line-height: 1; user-select: none; transition: color 0.3s; }
     .year-block:hover .year-label h2 { color: #1a6f8f; }
-    .year-line { flex: 1; height: 1px; background: linear-gradient(to right, #a0b8d0, transparent); }
+    .year-line { flex: 1; height: 1px; background: linear-gradient(to right, #5a7898, transparent); }
 
     .pub-list {
       padding-left: 2rem;
-      border-left: 1px solid #a0b8d0;
+      border-left: 1px solid #d0dce8;
       margin-left: 1rem;
       margin-top: 0.5rem;
     }
@@ -180,7 +180,7 @@
       content: '';
       position: absolute; left: -5px; top: 50%; transform: translateY(-50%);
       width: 9px; height: 9px; border-radius: 50%;
-      background: #c0d0e0; border: 1px solid #a0b8cc;
+      background: #c0d0e0; border: 1px solid #b0c4d8;
       transition: background 0.2s, border-color 0.2s;
     }
     .pub-item:hover::before { background: var(--cyan); border-color: var(--cyan); }
@@ -206,10 +206,10 @@
     .pub-item:hover .pub-title { color: #0e7fa8; }
     .pub-meta { font-size: 1.4rem; color: #3d5a78; font-weight: 500;}
     .pub-meta em { font-style: italic; }
-    .pub-authors { font-family: var(--mono); font-size: 1.4rem; color: #7a9ab8; margin-top: 0.2rem; letter-spacing: 0.02em; }
+    .pub-authors { font-family: var(--mono); font-size: 1.4rem; color: #3d5a78; margin-top: 0.2rem; letter-spacing: 0.02em; }
 
     .pub-arrow {
-      font-family: var(--mono); font-size: 1.4rem;
+      font-family: var(--mono); font-size: 2.0rem;
       color: #a0b8cc; align-self: center;
       transition: color 0.2s, transform 0.2s; white-space: nowrap;
     }
@@ -419,11 +419,11 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#82e5ecf1f1eee3e0c2e9e3ebf1f6ace3e1ace9f0"><span class="__cf_email__" data-cfemail="71161f02021d1013311a101802055f10125f1a03">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#a3c9cadad6cdcfc6c6e3c8c2cad0d78dc2c08dc8d1"><span class="__cf_email__" data-cfemail="cca6a5b5b9a2a0a9a98ca7ada5bfb8e2adafe2a7be">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -433,7 +433,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─── DATA ───────────────────────────────────────────────────────────────────
 const PUBS = [
   {
@@ -645,18 +645,4 @@ document.getElementById('type-filters').addEventListener('click', e => {
 });
 
 document.getElementById('year-filters').addEventListener('click', e => {
-  const btn = e.target.closest('.filter-btn');
-  if (!btn) return;
-  activeYear = btn.dataset.year;
-  document.querySelectorAll('#year-filters .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  render();
-});
-
-document.getElementById('search-input').addEventListener('input', e => {
-  searchQuery = e.target.value;
-  render();
-});
-render();
-</script>
-</body></html>
+  const btn = e.target.c
