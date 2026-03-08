@@ -194,7 +194,7 @@
       border-bottom: 1px solid #a0b8d0;
     }
     .page-header-eyebrow {
-      font-family: var(--mono); font-size: 2.0rem;
+      font-family: var(--mono); font-size: clamp(0.72rem, 1vw, 1.0rem);
       letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.8rem;
       display: flex; align-items: center; gap: 0.8rem;
@@ -205,7 +205,7 @@
       letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem;
     }
     .page-header-desc {
-      font-size: 2.0rem; color: #3d5a78; max-width: 60ch;
+      font-size: clamp(0.95rem, 1.6vw, 1.6rem); color: #3d5a78; max-width: 60ch;
       font-family: var(--serif); font-style: italic;
     }
 
@@ -416,6 +416,9 @@
     <li><a href="publications.html">Publications</a></li>
     <li><a href="gallery.html">Gallery</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- Mobile drawer -->
