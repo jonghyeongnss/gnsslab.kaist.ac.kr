@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Publications · GNSS Lab KAIST</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:    #050d1a;
+      --navy2:   #091628;
+      --border:  #1a3050;
+      --border2: #243d60;
+      --gold:    #c8a84b;
+      --cyan:    #3EC1D3;
+      --cyan2:   #45E0FF;
+      --bright:  #F5F7FA;
+      --dim:     #5a7898;
+      --mid:     #9FB3C8;
+      --serif:   'Crimson Pro', Georgia, serif;
+      --display: 'Bebas Neue', sans-serif;
+      --ui:      'Rajdhani', sans-serif;
+      --mono:    'DM Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #F5F7FA;
+      color: #1c2b3a;
+      font-family: var(--ui);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center; justify-content: flex-start;
+      gap: 5rem; padding: 1rem 3rem 0;
+      background: rgba(245,247,250,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #d0dce8;
+    }
+    .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
+    .nav-brand-main { font-family: var(--display); font-size: 2.5rem; letter-spacing: 0.06em; color: #0e1e2e; line-height: 1; }
+    .nav-brand-main span { color: var(--cyan); }
+    .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
+    .nav-links li { position: relative; }
+    .nav-links a {
+      display: block; padding: 0 1.2rem;
+      font-family: var(--ui); font-size: 1.3rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #5a7898; text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a.active { color: var(--cyan); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 1.2rem; right: 1.2rem;
+      height: 2px; background: var(--gold);
+      transform: scaleX(0); transition: transform 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+    .has-dropdown { position: relative; }
+    .dropdown {
+      position: absolute; top: 100%; left: 0;
+      background: rgba(245,247,250,0.98);
+      backdrop-filter: blur(12px);
+      border: 1px solid #d0dce8;
+      min-width: 140px; list-style: none;
+      opacity: 0; pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 200;
+    }
+    .has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown a {
+      display: block; padding: 0.6rem 1.2rem;
+      font-size: 0.8rem !important; font-weight: 400 !important;
+      color: #5a7898 !important; border-bottom: 1px solid #e4edf5;
+      letter-spacing: 0.08em;
+    }
+    .dropdown li:last-child a { border-bottom: none; }
+    .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
+    .dropdown a::after { display: none !important; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 9rem 5rem 4rem;
+      border-bottom: 1px solid #d0dce8;
+    }
+    .page-header-eyebrow {
+      font-family: var(--mono); font-size: 2.0rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .page-header-eyebrow::before { content:''; width:2rem; height:1px; background:var(--gold); }
+    .page-header h1 {
+      font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem);
+      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem;
+    }
+    .page-header-desc {
+      font-family: var(--serif); font-style: italic;
+      font-size: 2.0rem; color: #5a7898; max-width: 52ch;
+    }
+
+    /* CONTROLS */
+    .controls {
+      position: sticky; top: 64px; z-index: 50;
+      background: rgba(245,247,250,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #d0dce8;
+      padding: 1rem 5rem;
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+    }
+    .search-wrap {
+      position: relative; flex: 1; min-width: 200px; max-width: 320px;
+    }
+    .search-wrap input {
+      width: 100%; background: #fff;
+      border: 1px solid #c0d0e0; color: #1c2b3a;
+      font-family: var(--mono); font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      padding: 0.55rem 0.8rem 0.55rem 2.2rem;
+      outline: none; transition: border-color 0.2s;
+    }
+    .search-wrap input::placeholder { color: #8aaac8; }
+    .search-wrap input:focus { border-color: var(--cyan); }
+    .search-icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: #8aaac8; font-size: 1.1rem; pointer-events: none; }
+    .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .filter-btn {
+      font-family: var(--mono); font-size: 1.0rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid #c0d0e0; color: #5a7898;
+      background: transparent; cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover { color: #1c2b3a; border-color: #8aaac8; }
+    .filter-btn.active { color: #fff; background: var(--cyan); border-color: var(--cyan); }
+    .filter-divider { width: 1px; height: 1.5rem; background: #d0dce8; }
+    .result-count { font-family: var(--mono); font-size: 1.0rem; color: #8aaac8; letter-spacing: 0.06em; margin-left: auto; }
+    .result-count span { color: var(--cyan); }
+
+    /* PUBLICATIONS LIST */
+    .pub-wrap { padding: 0 5rem 6rem; }
+
+    .year-block { margin-top: 4rem; }
+    .year-label { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0; }
+    .year-label h2 { font-family: var(--display); font-size: 5rem; color: #d0dce8; letter-spacing: 0.08em; line-height: 1; user-select: none; transition: color 0.3s; }
+    .year-block:hover .year-label h2 { color: #b0c4d8; }
+    .year-line { flex: 1; height: 1px; background: linear-gradient(to right, #d0dce8, transparent); }
+
+    .pub-list {
+      padding-left: 2rem;
+      border-left: 1px solid #d0dce8;
+      margin-left: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .pub-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 0 2rem;
+      padding: 1.4rem 1rem 1.4rem 2rem;
+      border-bottom: 1px solid #e4edf5;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .pub-item:first-child { border-top: 1px solid #e4edf5; }
+    .pub-item:hover { background: #edf3f9; }
+    .pub-item::before {
+      content: '';
+      position: absolute; left: -5px; top: 50%; transform: translateY(-50%);
+      width: 9px; height: 9px; border-radius: 50%;
+      background: #c0d0e0; border: 1px solid #a0b8cc;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pub-item:hover::before { background: var(--cyan); border-color: var(--cyan); }
+
+    .pub-type {
+      font-family: var(--mono); font-size: 0.9rem;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 0.2rem 0.5rem; height: fit-content;
+      align-self: start; margin-top: 0.1rem;
+      border: 1px solid #c0d0e0; color: #5a7898;
+      white-space: nowrap;
+    }
+    .pub-type.journal { color: var(--cyan); border-color: rgba(62,193,211,0.4); }
+    .pub-type.conference { color: var(--gold); border-color: rgba(200,168,75,0.4); }
+    .pub-type.thesis { color: #a07ec8; border-color: rgba(160,126,200,0.4); }
+
+    .pub-body { align-self: center; }
+    .pub-title {
+      font-size: 1.3rem; font-weight: 500;
+      color: #1c2b3a; margin-bottom: 0.25rem; line-height: 1.45;
+      transition: color 0.2s;
+    }
+    .pub-item:hover .pub-title { color: #0e7fa8; }
+    .pub-meta { font-size: 1.1rem; color: #5a7898; }
+    .pub-meta em { font-style: italic; }
+    .pub-authors { font-family: var(--mono); font-size: 1.0rem; color: #8aaac8; margin-top: 0.2rem; letter-spacing: 0.02em; }
+
+    .pub-arrow {
+      font-family: var(--mono); font-size: 1.0rem;
+      color: #a0b8cc; align-self: center;
+      transition: color 0.2s, transform 0.2s; white-space: nowrap;
+    }
+    .pub-item:hover .pub-arrow { color: var(--cyan); transform: translateX(4px); }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(180,200,220,0.5);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: #fff; border: 1px solid #d0dce8;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      max-width: 680px; width: 100%; padding: 2.5rem;
+      position: relative;
+      transform: translateY(20px); transition: transform 0.3s ease;
+      max-height: 85vh; overflow-y: auto;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-close {
+      position: absolute; top: 1.2rem; right: 1.4rem;
+      font-family: var(--mono); font-size: 1.0rem;
+      color: #8aaac8; cursor: pointer;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: none; border: none; transition: color 0.2s;
+    }
+    .modal-close:hover { color: #1c2b3a; }
+    .modal-type {
+      font-family: var(--mono); font-size: 0.9rem;
+      padding: 0.2rem 0.6rem; border: 1px solid #c0d0e0;
+      color: #5a7898; letter-spacing: 0.08em;
+      text-transform: uppercase; display: inline-block; margin-bottom: 1rem;
+    }
+    .modal-type.journal { color: var(--cyan); border-color: rgba(62,193,211,0.4); }
+    .modal-type.conference { color: var(--gold); border-color: rgba(200,168,75,0.4); }
+    .modal-type.thesis { color: #a07ec8; border-color: rgba(160,126,200,0.4); }
+    .modal-year { font-family: var(--mono); font-size: 1.0rem; color: #8aaac8; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+    .modal-title { font-family: var(--ui); font-size: 1.6rem; font-weight: 600; color: #0e1e2e; line-height: 1.4; margin-bottom: 0.6rem; }
+    .modal-authors { font-family: var(--mono); font-size: 1.0rem; color: #5a7898; margin-bottom: 0.4rem; line-height: 1.6; }
+    .modal-venue {
+      font-size: 1.1rem; color: #5a7898; font-style: italic;
+      margin-bottom: 1.4rem; padding-bottom: 1.2rem;
+      border-bottom: 1px solid #e4edf5;
+    }
+    .modal-abstract { font-family: var(--serif); font-size: 1.3rem; color: #2a3a4a; line-height: 1.85; margin-bottom: 1.6rem; }
+    .modal-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .modal-link {
+      font-family: var(--mono); font-size: 1.0rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cyan); text-decoration: none;
+      border: 1px solid #c0d0e0; padding: 0.45rem 1rem;
+      display: inline-block; transition: background 0.2s, color 0.2s;
+    }
+    .modal-link:hover { background: var(--cyan); color: #fff; }
+
+    .no-results { display: none; text-align: center; padding: 5rem 2rem; font-family: var(--mono); font-size: 1.1rem; color: #8aaac8; letter-spacing: 0.08em; }
+    .no-results.visible { display: block; }
+
+    /* FOOTER */
+    footer { background: #0e1e2e; border-top: 1px solid #1a3050; padding: 4rem 5rem 2.5rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #1a3050; margin-bottom: 2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: 1.4rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-sub { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-col-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: 0.86rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--bright); }
+    .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
+    .footer-info-icon { font-size: 0.9rem; opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
+    .footer-info-text { font-size: 0.82rem; color: var(--dim); line-height: 1.6; }
+    .footer-info-text a { color: var(--cyan); text-decoration: none; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom span { font-family: var(--mono); font-size: 0.62rem; color: var(--dim); letter-spacing: 0.05em; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .year-block { animation: fadeUp 0.5s ease both; }
+
+    @media (max-width: 960px) {
+      .page-header, .pub-wrap, .controls, footer { padding-left: 2rem; padding-right: 2rem; }
+      .pub-item { grid-template-columns: 1fr; }
+      .pub-type, .pub-arrow { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .controls { gap: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-brand-main"><span>GNSS</span> KAIST</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="news.html">News</a></li>
+    <li class="has-dropdown">
+      <a href="people.html">People</a>
+      <ul class="dropdown">
+        <li><a href="people.html#professor">Professor</a></li>
+        <li><a href="people.html#students">Students</a></li>
+        <li><a href="people.html#staff">Staff</a></li>
+      </ul>
+    </li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html" class="active">Publications</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-eyebrow">GNSS Lab · KAIST</div>
+  <h1>Publications</h1>
+  <p class="page-header-desc">Peer-reviewed journal articles, conference papers, and theses from the GNSS Lab at KAIST.</p>
+</div>
+
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="search-input" placeholder="Search publications..."/>
+  </div>
+  <div class="filter-divider"></div>
+  <div class="filter-group" id="type-filters">
+    <button class="filter-btn active" data-type="all">All</button>
+    <button class="filter-btn" data-type="journal">Journal</button>
+    <button class="filter-btn" data-type="conference">Conference</button>
+    <button class="filter-btn" data-type="thesis">Thesis</button>
+  </div>
+  <div class="filter-divider"></div>
+  <div class="filter-group" id="year-filters">
+    <button class="filter-btn active" data-year="all">All Years</button>
+    <button class="filter-btn" data-year="2025">2025</button>
+    <button class="filter-btn" data-year="2024">2024</button>
+    <button class="filter-btn" data-year="2023">2023</button>
+    <button class="filter-btn" data-year="2022">2022</button>
+  </div>
+  <div class="result-count"><span id="count">0</span> papers</div>
+</div>
+
+<div class="pub-wrap" id="pub-wrap"></div>
+<div class="no-results" id="no-results">No results found.</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕ Close</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">GNSS <span>KAIST</span></div>
+      <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Quick Links</p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Research</p>
+      <ul>
+        <li><a href="research.html#integrity">GNSS Integrity</a></li>
+        <li><a href="research.html#leo">LEO PNT</a></li>
+        <li><a href="research.html#remote-sensing">Remote Sensing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Contact & Location</p>
+      <div class="footer-info">
+        <div class="footer-info-row">
+          <span class="footer-info-icon">📍</span>
+          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">✉️</span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#60070e13130c0102200b010913144e01034e0b12"><span class="__cf_email__" data-cfemail="c7a0a9b4b4aba6a587aca6aeb4b3e9a6a4e9acb5">[email&#160;protected]</span></a></span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">👤</span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#3b5152424e55575e5e7b505a52484f155a58155049"><span class="__cf_email__" data-cfemail="d3b9baaaa6bdbfb6b693b8b2baa0a7fdb2b0fdb8a1">[email&#160;protected]</span></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+const PUBS = [
+  {
+    id: 1, year: 2025, type: 'journal',
+    title: 'Wavelet-Transform Phase Matching for GNSS Radio Occultation in the Lower Troposphere',
+    authors: 'H. Park, J. Lee',
+    venue: 'Journal of Geophysical Research: Atmospheres',
+    venueShort: 'JGR Atmospheres · 2025',
+    abstract: 'This paper presents the Wavelet-Transform-based Phase Matching (WTPM) algorithm for COSMIC-2 satellite data. The algorithm uses Synchrosqueezed Wavelet Transform (SST) to address cross-term interference in time-frequency analysis of GNSS radio occultation signals, enabling improved bending angle retrieval in the lower troposphere.',
+    doi: '#', pdf: '#'
+  },
+  {
+    id: 2, year: 2025, type: 'conference',
+    title: 'Synchrosqueezed Wavelet Transform for Improved RO Signal Processing',
+    authors: 'H. Park, J. Lee',
+    venue: 'ION GNSS+ 2025, Tampa, FL',
+    venueShort: 'ION GNSS+ · 2025',
+    abstract: 'We present an application of the Synchrosqueezed Wavelet Transform (SST) to GNSS radio occultation signal processing, demonstrating improved time-frequency localization and reduced cross-term interference compared to conventional STFT and CWT methods.',
+    doi: '#', pdf: '#'
+  },
+  {
+    id: 3, year: 2024, type: 'journal',
+    title: 'Local Spectral Width Algorithm for Multipath Detection in GNSS Radio Occultation',
+    authors: 'H. Park, J. Lee',
+    venue: 'GPS Solutions, Springer',
+    venueShort: 'GPS Solutions · 2024',
+    abstract: 'The Local Spectral Width (LSW) algorithm uses STFT-based spectral width calculation and CDF-based threshold crossing to detect multipath regions in RO bending angle profiles. The algorithm provides a 0.5 km grid output suitable for use in downstream retrieval pipelines.',
+    doi: '#', pdf: '#'
+  },
+  {
+    id: 4, year: 2024, type: 'conference',
+    title: 'Advanced RAIM for Dual-Frequency Multi-Constellation GNSS Navigation',
+    authors: 'J. Kim, J. Lee',
+    venue: 'ION GNSS+ 2024, Baltimore, MD',
+    venueShort: 'ION GNSS+ · 2024',
+    abstract: 'This paper develops an Advanced RAIM (ARAIM) architecture for dual-frequency multi-constellation GNSS, addressing integrity risk allocation under correlated fault modes and demonstrating applicability to the Korean Positioning System (KPS).',
+    doi: '#', pdf: '#'
+  },
+  {
+    id: 4, year: 2024, type: 'conference',
+    title: 'Doppler-Based Positioning Using LEO Broadband Constellation Signals',
+    authors: 'S. Choi, J. Lee',
+    venue: 'ION GNSS+ 2024, Baltimore, MD',
+    venueShort: 'ION GNSS+ · 2024',
+    abstract: 'We investigate Doppler-based positioning using signals of opportunity from LEO broadband satellite constellations. The proposed method achieves meter-level accuracy in open-sky environments without dedicated PNT payloads.',
+    doi: '#', pdf: '#'
+  },
+  {
+    id: 5, year: 2023, type: 'journal',
+    title: 'NeQuick-G Ionospheric Model Adaptation for the Korean Positioning System',
+    authors: 'J. Lee, H. Park, S. Choi',
+    venue: 'Journal of Positioning, Navigation, and Timing',
+    venueShort: 'JPNT · 2023',
+    abstract: 'This paper presents three Az parameter optimization methods for adapting the NeQuick-G ionospheric model to the Korean Positioning System (KPS), including daily, hourly, and grid-based approaches. Validation is performed against GPS Klobuchar and Galileo NeQuick-G correction algorithms.',
+    doi: '#', pdf: '#'
+  },
+  {
+    id: 6, year: 2023, type: 'conference',
+    title: 'Integrity Monitoring for KPS with NeQuick-G Ionospheric Model',
+    authors: 'J. Lee, J. Kim',
+    venue: 'ION GNSS+ 2023',
+    venueShort: 'ION GNSS+ · 2023',
+    abstract: 'We develop an integrity monitoring framework for the Korean Positioning System incorporating the NeQuick-G ionospheric model, demonstrating compliance with ICAO integrity requirements for aviation applications over the Korean Peninsula.',
+    doi: '#', pdf: '#'
+  },
+  {
+    id: 7, year: 2023, type: 'conference',
+    title: 'LEO Clock and Orbit Estimation for PNT Applications',
+    authors: 'S. Choi, J. Lee',
+    venue: 'NAVIGATION, Journal of the Institute of Navigation · 2023',
+    venueShort: 'NAVIGATION · 2023',
+    abstract: 'This paper presents an approach for real-time LEO satellite clock and orbit estimation suitable for PNT applications, using a combination of ground-based tracking stations and onboard GNSS receivers.',
+    doi: '#', pdf: '#'
+  },
+  {
+    id: 8, year: 2022, type: 'journal',
+    title: 'Phase Matching Algorithm for GNSS Radio Occultation in the Lower Troposphere',
+    authors: 'J. Lee, H. Park',
+    venue: 'Radio Science',
+    venueShort: 'Radio Science · 2022',
+    abstract: 'This paper presents an improved Phase Matching algorithm for GNSS radio occultation retrieval in the lower troposphere, addressing horizontal inhomogeneity and super-refraction effects that degrade conventional Abel inversion results.',
+    doi: '#', pdf: '#'
+  },
+  {
+    id: 9, year: 2022, type: 'conference',
+    title: 'GNSS-R Sea Surface Height Retrieval Using Spaceborne Reflectometry',
+    authors: 'J. Lee, S. Choi',
+    venue: 'EGU General Assembly 2022, Vienna, Austria',
+    venueShort: 'EGU · 2022',
+    abstract: 'We demonstrate sea surface height retrieval using GNSS reflectometry from the COSMIC-2 constellation, achieving centimeter-level accuracy by applying precise orbit determination and surface reflection geometry corrections.',
+    doi: '#', pdf: '#'
+  },
+];
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+let activeType = 'all';
+let activeYear = 'all';
+let searchQuery = '';
+
+// ─── FILTER ──────────────────────────────────────────────────────────────────
+function filtered() {
+  return PUBS.filter(p => {
+    const typeOk = activeType === 'all' || p.type === activeType;
+    const yearOk = activeYear === 'all' || p.year === parseInt(activeYear);
+    const q = searchQuery.toLowerCase();
+    const searchOk = !q ||
+      p.title.toLowerCase().includes(q) ||
+      p.authors.toLowerCase().includes(q) ||
+      p.venue.toLowerCase().includes(q) ||
+      p.abstract.toLowerCase().includes(q);
+    return typeOk && yearOk && searchOk;
+  });
+}
+
+// ─── RENDER ──────────────────────────────────────────────────────────────────
+function typeLabel(t) {
+  return { journal: 'Journal', conference: 'Conference', thesis: 'Thesis' }[t] || t;
+}
+
+function render() {
+  const items = filtered();
+  const wrap = document.getElementById('pub-wrap');
+  const noResults = document.getElementById('no-results');
+  document.getElementById('count').textContent = items.length;
+
+  if (items.length === 0) {
+    wrap.innerHTML = '';
+    noResults.classList.add('visible');
+    return;
+  }
+  noResults.classList.remove('visible');
+
+  const byYear = {};
+  items.forEach(p => {
+    if (!byYear[p.year]) byYear[p.year] = [];
+    byYear[p.year].push(p);
+  });
+  const years = Object.keys(byYear).sort((a, b) => b - a);
+
+  wrap.innerHTML = years.map((yr, yi) => `
+    <div class="year-block" style="animation-delay:${yi * 0.07}s">
+      <div class="year-label">
+        <h2>${yr}</h2>
+        <div class="year-line"></div>
+      </div>
+      <div class="pub-list">
+        ${byYear[yr].map((p, i) => `
+          <div class="pub-item" data-id="${p.id}" data-idx="${items.indexOf(p)}">
+            <span class="pub-type ${p.type}">${typeLabel(p.type)}</span>
+            <div class="pub-body">
+              <p class="pub-title">${p.title}</p>
+              <p class="pub-meta"><em>${p.venueShort}</em></p>
+              <p class="pub-authors">${p.authors}</p>
+            </div>
+            <span class="pub-arrow">→</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  document.querySelectorAll('.pub-item').forEach(el => {
+    el.addEventListener('click', () => openModal(parseInt(el.dataset.idx)));
+  });
+}
+
+// ─── MODAL ───────────────────────────────────────────────────────────────────
+function openModal(idx) {
+  const items = filtered();
+  const p = items[idx];
+  if (!p) return;
+  document.getElementById('modal-content').innerHTML = `
+    <div class="modal-year">${p.year}</div>
+    <span class="modal-type ${p.type}">${typeLabel(p.type)}</span>
+    <h2 class="modal-title">${p.title}</h2>
+    <p class="modal-authors">${p.authors}</p>
+    <p class="modal-venue">${p.venue}</p>
+    <p class="modal-abstract">${p.abstract}</p>
+    <div class="modal-links">
+      ${p.doi !== '#' ? `<a href="${p.doi}" target="_blank" class="modal-link">DOI →</a>` : ''}
+      ${p.pdf !== '#' ? `<a href="${p.pdf}" target="_blank" class="modal-link">PDF →</a>` : ''}
+    </div>
+  `;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ─── CONTROLS ────────────────────────────────────────────────────────────────
+document.getElementById('type-filters').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  activeType = btn.dataset.type;
+  document.querySelectorAll('#type-filters .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+});
+
+document.getElementById('year-filters').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  activeYear = btn.dataset.year;
+  document.querySelectorAll('#year-filters .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+});
+
+docu
