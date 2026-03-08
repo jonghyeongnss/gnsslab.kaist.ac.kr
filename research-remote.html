@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Research · GNSS Lab KAIST</title>
+  <title>Remote Sensing · Research · GNSS Lab KAIST</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <style>
@@ -116,7 +116,7 @@
       padding: 5rem 5rem 2rem;
       border-bottom: 2px solid #c8d8e8;
     }
-    .research-area:last-of-type { border-bottom: none; }
+    
 
     .area-header {
       display: flex; align-items: flex-start; gap: 2rem;
@@ -247,20 +247,7 @@
       .area-num { font-size: 3rem; }
     }
   
-    .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-    .area-card { display: block; text-decoration: none; border: 1px solid #e4edf5; background: #fff; transition: box-shadow 0.25s, transform 0.25s; overflow: hidden; }
-    .area-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-4px); }
-    .area-card-img { width: 100%; height: 260px; background: #d0dce8; background-size: cover; background-position: center; }
-    .area-card-body { padding: 2rem 2.5rem 2.5rem; }
-    .area-card-num { font-family: var(--display); font-size: 4rem; color: #e0eaf4; line-height: 1; margin-bottom: 0.3rem; }
-    .area-card-eyebrow { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
-    .area-card-title { font-family: var(--display); font-size: 2.6rem; letter-spacing: 0.04em; color: #0e1e2e; line-height: 1.1; margin-bottom: 0.8rem; }
-    .area-card-desc { font-family: var(--serif); font-size: 1.5rem; color: #5a7898; line-height: 1.7; margin-bottom: 1.5rem; }
-    .area-card-topics { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
-    .area-card-tag { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; padding: 0.2rem 0.6rem; border: 1px solid #c8d8e8; color: #7a9ab8; }
-    .area-card-arrow { font-family: var(--mono); font-size: 1.0rem; color: var(--cyan); letter-spacing: 0.08em; transition: transform 0.2s; display: inline-block; }
-    .area-card:hover .area-card-arrow { transform: translateX(6px); }
-    @media (max-width: 960px) { .areas-grid { grid-template-columns: 1fr; } }
+    .research-area { border-bottom: none; }
   </style>
 </head>
 <body>
@@ -287,57 +274,102 @@
 </nav>
 
 <div class="page-header">
-  <div class="page-header-eyebrow">GNSS Lab · KAIST</div>
-  <h1>Research</h1>
-  <p class="page-header-desc">We develop algorithms and systems at the intersection of GNSS signal processing, atmospheric remote sensing, and satellite navigation.</p>
+  <div class="page-header-eyebrow">GNSS Lab · KAIST — Research</div>
+  <h1>Remote Sensing</h1>
+  <p class="page-header-desc">Probing the atmosphere and ionosphere with GNSS signals for weather, climate, and space weather applications.</p>
 </div>
 
-<div class="areas-grid">
-  <a href="research-integrity.html" class="area-card reveal">
-    <div class="area-card-img" style="background-image: url('images/research-integrity.png');"></div>
-    <div class="area-card-body">
-      <div class="area-card-num">01</div>
-      <p class="area-card-eyebrow">Research Area</p>
-      <h2 class="area-card-title">GNSS Integrity</h2>
-      <p class="area-card-desc">Ensuring the safety and trustworthiness of satellite-based navigation for aviation, autonomous vehicles, and urban air mobility.</p>
-      <div class="area-card-topics">
-        <span class="area-card-tag">AI Safety</span>
-        <span class="area-card-tag">SBAS / KPS</span>
-        <span class="area-card-tag">Multi-Sensor</span>
-      </div>
-      <span class="area-card-arrow">Explore →</span>
-    </div>
-  </a>
-  <a href="research-leo.html" class="area-card reveal">
-    <div class="area-card-img" style="background-image: url('images/research-leo.png');"></div>
-    <div class="area-card-body">
-      <div class="area-card-num">02</div>
-      <p class="area-card-eyebrow">Research Area</p>
-      <h2 class="area-card-title">LEO PNT</h2>
-      <p class="area-card-desc">Leveraging Low Earth Orbit satellite signals for resilient positioning, navigation, and timing in GNSS-challenged environments.</p>
-      <div class="area-card-topics">
-        <span class="area-card-tag">Signals of Opportunity</span>
-        <span class="area-card-tag">Error Model</span>
-      </div>
-      <span class="area-card-arrow">Explore →</span>
-    </div>
-  </a>
-  <a href="research-remote.html" class="area-card reveal">
-    <div class="area-card-img" style="background-image: url('images/research-remote.png');"></div>
-    <div class="area-card-body">
-      <div class="area-card-num">03</div>
-      <p class="area-card-eyebrow">Research Area</p>
-      <h2 class="area-card-title">Remote Sensing</h2>
-      <p class="area-card-desc">Probing the atmosphere and ionosphere with GNSS signals for weather, climate, and space weather applications.</p>
-      <div class="area-card-topics">
-        <span class="area-card-tag">AI-Enhanced RO</span>
-        <span class="area-card-tag">Ionosphere</span>
-        <span class="area-card-tag">CubeSat RO</span>
-      </div>
-      <span class="area-card-arrow">Explore →</span>
-    </div>
-  </a>
+<div class="area-nav">
+  <a href="research-integrity.html">GNSS Integrity</a>
+  <a href="research-leo.html">LEO PNT</a>
+  <a href="research-remote.html" class="active">Remote Sensing</a>
 </div>
+
+<section class="research-area" id="remote-sensing">
+  <div class="area-header reveal">
+    <div class="area-num">03</div>
+    <div>
+      <p class="area-eyebrow">Research Area</p>
+      <h2 class="area-title">Remote Sensing</h2>
+      <p class="area-subtitle">Probing the atmosphere and ionosphere with GNSS signals</p>
+    </div>
+  </div>
+
+  <div class="subtopic img-left reveal">
+    <div class="sub-img" style="background-image: url('images/rs-ai.png');"></div>
+    <div class="sub-text">
+      <p class="sub-num">03 — 01</p>
+      <h3 class="sub-title">AI-Enhanced GNSS Remote Sensing for Atmospheric Monitoring</h3>
+      <p class="sub-desc">
+        Machine learning and deep learning techniques are opening new frontiers in atmospheric retrieval.
+        We integrate AI-based approaches with GNSS remote sensing to improve the accuracy and
+        vertical resolution of tropospheric and stratospheric profile retrievals,
+        leveraging large-scale RO datasets from COSMIC-2 and future constellations for data-driven modeling.
+      </p>
+      <div>
+        <p class="related-papers-label">Related Papers</p>
+        <div class="paper-item">
+          <p class="paper-title">Deep Learning for Improved Bending Angle Retrieval in GNSS RO</p>
+          <p class="paper-venue">JGR Atmospheres · 2024</p>
+        </div>
+        <div class="paper-item">
+          <p class="paper-title">AI-Based Atmospheric Profile Retrieval from COSMIC-2 Data</p>
+          <p class="paper-venue">Remote Sensing · 2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic img-right reveal">
+    <div class="sub-img" style="background-image: url('images/rs-ionosphere.png');"></div>
+    <div class="sub-text">
+      <p class="sub-num">03 — 02</p>
+      <h3 class="sub-title">Ionospheric Analysis</h3>
+      <p class="sub-desc">
+        The ionosphere introduces significant range errors in GNSS signals and poses a major threat
+        to navigation integrity, particularly over the Korean Peninsula where irregularities can be severe.
+        We analyze ionospheric gradients, storm-time behaviors, and plasma bubble occurrences using
+        dense GNSS networks, and develop correction models adapted to the KPS service region.
+      </p>
+      <div>
+        <p class="related-papers-label">Related Papers</p>
+        <div class="paper-item">
+          <p class="paper-title">Ionospheric Gradient Monitoring for KPS Integrity over Korea</p>
+          <p class="paper-venue">JPNT · 2023</p>
+        </div>
+        <div class="paper-item">
+          <p class="paper-title">NeQuick-G Parameter Optimization for the Korean Positioning System</p>
+          <p class="paper-venue">ION GNSS+ · 2022</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic img-left reveal">
+    <div class="sub-img" style="background-image: url('images/rs-cubesat.png');"></div>
+    <div class="sub-text">
+      <p class="sub-num">03 — 03</p>
+      <h3 class="sub-title">GNSS Radio Occultation Using CubeSat Signals</h3>
+      <p class="sub-desc">
+        CubeSat constellations offer a cost-effective platform for large-scale GNSS Radio Occultation (RO)
+        campaigns. We investigate signal processing and retrieval algorithms tailored for
+        the limited aperture and power constraints of CubeSat receivers,
+        enabling high-cadence atmospheric profiling to complement operational RO missions such as COSMIC-2.
+      </p>
+      <div>
+        <p class="related-papers-label">Related Papers</p>
+        <div class="paper-item">
+          <p class="paper-title">GNSS RO Retrieval from CubeSat Receiver Data</p>
+          <p class="paper-venue">ION GNSS+ · 2024</p>
+        </div>
+        <div class="paper-item">
+          <p class="paper-title">Wavelet-Transform Phase Matching for Lower Troposphere RO</p>
+          <p class="paper-venue">JGR Atmospheres · 2025</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="footer-grid">
