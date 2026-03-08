@@ -64,7 +64,7 @@
     .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
     .nav-brand-main {
       font-family: var(--display);
-      font-size: clamp(1.4rem, 2.5vw, 2.5rem);
+      font-size: 2.5rem;
       letter-spacing: 0.06em;
       color: var(--bright);
       line-height: 1;
@@ -334,19 +334,105 @@
       .research-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .research-section, .news-section, footer { padding-left: 2rem; padding-right: 2rem; }
-      nav { padding: 0; height: auto; flex-direction: column; align-items: stretch; }
-      .nav-brand { padding: 0 1.2rem; height: 44px; display: flex; align-items: center; border-bottom: 1px solid var(--border); }
-      .nav-brand-main { font-size: clamp(1.2rem, 5vw, 1.8rem); white-space: nowrap; }
-      .nav-links { width: 100%; justify-content: space-around; border-bottom: 1px solid var(--border); height: 36px; }
-      .nav-links li:first-child a { border-left: none; }
-      .nav-links a { padding: 0; height: 36px; line-height: 36px; font-size: clamp(0.6rem, 2.4vw, 0.8rem); font-size: 0.72rem; }
+      nav { padding: 0 1.5rem; }
+      .nav-links a { padding: 0 0.7rem; font-size: 0.72rem; }
       .news-item { grid-template-columns: 90px 1fr; }
       .news-tag, .news-link { display: none; }
     }
     @media (max-width: 640px) {
       .footer-grid { grid-template-columns: 1fr; }
       .research-header, .news-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
-      .hero { padding-top: 90px; }
+    }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center; gap: 5px;
+      width: 36px; height: 36px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+      margin-left: auto;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--bright); border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+
+    /* ── DRAWER ── */
+    .nav-drawer {
+      position: fixed; top: 0; right: 0;
+      width: min(320px, 85vw); height: 100vh;
+      background: var(--navy2);
+      border-left: 1px solid var(--border);
+      z-index: 200;
+      display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      overflow-y: auto;
+    }
+    .nav-drawer.open { transform: translateX(0); }
+
+    .nav-drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-drawer-brand {
+      font-family: var(--display); font-size: 1.6rem;
+      letter-spacing: 0.06em; color: var(--bright);
+    }
+    .nav-drawer-brand span { color: var(--cyan); }
+    .nav-drawer-close {
+      background: none; border: none; cursor: pointer;
+      color: var(--mid); font-size: 1.1rem;
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-drawer-close:hover { background: var(--border); color: var(--bright); }
+
+    .nav-drawer-links {
+      list-style: none; padding: 1rem 0; flex: 1;
+    }
+    .nav-drawer-links > li > a {
+      display: block; padding: 0.9rem 1.5rem;
+      font-family: var(--ui); font-size: 1.05rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--mid); text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-drawer-links > li > a:hover { color: var(--bright); background: var(--navy3); }
+
+    .drawer-group { border-bottom: 1px solid var(--border); }
+    .drawer-group-title {
+      display: block; padding: 0.9rem 1.5rem;
+      font-family: var(--ui); font-size: 1.05rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .drawer-group ul { list-style: none; padding: 0 0 0.5rem 0; }
+    .drawer-group ul li a {
+      display: block; padding: 0.55rem 1.5rem 0.55rem 2.5rem;
+      font-family: var(--ui); font-size: 0.95rem;
+      color: var(--dim); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .drawer-group ul li a:hover { color: var(--cyan); }
+
+    /* ── OVERLAY ── */
+    .nav-overlay {
+      position: fixed; inset: 0; z-index: 190;
+      background: rgba(2,8,16,0.6);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .nav-overlay.open { opacity: 1; pointer-events: all; }
+
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
@@ -355,32 +441,66 @@
 <canvas id="stars-canvas"></canvas>
 
 <nav>
-  <a href="#" class="nav-brand">
+  <a href="index.html" class="nav-brand">
     <div class="nav-brand-main"><span>GNSS</span> KAIST</div>
   </a>
   <ul class="nav-links">
-    <li><a href="#">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="news.html">News</a></li>
     <li class="has-dropdown">
-	  <a href="people.html">People</a>
-	  <ul class="dropdown">
-		<li><a href="people.html#professor">Professor</a></li>
-		<li><a href="people.html#students">Students</a></li>
-		<li><a href="people.html#staff">Staff</a></li>
-	  </ul>
-	</li>
+      <a href="people.html">People</a>
+      <ul class="dropdown">
+        <li><a href="people.html#professor">Professor</a></li>
+        <li><a href="people.html#students">Students</a></li>
+        <li><a href="people.html#staff">Staff</a></li>
+      </ul>
+    </li>
     <li class="has-dropdown">
-	  <a href="research.html">Research</a>
-	  <ul class="dropdown">
-		<li><a href="research-integrity.html">GNSS Integrity</a></li>
-		<li><a href="research-leo.html">LEO PNT</a></li>
-		<li><a href="research-remote.html">Remote Sensing</a></li>
-	  </ul>
-	</li>
+      <a href="research.html">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="gallery.html">Gallery</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-header">
+    <div class="nav-drawer-brand"><span>GNSS</span> KAIST</div>
+    <button class="nav-drawer-close" id="nav-drawer-close">✕</button>
+  </div>
+  <ul class="nav-drawer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="news.html">News</a></li>
+    <li class="drawer-group">
+      <span class="drawer-group-title">People</span>
+      <ul>
+        <li><a href="people.html#professor">Professor</a></li>
+        <li><a href="people.html#students">Students</a></li>
+        <li><a href="people.html#staff">Staff</a></li>
+      </ul>
+    </li>
+    <li class="drawer-group">
+      <span class="drawer-group-title">Research</span>
+      <ul>
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</div>
+<div class="nav-overlay" id="nav-overlay"></div>
 
 <div class="hero">
   <div class="hero-visual">
@@ -681,7 +801,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#8ee9e0fdfde2efeccee5efe7fdfaa0efeda0e5fc"><span class="__cf_email__" data-cfemail="4d2a233e3e212c2f0d262c243e39632c2e63263f">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#63040d10100f02012308020a10174d02004d0811"><span class="__cf_email__" data-cfemail="583f362b2b34393a183339312b2c76393b76332a">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">🔗</span>
@@ -689,7 +809,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#adc7c4d4d8c3c1c8c8edc6ccc4ded983ccce83c6df"><span class="__cf_email__" data-cfemail="244e4d5d514a484141644f454d57500a45470a4f56">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#cca6a5b5b9a2a0a9a98ca7ada5bfb8e2adafe2a7be"><span class="__cf_email__" data-cfemail="a1cbc8d8d4cfcdc4c4e1cac0c8d2d58fc0c28fcad3">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -747,6 +867,28 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal, .news-item').forEach(el => io.observe(el));
+
+  // ── Mobile drawer ──
+  const hamburger = document.getElementById('nav-hamburger');
+  const drawer    = document.getElementById('nav-drawer');
+  const overlay   = document.getElementById('nav-overlay');
+  const closeBtn  = document.getElementById('nav-drawer-close');
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 </script>
 </body>
 </html>
