@@ -191,8 +191,8 @@
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
     .footer-bottom span { font-family: var(--mono); font-size: 1.1rem; color: var(--dim); letter-spacing: 0.05em; }
 
-    .reveal { opacity:0; transform:translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal { opacity: 1; transform: none; }
+    .reveal.visible { opacity: 1; transform: none; }
 
     @media (max-width: 1100px) { .masonry { columns: 2; } .lightbox-info { width: 240px; } }
     @media (max-width: 768px) {
@@ -439,30 +439,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
-  // ── Mobile drawer ──
-  const hamburger = document.getElementById('nav-hamburger');
-  const drawer    = document.getElementById('nav-drawer');
-  const overlay   = document.getElementById('nav-overlay');
-  const closeBtn  = document.getElementById('nav-drawer-close');
-  function openDrawer() {
-    drawer.classList.add('open');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeDrawer() {
-    drawer.classList.remove('open');
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  hamburger.addEventListener('click', openDrawer);
-  closeBtn.addEventListener('click', closeDrawer);
-  overlay.addEventListener('click', closeDrawer);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
-</script><script>
-// ─── DATA ────────────────────────────────────────────────────────────────────
-// 실제 이미지 파일로 교체하세요. src에 images/ 경로를 입력하면 돼요.
-// tall: true → 세로로 긴 이미지 (2배 높이), wide: true → 가로로 긴 이미지
+<script>
 const PHOTOS = [
   {
     src: 'images/gallery/ion-gnss-2024.jpg',
@@ -511,7 +488,7 @@ const PHOTOS = [
   {
     src: 'images/gallery/seminar-2024.jpg',
     title: 'Lab Seminar',
-    desc: 'Weekly research seminar — lab members presenting progress on LEO PNT and RO retrieval algorithms.',
+    desc: 'Weekly research seminar \u2014 lab members presenting progress on LEO PNT and RO retrieval algorithms.',
     tag: 'Lab Life',
     date: 'November 2024'
   },
@@ -533,7 +510,7 @@ const PHOTOS = [
   {
     src: 'images/gallery/graduation-2024.jpg',
     title: 'Graduation Ceremony 2024',
-    desc: 'Congratulations to graduating lab members — PhD and Master\'s graduates of the class of 2024.',
+    desc: 'Congratulations to graduating lab members \u2014 PhD and Master\'s graduates of the class of 2024.',
     tag: 'Lab Life',
     date: 'February 2024'
   },
@@ -553,7 +530,7 @@ const PHOTOS = [
   },
 ];
 
-// ─── RENDER MASONRY ──────────────────────────────────────────────────────────
+// \u2500\u2500\u2500 RENDER MASONRY \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 const masonry = document.getElementById('masonry');
 
 PHOTOS.forEach((p, i) => {
@@ -561,7 +538,7 @@ PHOTOS.forEach((p, i) => {
   item.className = 'masonry-item reveal';
   item.dataset.idx = i;
 
-  // placeholder 배경 (이미지 없을 때 graceful fallback)
+  // placeholder \ubc30\uacbd (\uc774\ubbf8\uc9c0 \uc5c6\uc744 \ub54c graceful fallback)
   item.style.background = '#c8d8e8';
   if (p.tall) item.style.gridRowEnd = 'span 2';
 
@@ -579,7 +556,7 @@ PHOTOS.forEach((p, i) => {
   masonry.appendChild(item);
 });
 
-// ─── LIGHTBOX ────────────────────────────────────────────────────────────────
+// \u2500\u2500\u2500 LIGHTBOX \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 let currentIdx = 0;
 
 function openLightbox(idx) {
@@ -617,4 +594,32 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') navigate(1);
 });
 
-// ─── REVEAL ──────────────────────────────────�
+// \u2500\u2500\u2500 REVEAL \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.04 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+
+  // ── Mobile drawer ──
+  const hamburger = document.getElementById('nav-hamburger');
+  const drawer    = document.getElementById('nav-drawer');
+  const overlay   = document.getElementById('nav-overlay');
+  const closeBtn  = document.getElementById('nav-drawer-close');
+  function openDrawer() {
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  hamburger.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+</script>
+</body>
+</html>
