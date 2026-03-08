@@ -41,7 +41,7 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 64px;
-      display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem 0;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 3rem;
       background: rgba(245,247,250,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #a0b8d0;
@@ -579,7 +579,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#97f0f9e4e4fbf6f5d7fcf6fee4e3b9f6f4b9fce5"><span class="__cf_email__" data-cfemail="3d5a534e4e515c5f7d565c544e49135c5e13564f">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">🔗</span>
@@ -587,7 +587,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#503a3929253e3c3535103b313923247e31337e3b22"><span class="__cf_email__" data-cfemail="761c1f0f03181a1313361d171f0502581715581d04">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -598,7 +598,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const canvas = document.getElementById('stars-canvas');
   const ctx = canvas.getContext('2d');
   let stars = [];
@@ -668,14 +668,4 @@
     document.body.style.overflow = 'hidden';
   }
   function closeDrawer() {
-    drawer.classList.remove('open');
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  hamburger.addEventListener('click', openDrawer);
-  closeBtn.addEventListener('click', closeDrawer);
-  overlay.addEventListener('click', closeDrawer);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
-</script>
-</body>
-</html>
+    
