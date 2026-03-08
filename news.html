@@ -353,8 +353,24 @@
     .year-block { animation: fadeUp 0.5s ease both; }
 
     @media (max-width: 960px) {
-      .page-header, .timeline-wrap, .controls { padding-left: 2rem; padding-right: 2rem; }
-      .news-item { grid-template-columns: 80px 1fr; }
+      .page-header, .timeline-wrap, .controls { padding-left: 1.2rem; padding-right: 1.2rem; }
+      /* 타임라인 세로선 제거 */
+      .timeline-items {
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
+      }
+      /* 점 제거 */
+      .news-item::before { display: none; }
+      /* 아이템: 날짜 위, 내용 전체 폭 */
+      .news-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        padding: 1.1rem 0.5rem;
+      }
+      .news-date { margin-bottom: 0.2rem; padding-top: 0; }
+      .news-body { width: 100%; }
       .news-tag, .news-arrow { display: none; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
