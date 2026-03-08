@@ -54,7 +54,7 @@
     .nav-links li { position: relative; }
     .nav-links a {
       display: block; padding: 0 1.2rem;
-      font-family: var(--ui); font-size: 1.3rem; font-weight: 500;
+      font-family: var(--ui); font-size: clamp(0.82rem, 1.3vw, 1.3rem); font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: #3d5a78; text-decoration: none; transition: color 0.2s;
     }
@@ -102,7 +102,7 @@
       background: #F5F7FA;
     }
     .page-header-eyebrow {
-      font-family: var(--mono); font-size: 2.0rem;
+      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem);
       letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.8rem;
       display: flex; align-items: center; gap: 0.8rem;
@@ -115,7 +115,7 @@
     }
     .page-header-desc {
       font-family: var(--serif); font-style: italic;
-      font-size: 2.0rem; color: #3d5a78; max-width: 48ch;
+      font-size: clamp(1.1rem, 2vw, 2.0rem); color: #3d5a78; max-width: 48ch;
     }
 
     /* SECTION */
@@ -127,7 +127,7 @@
 
     .section-label {
       display: inline-flex; align-items: center; gap: 0.8rem;
-      font-family: var(--mono); font-size: 2.0rem;
+      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem);
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.6rem;
     }
@@ -148,29 +148,29 @@
       object-fit: cover;
       background: none;
       display: flex; align-items: center; justify-content: center;
-      color: #7a9ab8; font-family: var(--mono); font-size: 2.0rem;
+      color: #7a9ab8; font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem);
       letter-spacing: 0.1em;
     }
     .professor-photo img { width: 100%; height: auto; display: block; }
     .professor-info { padding-top: 0.5rem; }
     .professor-name {
-      font-family: var(--display); font-size: 4.0rem;
+      font-family: var(--display); font-size: clamp(2.2rem, 4vw, 4.0rem);
       letter-spacing: 0.04em; color: #0e1e2e; line-height: 1;
       margin-bottom: 0.4rem;
     }
     .professor-title {
-      font-family: var(--mono); font-size: 1.2rem;
+      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--cyan); margin-bottom: 1.2rem;
     }
     .professor-bio {
-      font-family: var(--serif); font-size: 2.0rem;
+      font-family: var(--serif); font-size: clamp(1.1rem, 2vw, 2.0rem);
       color: #3a4a5a; line-height: 1.85;
       margin-bottom: 1.5rem; max-width: 72ch;
     }
     .professor-links { display: flex; gap: 1rem; flex-wrap: wrap; }
     .prof-link {
-      font-family: var(--mono); font-size: 1.3rem;
+      font-family: var(--mono); font-size: clamp(0.82rem, 1.3vw, 1.3rem);
       letter-spacing: 0.1em; text-transform: uppercase;
       color: #3d5a78; text-decoration: none;
       border: 1px solid #c0d0e0; padding: 0.4rem 1rem;
@@ -207,20 +207,20 @@
     .person-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .person-info { padding: 1rem 1rem 1.1rem; }
     .person-name {
-      font-family: var(--ui); font-size: 2.0rem; font-weight: 600;
+      font-family: var(--ui); font-size: clamp(1.1rem, 2vw, 2.0rem); font-weight: 600;
       color: #0e1e2e; margin-bottom: 0.2rem; line-height: 1.3;
     }
     .person-role {
-      font-family: var(--mono); font-size: 1.2rem;
+      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
       letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--cyan); margin-bottom: 0.5rem;
     }
     .person-detail {
-      font-size: 1.0rem; color: #3d5a78; line-height: 1.5;
+      font-size: clamp(0.72rem, 1vw, 1.0rem); color: #3d5a78; line-height: 1.5;
       margin-bottom: 0.5rem;
     }
     .person-email {
-      font-family: var(--mono); font-size: 1.0rem;
+      font-family: var(--mono); font-size: clamp(0.72rem, 1vw, 1.0rem);
       color: #7a9ab8; text-decoration: none; letter-spacing: 0.02em;
       transition: color 0.2s; display: block;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
@@ -238,9 +238,9 @@
       gap: 3rem; padding-bottom: 3rem;
       border-bottom: 1px solid #1a3050; margin-bottom: 2rem;
     }
-    .footer-brand-name { font-family: var(--display); font-size: 3.0rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
     .footer-brand-name span { color: var(--gold); }
-    .footer-brand-sub { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-brand-sub { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
     .footer-col-title { font-family: var(--mono); font-size: 1.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
     .footer-col ul a { font-size: 1.5rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
@@ -251,7 +251,7 @@
     .footer-info-text { font-size: 1.5rem; color: var(--dim); line-height: 1.6; }
     .footer-info-text a { color: var(--cyan); text-decoration: none; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom span { font-family: var(--mono); font-size: 1.1rem; color: var(--dim); letter-spacing: 0.05em; }
+    .footer-bottom span { font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 1.1rem); color: var(--dim); letter-spacing: 0.05em; }
 
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
     .reveal { opacity:0; transform:translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -330,7 +330,7 @@
         atmospheric remote sensing.
       </p>
       <div class="professor-links">
-        <a href="mailto:jiyunlee@kaist.ac.kr" class="prof-link">✉ Email</a>
+        <a href="/cdn-cgi/l/email-protection#22484b5b574c4e47476249434b51560c43410c4950" class="prof-link">✉ Email</a>
         <a href="https://ae.kaist.ac.kr" target="_blank" class="prof-link">🔗 Lab Page</a>
         <a href="#" class="prof-link">CV</a>
         <a href="publications.html" class="prof-link">Publications</a>
@@ -351,7 +351,7 @@
         <p class="person-name">Hyeon Park</p>
         <p class="person-role">PhD Student</p>
         <p class="person-detail">GNSS Radio Occultation · Wavelet Signal Processing</p>
-        <a href="mailto:hyeonpark@kaist.ac.kr" class="person-email">hyeonpark@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#6d05140802031d0c1f062d060c041e19430c0e43061f" class="person-email"><span class="__cf_email__" data-cfemail="7e16071b11100e1f0c153e151f170d0a501f1d50150c">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -361,7 +361,7 @@
         <p class="person-name">Student Name</p>
         <p class="person-role">PhD Student</p>
         <p class="person-detail">GNSS Integrity · Aviation</p>
-        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#f487808190919a80b49f959d8780da9597da9f86" class="person-email"><span class="__cf_email__" data-cfemail="f487808190919a80b49f959d8780da9597da9f86">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -371,7 +371,7 @@
         <p class="person-name">Student Name</p>
         <p class="person-role">MS Student</p>
         <p class="person-detail">LEO PNT · Positioning Algorithms</p>
-        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#a4d7d0d1c0c1cad0e4cfc5cdd7d08ac5c78acfd6" class="person-email"><span class="__cf_email__" data-cfemail="daa9aeafbebfb4ae9ab1bbb3a9aef4bbb9f4b1a8">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -381,7 +381,7 @@
         <p class="person-name">Student Name</p>
         <p class="person-role">MS Student</p>
         <p class="person-detail">Ionospheric Modeling · KPS</p>
-        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#1a696e6f7e7f746e5a717b73696e347b79347168" class="person-email"><span class="__cf_email__" data-cfemail="b8cbcccddcddd6ccf8d3d9d1cbcc96d9db96d3ca">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -391,7 +391,7 @@
         <p class="person-name">Student Name</p>
         <p class="person-role">MS Student</p>
         <p class="person-detail">Remote Sensing · GNSS-R</p>
-        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#92e1e6e7f6f7fce6d2f9f3fbe1e6bcf3f1bcf9e0" class="person-email"><span class="__cf_email__" data-cfemail="bbc8cfcedfded5cffbd0dad2c8cf95dad895d0c9">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -401,7 +401,7 @@
         <p class="person-name">Student Name</p>
         <p class="person-role">MS Student</p>
         <p class="person-detail">Signal Processing · RO</p>
-        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#cab9bebfaeafa4be8aa1aba3b9bee4aba9e4a1b8" class="person-email"><span class="__cf_email__" data-cfemail="b7c4c3c2d3d2d9c3f7dcd6dec4c399d6d499dcc5">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -420,7 +420,7 @@
         <p class="person-name">Staff Name</p>
         <p class="person-role">Research Engineer</p>
         <p class="person-detail">Lab Management · System Administration</p>
-        <a href="mailto:staff@kaist.ac.kr" class="person-email">staff@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#c7b4b3a6a1a187aca6aeb4b3e9a6a4e9acb5" class="person-email"><span class="__cf_email__" data-cfemail="3c4f485d5a5a7c575d554f48125d5f12574e">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -458,31 +458,4 @@
       <div class="footer-info">
         <div class="footer-info-row">
           <span class="footer-info-icon">📍</span>
-          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
-        </div>
-        <div class="footer-info-row">
-          <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
-        </div>
-        <div class="footer-info-row">
-          <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
-  </div>
-</footer>
-
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
-</body>
-</html>
+          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu
