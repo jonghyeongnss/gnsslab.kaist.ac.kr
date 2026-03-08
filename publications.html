@@ -419,11 +419,11 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#3f58514c4c535e5d7f545e564c4b115e5c11544d"><span class="__cf_email__" data-cfemail="caada4b9b9a6aba88aa1aba3b9bee4aba9e4a1b8">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#c1aba8b8b4afada4a481aaa0a8b2b5efa0a2efaab3"><span class="__cf_email__" data-cfemail="f2989b8b879c9e9797b299939b8186dc9391dc9980">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -433,7 +433,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─── DATA ───────────────────────────────────────────────────────────────────
 const PUBS = [
   {
@@ -645,4 +645,19 @@ document.getElementById('type-filters').addEventListener('click', e => {
 });
 
 document.getElementById('year-filters').addEventListener('click', e => {
-  const btn = e.target.c
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  activeYear = btn.dataset.year;
+  document.querySelectorAll('#year-filters .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+});
+
+document.getElementById('search-input').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  render();
+});
+render();
+</script>
+</body>
+</html>
