@@ -78,11 +78,11 @@
 
     /* ── PAGE HEADER ── */
     .page-header {
-      padding: 9rem 5rem 4rem;
+      padding: clamp(5rem, 9vw, 9rem) clamp(1.5rem, 5vw, 5rem) clamp(2rem, 4vw, 4rem);
       border-bottom: 1px solid #a0b8d0;
     }
     .page-header-eyebrow {
-      font-family: var(--mono); font-size: 2.0rem;
+      font-family: var(--mono); font-size: clamp(0.72rem, 1vw, 1.0rem);
       letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.8rem;
       display: flex; align-items: center; gap: 0.8rem;
@@ -93,7 +93,7 @@
       letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem;
     }
     .page-header-desc {
-      font-size: 2.0rem; color: #3d5a78; max-width: 60ch;
+      font-size: clamp(0.95rem, 1.6vw, 1.6rem); color: #3d5a78; max-width: 60ch;
       font-family: var(--serif); font-style: italic;
     }
 
@@ -105,7 +105,7 @@
       padding: 0 5rem; display: flex; gap: 0;
     }
     .area-nav a {
-      font-family: var(--mono); font-size: 1.4rem;
+      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
       letter-spacing: 0.1em; text-transform: uppercase;
       color: #7a9ab8; text-decoration: none;
       padding: 1rem 1.5rem;
@@ -127,12 +127,12 @@
       margin-bottom: 4rem;
     }
     .area-num {
-      font-family: var(--display); font-size: 9rem;
+      font-family: var(--display); font-size: clamp(4rem, 8vw, 9rem);
       color: #4a6070; line-height: 1; user-select: none;
       flex-shrink: 0; margin-top: -0.5rem;
     }
     .area-eyebrow {
-      font-family: var(--mono); font-size: 3.0rem;
+      font-family: var(--mono); font-size: clamp(1.6rem, 3vw, 3.0rem);
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.4rem;
     }
@@ -141,7 +141,7 @@
       letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 0.8rem;
     }
     .area-subtitle {
-      font-size: 3.0rem; color: #3d5a78;
+      font-size: clamp(1.6rem, 3vw, 3.0rem); color: #3d5a78;
       font-family: var(--serif); font-style: italic;
     }
 
@@ -177,7 +177,7 @@
       margin-bottom: 0.5rem;
     }
     .sub-title {
-      font-family: var(--display); font-size: 2.4rem;
+      font-family: var(--display); font-size: clamp(1.3rem, 2.4vw, 2.4rem);
       letter-spacing: 0.05em; color: #0e1e2e; line-height: 1.1;
       margin-bottom: 1rem;
     }
@@ -217,7 +217,7 @@
       gap: 3rem; padding-bottom: 3rem;
       border-bottom: 1px solid #1a3050; margin-bottom: 2rem;
     }
-    .footer-brand-name { font-family: var(--display); font-size: 3.0rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
     .footer-brand-name span { color: var(--gold); }
     .footer-brand-sub { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
     .footer-col-title { font-family: var(--mono); font-size: 1.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
@@ -248,7 +248,7 @@
     @media (max-width: 640px) {
       .footer-grid { grid-template-columns: 1fr; }
       .area-header { flex-direction: column; gap: 0.5rem; }
-      .area-num { font-size: 3rem; }
+      .area-num { font-size: clamp(1.6rem, 3vw, 3.0rem); }
     }
   
     .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
@@ -256,9 +256,9 @@
     .area-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-4px); }
     .area-card-img { width: 100%; height: 260px; background: #a0b8d0; background-size: cover; background-position: center; }
     .area-card-body { padding: 2rem 2.5rem 2.5rem; }
-    .area-card-num { font-family: var(--display); font-size: 6rem; color: #4a6070; line-height: 1; margin-bottom: 0.3rem; }
+    .area-card-num { font-family: var(--display); font-size: clamp(3rem, 6vw, 6rem); color: #4a6070; line-height: 1; margin-bottom: 0.3rem; }
     .area-card-eyebrow { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
-    .area-card-title { font-family: var(--display); font-size: 3.0rem; letter-spacing: 0.04em; color: #0e1e2e; line-height: 1.1; margin-bottom: 0.8rem; }
+    .area-card-title { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); letter-spacing: 0.04em; color: #0e1e2e; line-height: 1.1; margin-bottom: 0.8rem; }
     .area-card-desc { font-family: var(--serif); font-size: 1.8rem; color: #3d5a78; line-height: 1.7; margin-bottom: 1.5rem; }
     .area-card-topics { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
     .area-card-tag { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.05em; padding: 0.2rem 0.6rem; border: 1px solid #c8d8e8; color: #7a9ab8; }
@@ -329,8 +329,6 @@
     }
     .nav-overlay.open { opacity: 1; pointer-events: all; }
     @media (max-width: 768px) {
-      .nav-hamburger { display: flex; }
-      .nav-links { display: none; }
     }
   </style>
 </head>
