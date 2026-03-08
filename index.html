@@ -79,7 +79,7 @@
       padding: 0 1.2rem;
       height: auto; line-height: normal;
       font-family: var(--ui);
-      font-size: 1.3rem;
+      font-size: clamp(0.82rem, 1.3vw, 1.3rem);
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -181,7 +181,7 @@
 
     .hero-affil {
       font-family: var(--mono);
-      font-size: 1.35rem;
+      font-size: clamp(0.85rem, 1.35vw, 1.35rem);
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--mid);
@@ -195,26 +195,26 @@
       z-index: 2;
       opacity: 0; animation: fadeIn 1s ease forwards 2s;
     }
-    .hero-scroll span { font-family: var(--mono); font-size: 1.3rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+    .hero-scroll span { font-family: var(--mono); font-size: clamp(0.82rem, 1.3vw, 1.3rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
     .scroll-line { width: 1.5px; height: 3rem; background: linear-gradient(to bottom, var(--dim), transparent); animation: scrollDrop 1.8s ease-in-out infinite; }
     @keyframes scrollDrop { 0%{transform:scaleY(0);transform-origin:top;} 50%{transform:scaleY(1);transform-origin:top;} 51%{transform:scaleY(1);transform-origin:bottom;} 100%{transform:scaleY(0);transform-origin:bottom;} }
 
     section { position: relative; z-index: 1; }
     .sec-label {
       display: inline-flex; align-items: center; gap: 4rem;
-      font-family: var(--mono); font-size: 1.8rem;
+      font-family: var(--mono); font-size: clamp(1.0rem, 1.8vw, 1.8rem);
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.8rem;
     }
     .sec-label::before { content:''; width:1.8rem; height:1px; background:var(--gold); }
     h2.sec-title {
       font-family: var(--display);
-      font-size: 4.5rem;
+      font-size: clamp(2.4rem, 4.5vw, 4.5rem);
       letter-spacing: 0.05em;
       color: var(--bright);
       margin-bottom: 0.5rem;
     }
-    .sec-desc { font-size: 1.8rem; font-weight: 500 ;color: var(--mid); max-width: 80ch; line-height: 1.8; }
+    .sec-desc { font-size: clamp(1.0rem, 1.8vw, 1.8rem); font-weight: 500 ;color: var(--mid); max-width: 80ch; line-height: 1.8; }
 
     .research-section {
       background: var(--navy2);
@@ -224,7 +224,7 @@
     }
     .research-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; }
     .view-all-btn {
-      font-family: var(--mono); font-size: 1.1rem;
+      font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 1.1rem);
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--cyan); text-decoration: none;
       border: 1px solid var(--border2);
@@ -278,9 +278,9 @@
 	.res-card:hover .res-card-body {
 	  transform: translateY(-8px);
 	}
-	.res-card-num { font-family: var(--mono); font-size: 1.2rem; color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 0.6rem; }
-	.res-card-title { font-family: var(--display); font-size: 3.0rem; color: var(--bright); margin-bottom: 0.6rem; line-height: 1.2; letter-spacing: 0.04em; }
-	.res-card-desc { font-size: 1.8rem; font-weight: 500; color: var(--mid); line-height: 1.7; opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.4s ease, max-height 0.4s ease; }
+	.res-card-num { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+	.res-card-title { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); color: var(--bright); margin-bottom: 0.6rem; line-height: 1.2; letter-spacing: 0.04em; }
+	.res-card-desc { font-size: clamp(1.0rem, 1.8vw, 1.8rem); font-weight: 500; color: var(--mid); line-height: 1.7; opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.4s ease, max-height 0.4s ease; }
 	.res-card:hover .res-card-desc { opacity: 1; max-height: 6rem; }
 	.res-card-arrow { font-family: var(--mono); font-size: 0.7rem; color: var(--cyan); margin-top: 0.8rem; display: block; opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease; }
 	.res-card:hover .res-card-arrow { opacity: 1; transform: translateX(4px); }
@@ -300,17 +300,17 @@
     }
     .news-item:first-child { border-top: 1px solid var(--border); }
     .news-item.visible { opacity: 1; transform: translateY(0); }
-    .news-date { font-family: var(--mono); font-size: 1.4rem; font-weight: 500; color: var(--dim); letter-spacing: 0.04em; padding-top: 0.1rem; white-space: nowrap}
-    .news-title { font-size: 1.8rem; font-weight: 500; color: var(--bright); margin-bottom: 0.2rem; line-height: 1.4; }
-    .news-detail { font-size: 1.3rem; color: var(--mid); }
-    .news-link { font-family: var(--mono); font-size: 1.4rem; color: var(--dim); text-decoration: none; letter-spacing: 0.06em; padding-top: 0.1rem; transition: color 0.2s; white-space: nowrap; align-self: start; }
+    .news-date { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); font-weight: 500; color: var(--dim); letter-spacing: 0.04em; padding-top: 0.1rem; white-space: nowrap}
+    .news-title { font-size: clamp(1.0rem, 1.8vw, 1.8rem); font-weight: 500; color: var(--bright); margin-bottom: 0.2rem; line-height: 1.4; }
+    .news-detail { font-size: clamp(0.82rem, 1.3vw, 1.3rem); color: var(--mid); }
+    .news-link { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: var(--dim); text-decoration: none; letter-spacing: 0.06em; padding-top: 0.1rem; transition: color 0.2s; white-space: nowrap; align-self: start; }
     .news-link:hover { color: var(--cyan); }
 
     footer { background: var(--navy2); border-top: 1px solid var(--border); padding: 4rem 5rem 2.5rem; position: relative; z-index: 1; }
     .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
-    .footer-brand-name { font-family: var(--display); font-size: 3.0rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
     .footer-brand-name span { color: var(--gold); }
-    .footer-brand-sub { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-bottom: 1.4rem; }
+    .footer-brand-sub { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-bottom: 1.4rem; }
     .footer-col-title { font-family: var(--mono); font-size: 1.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
     .footer-col ul a { font-size: 1.5rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
@@ -321,7 +321,7 @@
     .footer-info-text { font-size: 1.5rem; color: var(--dim); line-height: 1.6; }
     .footer-info-text a { color: var(--cyan); text-decoration: none; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom span { font-family: var(--mono); font-size: 1.1rem; color: var(--dim); letter-spacing: 0.05em; }
+    .footer-bottom span { font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 1.1rem); color: var(--dim); letter-spacing: 0.05em; }
 
     @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
     @keyframes fadeIn { to { opacity:1; } }
@@ -677,7 +677,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#8ee9e0fdfde2efeccee5efe7fdfaa0efeda0e5fc"><span class="__cf_email__" data-cfemail="4d2a233e3e212c2f0d262c243e39632c2e63263f">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">🔗</span>
@@ -685,7 +685,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#adc7c4d4d8c3c1c8c8edc6ccc4ded983ccce83c6df"><span class="__cf_email__" data-cfemail="244e4d5d514a484141644f454d57500a45470a4f56">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -695,7 +695,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const canvas = document.getElementById('stars-canvas');
   const ctx = canvas.getContext('2d');
   let stars = [];
@@ -742,11 +742,7 @@
       if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal, .news-item').forEach(el => io.observe(el));
-
-  window.addEventListener('scroll', () => {
-    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 40);
-  });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
