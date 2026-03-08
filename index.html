@@ -739,3 +739,21 @@
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
+  nitStars();
+  requestAnimationFrame(drawStars);
+  window.addEventListener('resize', () => { resize(); initStars(); });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // News scroll active
+  const newsSection = document.querySelector('.news-section');
+  const navLinks2 = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    navLinks2.forEach(a => a.classList.remove('active'));
+  });
+</script>
+</body>
+</html>

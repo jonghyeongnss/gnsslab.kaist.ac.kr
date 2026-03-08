@@ -684,3 +684,16 @@ function drawStars(t) {
   requestAnimationFrame(drawStars);
 }
 resize
+(0.5+1.0*Math.sin(t*s.speed+s.phase));
+    ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(200,220,255,${a})`; ctx.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+resize();
+initStars();
+requestAnimationFrame(drawStars);
+window.addEventListener('resize', () => { resize(); initStars(); });
+</script>
+</body>
+</html>
