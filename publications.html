@@ -123,17 +123,17 @@
     .search-wrap input {
       width: 100%; background: #fff;
       border: 1px solid #c0d0e0; color: #1c2b3a;
-      font-family: var(--mono); font-size: 1.1rem;
+      font-family: var(--mono); font-size: 1.4rem;
       letter-spacing: 0.05em;
       padding: 0.55rem 0.8rem 0.55rem 2.2rem;
       outline: none; transition: border-color 0.2s;
     }
     .search-wrap input::placeholder { color: #8aaac8; }
     .search-wrap input:focus { border-color: var(--cyan); }
-    .search-icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: #8aaac8; font-size: 1.1rem; pointer-events: none; }
+    .search-icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: #8aaac8; font-size: 1.4rem; pointer-events: none; }
     .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .filter-btn {
-      font-family: var(--mono); font-size: 1.0rem;
+      font-family: var(--mono); font-size: 1.4rem;
       letter-spacing: 0.08em; text-transform: uppercase;
       padding: 0.35rem 0.9rem;
       border: 1px solid #c0d0e0; color: #5a7898;
@@ -142,7 +142,7 @@
     .filter-btn:hover { color: #1c2b3a; border-color: #8aaac8; }
     .filter-btn.active { color: #fff; background: var(--cyan); border-color: var(--cyan); }
     .filter-divider { width: 1px; height: 1.5rem; background: #d0dce8; }
-    .result-count { font-family: var(--mono); font-size: 1.0rem; color: #8aaac8; letter-spacing: 0.06em; margin-left: auto; }
+    .result-count { font-family: var(--mono); font-size: 1.4rem; color: #8aaac8; letter-spacing: 0.06em; margin-left: auto; }
     .result-count span { color: var(--cyan); }
 
     /* PUBLICATIONS LIST */
@@ -150,7 +150,7 @@
 
     .year-block { margin-top: 4rem; }
     .year-label { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0; }
-    .year-label h2 { font-family: var(--display); font-size: 5rem; color: #d0dce8; letter-spacing: 0.08em; line-height: 1; user-select: none; transition: color 0.3s; }
+    .year-label h2 { font-family: var(--display); font-size: 5.5rem; color: #d0dce8; letter-spacing: 0.08em; line-height: 1; user-select: none; transition: color 0.3s; }
     .year-block:hover .year-label h2 { color: #b0c4d8; }
     .year-line { flex: 1; height: 1px; background: linear-gradient(to right, #d0dce8, transparent); }
 
@@ -164,7 +164,7 @@
     .pub-item {
       position: relative;
       display: grid;
-      grid-template-columns: 72px 1fr auto;
+      grid-template-columns: max-content 1fr auto;
       gap: 0 2rem;
       padding: 1.4rem 1rem 1.4rem 2rem;
       border-bottom: 1px solid #e4edf5;
@@ -183,7 +183,7 @@
     .pub-item:hover::before { background: var(--cyan); border-color: var(--cyan); }
 
     .pub-type {
-      font-family: var(--mono); font-size: 0.9rem;
+      font-family: var(--mono); font-size: 1.4rem;
       letter-spacing: 0.07em; text-transform: uppercase;
       padding: 0.2rem 0.5rem; height: fit-content;
       align-self: start; margin-top: 0.1rem;
@@ -196,17 +196,17 @@
 
     .pub-body { align-self: center; }
     .pub-title {
-      font-size: 1.3rem; font-weight: 500;
+      font-size: 2.0rem; font-weight: 500;
       color: #1c2b3a; margin-bottom: 0.25rem; line-height: 1.45;
       transition: color 0.2s;
     }
     .pub-item:hover .pub-title { color: #0e7fa8; }
-    .pub-meta { font-size: 1.1rem; color: #5a7898; }
+    .pub-meta { font-size: 1.4rem; color: #5a7898; }
     .pub-meta em { font-style: italic; }
-    .pub-authors { font-family: var(--mono); font-size: 1.0rem; color: #8aaac8; margin-top: 0.2rem; letter-spacing: 0.02em; }
+    .pub-authors { font-family: var(--mono); font-size: 1.4rem; color: #8aaac8; margin-top: 0.2rem; letter-spacing: 0.02em; }
 
     .pub-arrow {
-      font-family: var(--mono); font-size: 1.0rem;
+      font-family: var(--mono); font-size: 1.4rem;
       color: #a0b8cc; align-self: center;
       transition: color 0.2s, transform 0.2s; white-space: nowrap;
     }
@@ -272,22 +272,22 @@
     .no-results.visible { display: block; }
 
     /* FOOTER */
-    footer { background: #0e1e2e; border-top: 1px solid #1a3050; padding: 4rem 5rem 2.5rem; }
-    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #1a3050; margin-bottom: 2rem; }
-    .footer-brand-name { font-family: var(--display); font-size: 1.4rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    footer { background: var(--navy2); border-top: 1px solid var(--border); padding: 4rem 5rem 2.5rem; position: relative; z-index: 1; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: 3.0rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
     .footer-brand-name span { color: var(--gold); }
-    .footer-brand-sub { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
-    .footer-col-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-brand-sub { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-bottom: 1.4rem; }
+    .footer-col-title { font-family: var(--mono); font-size: 1.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-col ul a { font-size: 0.86rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a { font-size: 1.5rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
     .footer-col ul a:hover { color: var(--bright); }
     .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
     .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
-    .footer-info-icon { font-size: 0.9rem; opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
-    .footer-info-text { font-size: 0.82rem; color: var(--dim); line-height: 1.6; }
+    .footer-info-icon { font-size: 1.5rem; opacity: 0.6; flex-shrink: 0; margin-top: 1px; }
+    .footer-info-text { font-size: 1.5rem; color: var(--dim); line-height: 1.6; }
     .footer-info-text a { color: var(--cyan); text-decoration: none; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom span { font-family: var(--mono); font-size: 0.62rem; color: var(--dim); letter-spacing: 0.05em; }
+    .footer-bottom span { font-family: var(--mono); font-size: 1.1rem; color: var(--dim); letter-spacing: 0.05em; }
 
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
     .year-block { animation: fadeUp 0.5s ease both; }
