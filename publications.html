@@ -455,7 +455,7 @@ const PUBS = [
     doi: '#', pdf: '#'
   },
   {
-    id: 4, year: 2024, type: 'conference',
+    id: 5, year: 2024, type: 'conference',
     title: 'Doppler-Based Positioning Using LEO Broadband Constellation Signals',
     authors: 'S. Choi, J. Lee',
     venue: 'ION GNSS+ 2024, Baltimore, MD',
@@ -562,8 +562,8 @@ function render() {
         <div class="year-line"></div>
       </div>
       <div class="pub-list">
-        ${byYear[yr].map((p, i) => `
-          <div class="pub-item" data-id="${p.id}" data-idx="${items.indexOf(p)}">
+        ${byYear[yr].map((p) => `
+          <div class="pub-item" data-id="${p.id}">
             <span class="pub-type ${p.type}">${typeLabel(p.type)}</span>
             <div class="pub-body">
               <p class="pub-title">${p.title}</p>
@@ -578,14 +578,16 @@ function render() {
   `).join('');
 
   document.querySelectorAll('.pub-item').forEach(el => {
-    el.addEventListener('click', () => openModal(parseInt(el.dataset.idx)));
+    el.addEventListener('click', () => {
+      const id = parseInt(el.dataset.id);
+      const p = filtered().find(x => x.id === id);
+      if (p) openModal(p);
+    });
   });
 }
 
 // ─── MODAL ───────────────────────────────────────────────────────────────────
-function openModal(idx) {
-  const items = filtered();
-  const p = items[idx];
+function openModal(p) {
   if (!p) return;
   document.getElementById('modal-content').innerHTML = `
     <div class="modal-year">${p.year}</div>
