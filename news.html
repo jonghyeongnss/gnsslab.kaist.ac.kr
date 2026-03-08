@@ -45,8 +45,8 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 64px;
-      display: flex; align-items: center; justify-content: flex-start;
-      gap: 5rem; padding: 1rem 3rem 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 3rem 0;
       background: rgba(245,247,250,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #a0b8d0;
@@ -58,7 +58,7 @@
     .nav-links li { position: relative; }
     .nav-links a {
       display: block; padding: 0 1.2rem;
-      font-family: var(--ui); font-size: 1.3rem; font-weight: 500;
+      font-family: var(--ui); font-size: clamp(0.82rem, 1.3vw, 1.3rem); font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: #3d5a78; text-decoration: none; transition: color 0.2s;
     }
@@ -105,7 +105,7 @@
       background: #F5F7FA;
     }
     .page-header-eyebrow {
-      font-family: var(--mono); font-size: 2.0rem;
+      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem);
       letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.8rem;
       display: flex; align-items: center; gap: 0.8rem;
@@ -118,7 +118,7 @@
     }
     .page-header-desc {
       font-family: var(--serif); font-style: italic;
-      font-size: 2.0rem; color: #3d5a78; max-width: 48ch;
+      font-size: clamp(1.1rem, 2vw, 2.0rem); color: #3d5a78; max-width: 48ch;
     }
 
     /* CONTROLS */
@@ -139,7 +139,7 @@
       background: #fff;
       border: 1px solid #c0d0e0;
       color: #4a6070;
-      font-family: var(--mono); font-size: 1.4rem;
+      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
       letter-spacing: 0.05em;
       padding: 0.55rem 0.8rem 0.55rem 2.2rem;
       outline: none;
@@ -149,12 +149,12 @@
     .search-wrap input:focus { border-color: var(--cyan); }
     .search-icon {
       position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%);
-      color: #4a6070; font-size: 1.4rem; pointer-events: none;
+      color: #4a6070; font-size: clamp(0.85rem, 1.4vw, 1.4rem); pointer-events: none;
     }
 
     .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .filter-btn {
-      font-family: var(--mono); font-size: 1.4rem;
+      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
       letter-spacing: 0.08em; text-transform: uppercase;
       padding: 0.35rem 0.9rem;
       border: 1px solid #c0d0e0;
@@ -169,7 +169,7 @@
     .filter-divider { width: 2px; height: 1.5rem; background: #a0b8d0; }
 
     .result-count {
-      font-family: var(--mono); font-size: 1.4rem;
+      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
       color: #7a9ab8; letter-spacing: 0.06em;
       margin-left: auto;
     }
@@ -188,7 +188,7 @@
       margin-bottom: 0; position: relative;
     }
     .year-label h2 {
-      font-family: var(--display); font-size: 5.5rem;
+      font-family: var(--display); font-size: clamp(2.8rem, 5vw, 5.5rem);
       color: #5a7898; letter-spacing: 0.08em;
       line-height: 1; user-select: none;
       transition: color 0.3s;
@@ -231,22 +231,22 @@
     .news-item:hover::before { background: var(--cyan); border-color: var(--cyan); }
 
     .news-date {
-      font-family: var(--mono); font-size: 1.4rem;
+      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
       color: #7a9ab8; letter-spacing: 0.04em;
       padding-top: 0.15rem; align-self: start;
     }
 
     .news-body { align-self: center; }
     .news-title {
-      font-size: 2.0rem; font-weight: 500;
+      font-size: clamp(1.1rem, 2vw, 2.0rem); font-weight: 500;
       color: #1c2b3a; margin-bottom: 0.2rem; line-height: 1.45;
       transition: color 0.2s;
     }
     .news-item:hover .news-title { color: #0e7fa8; }
-    .news-detail { font-size: 1.4rem; color: #3d5a78; }
+    .news-detail { font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #3d5a78; }
 
     .news-arrow {
-      font-family: var(--mono); font-size: 2.0rem;
+      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem);
       color: #a0b8cc; align-self: center;
       transition: color 0.2s, transform 0.2s;
       white-space: nowrap;
@@ -278,7 +278,7 @@
 
     .modal-close {
       position: absolute; top: 1.2rem; right: 1.4rem;
-      font-family: var(--mono); font-size: 1.2rem;
+      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
       color: #7a9ab8; cursor: pointer;
       letter-spacing: 0.1em; text-transform: uppercase;
       background: none; border: none;
@@ -287,26 +287,26 @@
     .modal-close:hover { color: #1c2b3a; }
 
     .modal-date {
-      font-family: var(--mono); font-size: 1.2rem;
+      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
       color: #7a9ab8; letter-spacing: 0.06em;
       margin-bottom: 0.8rem;
     }
     .modal-title {
-      font-family: var(--ui); font-size: 2.0rem; font-weight: 600;
+      font-family: var(--ui); font-size: clamp(1.1rem, 2vw, 2.0rem); font-weight: 600;
       color: #0e1e2e; line-height: 1.4; margin-bottom: 0.5rem;
     }
     .modal-venue {
-      font-size: 1.4rem; color: #3d5a78;
+      font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #3d5a78;
       margin-bottom: 1.6rem; padding-bottom: 1.4rem;
       border-bottom: 1px solid #e4edf5;
     }
     .modal-desc {
-      font-family: var(--serif); font-size: 1.6rem;
+      font-family: var(--serif); font-size: clamp(0.95rem, 1.6vw, 1.6rem);
       color: #2a3a4a; line-height: 1.85;
       margin-bottom: 1.8rem;
     }
     .modal-link {
-      font-family: var(--mono); font-size: 1.2rem;
+      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--cyan); text-decoration: none;
       border: 1px solid #c0d0e0;
@@ -334,20 +334,20 @@
       gap: 3rem; padding-bottom: 3rem;
       border-bottom: 1px solid #1a3050; margin-bottom: 2rem;
     }
-    .footer-brand-name { font-family: var(--display); font-size: 3.0rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
     .footer-brand-name span { color: var(--gold); }
-    .footer-brand-sub { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
-    .footer-col-title { font-family: var(--mono); font-size: 1.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-brand-sub { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-col-title { font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 1.1rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-col ul a { font-size: 1.5rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a { font-size: clamp(0.78rem, 1.2vw, 1.2rem); color: var(--dim); text-decoration: none; transition: color 0.2s; }
     .footer-col ul a:hover { color: var(--bright); }
     .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
     .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
-    .footer-info-icon { font-size: 1.5rem; opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
-    .footer-info-text { font-size: 1.5rem; color: var(--dim); line-height: 1.6; }
+    .footer-info-icon { font-size: clamp(0.85rem, 1.3vw, 1.3rem); opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
+    .footer-info-text { font-size: clamp(0.78rem, 1.2vw, 1.2rem); color: var(--dim); line-height: 1.6; }
     .footer-info-text a { color: var(--cyan); text-decoration: none; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom span { font-family: var(--mono); font-size: 1.1rem; color: var(--dim); letter-spacing: 0.05em; }
+    .footer-bottom span { font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 1.1rem); color: var(--dim); letter-spacing: 0.05em; }
 
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
     .year-block { animation: fadeUp 0.5s ease both; }
@@ -362,6 +362,97 @@
       .controls { gap: 0.8rem; }
       .footer-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center; gap: 5px;
+      width: 36px; height: 36px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+      margin-left: auto;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: #0e1e2e; border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+
+    /* ── DRAWER ── */
+    .nav-drawer {
+      position: fixed; top: 0; right: 0;
+      width: min(320px, 85vw); height: 100vh;
+      background: #0e1e2e;
+      border-left: 1px solid #1a3050;
+      z-index: 200;
+      display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      overflow-y: auto;
+    }
+    .nav-drawer.open { transform: translateX(0); }
+
+    .nav-drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid #1a3050;
+    }
+    .nav-drawer-brand {
+      font-family: var(--display); font-size: 1.6rem;
+      letter-spacing: 0.06em; color: #eaf2fc;
+    }
+    .nav-drawer-brand span { color: #3EC1D3; }
+    .nav-drawer-close {
+      background: none; border: none; cursor: pointer;
+      color: #7a9ab8; font-size: 1.1rem;
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-drawer-close:hover { background: #1a3050; color: #eaf2fc; }
+
+    .nav-drawer-links {
+      list-style: none; padding: 1rem 0; flex: 1;
+    }
+    .nav-drawer-links > li > a {
+      display: block; padding: 0.9rem 1.5rem;
+      font-family: var(--ui); font-size: 1.05rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: #7a9ab8; text-decoration: none;
+      border-bottom: 1px solid #1a3050;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-drawer-links > li > a:hover { color: #eaf2fc; background: #0e2040; }
+
+    .drawer-group { border-bottom: 1px solid #1a3050; }
+    .drawer-group-title {
+      display: block; padding: 0.9rem 1.5rem;
+      font-family: var(--ui); font-size: 1.05rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: #c8a84b;
+    }
+    .drawer-group ul { list-style: none; padding: 0 0 0.5rem 0; }
+    .drawer-group ul li a {
+      display: block; padding: 0.55rem 1.5rem 0.55rem 2.5rem;
+      font-family: var(--ui); font-size: 0.95rem;
+      color: #3d5a78; text-decoration: none;
+      transition: color 0.2s;
+    }
+    .drawer-group ul li a:hover { color: #3EC1D3; }
+
+    /* ── OVERLAY ── */
+    .nav-overlay {
+      position: fixed; inset: 0; z-index: 190;
+      background: rgba(2,8,16,0.6);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .nav-overlay.open { opacity: 1; pointer-events: all; }
+
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -374,27 +465,61 @@
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="news.html" class="active">News</a>
-	<li class="has-dropdown">
-	  <a href="people.html">People</a>
-	  <ul class="dropdown">
-		<li><a href="people.html#professor">Professor</a></li>
-		<li><a href="people.html#students">Students</a></li>
-		<li><a href="people.html#staff">Staff</a></li>
-	  </ul>
-	</li>
+    <li><a href="news.html" class="active">News</a></li>
     <li class="has-dropdown">
-	  <a href="research.html">Research</a>
-	  <ul class="dropdown">
-		<li><a href="research-integrity.html">GNSS Integrity</a></li>
-		<li><a href="research-leo.html">LEO PNT</a></li>
-		<li><a href="research-remote.html">Remote Sensing</a></li>
-	  </ul>
-	</li>
+      <a href="people.html">People</a>
+      <ul class="dropdown">
+        <li><a href="people.html#professor">Professor</a></li>
+        <li><a href="people.html#students">Students</a></li>
+        <li><a href="people.html#staff">Staff</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="gallery.html">Gallery</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-header">
+    <div class="nav-drawer-brand"><span>GNSS</span> KAIST</div>
+    <button class="nav-drawer-close" id="nav-drawer-close">✕</button>
+  </div>
+  <ul class="nav-drawer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="news.html">News</a></li>
+    <li class="drawer-group">
+      <span class="drawer-group-title">People</span>
+      <ul>
+        <li><a href="people.html#professor">Professor</a></li>
+        <li><a href="people.html#students">Students</a></li>
+        <li><a href="people.html#staff">Staff</a></li>
+      </ul>
+    </li>
+    <li class="drawer-group">
+      <span class="drawer-group-title">Research</span>
+      <ul>
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</div>
+<div class="nav-overlay" id="nav-overlay"></div>
 
 <div class="page-header">
   <div class="page-header-eyebrow">GNSS Lab · KAIST</div>
@@ -469,11 +594,11 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#dbbcb5a8a8b7bab99bb0bab2a8aff5bab8f5b0a9"><span class="__cf_email__" data-cfemail="bfd8d1ccccd3deddffd4ded6cccb91dedc91d4cd">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#610b0818140f0d0404210a000812154f00024f0a13"><span class="__cf_email__" data-cfemail="bdd7d4c4c8d3d1d8d8fdd6dcd4cec993dcde93d6cf">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -483,7 +608,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─── DATA ───────────────────────────────────────────────────────────────────
 const NEWS = [
   {
@@ -683,11 +808,39 @@ function drawStars(t) {
   });
   requestAnimationFrame(drawStars);
 }
-resize(); initStars(); requestAnimationFrame(drawStars);
-window.addEventListener('resize', () => { resize(); initStars(); });
+resize();
+  initStars();
+  requestAnimationFrame(drawStars);
+  window.addEventListener('resize', () => { resize(); initStars(); });
 
-// ─── INIT ────────────────────────────────────────────────────────────────────
-render();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ── Mobile drawer ──
+  const hamburger = document.getElementById('nav-hamburger');
+  const drawer    = document.getElementById('nav-drawer');
+  const overlay   = document.getElementById('nav-overlay');
+  const closeBtn  = document.getElementById('nav-drawer-close');
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 </script>
 </body>
 </html>
