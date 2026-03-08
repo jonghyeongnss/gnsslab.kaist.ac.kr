@@ -635,4 +635,10 @@ document.getElementById('year-filters').addEventListener('click', e => {
   render();
 });
 
-docu
+document.getElementById('search-input').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  render();
+});
+render();
+</script>
+</body></html>
