@@ -16,8 +16,8 @@
       --cyan:    #3EC1D3;
       --cyan2:   #45E0FF;
       --bright:  #F5F7FA;
-      --dim:     #5a7898;
-      --mid:     #9FB3C8;
+      --dim:     #3d5a78;
+      --mid:     #7a9ab8;
       --serif:   'Crimson Pro', Georgia, serif;
       --display: 'Bebas Neue', sans-serif;
       --ui:      'Rajdhani', sans-serif;
@@ -54,7 +54,7 @@
       display: block; padding: 0 1.2rem;
       font-family: var(--ui); font-size: 1.3rem; font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: #5a7898; text-decoration: none; transition: color 0.2s;
+      color: #3d5a78; text-decoration: none; transition: color 0.2s;
     }
     .nav-links a.active { color: var(--cyan); }
     .nav-links a::after {
@@ -80,7 +80,7 @@
     .dropdown a {
       display: block; padding: 0.6rem 1.2rem;
       font-size: 1.1rem !important; font-weight: 600 !important;
-      color: #5a7898 !important; border-bottom: 1px solid #e4edf5;
+      color: #3d5a78 !important; border-bottom: 1px solid #e4edf5;
       letter-spacing: 0.08em;
     }
     .dropdown li:last-child a { border-bottom: none; }
@@ -105,7 +105,7 @@
     }
     .page-header-desc {
       font-family: var(--serif); font-style: italic;
-      font-size: 2.0rem; color: #5a7898; max-width: 52ch;
+      font-size: 2.0rem; color: #3d5a78; max-width: 52ch;
     }
 
     /* CONTROLS */
@@ -128,21 +128,21 @@
       padding: 0.55rem 0.8rem 0.55rem 2.2rem;
       outline: none; transition: border-color 0.2s;
     }
-    .search-wrap input::placeholder { color: #8aaac8; }
+    .search-wrap input::placeholder { color: #5a7898; }
     .search-wrap input:focus { border-color: var(--cyan); }
-    .search-icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: #8aaac8; font-size: 1.4rem; pointer-events: none; }
+    .search-icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: #5a7898; font-size: 1.4rem; pointer-events: none; }
     .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .filter-btn {
       font-family: var(--mono); font-size: 1.4rem;
       letter-spacing: 0.08em; text-transform: uppercase;
       padding: 0.35rem 0.9rem;
-      border: 1px solid #c0d0e0; color: #5a7898;
+      border: 1px solid #c0d0e0; color: #3d5a78;
       background: transparent; cursor: pointer; transition: all 0.2s;
     }
-    .filter-btn:hover { color: #1c2b3a; border-color: #8aaac8; }
+    .filter-btn:hover { color: #1c2b3a; border-color: #5a7898; }
     .filter-btn.active { color: #fff; background: var(--cyan); border-color: var(--cyan); }
     .filter-divider { width: 1px; height: 1.5rem; background: #d0dce8; }
-    .result-count { font-family: var(--mono); font-size: 1.4rem; color: #8aaac8; letter-spacing: 0.06em; margin-left: auto; }
+    .result-count { font-family: var(--mono); font-size: 1.4rem; color: #5a7898; letter-spacing: 0.06em; margin-left: auto; }
     .result-count span { color: var(--cyan); }
 
     /* PUBLICATIONS LIST */
@@ -187,7 +187,7 @@
       letter-spacing: 0.07em; text-transform: uppercase;
       padding: 0.2rem 0.5rem; height: fit-content;
       align-self: start; margin-top: 0.1rem;
-      border: 1px solid #c0d0e0; color: #5a7898;
+      border: 1px solid #c0d0e0; color: #3d5a78;
       white-space: nowrap;
     }
     .pub-type.journal { color: var(--cyan); border-color: rgba(62,193,211,0.4); }
@@ -201,9 +201,9 @@
       transition: color 0.2s;
     }
     .pub-item:hover .pub-title { color: #0e7fa8; }
-    .pub-meta { font-size: 1.4rem; color: #5a7898; }
+    .pub-meta { font-size: 1.4rem; color: #3d5a78; }
     .pub-meta em { font-style: italic; }
-    .pub-authors { font-family: var(--mono); font-size: 1.4rem; color: #8aaac8; margin-top: 0.2rem; letter-spacing: 0.02em; }
+    .pub-authors { font-family: var(--mono); font-size: 1.4rem; color: #5a7898; margin-top: 0.2rem; letter-spacing: 0.02em; }
 
     .pub-arrow {
       font-family: var(--mono); font-size: 1.4rem;
@@ -235,7 +235,7 @@
     .modal-close {
       position: absolute; top: 1.2rem; right: 1.4rem;
       font-family: var(--mono); font-size: 1.0rem;
-      color: #8aaac8; cursor: pointer;
+      color: #5a7898; cursor: pointer;
       letter-spacing: 0.1em; text-transform: uppercase;
       background: none; border: none; transition: color 0.2s;
     }
@@ -243,17 +243,17 @@
     .modal-type {
       font-family: var(--mono); font-size: 0.9rem;
       padding: 0.2rem 0.6rem; border: 1px solid #c0d0e0;
-      color: #5a7898; letter-spacing: 0.08em;
+      color: #3d5a78; letter-spacing: 0.08em;
       text-transform: uppercase; display: inline-block; margin-bottom: 1rem;
     }
     .modal-type.journal { color: var(--cyan); border-color: rgba(62,193,211,0.4); }
     .modal-type.conference { color: var(--gold); border-color: rgba(200,168,75,0.4); }
     .modal-type.thesis { color: #a07ec8; border-color: rgba(160,126,200,0.4); }
-    .modal-year { font-family: var(--mono); font-size: 1.0rem; color: #8aaac8; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+    .modal-year { font-family: var(--mono); font-size: 1.0rem; color: #5a7898; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
     .modal-title { font-family: var(--ui); font-size: 1.6rem; font-weight: 600; color: #0e1e2e; line-height: 1.4; margin-bottom: 0.6rem; }
-    .modal-authors { font-family: var(--mono); font-size: 1.0rem; color: #5a7898; margin-bottom: 0.4rem; line-height: 1.6; }
+    .modal-authors { font-family: var(--mono); font-size: 1.0rem; color: #3d5a78; margin-bottom: 0.4rem; line-height: 1.6; }
     .modal-venue {
-      font-size: 1.1rem; color: #5a7898; font-style: italic;
+      font-size: 1.1rem; color: #3d5a78; font-style: italic;
       margin-bottom: 1.4rem; padding-bottom: 1.2rem;
       border-bottom: 1px solid #e4edf5;
     }
@@ -268,7 +268,7 @@
     }
     .modal-link:hover { background: var(--cyan); color: #fff; }
 
-    .no-results { display: none; text-align: center; padding: 5rem 2rem; font-family: var(--mono); font-size: 1.1rem; color: #8aaac8; letter-spacing: 0.08em; }
+    .no-results { display: none; text-align: center; padding: 5rem 2rem; font-family: var(--mono); font-size: 1.1rem; color: #5a7898; letter-spacing: 0.08em; }
     .no-results.visible { display: block; }
 
     /* FOOTER */
@@ -329,7 +329,14 @@
         <li><a href="people.html#staff">Staff</a></li>
       </ul>
     </li>
-    <li><a href="research.html">Research</a></li>
+    <li class="has-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
     <li><a href="publications.html" class="active">Publications</a></li>
     <li><a href="gallery.html">Gallery</a></li>
   </ul>
@@ -387,7 +394,14 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="people.html">People</a></li>
-        <li><a href="research.html">Research</a></li>
+        <li class="has-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
         <li><a href="publications.html">Publications</a></li>
         <li><a href="gallery.html">Gallery</a></li>
       </ul>
@@ -409,11 +423,11 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#c2a5acb1b1aea3a082a9a3abb1b6eca3a1eca9b0"><span class="__cf_email__" data-cfemail="bed9d0cdcdd2dfdcfed5dfd7cdca90dfdd90d5cc">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#402a2939352e2c2525002b212933346e21236e2b32"><span class="__cf_email__" data-cfemail="b5dfdcccc0dbd9d0d0f5ded4dcc6c19bd4d69bdec7">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -423,7 +437,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─── DATA ───────────────────────────────────────────────────────────────────
 const PUBS = [
   {
@@ -635,18 +649,4 @@ document.getElementById('type-filters').addEventListener('click', e => {
 });
 
 document.getElementById('year-filters').addEventListener('click', e => {
-  const btn = e.target.closest('.filter-btn');
-  if (!btn) return;
-  activeYear = btn.dataset.year;
-  document.querySelectorAll('#year-filters .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  render();
-});
-
-document.getElementById('search-input').addEventListener('input', e => {
-  searchQuery = e.target.value;
-  render();
-});
-render();
-</script>
-</body></html>
+  const btn = e.target.c

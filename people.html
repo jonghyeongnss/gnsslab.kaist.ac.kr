@@ -18,8 +18,8 @@
       --cyan:    #3EC1D3;
       --cyan2:   #45E0FF;
       --bright:  #F5F7FA;
-      --dim:     #5a7898;
-      --mid:     #9FB3C8;
+      --dim:     #3d5a78;
+      --mid:     #7a9ab8;
       --serif:   'Crimson Pro', Georgia, serif;
       --display: 'Bebas Neue', sans-serif;
       --ui:      'Rajdhani', sans-serif;
@@ -56,7 +56,7 @@
       display: block; padding: 0 1.2rem;
       font-family: var(--ui); font-size: 1.3rem; font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: #5a7898; text-decoration: none; transition: color 0.2s;
+      color: #3d5a78; text-decoration: none; transition: color 0.2s;
     }
     .nav-links a.active { color: var(--cyan); }
     .nav-links a::after {
@@ -83,7 +83,7 @@
     .dropdown a {
       display: block; padding: 0.6rem 1.2rem;
       font-size: 1.1rem !important; font-weight: 600 !important;
-      color: #5a7898 !important;
+      color: #3d5a78 !important;
       border-bottom: 1px solid #e4edf5;
       letter-spacing: 0.08em;
     }
@@ -112,7 +112,7 @@
     }
     .page-header-desc {
       font-family: var(--serif); font-style: italic;
-      font-size: 2.0rem; color: #5a7898; max-width: 48ch;
+      font-size: 2.0rem; color: #3d5a78; max-width: 48ch;
     }
 
     /* SECTION */
@@ -145,7 +145,7 @@
       object-fit: cover;
       background: none;
       display: flex; align-items: center; justify-content: center;
-      color: #8aaac8; font-family: var(--mono); font-size: 2.0rem;
+      color: #5a7898; font-family: var(--mono); font-size: 2.0rem;
       letter-spacing: 0.1em;
     }
     .professor-photo img { width: 100%; height: auto; display: block; }
@@ -169,7 +169,7 @@
     .prof-link {
       font-family: var(--mono); font-size: 1.3rem;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: #5a7898; text-decoration: none;
+      color: #3d5a78; text-decoration: none;
       border: 1px solid #c0d0e0; padding: 0.4rem 1rem;
       transition: all 0.2s;
     }
@@ -198,7 +198,7 @@
       background: #dce8f0;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
-      color: #8aaac8; font-family: var(--mono); font-size: 0.6rem;
+      color: #5a7898; font-family: var(--mono); font-size: 0.6rem;
       letter-spacing: 0.08em;
     }
     .person-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -213,12 +213,12 @@
       color: var(--cyan); margin-bottom: 0.5rem;
     }
     .person-detail {
-      font-size: 1.0rem; color: #5a7898; line-height: 1.5;
+      font-size: 1.0rem; color: #3d5a78; line-height: 1.5;
       margin-bottom: 0.5rem;
     }
     .person-email {
       font-family: var(--mono); font-size: 1.0rem;
-      color: #8aaac8; text-decoration: none; letter-spacing: 0.02em;
+      color: #5a7898; text-decoration: none; letter-spacing: 0.02em;
       transition: color 0.2s; display: block;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
@@ -290,7 +290,14 @@
         <li><a href="#staff">Staff</a></li>
       </ul>
     </li>
-    <li><a href="research.html">Research</a></li>
+    <li class="has-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="gallery.html">Gallery</a></li>
   </ul>
@@ -320,7 +327,7 @@
         atmospheric remote sensing.
       </p>
       <div class="professor-links">
-        <a href="mailto:jiyunlee@kaist.ac.kr" class="prof-link">✉ Email</a>
+        <a href="/cdn-cgi/l/email-protection#63090a1a160d0f06062308020a10174d02004d0811" class="prof-link">✉ Email</a>
         <a href="https://ae.kaist.ac.kr" target="_blank" class="prof-link">🔗 Lab Page</a>
         <a href="#" class="prof-link">CV</a>
         <a href="publications.html" class="prof-link">Publications</a>
@@ -341,7 +348,7 @@
         <p class="person-name">Hyeon Park</p>
         <p class="person-role">PhD Student</p>
         <p class="person-detail">GNSS Radio Occultation · Wavelet Signal Processing</p>
-        <a href="mailto:hyeonpark@kaist.ac.kr" class="person-email">hyeonpark@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#5d35243832332d3c2f361d363c342e29733c3e73362f" class="person-email"><span class="__cf_email__" data-cfemail="7d15041812130d1c0f163d161c140e09531c1e53160f">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -351,7 +358,7 @@
         <p class="person-name">Student Name</p>
         <p class="person-role">PhD Student</p>
         <p class="person-detail">GNSS Integrity · Aviation</p>
-        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#6013141504050e14200b010913144e01034e0b12" class="person-email"><span class="__cf_email__" data-cfemail="bac9cecfdedfd4cefad1dbd3c9ce94dbd994d1c8">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -361,7 +368,7 @@
         <p class="person-name">Student Name</p>
         <p class="person-role">MS Student</p>
         <p class="person-detail">LEO PNT · Positioning Algorithms</p>
-        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#94e7e0e1f0f1fae0d4fff5fde7e0baf5f7baffe6" class="person-email"><span class="__cf_email__" data-cfemail="fd8e898899989389bd969c948e89d39c9ed3968f">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -371,7 +378,7 @@
         <p class="person-name">Student Name</p>
         <p class="person-role">MS Student</p>
         <p class="person-detail">Ionospheric Modeling · KPS</p>
-        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#c7b4b3b2a3a2a9b387aca6aeb4b3e9a6a4e9acb5" class="person-email"><span class="__cf_email__" data-cfemail="3f4c4b4a5b5a514b7f545e564c4b115e5c11544d">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -381,7 +388,7 @@
         <p class="person-name">Student Name</p>
         <p class="person-role">MS Student</p>
         <p class="person-detail">Remote Sensing · GNSS-R</p>
-        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#ddaea9a8b9b8b3a99db6bcb4aea9f3bcbef3b6af" class="person-email"><span class="__cf_email__" data-cfemail="780b0c0d1c1d160c381319110b0c56191b56130a">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -391,7 +398,7 @@
         <p class="person-name">Student Name</p>
         <p class="person-role">MS Student</p>
         <p class="person-detail">Signal Processing · RO</p>
-        <a href="mailto:student@kaist.ac.kr" class="person-email">student@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#deadaaabbabbb0aa9eb5bfb7adaaf0bfbdf0b5ac" class="person-email"><span class="__cf_email__" data-cfemail="e596919081808b91a58e848c9691cb8486cb8e97">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -410,7 +417,7 @@
         <p class="person-name">Staff Name</p>
         <p class="person-role">Research Engineer</p>
         <p class="person-detail">Lab Management · System Administration</p>
-        <a href="mailto:staff@kaist.ac.kr" class="person-email">staff@kaist.ac.kr</a>
+        <a href="/cdn-cgi/l/email-protection#344740555252745f555d47401a55571a5f46" class="person-email"><span class="__cf_email__" data-cfemail="4a393e2b2c2c0a212b23393e642b29642138">[email&#160;protected]</span></a>
       </div>
     </div>
 
@@ -429,7 +436,14 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="people.html">People</a></li>
-        <li><a href="research.html">Research</a></li>
+        <li class="has-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
         <li><a href="publications.html">Publications</a></li>
         <li><a href="gallery.html">Gallery</a></li>
       </ul>
@@ -448,31 +462,4 @@
       <div class="footer-info">
         <div class="footer-info-row">
           <span class="footer-info-icon">📍</span>
-          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
-        </div>
-        <div class="footer-info-row">
-          <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
-        </div>
-        <div class="footer-info-row">
-          <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
-  </div>
-</footer>
-
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
-</body>
-</html>
+          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu

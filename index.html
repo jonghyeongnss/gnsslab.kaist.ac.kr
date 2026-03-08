@@ -20,8 +20,8 @@
       --cyan2:   #45E0FF;
       --text:    #c8d8e8;
       --bright:  #F5F7FA;
-      --dim:     #5a7898;
-      --mid:     #9FB3C8;
+      --dim:     #3d5a78;
+      --mid:     #7a9ab8;
       --serif:   'Crimson Pro', Georgia, serif;
       --display: 'Bebas Neue', sans-serif;
       --ui:      'Rajdhani', sans-serif;
@@ -362,7 +362,14 @@
 		<li><a href="people.html#staff">Staff</a></li>
 	  </ul>
 	</li>
-    <li><a href="research.html">Research</a></li>
+    <li class="has-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="gallery.html">Gallery</a></li>
   </ul>
@@ -644,7 +651,14 @@
         <li><a href="#">Home</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="people.html">People</a></li>
-        <li><a href="research.html">Research</a></li>
+        <li class="has-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
         <li><a href="publications.html">Publications</a></li>
         <li><a href="gallery.html">Gallery</a></li>
       </ul>
@@ -667,7 +681,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#66010815150a0704260d070f1512480705480d14"><span class="__cf_email__" data-cfemail="1a7d746969767b785a717b73696e347b79347168">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">🔗</span>
@@ -675,7 +689,7 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#d4bebdada1bab8b1b194bfb5bda7a0fab5b7fabfa6"><span class="__cf_email__" data-cfemail="d0bab9a9a5bebcb5b590bbb1b9a3a4feb1b3febba2">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -685,7 +699,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const canvas = document.getElementById('stars-canvas');
   const ctx = canvas.getContext('2d');
   let stars = [];
@@ -729,14 +743,3 @@
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal, .news-item').forEach(el => io.observe(el));
-
-  window.addEventListener('scroll', () => {
-    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 40);
-  });
-</script>
-</body>
-</html>

@@ -11,7 +11,7 @@
       --gold:    #c8a84b;
       --cyan:    #3EC1D3;
       --bright:  #F5F7FA;
-      --dim:     #5a7898;
+      --dim:     #3d5a78;
       --serif:   'Crimson Pro', Georgia, serif;
       --display: 'Bebas Neue', sans-serif;
       --ui:      'Rajdhani', sans-serif;
@@ -48,7 +48,7 @@
       display: block; padding: 0 1.2rem;
       font-family: var(--ui); font-size: 1.3rem; font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: #5a7898; text-decoration: none; transition: color 0.2s;
+      color: #3d5a78; text-decoration: none; transition: color 0.2s;
     }
     .nav-links a.active { color: var(--cyan); }
     .nav-links a::after {
@@ -67,7 +67,7 @@
       transform: translateY(6px); transition: opacity 0.2s ease, transform 0.2s ease; z-index: 200;
     }
     .has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
-    .dropdown a { display: block; padding: 0.6rem 1.2rem; font-size: 0.8rem !important; font-weight: 400 !important; color: #5a7898 !important; border-bottom: 1px solid #e4edf5; letter-spacing: 0.08em; }
+    .dropdown a { display: block; padding: 0.6rem 1.2rem; font-size: 1.1rem !important; font-weight: 600 !important; color: #3d5a78 !important; border-bottom: 1px solid #e4edf5; letter-spacing: 0.08em; }
     .dropdown li:last-child a { border-bottom: none; }
     .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
     .dropdown a::after { display: none !important; }
@@ -89,7 +89,7 @@
       letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem;
     }
     .page-header-desc {
-      font-size: 2.0rem; color: #5a7898; max-width: 60ch;
+      font-size: 2.0rem; color: #3d5a78; max-width: 60ch;
       font-family: var(--serif); font-style: italic;
     }
 
@@ -103,7 +103,7 @@
     .area-nav a {
       font-family: var(--mono); font-size: 1.4rem;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: #8aaac8; text-decoration: none;
+      color: #5a7898; text-decoration: none;
       padding: 1rem 1.5rem;
       border-bottom: 2px solid transparent;
       transition: color 0.2s, border-color 0.2s;
@@ -137,7 +137,7 @@
       letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 0.8rem;
     }
     .area-subtitle {
-      font-size: 2.0rem; color: #5a7898;
+      font-size: 2.0rem; color: #3d5a78;
       font-family: var(--serif); font-style: italic;
     }
 
@@ -199,7 +199,7 @@
     }
     .paper-venue {
       font-family: var(--mono); font-size: 1.0rem;
-      color: #8aaac8; letter-spacing: 0.03em;
+      color: #5a7898; letter-spacing: 0.03em;
     }
 
     /* ── FOOTER ── */
@@ -267,7 +267,14 @@
         <li><a href="people.html#staff">Staff</a></li>
       </ul>
     </li>
-    <li><a href="research.html" class="active">Research</a></li>
+    <li class="has-dropdown">
+      <a href="research.html" class="active">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="gallery.html">Gallery</a></li>
   </ul>
@@ -358,7 +365,14 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="people.html">People</a></li>
-        <li><a href="research.html">Research</a></li>
+        <li class="has-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
         <li><a href="publications.html">Publications</a></li>
         <li><a href="gallery.html">Gallery</a></li>
       </ul>
@@ -381,11 +395,11 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#04636a7777686566446f656d77702a65672a6f76"><span class="__cf_email__" data-cfemail="baddd4c9c9d6dbd8fad1dbd3c9ce94dbd994d1c8">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#315b5848445f5d5454715a505842451f50521f5a43"><span class="__cf_email__" data-cfemail="761c1f0f03181a1313361d171f0502581715581d04">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -395,11 +409,4 @@
   </div>
 </footer>
 
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-  }, { threshold: 0.06 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
-</body>
-</html>
+<script data-cfasync="false"
