@@ -211,7 +211,7 @@
       color: var(--bright);
       margin-bottom: 0.5rem;
     }
-    .sec-desc { font-size: 1.8rem; font-weight: 400 ;color: var(--mid); max-width: 80ch; line-height: 1.8; }
+    .sec-desc { font-size: 1.8rem; font-weight: 500 ;color: var(--mid); max-width: 80ch; line-height: 1.8; }
 
     .research-section {
       background: var(--navy2);
@@ -277,7 +277,7 @@
 	}
 	.res-card-num { font-family: var(--mono); font-size: 1.2rem; color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 0.6rem; }
 	.res-card-title { font-family: var(--display); font-size: 3.0rem; color: var(--bright); margin-bottom: 0.6rem; line-height: 1.2; letter-spacing: 0.04em; }
-	.res-card-desc { font-size: 1.8rem; color: var(--mid); line-height: 1.7; opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.4s ease, max-height 0.4s ease; }
+	.res-card-desc { font-size: 1.8rem; font-weight: 500; color: var(--mid); line-height: 1.7; opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.4s ease, max-height 0.4s ease; }
 	.res-card:hover .res-card-desc { opacity: 1; max-height: 6rem; }
 	.res-card-arrow { font-family: var(--mono); font-size: 0.7rem; color: var(--cyan); margin-top: 0.8rem; display: block; opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease; }
 	.res-card:hover .res-card-arrow { opacity: 1; transform: translateX(4px); }
@@ -297,10 +297,7 @@
     }
     .news-item:first-child { border-top: 1px solid var(--border); }
     .news-item.visible { opacity: 1; transform: translateY(0); }
-    .news-date { font-family: var(--mono); font-size: 1.0rem; color: var(--dim); letter-spacing: 0.04em; padding-top: 0.1rem; }
-    .news-tag { font-family: var(--mono); font-size: 0.9rem; padding: 0.2rem 0.6rem; border: 1px solid var(--border2); color: var(--cyan); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; align-self: start; margin-top: 0.05rem; }
-    .news-tag.award { color: var(--gold); border-color: var(--gold); opacity: 0.8; }
-    .news-tag.pub { color: #7ec87e; border-color: #3a6e3a; }
+    .news-date { font-family: var(--mono); font-size: 1.0rem; font-weight: 500; color: var(--dim); letter-spacing: 0.04em; padding-top: 0.1rem; }
     .news-title { font-size: 1.4rem; font-weight: 500; color: var(--bright); margin-bottom: 0.2rem; line-height: 1.4; }
     .news-detail { font-size: 1.0rem; color: var(--mid); }
     .news-link { font-family: var(--mono); font-size: 1.4rem; color: var(--dim); text-decoration: none; letter-spacing: 0.06em; padding-top: 0.1rem; transition: color 0.2s; white-space: nowrap; align-self: start; }
@@ -594,7 +591,6 @@
   <div class="news-list">
     <div class="news-item">
       <span class="news-date">2025. 06</span>
-      <span class="news-tag pub">Publication</span>
       <div class="news-body">
         <p class="news-title">New paper accepted — Wavelet-Transform Phase Matching for Lower Troposphere RO</p>
         <p class="news-detail">Journal of Geophysical Research · Atmospheres</p>
@@ -603,7 +599,6 @@
     </div>
     <div class="news-item">
       <span class="news-date">2025. 05</span>
-      <span class="news-tag award">Award</span>
       <div class="news-body">
         <p class="news-title">Best Student Paper Award at ION GNSS+ 2025</p>
         <p class="news-detail">Institute of Navigation · Tampa, FL</p>
@@ -612,7 +607,6 @@
     </div>
     <div class="news-item">
       <span class="news-date">2025. 03</span>
-      <span class="news-tag">Conference</span>
       <div class="news-body">
         <p class="news-title">Presentation at EGU General Assembly 2025 — Vienna, Austria</p>
         <p class="news-detail">Session on GNSS Remote Sensing and Atmospheric Applications</p>
@@ -621,7 +615,6 @@
     </div>
     <div class="news-item">
       <span class="news-date">2025. 02</span>
-      <span class="news-tag">Recruit</span>
       <div class="news-body">
         <p class="news-title">We are recruiting MS/PhD students for Fall 2025</p>
         <p class="news-detail">Interested candidates please contact Prof. Jiyun Lee</p>
@@ -630,7 +623,6 @@
     </div>
     <div class="news-item">
       <span class="news-date">2024. 12</span>
-      <span class="news-tag pub">Publication</span>
       <div class="news-body">
         <p class="news-title">LSW Algorithm paper published — Local Spectral Width for Multipath Detection</p>
         <p class="news-detail">GPS Solutions · Springer</p>
