@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery · GNSS Lab KAIST</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:    #c8a84b;
+      --cyan:    #3EC1D3;
+      --bright:  #F5F7FA;
+      --dim:     #5a7898;
+      --serif:   'Crimson Pro', Georgia, serif;
+      --display: 'Bebas Neue', sans-serif;
+      --ui:      'Rajdhani', sans-serif;
+      --mono:    'DM Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #F5F7FA; color: #1c2b3a; font-family: var(--ui); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 64px; display: flex; align-items: center; justify-content: flex-start; gap: 5rem; padding: 1rem 3rem 0; background: rgba(245,247,250,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #d0dce8; }
+    .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
+    .nav-brand-main { font-family: var(--display); font-size: 2.5rem; letter-spacing: 0.06em; color: #0e1e2e; line-height: 1; }
+    .nav-brand-main span { color: var(--cyan); }
+    .nav-links { display: flex; list-style: none; align-items: center; }
+    .nav-links li { position: relative; }
+    .nav-links a { display: block; padding: 0 1.2rem; font-family: var(--ui); font-size: 1.3rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #5a7898; text-decoration: none; transition: color 0.2s; }
+    .nav-links a.active { color: var(--cyan); }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 1.2rem; right: 1.2rem; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s ease; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+    .has-dropdown { position: relative; }
+    .dropdown { position: absolute; top: 100%; left: 0; background: rgba(245,247,250,0.98); backdrop-filter: blur(12px); border: 1px solid #d0dce8; min-width: 140px; list-style: none; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s ease, transform 0.2s ease; z-index: 200; }
+    .has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown a { display: block; padding: 0.6rem 1.2rem; font-size: 0.8rem !important; font-weight: 400 !important; color: #5a7898 !important; border-bottom: 1px solid #e4edf5; letter-spacing: 0.08em; }
+    .dropdown li:last-child a { border-bottom: none; }
+    .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
+    .dropdown a::after { display: none !important; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { padding: 9rem 5rem 4rem; border-bottom: 1px solid #d0dce8; }
+    .page-header-eyebrow { font-family: var(--mono); font-size: 2.0rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
+    .page-header-eyebrow::before { content:''; width:2rem; height:1px; background:var(--gold); }
+    .page-header h1 { font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem); letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem; }
+    .page-header-desc { font-family: var(--serif); font-style: italic; font-size: 2.0rem; color: #5a7898; max-width: 52ch; }
+
+    /* ── MASONRY GRID ── */
+    .gallery-wrap { padding: 4rem 5rem 6rem; }
+    .masonry {
+      columns: 3;
+      column-gap: 1.2rem;
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1.2rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      background: #d0dce8;
+    }
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .masonry-item:hover img { transform: scale(1.04); }
+    .masonry-item-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(5,13,26,0.75) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 1.4rem 1.6rem;
+    }
+    .masonry-item:hover .masonry-item-overlay { opacity: 1; }
+    .masonry-item-title {
+      font-family: var(--ui); font-size: 1.4rem; font-weight: 500;
+      color: #fff; line-height: 1.3; margin-bottom: 0.3rem;
+    }
+    .masonry-item-caption {
+      font-family: var(--mono); font-size: 0.9rem;
+      color: rgba(255,255,255,0.65); letter-spacing: 0.04em;
+    }
+    .masonry-item-tag {
+      position: absolute; top: 0.9rem; left: 0.9rem;
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: rgba(5,13,26,0.65);
+      color: var(--gold); border: 1px solid rgba(200,168,75,0.4);
+      padding: 0.2rem 0.6rem;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(5,13,26,0.92);
+      backdrop-filter: blur(16px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox-inner {
+      display: flex; gap: 0; max-width: 1100px; width: 100%;
+      max-height: 90vh;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+    .lightbox.open .lightbox-inner { transform: translateY(0); }
+    .lightbox-img-wrap {
+      flex: 1; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background: #020b16;
+    }
+    .lightbox-img-wrap img {
+      max-width: 100%; max-height: 90vh;
+      display: block; object-fit: contain;
+    }
+    .lightbox-info {
+      width: 300px; flex-shrink: 0;
+      background: #0a1929;
+      border-left: 1px solid #1a3050;
+      padding: 2.5rem 2rem;
+      display: flex; flex-direction: column; justify-content: space-between;
+      overflow-y: auto;
+    }
+    .lightbox-tag {
+      font-family: var(--mono); font-size: 0.7rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(200,168,75,0.35);
+      display: inline-block; padding: 0.2rem 0.6rem;
+      margin-bottom: 1.2rem;
+    }
+    .lightbox-title {
+      font-family: var(--ui); font-size: 1.8rem; font-weight: 600;
+      color: #f0f5fa; line-height: 1.35; margin-bottom: 0.8rem;
+    }
+    .lightbox-desc {
+      font-family: var(--serif); font-size: 1.4rem;
+      color: #7a9ab8; line-height: 1.8; flex: 1;
+    }
+    .lightbox-meta {
+      margin-top: 2rem;
+      font-family: var(--mono); font-size: 0.9rem;
+      color: #3a5878; letter-spacing: 0.06em;
+      border-top: 1px solid #1a3050; padding-top: 1.2rem;
+    }
+    .lightbox-close {
+      position: fixed; top: 1.5rem; right: 2rem;
+      font-family: var(--mono); font-size: 1.0rem;
+      color: #5a7898; cursor: pointer;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: none; border: none; transition: color 0.2s;
+      z-index: 10;
+    }
+    .lightbox-close:hover { color: #f0f5fa; }
+    .lightbox-nav {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      font-family: var(--mono); font-size: 1.6rem;
+      color: #5a7898; cursor: pointer; background: none; border: none;
+      transition: color 0.2s; z-index: 10; padding: 1rem;
+    }
+    .lightbox-nav:hover { color: var(--cyan); }
+    .lightbox-nav.prev { left: 1.5rem; }
+    .lightbox-nav.next { right: 1.5rem; }
+
+    /* ── FOOTER ── */
+    footer { background: #0e1e2e; border-top: 1px solid #1a3050; padding: 4rem 5rem 2.5rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #1a3050; margin-bottom: 2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: 3.0rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-sub { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-col-title { font-family: var(--mono); font-size: 1.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: 1.5rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--bright); }
+    .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
+    .footer-info-icon { font-size: 1.5rem; opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
+    .footer-info-text { font-size: 1.5rem; color: var(--dim); line-height: 1.6; }
+    .footer-info-text a { color: var(--cyan); text-decoration: none; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom span { font-family: var(--mono); font-size: 1.1rem; color: var(--dim); letter-spacing: 0.05em; }
+
+    .reveal { opacity:0; transform:translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    @media (max-width: 1100px) { .masonry { columns: 2; } .lightbox-info { width: 240px; } }
+    @media (max-width: 768px) {
+      .masonry { columns: 1; }
+      .gallery-wrap, .page-header, footer { padding-left: 2rem; padding-right: 2rem; }
+      .lightbox-inner { flex-direction: column; }
+      .lightbox-info { width: 100%; max-height: 40vh; border-left: none; border-top: 1px solid #1a3050; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-brand-main"><span>GNSS</span> KAIST</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="news.html">News</a></li>
+    <li class="has-dropdown">
+      <a href="people.html">People</a>
+      <ul class="dropdown">
+        <li><a href="people.html#professor">Professor</a></li>
+        <li><a href="people.html#students">Students</a></li>
+        <li><a href="people.html#staff">Staff</a></li>
+      </ul>
+    </li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-eyebrow">GNSS Lab · KAIST</div>
+  <h1>Gallery</h1>
+  <p class="page-header-desc">Photos from conferences, fieldwork, lab activities, and research milestones.</p>
+</div>
+
+<div class="gallery-wrap">
+  <div class="masonry" id="masonry"></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lb-close">✕ Close</button>
+  <button class="lightbox-nav prev" id="lb-prev">←</button>
+  <button class="lightbox-nav next" id="lb-next">→</button>
+  <div class="lightbox-inner">
+    <div class="lightbox-img-wrap">
+      <img id="lb-img" src="" alt=""/>
+    </div>
+    <div class="lightbox-info">
+      <div>
+        <span class="lightbox-tag" id="lb-tag"></span>
+        <h2 class="lightbox-title" id="lb-title"></h2>
+        <p class="lightbox-desc" id="lb-desc"></p>
+      </div>
+      <div class="lightbox-meta" id="lb-meta"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">GNSS <span>KAIST</span></div>
+      <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Quick Links</p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Research</p>
+      <ul>
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+        <li><a href="publications.html">Publications</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Contact &amp; Location</p>
+      <div class="footer-info">
+        <div class="footer-info-row">
+          <span class="footer-info-icon">📍</span>
+          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">✉️</span>
+          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">👤</span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
+  </div>
+</footer>
+
+<script>
+// ─── DATA ────────────────────────────────────────────────────────────────────
+// 실제 이미지 파일로 교체하세요. src에 images/ 경로를 입력하면 돼요.
+// tall: true → 세로로 긴 이미지 (2배 높이), wide: true → 가로로 긴 이미지
+const PHOTOS = [
+  {
+    src: 'images/gallery/ion-gnss-2024.jpg',
+    title: 'ION GNSS+ 2024',
+    desc: 'Lab members at the ION GNSS+ 2024 conference in Baltimore, MD. Three papers were presented.',
+    tag: 'Conference',
+    date: 'September 2024'
+  },
+  {
+    src: 'images/gallery/fieldwork-mountain.jpg',
+    title: 'Mountain Fieldwork',
+    desc: 'RO signal collection campaign in the mountainous terrain of Gangwon Province.',
+    tag: 'Fieldwork',
+    date: 'August 2024',
+    tall: true
+  },
+  {
+    src: 'images/gallery/lab-group-2024.jpg',
+    title: 'Lab Group Photo 2024',
+    desc: 'Annual GNSS Lab group photo at KAIST Aerospace Engineering building.',
+    tag: 'Lab Life',
+    date: 'March 2024'
+  },
+  {
+    src: 'images/gallery/ion-gnss-2023.jpg',
+    title: 'ION GNSS+ 2023',
+    desc: 'Presenting research on NeQuick-G ionospheric model adaptation for KPS at ION GNSS+ 2023.',
+    tag: 'Conference',
+    date: 'September 2023'
+  },
+  {
+    src: 'images/gallery/kaist-campus.jpg',
+    title: 'KAIST Campus',
+    desc: 'KAIST main campus, Daejeon. Home to the GNSS Lab in the Department of Aerospace Engineering.',
+    tag: 'Campus',
+    date: '2024',
+    tall: true
+  },
+  {
+    src: 'images/gallery/cosmic2-antenna.jpg',
+    title: 'COSMIC-2 Ground Antenna',
+    desc: 'Ground antenna setup for COSMIC-2 data reception during an international collaboration visit.',
+    tag: 'Fieldwork',
+    date: 'June 2023'
+  },
+  {
+    src: 'images/gallery/seminar-2024.jpg',
+    title: 'Lab Seminar',
+    desc: 'Weekly research seminar — lab members presenting progress on LEO PNT and RO retrieval algorithms.',
+    tag: 'Lab Life',
+    date: 'November 2024'
+  },
+  {
+    src: 'images/gallery/ion-itm-2024.jpg',
+    title: 'ION ITM 2024',
+    desc: 'Attending the ION International Technical Meeting 2024 in Long Beach, CA.',
+    tag: 'Conference',
+    date: 'January 2024'
+  },
+  {
+    src: 'images/gallery/gnss-receiver-setup.jpg',
+    title: 'GNSS Receiver Setup',
+    desc: 'Setting up a multi-constellation GNSS receiver array for integrity monitoring experiments.',
+    tag: 'Fieldwork',
+    date: 'May 2024',
+    tall: true
+  },
+  {
+    src: 'images/gallery/graduation-2024.jpg',
+    title: 'Graduation Ceremony 2024',
+    desc: 'Congratulations to graduating lab members — PhD and Master\'s graduates of the class of 2024.',
+    tag: 'Lab Life',
+    date: 'February 2024'
+  },
+  {
+    src: 'images/gallery/ion-gnss-2022.jpg',
+    title: 'ION GNSS+ 2022',
+    desc: 'Lab representation at ION GNSS+ 2022 in Denver, CO.',
+    tag: 'Conference',
+    date: 'September 2022'
+  },
+  {
+    src: 'images/gallery/cubesat-collab.jpg',
+    title: 'CubeSat Collaboration',
+    desc: 'Joint research meeting on CubeSat-based GNSS Radio Occultation mission planning.',
+    tag: 'Research',
+    date: 'October 2023'
+  },
+];
+
+// ─── RENDER MASONRY ──────────────────────────────────────────────────────────
+const masonry = document.getElementById('masonry');
+
+PHOTOS.forEach((p, i) => {
+  const item = document.createElement('div');
+  item.className = 'masonry-item reveal';
+  item.dataset.idx = i;
+
+  // placeholder 배경 (이미지 없을 때 graceful fallback)
+  item.style.background = '#c8d8e8';
+  if (p.tall) item.style.gridRowEnd = 'span 2';
+
+  item.innerHTML = `
+    <img src="${p.src}" alt="${p.title}" loading="lazy"
+         onerror="this.style.display='none'; this.parentElement.style.minHeight='${p.tall ? '420px' : '220px'}'; this.parentElement.style.background='#c8d8e8';">
+    <div class="masonry-item-overlay">
+      <p class="masonry-item-title">${p.title}</p>
+      <p class="masonry-item-caption">${p.date}</p>
+    </div>
+    <span class="masonry-item-tag">${p.tag}</span>
+  `;
+
+  item.addEventListener('click', () => openLightbox(i));
+  masonry.appendChild(item);
+});
+
+// ─── LIGHTBOX ────────────────────────────────────────────────────────────────
+let currentIdx = 0;
+
+function openLightbox(idx) {
+  currentIdx = idx;
+  const p = PHOTOS[idx];
+  document.getElementById('lb-img').src = p.src;
+  document.getElementById('lb-img').alt = p.title;
+  document.getElementById('lb-tag').textContent = p.tag;
+  document.getElementById('lb-title').textContent = p.title;
+  document.getElementById('lb-desc').textContent = p.desc;
+  document.getElementById('lb-meta').textContent = p.date;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navigate(dir) {
+  currentIdx = (currentIdx + dir + PHOTOS.length) % PHOTOS.length;
+  openLightbox(currentIdx);
+}
+
+document.getElementById('lb-close').addEventListener('click', closeLightbox);
+document.getElementById('lb-prev').addEventListener('click', () => navigate(-1));
+document.getElementById('lb-next').addEventListener('click', () => navigate(1));
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') navigate(-1);
+  if (e.key === 'ArrowRight') navigate(1);
+});
+
+// ─── REVEAL ──────────────────────────────────────────────────────────────────
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.04 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
