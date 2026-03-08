@@ -3,24 +3,15 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Research \u00b7 GNSS Lab KAIST</title>
+  <title>Research · GNSS Lab KAIST</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy:    #050d1a;
-      --navy2:   #091628;
-      --navy3:   #0e2040;
-      --panel:   #0a1929;
-      --border:  #1a3050;
-      --border2: #243d60;
       --gold:    #c8a84b;
-      --gold2:   #e8c96a;
       --cyan:    #3EC1D3;
-      --cyan2:   #45E0FF;
       --bright:  #F5F7FA;
-      --dim:     #5a7898;
-      --mid:     #9FB3C8;
+      --dim:     #3d5a78;
       --serif:   'Crimson Pro', Georgia, serif;
       --display: 'Bebas Neue', sans-serif;
       --ui:      'Rajdhani', sans-serif;
@@ -38,25 +29,26 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 64px;
-      display: flex; align-items: center; justify-content: space-between; padding: 0 3rem;
+      display: flex; align-items: center;
+      justify-content: space-between; padding: 0 3rem;
       background: rgba(245,247,250,0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid #d0dce8;
+      border-bottom: 1px solid #a0b8d0;
     }
     .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
     .nav-brand-main { font-family: var(--display); font-size: clamp(1.4rem, 2.5vw, 2.5rem); letter-spacing: 0.06em; color: #0e1e2e; line-height: 1; }
     .nav-brand-main span { color: var(--cyan); }
-    .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
+    .nav-links { display: flex; list-style: none; align-items: center; }
     .nav-links li { position: relative; }
     .nav-links a {
       display: block; padding: 0 1.2rem;
       font-family: var(--ui); font-size: clamp(0.82rem, 1.3vw, 1.3rem); font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: #5a7898; text-decoration: none; transition: color 0.2s;
+      color: #3d5a78; text-decoration: none; transition: color 0.2s;
     }
     .nav-links a.active { color: var(--cyan); }
     .nav-links a::after {
@@ -66,67 +58,56 @@
     }
     .nav-links a:hover { color: var(--cyan); }
     .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
-
     .has-dropdown { position: relative; }
     .dropdown {
       position: absolute; top: 100%; left: 0;
-      background: rgba(245,247,250,0.98);
-      backdrop-filter: blur(12px);
-      border: 1px solid #d0dce8;
-      min-width: 140px; list-style: none;
+      background: rgba(245,247,250,0.98); backdrop-filter: blur(12px);
+      border: 1px solid #a0b8d0; min-width: 140px; list-style: none;
       opacity: 0; pointer-events: none;
-      transform: translateY(6px);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      z-index: 150;
+      transform: translateY(6px); transition: opacity 0.2s ease, transform 0.2s ease; z-index: 150;
     }
     .has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
-    .dropdown a {
-      display: block; padding: 0.6rem 1.2rem;
-      font-size: 0.8rem !important; font-weight: 400 !important;
-      color: #5a7898 !important;
-      border-bottom: 1px solid #e4edf5;
-      letter-spacing: 0.08em;
-    }
+    .dropdown a { display: block; padding: 0.6rem 1.2rem; font-size: 1.1rem !important; font-weight: 600 !important; color: #3d5a78 !important; border-bottom: 1px solid #e4edf5; letter-spacing: 0.08em; }
     .dropdown li:last-child a { border-bottom: none; }
     .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
     .dropdown a::after { display: none !important; }
+	
+	.has-dropdown:has(a[href="research.html"]) .dropdown {
+		min-width: 200px;
+	}
 
-    /* PAGE HEADER */
+    /* ── PAGE HEADER ── */
     .page-header {
-      position: relative; z-index: 1;
       padding: 9rem 5rem 4rem;
-      border-bottom: 1px solid #d0dce8;
+      border-bottom: 1px solid #a0b8d0;
     }
     .page-header-eyebrow {
-      font-family: var(--mono); font-size: 0.68rem;
+      font-family: var(--mono); font-size: 2.0rem;
       letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.8rem;
       display: flex; align-items: center; gap: 0.8rem;
     }
     .page-header-eyebrow::before { content:''; width:2rem; height:1px; background:var(--gold); }
     .page-header h1 {
-      font-family: var(--display); font-size: clamp(2rem, 4vw, 3.2rem);
-      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
-      margin-bottom: 1rem;
+      font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem);
+      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem;
     }
     .page-header-desc {
-      font-size: 1rem; color: #5a7898; max-width: 60ch;
+      font-size: 2.0rem; color: #3d5a78; max-width: 60ch;
       font-family: var(--serif); font-style: italic;
     }
 
-    /* AREA NAV \u2014 \uc138 \ubd84\uc57c \ube60\ub978 \uc774\ub3d9 */
+    /* ── AREA NAV ── */
     .area-nav {
       position: sticky; top: 64px; z-index: 50;
-      background: rgba(245,247,250,0.95);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid #d0dce8;
-      padding: 0 5rem;
-      display: flex; gap: 0;
+      background: rgba(245,247,250,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid #a0b8d0;
+      padding: 0 5rem; display: flex; gap: 0;
     }
     .area-nav a {
-      font-family: var(--mono); font-size: 0.7rem;
+      font-family: var(--mono); font-size: 1.4rem;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: #8aaac8; text-decoration: none;
+      color: #7a9ab8; text-decoration: none;
       padding: 1rem 1.5rem;
       border-bottom: 2px solid transparent;
       transition: color 0.2s, border-color 0.2s;
@@ -134,104 +115,98 @@
     .area-nav a:hover { color: #1c2b3a; border-bottom-color: var(--gold); }
     .area-nav a.active { color: var(--cyan); border-bottom-color: var(--cyan); }
 
-    /* RESEARCH SECTION */
+    /* ── RESEARCH AREA (대분야) ── */
     .research-area {
-      padding: 6rem 5rem;
-      border-bottom: 1px solid #e4edf5;
+      padding: 5rem 5rem 2rem;
+      border-bottom: 2px solid #c8d8e8;
     }
     .research-area:last-of-type { border-bottom: none; }
 
-    /* \ubc88\ud638 + \uc81c\ubaa9 \ud5e4\ub354 */
     .area-header {
       display: flex; align-items: flex-start; gap: 2rem;
-      margin-bottom: 3.5rem;
+      margin-bottom: 4rem;
     }
     .area-num {
-      font-family: var(--display); font-size: 5rem;
-      color: #d0dce8; line-height: 1; user-select: none;
+      font-family: var(--display); font-size: 9rem;
+      color: #4a6070; line-height: 1; user-select: none;
       flex-shrink: 0; margin-top: -0.5rem;
     }
-    .area-header-text {}
     .area-eyebrow {
-      font-family: var(--mono); font-size: 0.68rem;
+      font-family: var(--mono); font-size: 3.0rem;
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.4rem;
     }
     .area-title {
-      font-family: var(--display); font-size: clamp(2rem, 4vw, 3.2rem);
-      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
-      margin-bottom: 0.8rem;
+      font-family: var(--display); font-size: clamp(4rem, 5.5vw, 7rem);
+      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 0.8rem;
     }
     .area-subtitle {
-      font-size: 1rem; color: #5a7898;
+      font-size: 3.0rem; color: #3d5a78;
       font-family: var(--serif); font-style: italic;
     }
 
-    /* \ubcf8\ubb38 \ub808\uc774\uc544\uc6c3 */
-    .area-body {
+    /* ── SUBTOPIC ── */
+    .subtopic {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
+      align-items: stretch;
+      border-top: 1px solid #e4edf5;
     }
-    .area-desc {
-      font-family: var(--serif); font-size: 1.05rem;
-      color: #2a3a4a; line-height: 1.9;
-    }
-    .area-desc p + p { margin-top: 1.2rem; }
+    .subtopic:last-child { border-bottom: 1px solid #e4edf5; margin-bottom: 3rem; }
 
-    /* \ud1a0\ud53d \ud0dc\uadf8 */
-    .area-topics { display: flex; flex-direction: column; gap: 1.5rem; }
-    .topics-label {
-      font-family: var(--mono); font-size: 0.65rem;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 0.8rem;
+    .subtopic.img-left  .sub-img  { order: 1; }
+    .subtopic.img-left  .sub-text { order: 2; }
+    .subtopic.img-right .sub-img  { order: 2; }
+    .subtopic.img-right .sub-text { order: 1; }
+
+    .sub-img {
+      background: #a0b8d0;
+      background-size: cover; background-position: center;
+      min-height: 360px;
     }
-    .topic-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .topic-tag {
-      font-family: var(--mono); font-size: 0.65rem;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 0.3rem 0.8rem;
-      border: 1px solid #c0d0e0;
-      color: #5a7898;
+
+    .sub-text {
+      padding: 3rem 3.5rem;
+      display: flex; flex-direction: column; justify-content: center;
       background: #fff;
     }
 
-    /* \uad00\ub828 \ub17c\ubb38 */
-    .related-pubs {}
-    .related-pubs-label {
-      font-family: var(--mono); font-size: 0.65rem;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1rem;
+    .sub-num {
+      font-family: var(--mono); font-size: 1.0rem;
+      color: #b0c4d8; letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
     }
-    .pub-item {
-      padding: 1rem 0;
+    .sub-title {
+      font-family: var(--display); font-size: 2.4rem;
+      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .sub-desc {
+      font-family: var(--serif); font-size: 1.6rem;
+      color: #2a3a4a; line-height: 1.85;
+      margin-bottom: 1.8rem;
+    }
+
+    .related-papers-label {
+      font-family: var(--mono); font-size: 1.1rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.8rem;
+    }
+    .paper-item {
+      padding: 0.7rem 0;
       border-top: 1px solid #e4edf5;
     }
-    .pub-item:last-child { border-bottom: 1px solid #e4edf5; }
-    .pub-title {
-      font-size: 0.9rem; font-weight: 500;
-      color: #1c2b3a; line-height: 1.4; margin-bottom: 0.2rem;
+    .paper-item:last-child { border-bottom: 1px solid #e4edf5; }
+    .paper-title {
+      font-size: 1.3rem; font-weight: 500;
+      color: #1c2b3a; line-height: 1.4; margin-bottom: 0.15rem;
     }
-    .pub-venue {
-      font-family: var(--mono); font-size: 0.65rem;
-      color: #8aaac8; letter-spacing: 0.04em;
-    }
-
-    /* \ubc30\uacbd \uc774\ubbf8\uc9c0 \ubc30\ub108 */
-    .area-banner {
-      width: 100%; height: 280px;
-      background-size: cover; background-position: center;
-      margin-bottom: 3.5rem;
-      position: relative; overflow: hidden;
-    }
-    .area-banner::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(245,247,250,0.7) 0%, rgba(245,247,250,0) 60%);
+    .paper-venue {
+      font-family: var(--mono); font-size: 1.0rem;
+      color: #7a9ab8; letter-spacing: 0.03em;
     }
 
-    /* FOOTER */
+    /* ── FOOTER ── */
     footer {
       background: #0e1e2e;
       border-top: 1px solid #1a3050;
@@ -242,31 +217,32 @@
       gap: 3rem; padding-bottom: 3rem;
       border-bottom: 1px solid #1a3050; margin-bottom: 2rem;
     }
-    .footer-brand-name { font-family: var(--display); font-size: 1.4rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: 3.0rem; letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
     .footer-brand-name span { color: var(--gold); }
-    .footer-brand-sub { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
-    .footer-col-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-brand-sub { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-col-title { font-family: var(--mono); font-size: 1.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-col ul a { font-size: 0.86rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a { font-size: 1.5rem; color: var(--dim); text-decoration: none; transition: color 0.2s; }
     .footer-col ul a:hover { color: var(--bright); }
     .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
     .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
-    .footer-info-icon { font-size: 0.9rem; opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
-    .footer-info-text { font-size: 0.82rem; color: var(--dim); line-height: 1.6; }
+    .footer-info-icon { font-size: 1.5rem; opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
+    .footer-info-text { font-size: 1.5rem; color: var(--dim); line-height: 1.6; }
     .footer-info-text a { color: var(--cyan); text-decoration: none; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom span { font-family: var(--mono); font-size: 0.62rem; color: var(--dim); letter-spacing: 0.05em; }
+    .footer-bottom span { font-family: var(--mono); font-size: 1.1rem; color: var(--dim); letter-spacing: 0.05em; }
 
-    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
     .reveal { opacity: 1; transform: none; }
     .reveal.visible { opacity: 1; transform: none; }
-    .reveal-d1 { transition-delay: 0.1s; }
-    .reveal-d2 { transition-delay: 0.2s; }
 
     @media (max-width: 960px) {
-      .page-header, .research-area, .area-nav, footer { padding-left: 2rem; padding-right: 2rem; }
-      .area-body { grid-template-columns: 1fr; gap: 2.5rem; }
+      .page-header, .research-area, footer { padding-left: 2rem; padding-right: 2rem; }
       .area-nav { padding-left: 2rem; }
+      .subtopic { grid-template-columns: 1fr; }
+      .subtopic.img-left .sub-img,
+      .subtopic.img-right .sub-img { order: 1; min-height: 240px; }
+      .subtopic.img-left .sub-text,
+      .subtopic.img-right .sub-text { order: 2; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
@@ -274,15 +250,28 @@
       .area-header { flex-direction: column; gap: 0.5rem; }
       .area-num { font-size: 3rem; }
     }
+  
+    .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .area-card { display: block; text-decoration: none; border: 1px solid #e4edf5; background: #fff; transition: box-shadow 0.25s, transform 0.25s; overflow: hidden; }
+    .area-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-4px); }
+    .area-card-img { width: 100%; height: 260px; background: #a0b8d0; background-size: cover; background-position: center; }
+    .area-card-body { padding: 2rem 2.5rem 2.5rem; }
+    .area-card-num { font-family: var(--display); font-size: 6rem; color: #4a6070; line-height: 1; margin-bottom: 0.3rem; }
+    .area-card-eyebrow { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .area-card-title { font-family: var(--display); font-size: 3.0rem; letter-spacing: 0.04em; color: #0e1e2e; line-height: 1.1; margin-bottom: 0.8rem; }
+    .area-card-desc { font-family: var(--serif); font-size: 1.8rem; color: #3d5a78; line-height: 1.7; margin-bottom: 1.5rem; }
+    .area-card-topics { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .area-card-tag { font-family: var(--mono); font-size: 1.2rem; letter-spacing: 0.05em; padding: 0.2rem 0.6rem; border: 1px solid #c8d8e8; color: #7a9ab8; }
+    .area-card-arrow { font-family: var(--mono); font-size: 1.6rem; color: var(--cyan); letter-spacing: 0.08em; transition: transform 0.2s; display: inline-block; }
+    .area-card:hover .area-card-arrow { transform: translateX(6px); }
+    @media (max-width: 960px) { .areas-grid { grid-template-columns: 1fr; } }
 
-    /* ── HAMBURGER ── */
+    /* ── HAMBURGER & DRAWER ── */
     .nav-hamburger {
-      display: none;
-      flex-direction: column; justify-content: center; gap: 5px;
+      display: none; flex-direction: column; justify-content: center; gap: 5px;
       width: 36px; height: 36px;
       background: none; border: none; cursor: pointer; padding: 4px;
-      margin-left: auto;
-      position: relative; z-index: 110;
+      margin-left: auto; position: relative; z-index: 110;
     }
     .nav-hamburger span {
       display: block; width: 22px; height: 2px;
@@ -295,8 +284,7 @@
       background: #0e1e2e; border-left: 1px solid #1a3050;
       z-index: 200; display: flex; flex-direction: column;
       transform: translateX(100%);
-      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-      overflow-y: auto;
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); overflow-y: auto;
     }
     .nav-drawer.open { transform: translateX(0); }
     .nav-drawer-header {
@@ -306,8 +294,7 @@
     .nav-drawer-brand { font-family: var(--display); font-size: 1.6rem; letter-spacing: 0.06em; color: #eaf2fc; }
     .nav-drawer-brand span { color: #3EC1D3; }
     .nav-drawer-close {
-      background: none; border: none; cursor: pointer;
-      color: #7a9ab8; font-size: 1.1rem;
+      background: none; border: none; cursor: pointer; color: #7a9ab8; font-size: 1.1rem;
       width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
       border-radius: 50%; transition: background 0.2s, color 0.2s;
     }
@@ -317,8 +304,7 @@
       display: block; padding: 0.9rem 1.5rem;
       font-family: var(--ui); font-size: 1.05rem; font-weight: 500;
       letter-spacing: 0.06em; text-transform: uppercase;
-      color: #7a9ab8; text-decoration: none;
-      border-bottom: 1px solid #1a3050;
+      color: #7a9ab8; text-decoration: none; border-bottom: 1px solid #1a3050;
       transition: color 0.2s, background 0.2s;
     }
     .nav-drawer-links > li > a:hover { color: #eaf2fc; background: #0e2040; }
@@ -365,7 +351,14 @@
         <li><a href="people.html#staff">Staff</a></li>
       </ul>
     </li>
-    <li><a href="research.html" class="active">Research</a></li>
+    <li class="has-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
+      </ul>
+    </li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="gallery.html">Gallery</a></li>
   </ul>
@@ -406,220 +399,57 @@
 <div class="nav-overlay" id="nav-overlay"></div>
 
 <div class="page-header">
-  <div class="page-header-eyebrow">GNSS Lab \u00b7 KAIST</div>
+  <div class="page-header-eyebrow">GNSS Lab · KAIST</div>
   <h1>Research</h1>
   <p class="page-header-desc">We develop algorithms and systems at the intersection of GNSS signal processing, atmospheric remote sensing, and satellite navigation.</p>
 </div>
 
-<div class="area-nav">
-  <a href="#integrity" class="active">GNSS Integrity</a>
-  <a href="#leo">LEO PNT</a>
-  <a href="#remote-sensing">Remote Sensing</a>
+<div class="areas-grid">
+  <a href="research-integrity.html" class="area-card reveal">
+    <div class="area-card-img" style="background-image: url('images/research-integrity.png');"></div>
+    <div class="area-card-body">
+      <div class="area-card-num">01</div>
+      <p class="area-card-eyebrow">Research Area</p>
+      <h2 class="area-card-title">GNSS Integrity</h2>
+      <p class="area-card-desc">Ensuring the safety and trustworthiness of satellite-based navigation for aviation, autonomous vehicles, and urban air mobility.</p>
+      <div class="area-card-topics">
+        <span class="area-card-tag">AI Safety</span>
+        <span class="area-card-tag">SBAS / KPS</span>
+        <span class="area-card-tag">Multi-Sensor</span>
+      </div>
+      <span class="area-card-arrow">Explore →</span>
+    </div>
+  </a>
+  <a href="research-leo.html" class="area-card reveal">
+    <div class="area-card-img" style="background-image: url('images/research-leo.png');"></div>
+    <div class="area-card-body">
+      <div class="area-card-num">02</div>
+      <p class="area-card-eyebrow">Research Area</p>
+      <h2 class="area-card-title">LEO PNT</h2>
+      <p class="area-card-desc">Leveraging Low Earth Orbit satellite signals for resilient positioning, navigation, and timing in GNSS-challenged environments.</p>
+      <div class="area-card-topics">
+        <span class="area-card-tag">Signals of Opportunity</span>
+        <span class="area-card-tag">Error Model</span>
+      </div>
+      <span class="area-card-arrow">Explore →</span>
+    </div>
+  </a>
+  <a href="research-remote.html" class="area-card reveal">
+    <div class="area-card-img" style="background-image: url('images/research-remote.png');"></div>
+    <div class="area-card-body">
+      <div class="area-card-num">03</div>
+      <p class="area-card-eyebrow">Research Area</p>
+      <h2 class="area-card-title">Remote Sensing</h2>
+      <p class="area-card-desc">Probing the atmosphere and ionosphere with GNSS signals for weather, climate, and space weather applications.</p>
+      <div class="area-card-topics">
+        <span class="area-card-tag">AI-Enhanced RO</span>
+        <span class="area-card-tag">Ionosphere</span>
+        <span class="area-card-tag">CubeSat RO</span>
+      </div>
+      <span class="area-card-arrow">Explore →</span>
+    </div>
+  </a>
 </div>
-
-<!-- \u2500\u2500\u2500 01 GNSS INTEGRITY \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 -->
-<section class="research-area" id="integrity">
-
-  <div class="area-banner reveal" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg');"></div>
-
-  <div class="area-header reveal">
-    <div class="area-num">01</div>
-    <div class="area-header-text">
-      <p class="area-eyebrow">Research Area</p>
-      <h2 class="area-title">GNSS Integrity</h2>
-      <p class="area-subtitle">Ensuring the safety and reliability of satellite-based navigation</p>
-    </div>
-  </div>
-
-  <div class="area-body">
-    <div class="area-desc reveal">
-      <p>
-        GNSS integrity refers to the ability of a navigation system to provide timely warnings
-        when it should not be used for navigation. Our research develops fault detection and
-        exclusion algorithms, protection level computation, and integrity monitoring frameworks
-        for safety-critical applications including aviation, autonomous vehicles, and maritime navigation.
-      </p>
-      <p>
-        We work closely with standards bodies such as ICAO and RTCA to develop advanced RAIM
-        (Receiver Autonomous Integrity Monitoring) algorithms and satellite-based augmentation
-        system (SBAS) architectures tailored for the Korean airspace and the Korean Positioning System (KPS).
-      </p>
-      <p>
-        Our current focus includes advanced ARAIM (Advanced RAIM) for dual-frequency
-        multi-constellation operations, integrity risk allocation under correlated fault modes,
-        and real-time integrity monitoring for urban air mobility applications.
-      </p>
-    </div>
-
-    <div class="reveal reveal-d1">
-      <div class="area-topics">
-        <p class="topics-label">Key Topics</p>
-        <div class="topic-list">
-          <span class="topic-tag">RAIM / ARAIM</span>
-          <span class="topic-tag">SBAS</span>
-          <span class="topic-tag">Fault Detection</span>
-          <span class="topic-tag">Protection Level</span>
-          <span class="topic-tag">KPS Integrity</span>
-          <span class="topic-tag">Aviation Navigation</span>
-          <span class="topic-tag">Urban Air Mobility</span>
-          <span class="topic-tag">Multi-Constellation</span>
-        </div>
-      </div>
-
-      <div class="related-pubs" style="margin-top: 2rem;">
-        <p class="related-pubs-label">Selected Publications</p>
-        <div class="pub-item">
-          <p class="pub-title">Advanced RAIM for Dual-Frequency Multi-Constellation GNSS</p>
-          <p class="pub-venue">ION GNSS+ \u00b7 2024</p>
-        </div>
-        <div class="pub-item">
-          <p class="pub-title">Integrity Monitoring for KPS with NeQuick-G Ionospheric Model</p>
-          <p class="pub-venue">Journal of Positioning, Navigation, and Timing \u00b7 2023</p>
-        </div>
-        <div class="pub-item">
-          <p class="pub-title">Protection Level Computation under Correlated Fault Modes</p>
-          <p class="pub-venue">ION GNSS+ \u00b7 2023</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- \u2500\u2500\u2500 02 LEO PNT \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 -->
-<section class="research-area" id="leo">
-
-  <div class="area-banner reveal" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/ISS_above_the_Pacific_Ocean.jpg/1280px-ISS_above_the_Pacific_Ocean.jpg');"></div>
-
-  <div class="area-header reveal">
-    <div class="area-num">02</div>
-    <div class="area-header-text">
-      <p class="area-eyebrow">Research Area</p>
-      <h2 class="area-title">LEO PNT</h2>
-      <p class="area-subtitle">Leveraging Low Earth Orbit satellites for resilient positioning</p>
-    </div>
-  </div>
-
-  <div class="area-body">
-    <div class="area-desc reveal">
-      <p>
-        Low Earth Orbit (LEO) satellite constellations offer significant advantages for
-        positioning, navigation, and timing (PNT) due to their stronger signal power,
-        faster geometry change, and lower propagation delays compared to traditional
-        GNSS in medium Earth orbit.
-      </p>
-      <p>
-        Our research investigates the use of LEO signals \u2014 including both dedicated PNT
-        payloads and signals of opportunity from broadband constellations such as Starlink
-        and OneWeb \u2014 for standalone positioning and as supplements to traditional GNSS
-        in environments where GNSS is degraded or unavailable.
-      </p>
-      <p>
-        Key research topics include Doppler-based positioning from LEO signals, clock
-        and orbit estimation for LEO satellites, and integrity monitoring frameworks
-        for LEO-augmented navigation systems.
-      </p>
-    </div>
-
-    <div class="reveal reveal-d1">
-      <div class="area-topics">
-        <p class="topics-label">Key Topics</p>
-        <div class="topic-list">
-          <span class="topic-tag">LEO Constellations</span>
-          <span class="topic-tag">Signals of Opportunity</span>
-          <span class="topic-tag">Doppler Positioning</span>
-          <span class="topic-tag">Starlink / OneWeb</span>
-          <span class="topic-tag">Clock Estimation</span>
-          <span class="topic-tag">Orbit Determination</span>
-          <span class="topic-tag">GNSS Augmentation</span>
-          <span class="topic-tag">Resilient PNT</span>
-        </div>
-      </div>
-
-      <div class="related-pubs" style="margin-top: 2rem;">
-        <p class="related-pubs-label">Selected Publications</p>
-        <div class="pub-item">
-          <p class="pub-title">Doppler-Based Positioning Using LEO Broadband Constellation Signals</p>
-          <p class="pub-venue">ION GNSS+ \u00b7 2024</p>
-        </div>
-        <div class="pub-item">
-          <p class="pub-title">LEO Clock and Orbit Estimation for PNT Applications</p>
-          <p class="pub-venue">NAVIGATION \u00b7 2023</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- \u2500\u2500\u2500 03 REMOTE SENSING \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 -->
-<section class="research-area" id="remote-sensing">
-
-  <div class="area-banner reveal" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_Eastern_Hemisphere.jpg/1024px-Earth_Eastern_Hemisphere.jpg');"></div>
-
-  <div class="area-header reveal">
-    <div class="area-num">03</div>
-    <div class="area-header-text">
-      <p class="area-eyebrow">Research Area</p>
-      <h2 class="area-title">Remote Sensing</h2>
-      <p class="area-subtitle">Probing the atmosphere and Earth surface with GNSS signals</p>
-    </div>
-  </div>
-
-  <div class="area-body">
-    <div class="area-desc reveal">
-      <p>
-        GNSS Radio Occultation (RO) is a remote sensing technique that uses GPS and other
-        GNSS signals passing through the Earth's atmosphere to retrieve profiles of
-        temperature, pressure, and water vapor with high vertical resolution and global coverage.
-      </p>
-      <p>
-        Our research focuses on improving RO retrieval algorithms for the lower troposphere,
-        where multipath propagation and super-refraction cause significant challenges.
-        We develop wavelet-based signal processing methods \u2014 including the Wavelet-Transform
-        Phase Matching (WTPM) algorithm and Local Spectral Width (LSW) multipath detector \u2014
-        applied to COSMIC-2 and future RO mission data.
-      </p>
-      <p>
-        We also investigate GNSS Reflectometry (GNSS-R) for surface remote sensing,
-        including soil moisture estimation, sea surface height retrieval, and
-        vegetation monitoring using signals reflected from the Earth's surface.
-      </p>
-    </div>
-
-    <div class="reveal reveal-d1">
-      <div class="area-topics">
-        <p class="topics-label">Key Topics</p>
-        <div class="topic-list">
-          <span class="topic-tag">GNSS Radio Occultation</span>
-          <span class="topic-tag">COSMIC-2</span>
-          <span class="topic-tag">Phase Matching</span>
-          <span class="topic-tag">Wavelet Transform</span>
-          <span class="topic-tag">Bending Angle</span>
-          <span class="topic-tag">Lower Troposphere</span>
-          <span class="topic-tag">GNSS-R</span>
-          <span class="topic-tag">Abel Inversion</span>
-          <span class="topic-tag">LSW Algorithm</span>
-          <span class="topic-tag">Multipath Detection</span>
-        </div>
-      </div>
-
-      <div class="related-pubs" style="margin-top: 2rem;">
-        <p class="related-pubs-label">Selected Publications</p>
-        <div class="pub-item">
-          <p class="pub-title">Wavelet-Transform Phase Matching for Lower Troposphere RO</p>
-          <p class="pub-venue">Journal of Geophysical Research \u00b7 Atmospheres \u00b7 2025</p>
-        </div>
-        <div class="pub-item">
-          <p class="pub-title">LSW Algorithm \u2014 Local Spectral Width for Multipath Detection</p>
-          <p class="pub-venue">GPS Solutions \u00b7 Springer \u00b7 2024</p>
-        </div>
-        <div class="pub-item">
-          <p class="pub-title">Synchrosqueezed Wavelet Transform for GNSS RO Signal Processing</p>
-          <p class="pub-venue">ION GNSS+ \u00b7 2024</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="footer-grid">
@@ -641,32 +471,32 @@
     <div class="footer-col">
       <p class="footer-col-title">Research</p>
       <ul>
-        <li><a href="#integrity">GNSS Integrity</a></li>
-        <li><a href="#leo">LEO PNT</a></li>
-        <li><a href="#remote-sensing">Remote Sensing</a></li>
+        <li><a href="research-integrity.html">GNSS Integrity</a></li>
+        <li><a href="research-leo.html">LEO PNT</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
         <li><a href="publications.html">Publications</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <p class="footer-col-title">Contact & Location</p>
+      <p class="footer-col-title">Contact &amp; Location</p>
       <div class="footer-info">
         <div class="footer-info-row">
-          <span class="footer-info-icon">\ud83d\udccd</span>
+          <span class="footer-info-icon">📍</span>
           <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
         </div>
         <div class="footer-info-row">
-          <span class="footer-info-icon">\u2709\ufe0f</span>
-          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+          <span class="footer-info-icon">✉️</span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#e0878e93938c8182a08b81899394ce8183ce8b92"><span class="__cf_email__" data-cfemail="61060f12120d0003210a000812154f00024f0a13">[email&#160;protected]</span></a></span>
         </div>
         <div class="footer-info-row">
-          <span class="footer-info-icon">\ud83d\udc64</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+          <span class="footer-info-icon">👤</span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#3c56554549525059597c575d554f48125d5f12574e"><span class="__cf_email__" data-cfemail="b9d3d0c0ccd7d5dcdcf9d2d8d0cacd97d8da97d2cb">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 GNSS Lab \u00b7 KAIST Department of Aerospace Engineering</span>
+    <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
   </div>
 </footer>
 
