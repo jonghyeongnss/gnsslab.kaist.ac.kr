@@ -190,11 +190,13 @@
 
     /* ── PAGE HEADER ── */
     .page-header {
-      padding: clamp(5rem, 9vw, 9rem) clamp(1.5rem, 5vw, 5rem) clamp(2rem, 4vw, 4rem);
+      position: relative; z-index: 1;
+      padding: 9rem 5rem 4rem;
       border-bottom: 1px solid #a0b8d0;
+      background: #F5F7FA;
     }
     .page-header-eyebrow {
-      font-family: var(--mono); font-size: clamp(0.72rem, 1vw, 1.0rem);
+      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 1.5rem);
       letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.8rem;
       display: flex; align-items: center; gap: 0.8rem;
