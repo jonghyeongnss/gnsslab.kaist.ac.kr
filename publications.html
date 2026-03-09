@@ -339,6 +339,23 @@
     @media (max-width: 640px) {
       .controls { gap: 0.8rem; }
       .footer-grid { grid-template-columns: 1fr; }
+	  .pub-item {
+		grid-template-columns: 1fr auto;  /* type 사라지고 body+arrow */
+		grid-template-rows: auto auto;
+	  }
+	  .pub-type {
+		grid-column: 1 / -1;  /* 첫 행 전체 너비 */
+		margin-bottom: 0.3rem;
+	  }
+	  .pub-body {
+		grid-column: 1;
+		grid-row: 2;
+	  }
+	  .pub-arrow {
+		grid-column: 2;
+		grid-row: 2;
+		align-self: center;
+	  }
     }
 
     /* ── HAMBURGER ── */
