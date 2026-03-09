@@ -46,7 +46,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 64px;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 2rem 3rem;
+      padding: 0 3rem;
       background: rgba(245,247,250,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #a0b8d0;
@@ -145,8 +145,6 @@
     .search-wrap input:focus { border-color: var(--cyan); }
     .search-icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: #7a9ab8; font-size: clamp(0.82rem, 1.4vw, 1.4rem); pointer-events: none; }
     .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-	#type-filters { flex-wrap: nowrap; overflow-x: auto; }
-	#year-filters { flex-wrap: nowrap; overflow-x: auto; }
     .filter-btn {
       font-family: var(--mono); font-size: clamp(0.82rem, 1.4vw, 1.4rem);
       letter-spacing: 0.08em; text-transform: uppercase;
@@ -198,7 +196,7 @@
     .pub-item:hover::before { background: var(--cyan); border-color: var(--cyan); }
 
     .pub-type {
-      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
+      font-family: var(--mono); font-size: 1.4rem;
       letter-spacing: 0.07em; text-transform: uppercase;
       padding: 0.2rem 0.5rem; height: fit-content;
       align-self: start; margin-top: 0.1rem;
@@ -241,7 +239,7 @@
     .modal {
       background: #fff; border: 1px solid #a0b8d0;
       box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-      max-width: 1000px; width: 100%; padding: clamp(1.2rem, 4vw, 3.5rem);
+      max-width: 1000px; width: 100%; padding: 3.5rem;
       position: relative;
       transform: translateY(20px); transition: transform 0.3s ease;
       max-height: 85vh; overflow-y: auto;
@@ -256,7 +254,7 @@
     }
     .modal-close:hover { color: #1c2b3a; }
     .modal-type {
-      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.1rem);
+      font-family: var(--mono); font-size: 1.1rem;
       padding: 0.2rem 0.6rem; border: 1px solid #c0d0e0;
       color: #3d5a78; letter-spacing: 0.08em;
       text-transform: uppercase; display: inline-block; margin-bottom: 1rem;
@@ -264,7 +262,7 @@
     .modal-type.journal { color: var(--cyan); border-color: rgba(62,193,211,0.4); }
     .modal-type.conference { color: var(--gold); border-color: rgba(200,168,75,0.4); }
     .modal-type.thesis { color: #a07ec8; border-color: rgba(160,126,200,0.4); }
-    .modal-year { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); color: #7a9ab8; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+    .modal-year { font-family: var(--mono); font-size: 1.2rem; color: #7a9ab8; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
     .modal-title { font-family: var(--ui); font-size: clamp(1.2rem, 2vw, 2.0rem); font-weight: 600; color: #0e1e2e; line-height: 1.4; margin-bottom: 0.6rem; }
     .modal-authors { font-family: var(--mono); font-size: clamp(0.82rem, 1.4vw, 1.4rem); color: #3d5a78; margin-bottom: 0.4rem; line-height: 1.6; }
     .modal-venue {
@@ -315,51 +313,44 @@
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
     .year-block { animation: fadeUp 0.5s ease both; }
 
-	@media (max-width: 960px) {
-	  nav { padding: 0 1.5rem; }
-	  .page-header, .pub-wrap, .controls { padding-left: 1.2rem; padding-right: 1.2rem; }
-	  /* 세로선 제거 */
-	  .pub-list {
-		border-left: none;
-		padding-left: 0;
-		margin-left: 0;
-	  }
-	  .filter-divider {
-		width: 100%;
-		height: 1px;
-		/* 기존 width:1px, height:1.5rem 이 가로선으로 바뀜 */
-	  }
-	  .filter-divider:first-of-type { display: none; }
-	  /* 점 제거 */
-	  .pub-item::before { display: none; }
-	  /* type 위, 내용 전체 폭 */
-	  .pub-item {
-		grid-template-columns: 1fr auto;
-		grid-template-rows: auto auto;
-		padding-left: 0;
-		gap: 0.3rem 1rem;
-	  }
-	  .pub-type {
-		grid-column: 1 / -1;
-		grid-row: 1;
-	  }
-	  .pub-body {
-		grid-column: 1;
-		grid-row: 2;
-	  }
-	  .pub-arrow {
-		grid-column: 2;
-		grid-row: 2;
-		align-self: center;
-		display: none;
-	  }
-	  .footer-grid { grid-template-columns: 1fr 1fr; }
-	  footer { padding-left: 2rem; padding-right: 2rem; }
-	}
-	@media (max-width: 640px) {
-	  .controls { gap: 0.8rem; }
-	  .footer-grid { grid-template-columns: 1fr; }
-	}
+    @media (max-width: 960px) {
+      nav { padding: 0 1.5rem; }
+      .page-header, .pub-wrap, .controls { padding-left: 1.2rem; padding-right: 1.2rem; }
+      footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+      /* 세로선 제거 */
+      .pub-list {
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
+      }
+      /* 점 제거 */
+      .pub-item::before { display: none; }
+      /* type 위, 내용 전체 폭 */
+      .pub-item {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        padding-left: 0;
+        gap: 0.3rem 1rem;
+      }
+      .pub-type {
+        grid-column: 1 / -1;
+        grid-row: 1;
+      }
+      .pub-body {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      .pub-arrow {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: center;
+      }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .controls { gap: 0.8rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
 
     /* ── HAMBURGER ── */
     .nav-hamburger {
