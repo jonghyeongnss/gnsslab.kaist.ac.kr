@@ -313,47 +313,44 @@
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
     .year-block { animation: fadeUp 0.5s ease both; }
 
-    @media (max-width: 960px) {
-      nav { padding: 0 1.5rem; }
-      footer { padding-left: 1.2rem; padding-right: 1.2rem; }
-      .page-header, .timeline-wrap, .controls { padding-left: 1.2rem; padding-right: 1.2rem; }
-      /* 타임라인 세로선 제거 */
-      .timeline-items {
-        border-left: none;
-        padding-left: 0;
-        margin-left: 0;
-      }
-      /* 점 제거 */
-      .news-item::before { display: none; }
-      /* 아이템: 날짜 위, 내용 전체 폭 */
-      .news-item {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-        padding: 1.1rem 0.5rem;
-      }
-      .news-date { margin-bottom: 0.2rem; padding-top: 0; }
-      .news-body { width: 100%; }
-      .news-tag, .news-arrow { display: none; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 640px) {
-      .controls { gap: 0.8rem; }
-      .footer-grid { grid-template-columns: 1fr; }
-	  .pub-item {
+	@media (max-width: 960px) {
+	  nav { padding: 0 1.5rem; }
+	  .page-header, .pub-wrap, .controls { padding-left: 1.2rem; padding-right: 1.2rem; }
+	  /* 세로선 제거 */
+	  .pub-list {
+		border-left: none;
 		padding-left: 0;
+		margin-left: 0;
+	  }
+	  /* 점 제거 */
+	  .pub-item::before { display: none; }
+	  /* type 위, 내용 전체 폭 */
+	  .pub-item {
 		grid-template-columns: 1fr auto;
 		grid-template-rows: auto auto;
+		padding-left: 0;
+		gap: 0.3rem 1rem;
 	  }
 	  .pub-type {
 		grid-column: 1 / -1;
-		margin-bottom: 0.3rem;
+		grid-row: 1;
 	  }
 	  .pub-body {
 		grid-column: 1;
 		grid-row: 2;
 	  }
-    }
+	  .pub-arrow {
+		grid-column: 2;
+		grid-row: 2;
+		align-self: center;
+		display: none;
+	  }
+	  .footer-grid { grid-template-columns: 1fr 1fr; }
+	}
+	@media (max-width: 640px) {
+	  .controls { gap: 0.8rem; }
+	  .footer-grid { grid-template-columns: 1fr; }
+	}
 
     /* ── HAMBURGER ── */
     .nav-hamburger {
