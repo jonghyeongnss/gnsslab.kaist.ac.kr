@@ -46,7 +46,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 64px;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 3rem;
+      padding: 1rem 3rem;
       background: rgba(245,247,250,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #a0b8d0;
@@ -340,21 +340,20 @@
       .controls { gap: 0.8rem; }
       .footer-grid { grid-template-columns: 1fr; }
 	  .pub-item {
-		grid-template-columns: 1fr auto;  /* type 사라지고 body+arrow */
+		padding-left: 0;
+		grid-template-columns: 1fr auto;
 		grid-template-rows: auto auto;
 	  }
+	  .pub-item::before {
+		display: none;
+	  }
 	  .pub-type {
-		grid-column: 1 / -1;  /* 첫 행 전체 너비 */
+		grid-column: 1 / -1;
 		margin-bottom: 0.3rem;
 	  }
 	  .pub-body {
 		grid-column: 1;
 		grid-row: 2;
-	  }
-	  .pub-arrow {
-		grid-column: 2;
-		grid-row: 2;
-		align-self: center;
 	  }
     }
 
