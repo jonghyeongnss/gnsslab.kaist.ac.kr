@@ -187,7 +187,7 @@
 	  overflow-x: auto; white-space: nowrap;
 	}
 	.area-nav a {
-	  font-family: var(--mono); font-size: clamp(1.0rem,1.3vw,1.4rem);
+	  font-family: var(--mono); font-size: clamp(0.8rem,1.3vw,1.4rem);
 	  letter-spacing: 0.1em; text-transform: uppercase;
 	  color: #7a9ab8; text-decoration: none;
 	  padding: clamp(0.8rem,1.2vw,1rem) clamp(1rem,2vw,1.5rem);
@@ -216,11 +216,11 @@
 	  letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
 	}
     .area-title {
-	  font-family: var(--display); font-size: clamp(2.5rem,5vw,7rem);
+	  font-family: var(--display); font-size: clamp(2.8rem,5vw,7rem);
 	  letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
 	}
     .area-subtitle {
-	  font-size: clamp(1rem,2vw,2.0rem); color: #3d5a78;
+	  font-size: clamp(1.4rem,2vw,2.0rem); color: #3d5a78;
 	  font-family: var(--serif); font-style: italic;
 	}
 
@@ -244,12 +244,12 @@
 	}
     .sub-num { font-family: var(--mono); font-size: 1.0rem; color: #b0c4d8; letter-spacing: 0.12em; margin-bottom: 0.5rem; }
     .sub-title { font-family: var(--display); font-size: clamp(1.6rem,3vw,2.4rem); margin-bottom: 0.8rem; }
-    .sub-desc { font-family: var(--serif); font-size: clamp(0.95rem,1.6vw,1.6rem); line-height: 1.8; margin-bottom: 1.8rem; }
-    .related-papers-label { font-family: var(--mono); font-size: clamp(0.75rem,1.1vw,1.1rem); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .sub-desc { font-family: var(--serif); font-size: clamp(1.2rem,1.4vw,1.8rem); line-height: 1.8; margin-bottom: 1.8rem; }
+    .related-papers-label { font-family: var(--mono); font-size: clamp(1.2rem,1.1vw,1.1rem); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
     .paper-item { padding: 0.7rem 0; border-top: 1px solid #e4edf5; }
     .paper-item:last-child { border-bottom: 1px solid #e4edf5; }
-    .paper-title { font-size: clamp(0.85rem,1.3vw,1.3rem); font-weight: 500; color: #1c2b3a; line-height: 1.4; margin-bottom: 0.15rem; }
-    .paper-venue { font-family: var(--mono); font-size: clamp(0.72rem,1vw,1.0rem); color: #7a9ab8; letter-spacing: 0.03em; }
+    .paper-title { font-size: clamp(1.2rem,1.3vw,1.3rem); font-weight: 500; color: #1c2b3a; line-height: 1.4; margin-bottom: 0.15rem; }
+    .paper-venue { font-family: var(--mono); font-size: clamp(1.2rem,1vw,1.0rem); color: #7a9ab8; letter-spacing: 0.03em; }
 
     /* ── FOOTER ── */
     footer { background: #0e1e2e; border-top: 1px solid #1a3050; padding: 4rem 5rem 2.5rem; }
@@ -284,8 +284,6 @@
     }
     @media (max-width: 640px) {
       .footer-grid { grid-template-columns: 1fr; }
-      .area-header { flex-direction: column; gap: 0.5rem; }
-      .area-num { font-size: 3rem; }
     }
   </style>
 </head>
@@ -354,7 +352,7 @@
 <div class="nav-overlay" id="nav-overlay"></div>
 
 <div class="page-header">
-  <div class="page-header-eyebrow">GNSS Lab · KAIST — Research</div>
+  <div class="page-header-eyebrow">GNSS Lab — Research</div>
   <h1>GNSS Integrity</h1>
   <p class="page-header-desc">Ensuring the safety and trustworthiness of satellite-based navigation systems for aviation, autonomous vehicles, and urban air mobility.</p>
 </div>
