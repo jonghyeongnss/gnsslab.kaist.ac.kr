@@ -341,6 +341,7 @@
     @media (max-width: 960px) {
       .research-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
+	  .footer-col:empty { display: none; }
       .research-section, .news-section, footer { padding-left: 2rem; padding-right: 2rem; }
       nav { padding: 0 1.5rem; }
       .nav-links a { padding: 0 0.7rem; font-size: 0.72rem; }
@@ -349,8 +350,8 @@
     }
     @media (max-width: 640px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
-	  .footer-col:empty { display: none; }
 	  .footer-brand { grid-column: 1 / -1; }
+	  .footer-col:empty { display: none; }
       .research-header, .news-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
     }
 

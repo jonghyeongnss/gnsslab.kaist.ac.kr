@@ -356,10 +356,13 @@
 		display: none;
 	  }
 	  .footer-grid { grid-template-columns: 1fr 1fr; }
+	  .footer-col:empty { display: none; }
 	}
 	@media (max-width: 640px) {
 	  .controls { gap: 0.8rem; }
-	  .footer-grid { grid-template-columns: 1fr; }
+	  .footer-grid { grid-template-columns: 1fr 1fr; }
+	  .footer-brand { grid-column: 1 / -1; }
+	  .footer-col:empty { display: none; }
 	}
 
     /* ── HAMBURGER ── */

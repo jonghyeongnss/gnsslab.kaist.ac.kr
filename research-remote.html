@@ -289,10 +289,13 @@
       .subtopic.img-left .sub-text,
       .subtopic.img-right .sub-text { order: 2; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
+	  .footer-col:empty { display: none; }
 	  footer { padding-left: 2rem; padding-right: 2rem; }
     }
     @media (max-width: 640px) {
-      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+	  .footer-brand { grid-column: 1 / -1; }
+	  .footer-col:empty { display: none; }
     }
   </style>
 </head>

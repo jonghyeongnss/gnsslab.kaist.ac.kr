@@ -210,7 +210,9 @@
       .lightbox-info { width: 100%; max-height: 40vh; border-left: none; border-top: 1px solid #1a3050; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; }
+	  .footer-brand { grid-column: 1 / -1; }
+	  .footer-col:empty { display: none; } }
 
     /* ── HAMBURGER ── */
     .nav-hamburger {
@@ -297,6 +299,8 @@
     @media (max-width: 960px) {
       nav { padding: 0 1.5rem; }
 	  footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+	  .footer-grid { grid-template-columns: 1fr 1fr; }
+	  .footer-col:empty { display: none; }
     }
 
     @media (max-width: 768px) {
