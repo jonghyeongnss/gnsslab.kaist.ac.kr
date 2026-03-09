@@ -271,12 +271,7 @@
 	  footer { padding-left: 2rem; padding-right: 2rem; }
       nav { padding: 0 1.5rem; }
     }
-    @media (max-width: 640px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-	  .footer-brand { grid-column: 1 / -1; }
-	  .footer-col:empty { display: none; }
-      .people-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+
 
     /* ── HAMBURGER ── */
     .nav-hamburger {
@@ -365,6 +360,12 @@
     @media (max-width: 768px) {
       .nav-hamburger { display: flex; }
       .nav-links { display: none; }
+    }
+	@media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+	  .footer-brand { grid-column: 1 / -1; }
+	  .footer-col:empty { display: none; }
+      .people-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
