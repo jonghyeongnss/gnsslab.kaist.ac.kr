@@ -463,26 +463,6 @@
     .area-card:hover .area-card-arrow { transform: translateX(6px); }
     @media (max-width: 960px) { .areas-grid { grid-template-columns: 1fr; } }
   
-    /* ── Area sticky nav ── */
-    .area-nav {
-      position: sticky; top: 64px; z-index: 50;
-      background: rgba(245,247,250,0.95); backdrop-filter: blur(16px);
-      border-bottom: 1px solid #a0b8d0;
-      padding: 0 5rem; display: flex; gap: 0;
-    }
-
-    .area-nav a {
-      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: #7a9ab8; text-decoration: none;
-      padding: 1rem 1.5rem;
-      border-bottom: 2px solid transparent;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .area-nav a:hover { color: #1c2b3a; border-bottom-color: var(--gold); }
-
-    .area-nav a.active { color: var(--cyan); border-bottom-color: var(--cyan); }</style>
 </head>
 <body>
 
