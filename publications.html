@@ -136,17 +136,17 @@
     .search-wrap input {
       width: 100%; background: #fff;
       border: 1px solid #c0d0e0; color: #1c2b3a;
-      font-family: var(--mono); font-size: 1.4rem;
+      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
       letter-spacing: 0.05em;
       padding: 0.55rem 0.8rem 0.55rem 2.2rem;
       outline: none; transition: border-color 0.2s;
     }
     .search-wrap input::placeholder { color: #7a9ab8; }
     .search-wrap input:focus { border-color: var(--cyan); }
-    .search-icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: #7a9ab8; font-size: 1.4rem; pointer-events: none; }
+    .search-icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: #7a9ab8; font-size: clamp(0.85rem, 1.4vw, 1.4rem); pointer-events: none; }
     .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .filter-btn {
-      font-family: var(--mono); font-size: 1.4rem;
+      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
       letter-spacing: 0.08em; text-transform: uppercase;
       padding: 0.35rem 0.9rem;
       border: 1px solid #c0d0e0; color: #3d5a78;
@@ -155,7 +155,7 @@
     .filter-btn:hover { color: #1c2b3a; border-color: #7a9ab8; }
     .filter-btn.active { color: #fff; background: var(--cyan); border-color: var(--cyan); }
     .filter-divider { width: 1px; height: 1.5rem; background: #a0b8d0; }
-    .result-count { font-family: var(--mono); font-size: 1.4rem; color: #7a9ab8; letter-spacing: 0.06em; margin-left: auto; }
+    .result-count { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #7a9ab8; letter-spacing: 0.06em; margin-left: auto; }
     .result-count span { color: var(--cyan); }
 
     /* PUBLICATIONS LIST */
@@ -163,7 +163,7 @@
 
     .year-block { margin-top: 4rem; }
     .year-label { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0; }
-    .year-label h2 { font-family: var(--display); font-size: 5.5rem; color: #5a7898; letter-spacing: 0.08em; line-height: 1; user-select: none; transition: color 0.3s; }
+    .year-label h2 { font-family: var(--display); font-size: clamp(2.8rem, 5vw, 5.5rem); color: #5a7898; letter-spacing: 0.08em; line-height: 1; user-select: none; transition: color 0.3s; }
     .year-block:hover .year-label h2 { color: #1a6f8f; }
     .year-line { flex: 1; height: 1px; background: linear-gradient(to right, #5a7898, transparent); }
 
@@ -196,7 +196,7 @@
     .pub-item:hover::before { background: var(--cyan); border-color: var(--cyan); }
 
     .pub-type {
-      font-family: var(--mono); font-size: 1.4rem;
+      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
       letter-spacing: 0.07em; text-transform: uppercase;
       padding: 0.2rem 0.5rem; height: fit-content;
       align-self: start; margin-top: 0.1rem;
@@ -209,17 +209,17 @@
 
     .pub-body { align-self: center; }
     .pub-title {
-      font-size: 2.0rem; font-weight: 500;
+      font-size: clamp(1.1rem, 2vw, 2.0rem); font-weight: 500;
       color: #1c2b3a; margin-bottom: 0.25rem; line-height: 1.45;
       transition: color 0.2s;
     }
     .pub-item:hover .pub-title { color: #0e7fa8; }
-    .pub-meta { font-size: 1.4rem; color: #3d5a78; font-weight: 500;}
+    .pub-meta { font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #3d5a78; font-weight: 500;}
     .pub-meta em { font-style: italic; }
-    .pub-authors { font-family: var(--mono); font-size: 1.4rem; color: #3d5a78; margin-top: 0.2rem; letter-spacing: 0.02em; }
+    .pub-authors { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #3d5a78; margin-top: 0.2rem; letter-spacing: 0.02em; }
 
     .pub-arrow {
-      font-family: var(--mono); font-size: 2.0rem;
+      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem);
       color: #a0b8cc; align-self: center;
       transition: color 0.2s, transform 0.2s; white-space: nowrap;
     }
@@ -247,14 +247,14 @@
     .modal-overlay.open .modal { transform: translateY(0); }
     .modal-close {
       position: absolute; top: 1.2rem; right: 1.4rem;
-      font-family: var(--mono); font-size: 1.2rem;
+      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
       color: #7a9ab8; cursor: pointer;
       letter-spacing: 0.1em; text-transform: uppercase;
       background: none; border: none; transition: color 0.2s;
     }
     .modal-close:hover { color: #1c2b3a; }
     .modal-type {
-      font-family: var(--mono); font-size: 1.1rem;
+      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
       padding: 0.2rem 0.6rem; border: 1px solid #c0d0e0;
       color: #3d5a78; letter-spacing: 0.08em;
       text-transform: uppercase; display: inline-block; margin-bottom: 1rem;
@@ -262,18 +262,18 @@
     .modal-type.journal { color: var(--cyan); border-color: rgba(62,193,211,0.4); }
     .modal-type.conference { color: var(--gold); border-color: rgba(200,168,75,0.4); }
     .modal-type.thesis { color: #a07ec8; border-color: rgba(160,126,200,0.4); }
-    .modal-year { font-family: var(--mono); font-size: 1.2rem; color: #7a9ab8; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
-    .modal-title { font-family: var(--ui); font-size: 2.0rem; font-weight: 600; color: #0e1e2e; line-height: 1.4; margin-bottom: 0.6rem; }
-    .modal-authors { font-family: var(--mono); font-size: 1.4rem; color: #3d5a78; margin-bottom: 0.4rem; line-height: 1.6; }
+    .modal-year { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #7a9ab8; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+    .modal-title { font-family: var(--ui); font-size: clamp(1.1rem, 2vw, 2.0rem); font-weight: 600; color: #0e1e2e; line-height: 1.4; margin-bottom: 0.6rem; }
+    .modal-authors { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #3d5a78; margin-bottom: 0.4rem; line-height: 1.6; }
     .modal-venue {
-      font-size: 1.4rem; color: #3d5a78; font-style: italic;
+      font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #3d5a78; font-style: italic;
       margin-bottom: 1.4rem; padding-bottom: 1.2rem;
       border-bottom: 1px solid #e4edf5;
     }
-    .modal-abstract { font-family: var(--serif); font-size: 1.6rem; color: #2a3a4a; line-height: 1.85; margin-bottom: 1.6rem; }
+    .modal-abstract { font-family: var(--serif); font-size: clamp(0.95rem, 1.6vw, 1.6rem); color: #2a3a4a; line-height: 1.85; margin-bottom: 1.6rem; }
     .modal-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
     .modal-link {
-      font-family: var(--mono); font-size: 1.2rem;
+      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--cyan); text-decoration: none;
       border: 1px solid #c0d0e0; padding: 0.45rem 1rem;
