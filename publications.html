@@ -551,22 +551,6 @@
     <button class="filter-btn" data-year="2024">2024</button>
     <button class="filter-btn" data-year="2023">2023</button>
     <button class="filter-btn" data-year="2022">2022</button>
-	<button class="filter-btn" data-year="2019">2021</button>
-	<button class="filter-btn" data-year="2018">2020</button>
-	<button class="filter-btn" data-year="2019">2019</button>
-	<button class="filter-btn" data-year="2018">2018</button>
-	<button class="filter-btn" data-year="2017">2017</button>
-	<button class="filter-btn" data-year="2019">2016</button>
-	<button class="filter-btn" data-year="2018">2015</button>
-	<button class="filter-btn" data-year="2017">2014</button>
-	<button class="filter-btn" data-year="2019">2013</button>
-	<button class="filter-btn" data-year="2018">2012</button>
-	<button class="filter-btn" data-year="2017">2011</button>
-	<button class="filter-btn" data-year="2018">2010</button>
-	<button class="filter-btn" data-year="2017">2009</button>
-	<button class="filter-btn" data-year="2019">2008</button>
-	<button class="filter-btn" data-year="2018">2007</button>
-	<button class="filter-btn" data-year="2017">2006</button>
   </div>
   <div class="result-count"><span id="count">0</span> papers</div>
 </div>
@@ -624,37 +608,10 @@
 // ─── DATA ───────────────────────────────────────────────────────────────────
 let PUBS = [];
 
-function getYear(conference) {
-  if (!conference) return null;
-  let m = conference.match(/(20\d{2})년/);
-  if (m) return parseInt(m[1]);
-  m = conference.match(/\b(20\d{2})\b/);
-  if (m) return parseInt(m[1]);
-  return null;
-}
-
-function getType(categories) {
-  if (categories.some(c => c.includes('Journal'))) return 'journal';
-  return 'conference';
-}
-
 fetch('publications.json')
   .then(r => r.json())
   .then(data => {
-    PUBS = data
-      .filter(p => getYear(p.conference) !== null)
-      .map(p => ({
-        id: p.id,
-        year: getYear(p.conference),
-        type: getType(p.categories),
-        title: p.title,
-        authors: p.authors,
-        venue: p.conference,
-        venueShort: p.conference,
-        abstract: '',
-        doi: p.website || '#',
-        pdf: p.pdf || '#'
-      }));
+    PUBS = data.filter(p => p.year);
 
     // 연도 버튼 동적 생성
     const years = [...new Set(PUBS.map(p => p.year))].sort((a, b) => b - a);
