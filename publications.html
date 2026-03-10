@@ -606,98 +606,41 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─── DATA ───────────────────────────────────────────────────────────────────
-const PUBS = [
-  {
-    id: 1, year: 2025, type: 'journal',
-    title: 'Wavelet-Transform Phase Matching for GNSS Radio Occultation in the Lower Troposphere',
-    authors: 'H. Park, J. Lee',
-    venue: 'Journal of Geophysical Research: Atmospheres',
-    venueShort: 'JGR Atmospheres · 2025',
-    abstract: 'This paper presents the Wavelet-Transform-based Phase Matching (WTPM) algorithm for COSMIC-2 satellite data. The algorithm uses Synchrosqueezed Wavelet Transform (SST) to address cross-term interference in time-frequency analysis of GNSS radio occultation signals, enabling improved bending angle retrieval in the lower troposphere.',
-    doi: '#', pdf: '#'
-  },
-  {
-    id: 2, year: 2025, type: 'conference',
-    title: 'Synchrosqueezed Wavelet Transform for Improved RO Signal Processing',
-    authors: 'H. Park, J. Lee',
-    venue: 'ION GNSS+ 2025, Tampa, FL',
-    venueShort: 'ION GNSS+ · 2025',
-    abstract: 'We present an application of the Synchrosqueezed Wavelet Transform (SST) to GNSS radio occultation signal processing, demonstrating improved time-frequency localization and reduced cross-term interference compared to conventional STFT and CWT methods.',
-    doi: '#', pdf: '#'
-  },
-  {
-    id: 3, year: 2024, type: 'journal',
-    title: 'Local Spectral Width Algorithm for Multipath Detection in GNSS Radio Occultation',
-    authors: 'H. Park, J. Lee',
-    venue: 'GPS Solutions, Springer',
-    venueShort: 'GPS Solutions · 2024',
-    abstract: 'The Local Spectral Width (LSW) algorithm uses STFT-based spectral width calculation and CDF-based threshold crossing to detect multipath regions in RO bending angle profiles. The algorithm provides a 0.5 km grid output suitable for use in downstream retrieval pipelines.',
-    doi: '#', pdf: '#'
-  },
-  {
-    id: 4, year: 2024, type: 'conference',
-    title: 'Advanced RAIM for Dual-Frequency Multi-Constellation GNSS Navigation',
-    authors: 'J. Kim, J. Lee',
-    venue: 'ION GNSS+ 2024, Baltimore, MD',
-    venueShort: 'ION GNSS+ · 2024',
-    abstract: 'This paper develops an Advanced RAIM (ARAIM) architecture for dual-frequency multi-constellation GNSS, addressing integrity risk allocation under correlated fault modes and demonstrating applicability to the Korean Positioning System (KPS).',
-    doi: '#', pdf: '#'
-  },
-  {
-    id: 5, year: 2024, type: 'conference',
-    title: 'Doppler-Based Positioning Using LEO Broadband Constellation Signals',
-    authors: 'S. Choi, J. Lee',
-    venue: 'ION GNSS+ 2024, Baltimore, MD',
-    venueShort: 'ION GNSS+ · 2024',
-    abstract: 'We investigate Doppler-based positioning using signals of opportunity from LEO broadband satellite constellations. The proposed method achieves meter-level accuracy in open-sky environments without dedicated PNT payloads.',
-    doi: '#', pdf: '#'
-  },
-  {
-    id: 6, year: 2023, type: 'journal',
-    title: 'NeQuick-G Ionospheric Model Adaptation for the Korean Positioning System',
-    authors: 'J. Lee, H. Park, S. Choi',
-    venue: 'Journal of Positioning, Navigation, and Timing',
-    venueShort: 'JPNT · 2023',
-    abstract: 'This paper presents three Az parameter optimization methods for adapting the NeQuick-G ionospheric model to the Korean Positioning System (KPS), including daily, hourly, and grid-based approaches. Validation is performed against GPS Klobuchar and Galileo NeQuick-G correction algorithms.',
-    doi: '#', pdf: '#'
-  },
-  {
-    id: 7, year: 2023, type: 'conference',
-    title: 'Integrity Monitoring for KPS with NeQuick-G Ionospheric Model',
-    authors: 'J. Lee, J. Kim',
-    venue: 'ION GNSS+ 2023',
-    venueShort: 'ION GNSS+ · 2023',
-    abstract: 'We develop an integrity monitoring framework for the Korean Positioning System incorporating the NeQuick-G ionospheric model, demonstrating compliance with ICAO integrity requirements for aviation applications over the Korean Peninsula.',
-    doi: '#', pdf: '#'
-  },
-  {
-    id: 8, year: 2023, type: 'conference',
-    title: 'LEO Clock and Orbit Estimation for PNT Applications',
-    authors: 'S. Choi, J. Lee',
-    venue: 'NAVIGATION, Journal of the Institute of Navigation · 2023',
-    venueShort: 'NAVIGATION · 2023',
-    abstract: 'This paper presents an approach for real-time LEO satellite clock and orbit estimation suitable for PNT applications, using a combination of ground-based tracking stations and onboard GNSS receivers.',
-    doi: '#', pdf: '#'
-  },
-  {
-    id: 9, year: 2022, type: 'journal',
-    title: 'Phase Matching Algorithm for GNSS Radio Occultation in the Lower Troposphere',
-    authors: 'J. Lee, H. Park',
-    venue: 'Radio Science',
-    venueShort: 'Radio Science · 2022',
-    abstract: 'This paper presents an improved Phase Matching algorithm for GNSS radio occultation retrieval in the lower troposphere, addressing horizontal inhomogeneity and super-refraction effects that degrade conventional Abel inversion results.',
-    doi: '#', pdf: '#'
-  },
-  {
-    id: 10, year: 2022, type: 'conference',
-    title: 'GNSS-R Sea Surface Height Retrieval Using Spaceborne Reflectometry',
-    authors: 'J. Lee, S. Choi',
-    venue: 'EGU General Assembly 2022, Vienna, Austria',
-    venueShort: 'EGU · 2022',
-    abstract: 'We demonstrate sea surface height retrieval using GNSS reflectometry from the COSMIC-2 constellation, achieving centimeter-level accuracy by applying precise orbit determination and surface reflection geometry corrections.',
-    doi: '#', pdf: '#'
-  },
-];
+let PUBS = [];
+
+function getYear(conference) {
+  if (!conference) return null;
+  let m = conference.match(/(20\d{2})년/);
+  if (m) return parseInt(m[1]);
+  m = conference.match(/\b(20\d{2})\b/);
+  if (m) return parseInt(m[1]);
+  return null;
+}
+
+function getType(categories) {
+  if (categories.some(c => c.includes('Journal'))) return 'journal';
+  return 'conference';
+}
+
+fetch('publications.json')
+  .then(r => r.json())
+  .then(data => {
+    PUBS = data
+      .filter(p => getYear(p.conference) !== null)
+      .map(p => ({
+        id: p.id,
+        year: getYear(p.conference),
+        type: getType(p.categories),
+        title: p.title,
+        authors: p.authors,
+        venue: p.conference,
+        venueShort: p.conference,
+        abstract: '',
+        doi: p.website || '#',
+        pdf: p.pdf || '#'
+      }));
+    render();
+  });
 
 // ─── STATE ───────────────────────────────────────────────────────────────────
 let activeType = 'all';
@@ -828,7 +771,7 @@ document.getElementById('search-input').addEventListener('input', e => {
   searchQuery = e.target.value;
   render();
 });
-render();
+
 
   // ── Mobile drawer ──
   const hamburger = document.getElementById('nav-hamburger');
