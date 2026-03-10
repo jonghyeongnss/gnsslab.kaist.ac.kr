@@ -735,11 +735,11 @@ function openModal(id) {
   let bodyHTML;
   if (n.content) {
     bodyHTML = n.content
-      .replace(/&#8217;/g, "'").replace(/&#8230;/g, '...').replace(/&amp;/g, '&')
-      .replace(/&#[0-9]+;/g, '')
       .replace(/srcset="[^"]*"/g, '').replace(/sizes="[^"]*"/g, '')
       .replace(/src="https?:\/\/gnss\.kaist\.ac\.kr\/wp-content\/uploads\/[^"]+\.(jpg|jpeg|png|gif|webp)"/gi,
-        (match, ext) => `src="images/news-${n.title}.${ext.toLowerCase()}"`);
+        (match, ext) => `src="images/news-${n.title}.${ext.toLowerCase()}"`)
+      .replace(/&#8217;/g, "'").replace(/&#8230;/g, '...').replace(/&amp;/g, '&')
+      .replace(/&#[0-9]+;/g, '');
   } else {
     bodyHTML = `<p>${n.desc}</p>`;
   }
