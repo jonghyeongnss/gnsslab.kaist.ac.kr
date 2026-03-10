@@ -641,6 +641,7 @@ fetch('publications.json')
       }));
     render();
   });
+.catch(err => console.error('fetch 실패:', err));  // 이 줄 추가
 
 // ─── STATE ───────────────────────────────────────────────────────────────────
 let activeType = 'all';
