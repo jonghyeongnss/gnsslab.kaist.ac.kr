@@ -616,7 +616,7 @@ fetch('publications.json')
     // 연도 버튼 동적 생성
     const years = [...new Set(PUBS.map(p => p.year))].sort((a, b) => b - a);
     const yearFilters = document.getElementById('year-filters');
-    yearFilters.innerHTML = `<button class="filter-btn active" data-year="all">All Years</button>`
+    yearFilters.innerHTML = `<button class="filter-btn active" data-year="all">All</button>`
       + years.map(y => `<button class="filter-btn" data-year="${y}">${y}</button>`).join('');
 
     render();
