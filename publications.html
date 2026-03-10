@@ -206,8 +206,8 @@
       white-space: nowrap;
     }
     .pub-type.journal { color: var(--cyan); border-color: rgba(62,193,211,0.4); }
-    .pub-type.conference { color: var(--gold); border-color: rgba(200,168,75,0.4); }
-    .pub-type.thesis { color: #a07ec8; border-color: rgba(160,126,200,0.4); }
+    .pub-type.conference-int { color: var(--gold); border-color: rgba(200,168,75,0.4); }
+    .pub-type.conference-dom { color: #78b89a; border-color: rgba(120,184,154,0.4); }
 
     .pub-body { align-self: center; }
     .pub-title {
@@ -262,8 +262,8 @@
       text-transform: uppercase; display: inline-block; margin-bottom: 1rem;
     }
     .modal-type.journal { color: var(--cyan); border-color: rgba(62,193,211,0.4); }
-    .modal-type.conference { color: var(--gold); border-color: rgba(200,168,75,0.4); }
-    .modal-type.thesis { color: #a07ec8; border-color: rgba(160,126,200,0.4); }
+    .modal-type.conference-int { color: var(--gold); border-color: rgba(200,168,75,0.4); }
+    .modal-type.conference-dom { color: #78b89a; border-color: rgba(120,184,154,0.4); }
     .modal-year { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); color: #7a9ab8; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
     .modal-title { font-family: var(--ui); font-size: clamp(1.2rem, 2vw, 2.0rem); font-weight: 600; color: #0e1e2e; line-height: 1.4; margin-bottom: 0.6rem; }
     .modal-authors { font-family: var(--mono); font-size: clamp(0.82rem, 1.4vw, 1.4rem); color: #3d5a78; margin-bottom: 0.4rem; line-height: 1.6; }
@@ -541,8 +541,8 @@
   <div class="filter-group" id="type-filters">
     <button class="filter-btn active" data-type="all">All</button>
     <button class="filter-btn" data-type="journal">Journal</button>
-    <button class="filter-btn" data-type="conference">Conference</button>
-    <button class="filter-btn" data-type="thesis">Thesis</button>
+    <button class="filter-btn" data-type="conference-int">Int. Conference</button>
+    <button class="filter-btn" data-type="conference-dom">Dom. Conference</button>
   </div>
   <div class="filter-divider"></div>
   <div class="filter-group" id="year-filters">
@@ -608,20 +608,39 @@
 // ─── DATA ───────────────────────────────────────────────────────────────────
 let PUBS = [];
 
+function getYear(conference) {
+  if (!conference) return null;
+  let m = conference.match(/(20\d{2})년/);
+  if (m) return parseInt(m[1]);
+  m = conference.match(/\b(20\d{2})\b/);
+  if (m) return parseInt(m[1]);
+  return null;
+}
+
+function getType(categories) {
+  if (categories.some(c => c.includes('Journal'))) return 'journal';
+  return 'conference';
+}
+
 fetch('publications.json')
   .then(r => r.json())
   .then(data => {
-    PUBS = data.filter(p => p.year);
-
-    // 연도 버튼 동적 생성
-    const years = [...new Set(PUBS.map(p => p.year))].sort((a, b) => b - a);
-    const yearFilters = document.getElementById('year-filters');
-    yearFilters.innerHTML = `<button class="filter-btn active" data-year="all">All Years</button>`
-      + years.map(y => `<button class="filter-btn" data-year="${y}">${y}</button>`).join('');
-
+    PUBS = data
+      .filter(p => getYear(p.conference) !== null)
+      .map(p => ({
+        id: p.id,
+        year: getYear(p.conference),
+        type: getType(p.categories),
+        title: p.title,
+        authors: p.authors,
+        venue: p.conference,
+        venueShort: p.conference,
+        abstract: '',
+        doi: p.website || '#',
+        pdf: p.pdf || '#'
+      }));
     render();
-  })
-  .catch(err => console.error('fetch 실패:', err));
+  });
 
 // ─── STATE ───────────────────────────────────────────────────────────────────
 let activeType = 'all';
@@ -645,7 +664,7 @@ function filtered() {
 
 // ─── RENDER ──────────────────────────────────────────────────────────────────
 function typeLabel(t) {
-  return { journal: 'Journal', conference: 'Conference', thesis: 'Thesis' }[t] || t;
+  return { journal: 'Journal', 'conference-int': 'Int. Conference', 'conference-dom': 'Dom. Conference' }[t] || t;
 }
 
 function render() {

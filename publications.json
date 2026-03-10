@@ -14,7 +14,7 @@
   {
     "id": 2,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "CNAV URA 기반 WAD-RNSS의 Advanced RAIM 성능 평가",
     "authors": "Junsoo Kim and Noah Minchan Kim and Donguk Kim and Jiyun Lee",
     "venue": "한국항공우주학회 추계학술대회, 2025",
@@ -26,7 +26,7 @@
   {
     "id": 3,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "저궤도 위성 기반 SOP 항법 오차 요소 분석 및 성능 분석",
     "authors": "Gihun Nam and Jimin Do and Jiyun Lee and Jeongtae Bae",
     "venue": "한국항공우주학회 추계학술대회, 2025",
@@ -38,7 +38,7 @@
   {
     "id": 4,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "Deep Ensemble 추정 오차 분포에 대한 페어드 오버바운딩 적용",
     "authors": "Minseong Kim and Noah Minchan Kim and Dongchan Min and Gihun Nam and Jiyun Lee",
     "venue": "한국항공우주학회 추계학술대회, 2025",
@@ -50,7 +50,7 @@
   {
     "id": 5,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "개선된 Kappa Correction 모델 기반 GNSS-RO 굴절각 잔여 전리권 오차의 보정 성능 분석",
     "authors": "Jihyeok Park and Jaehee Chang and Kiyoung Sun and Jiyun Lee",
     "venue": "항법시스템학회 정기학술대회, 2025",
@@ -62,7 +62,7 @@
   {
     "id": 6,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "Local Spectral Width 기반 적응형 Radio-holographic 필터를 이용한 GNSS-RO Phase Matching 기법 연구",
     "authors": "Jonghyeon Park and Jihyeok Park and Jaehee Chang and Jiyun Lee",
     "venue": "항법시스템학회 정기학술대회, 2025",
@@ -74,7 +74,7 @@
   {
     "id": 7,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "NeQuick 보정 정보 모델의 저궤도 위성 잔류 전리층 지연 오차 분석",
     "authors": "Jimin Do and Gihun Nam and Kiyoung Sun and Jiyun Lee",
     "venue": "항법시스템학회 정기학술대회, 2025",
@@ -86,7 +86,7 @@
   {
     "id": 8,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "전리권 신틸레이션 환경에서의 GBAS 무결성 연구",
     "authors": "Kiyoung Sun and Jiyun Lee",
     "venue": "항법시스템학회 정기학술대회, 2025",
@@ -110,7 +110,7 @@
   {
     "id": 10,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-int",
     "title": "A Stochastic Modeling Approach for Phase Transition-Induced Errors in GBAS under Ionospheric Scintillation",
     "authors": "Andrew K. Sun and Jiyun Lee and Sam Pullen and Maria Caamano",
     "venue": "Proceedings of the 38th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2025), 2025",
@@ -122,7 +122,7 @@
   {
     "id": 11,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Impact of Dual-Frequency Multi-Constellation GBAS Data Link Constraints on Integrity Monitoring",
     "authors": "Maria Caamano and Daniel Gerbeth and Susumu Saito and Andrew K. Sun and Jiyun Lee and Sam Pullen",
     "venue": "Proceedings of the 38th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2025), 2025",
@@ -146,7 +146,7 @@
   {
     "id": 13,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "한국형 WAD-RNSS를 위한 CNAV 기반 URA 산출 기법",
     "authors": "Junsoo Kim and Noah Minchan Kim and Jiyun Lee and Donguk Kim",
     "venue": "한국항공우주학회 우주학술대회, 2025",
@@ -158,7 +158,7 @@
   {
     "id": 14,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "GNSS RO 중성 대기 굴절각 내 잔여 전리권 오차 보정을 위한 Kappa Correction 모델 개선 연구",
     "authors": "Jihyeok Park and Jaehee Chang and Kiyoung Sun and Jiyun Lee",
     "venue": "한국항공우주학회 우주학술대회, 2025",
@@ -194,7 +194,7 @@
   {
     "id": 17,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Enhancing Availability of SS-RAIM Based CDGNSS Using Integer Aperture Bootstrapping",
     "authors": "Dongchan Min and Jiyun Lee",
     "venue": "Proceedings of the 2025 International Technical Meeting of The Institute of Navigation, 2025",
@@ -206,7 +206,7 @@
   {
     "id": 18,
     "year": 2025,
-    "type": "conference",
+    "type": "conference-int",
     "title": "A Method of Estimating Residual Bending Error in GNSS-RO Absolute TEC",
     "authors": "Jaehee Chang and Andrew K Sun and Jihyeok Park and Jiyun Lee and Y. Jade Morton",
     "venue": "Proceedings of the 2025 International Technical Meeting of The Institute of Navigation, 2025",
@@ -218,7 +218,7 @@
   {
     "id": 19,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Investigation of the Development of Traveling Ionospheric Disturbances during the Total Solar Eclipses on 21 August 2017 and 8 April 2024",
     "authors": "Andrew K. Sun and Hyosub Kil and Hyeyeon Chang and Woo Kyoung Lee and Jiyun Lee",
     "venue": "AGU Fall Meeting 2024, 2024",
@@ -230,7 +230,7 @@
   {
     "id": 20,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Phase Screen Model for Extreme Scintillations: Evaluating Theoretical Limits in Propagation Approximations",
     "authors": "Andrew K. Sun and Charles L. Rino and Y. Jade Morton and Brian Breitsch and Jiyun Lee",
     "venue": "AGU Fall Meeting 2024, 2024",
@@ -242,7 +242,7 @@
   {
     "id": 21,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "LEO PNT 무결성 연구 동향",
     "authors": "Gihun Nam and Jimin Do and Jiyun Lee and Gwanghee Jo",
     "venue": "한국항공우주학회 추계학술대회, 2024",
@@ -254,7 +254,7 @@
   {
     "id": 22,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "몬테카를로 시뮬레이션을 통한 Factor Graph Optimization 기반 GNSS 시스템의 위치 오차 확률 분포 분석",
     "authors": "Jaeryoung Lee and Minseong Kim and Dongchan Min and Jiyun Lee",
     "venue": "항법시스템학회 정기학술대회, 2024",
@@ -266,7 +266,7 @@
   {
     "id": 23,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "광선 추적 시뮬레이션을 활용한 GNSS-RO 총전자량의 잔여 굴절 오차 분석",
     "authors": "Jaehee Chang and Jiyun Lee",
     "venue": "항법시스템학회 정기학술대회, 2024",
@@ -278,7 +278,7 @@
   {
     "id": 24,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "기하 광학법 기반 중성 대기 굴절각 추정을 위한 GNSS-RO 데이터 처리 알고리즘 설계",
     "authors": "Jihyeok Park and Jaehee Chang and Kiyoung Sun and Jiyun Lee",
     "venue": "항법시스템학회 정기학술대회, 2024",
@@ -290,7 +290,7 @@
   {
     "id": 25,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "군집 위성 임무를 위한 GNSS및 상대 거리 측정치 기반 상대 항법 시스템 정확성 민감도 분석",
     "authors": "Minseong Kim and Dongchan Min and Minchan Kim and Jiyun Lee",
     "venue": "항법시스템학회 정기학술대회, 2024",
@@ -302,7 +302,7 @@
   {
     "id": 26,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "저궤도 통신 위성과 GNSS 중궤도 위성을 활용한 항법 성능 분석 시뮬레이터 개발 및 정확도 민감도 분석",
     "authors": "Jimin Do and Gihun Nam and Jiyun Lee",
     "venue": "항법시스템학회 정기학술대회, 2024",
@@ -314,7 +314,7 @@
   {
     "id": 27,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "GNSS-RO 개루프 신호를 이용한 전리권 하층부 총전자량 산출 알고리즘 설계",
     "authors": "Jonghyeon Park and Jaehee Chang and Jiyun Lee",
     "venue": "항법시스템학회 정기학술대회, 2024",
@@ -326,7 +326,7 @@
   {
     "id": 28,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Minimum Separation Boundary for UAM Tactical Deconfliction Based on Avoidance Risk Ratio Model",
     "authors": "Junsoo Kim and Gihun Nam and Dongchan Min and Jiyun Lee and Sam Pullen",
     "venue": "2024 AIAA DATC/IEEE 43rd Digital Avionics Systems Conference (DASC), 2024",
@@ -338,7 +338,7 @@
   {
     "id": 29,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Impact of Phase Transitions Due to Ionospheric Scintillation on GBAS Integrity",
     "authors": "Andrew K. Sun and Jiyun Lee and Sam Pullen",
     "venue": "Proceedings of the 37th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2024), 2024",
@@ -350,7 +350,7 @@
   {
     "id": 30,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Quantifying the Impact of Ionospheric Bending on GNSS-RO Absolute TEC Retrieval During Solar Cycle 25",
     "authors": "Jaehee Chang and Andrew K. Sun and Jihyeok Park and Y. Jade Morton and Jiyun Lee",
     "venue": "10th International Radio Occultation Working Group (IROWG-10), 2024",
@@ -374,7 +374,7 @@
   {
     "id": 32,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Assessment of Ionospheric Perturbations during Total Solar Eclipses",
     "authors": "Andrew K. Sun and Hyosub Kil and Hyeyeon Chang and Woo Kyoung Lee and Jiyun Lee",
     "venue": "45th COSPAR Scientific Assembly, 2024",
@@ -386,7 +386,7 @@
   {
     "id": 33,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "한반도 지역에 대한 NeQuick G 모델의 TEC 추정 오차 분석 2024년 5월 10-11일 지자기 폭풍 사례 연구",
     "authors": "Jaeryoung Lee and Kiyoung Sun and Jiyun Lee",
     "venue": "한국항공우주학회 우주학술대회, 2024",
@@ -398,7 +398,7 @@
   {
     "id": 34,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-dom",
     "title": "COSMIC-2 GNSS-RO 측정치를 활용한 단일 및 이중 주파수 기반 총전자량 비교 분석",
     "authors": "Jaehee Chang and Kiyoung Sun and Jiyun Lee",
     "venue": "통신정보 합동학술대회, 2024",
@@ -410,7 +410,7 @@
   {
     "id": 35,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Estimation of the Residual Error due to Ionospheric Bending in Relative TEC using COSMIC-2 GPS-RO Measurements",
     "authors": "Jaehee Chang and Andrew K. Sun and Jiyun Lee and Hyeyeon Chang and Yang Wang and Lei Liu and Y. Jade Morton and Douglas Hunt",
     "venue": "Proceedings of the ION 2024 Pacific PNT Meeting, 2024",
@@ -422,7 +422,7 @@
   {
     "id": 36,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Determining Minimum Separation Boundary for UAM Tactical Deconfliction",
     "authors": "Junsoo Kim and Gihun Nam and Dongchan Min and Noah Minchan Kim and Jiyun Lee",
     "venue": "Proceedings of the ION 2024 Pacific PNT Meeting, 2024",
@@ -446,7 +446,7 @@
   {
     "id": 38,
     "year": 2024,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Ionospheric Scintillation Effects across Multiple Carrier Frequency Bands Transmitted from LEO Satellites",
     "authors": "Andrew K. Sun and Y. Jade Morton and Jiyun Lee",
     "venue": "Proceedings of the 2024 International Technical Meeting of The Institute of Navigation, 2024",
@@ -458,7 +458,7 @@
   {
     "id": 39,
     "year": 2023,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Study of the Characteristics and Sources of Late-Night Equatorial Electron Density Irregularities",
     "authors": "Andrew K. Sun and Hyosub Kil and Hyeyeon Chang and Jiyun Lee",
     "venue": "AGU Annual Meeting 2023, 2023",
@@ -470,7 +470,7 @@
   {
     "id": 40,
     "year": 2023,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Preliminary Assessment of Scintillation Data from the Spire Global and PlanetIQ Radio Occultation Constellation",
     "authors": "Hyeyeon Chang and Lei Liu and Y. Jade Morton and Tibor Durgonics and Jun Wang and Dominic J. Fuller-Rowell and Douglas Hunt and John Braun and Jan-Peter Weiss and Jaehee Chang and Andrew K. Sun and Jiyun Lee",
     "venue": "AGU Annual Meeting 2023, 2023",
@@ -482,7 +482,7 @@
   {
     "id": 41,
     "year": 2023,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Performance Assessment of Ionospheric Electron Density Profiles retrieved from KOMPSAT-5 by Comparing with Ground-based and Space-based Observations",
     "authors": "Hyeyeon Chang and Jaehee Chang and Andrew K. Sun and Wookyoung Lee and Hyosub Kil and Jiyun Lee",
     "venue": "AGU Annual Meeting 2023, 2023",
@@ -494,7 +494,7 @@
   {
     "id": 42,
     "year": 2023,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Preliminary Assessment of the Residual Error due to Ionospheric Bending in the COSMIC-2 RO TEC by Comparing Results from Single- and Dual-frequency Methods",
     "authors": "Jaehee Chang and Andrew K. Sun and Hyeyeon Chang and Yang Wang and Lei Liu and Douglas Hunt and Y. Jade Morton and Jiyun Lee",
     "venue": "AGU Annual Meeting 2023, 2023",
@@ -506,7 +506,7 @@
   {
     "id": 43,
     "year": 2023,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Safety Risk Assessment Based Minimum Separation Boundary",
     "authors": "Junsoo Kim and Gihun Nam and Dongchan Min and Noah Minchan Kim and Jiyun Lee",
     "venue": "2023 IEEE/AIAA 42nd Digital Avionics Systems Conference (DASC), 2023",
@@ -518,7 +518,7 @@
   {
     "id": 44,
     "year": 2023,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Mid-Latitude Ionospheric Scintillation Impact on Availability of Dual-frequency GNSS Augmentation Systems",
     "authors": "Andrew K. Sun and Jaehee Chang and Jiyun Lee and Brian Breitsch and Y. Jade Morton and Sam Pullen",
     "venue": "Proceedings of the 36th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2023), 2023",
@@ -530,7 +530,7 @@
   {
     "id": 45,
     "year": 2023,
-    "type": "conference",
+    "type": "conference-int",
     "title": "SS-RAIM based Integrity Architecture for CDGNSS Systems against Satellite Measurement Faults",
     "authors": "Dongchan Min and Noah Minchan Kim and Junsoo Kim and Jiyun Lee and Sam Pullen",
     "venue": "Proceedings of the 36th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2023), 2023",
@@ -542,7 +542,7 @@
   {
     "id": 46,
     "year": 2023,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Integrity Assurance of LIRTK Using SS-RAIM Against Sensor Faults for UAV Applications",
     "authors": "Noah Minchan Kim and Dongchan Min and Jiyun Lee",
     "venue": "Proceedings of the 36th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2023), 2023",
@@ -566,7 +566,7 @@
   {
     "id": 48,
     "year": 2023,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Network-Based Augmentation System (NBAS) Architectures Optimized to Support Urban Air Mobility (UAM)",
     "authors": "Jiyun Lee and Gihun Nam and Dongchan Min and Andrew K. Sun and Sam Pullen",
     "venue": "2023 International Technical Meeting of The Institute of Navigation, 2023",
@@ -578,7 +578,7 @@
   {
     "id": 49,
     "year": 2023,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Availability Assessment of Dual-Frequency GNSS-Based Augmentation Systems Under Equatorial Ionospheric Scintillations",
     "authors": "Andrew K. Sun and Jaehee Chang and Jiyun Lee and Brian Breitsch and Y. Jade Morton",
     "venue": "2023 International Technical Meeting of The Institute of Navigation, 2023",
@@ -590,7 +590,7 @@
   {
     "id": 50,
     "year": 2022,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Characteristics and Sources of Electron Density Irregularities in the Low Latitude F Region",
     "authors": "Hyosub Kil and Andrew K. Sun and Hyeyeon Chang and Larry J. Paxton and Romina Nikoukar and Jiyun Lee",
     "venue": "AGU Fall Meeting 2022, 2022",
@@ -602,7 +602,7 @@
   {
     "id": 51,
     "year": 2022,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Study of the drivers of the equatorial ionization anomaly using ICON and COSMIC2 data",
     "authors": "Hyosub Kil and Hyeyeon Chang and Andrew K. Sun and Jiyun Lee",
     "venue": "AGU Fall Meeting 2022, 2022",
@@ -614,7 +614,7 @@
   {
     "id": 52,
     "year": 2022,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Preliminary results of electron density profiles retrieved from KOMPSAT-5 Radio Occultation Data",
     "authors": "Hyeyeon Chang and Jaehee Chang and Andrew K. Sun and Woo Kyoung Lee and Jiyun Lee",
     "venue": "AGU Fall Meeting 2022, 2022",
@@ -626,7 +626,7 @@
   {
     "id": 53,
     "year": 2022,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Cycle Slip Mitigation for Total Electron Content Retrieval using GeoOptics Radio Occultation Data",
     "authors": "Jaehee Chang and Hyeyeon Chang and Jiyun Lee",
     "venue": "AGU Fall Meeting 2022, 2022",
@@ -650,7 +650,7 @@
   {
     "id": 55,
     "year": 2022,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Networked UAV Detection and Alerting of Ionospheric Anomalies within LADGNSS Navigation Framework",
     "authors": "Gihun Nam and Andrew K. Sun and Jiyun Lee and Sam Pullen",
     "venue": "Proceedings of the 35th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2022), 2022",
@@ -746,7 +746,7 @@
   {
     "id": 63,
     "year": 2022,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Optimal Smoothing and Monitor Strategies for DFDC Local-Area DGNSS under Anomalous Ionospheric Conditions",
     "authors": "Gihun Nam and Dongchan Min and Noah Minchan Kim and Jiyun Lee and Sam Pullen",
     "venue": "Proceedings of the 2022 International Technical Meeting of The Institute of Navigation, 2022",
@@ -758,7 +758,7 @@
   {
     "id": 64,
     "year": 2022,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Correct Fix Probability Improvement Method via INS Aiding to Single Epoch RTK System",
     "authors": "Noah Minchan Kim and Dongchan Min and Jiyun Lee",
     "venue": "Proceedings of the 2022 International Technical Meeting of The Institute of Navigation, 2022",
@@ -770,7 +770,7 @@
   {
     "id": 65,
     "year": 2021,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Bubble-like Ionospheric Irregularities observed in the United States during the 26 August 2018 Geomagnetic Storm",
     "authors": "Hyeyeon Chang and Hyosub Kil and Andrew K. Sun and Shunrong Zhang and Jiyun Lee",
     "venue": "AGU Fall Meeting 2021, 2021",
@@ -782,7 +782,7 @@
   {
     "id": 66,
     "year": 2021,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Enhanced Local-Area DGNSS for Autonomous Vehicle Navigation: Optimal Smoothing Strategy",
     "authors": "Gihun Nam and Dongwoo Kim and Noah Minchan Kim and Jiyun Lee and Sam Pullen",
     "venue": "Proceedings of the 34th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2021), St. Louis, Missouri, 2021",
@@ -794,7 +794,7 @@
   {
     "id": 67,
     "year": 2021,
-    "type": "conference",
+    "type": "conference-int",
     "title": "GNSS Carrier Frequency Dependence of Ionospheric Scintillation Index in Equatorial Regions",
     "authors": "Andrew K. Sun and Jiyun Lee and Xiaoqing Pi and Martin Kriegel and Jens Berdermann",
     "venue": "Proceedings of the XXXIVth URSI General Assembly and Scientific Symposium, Rome, Italy, 2021",
@@ -818,7 +818,7 @@
   {
     "id": 69,
     "year": 2021,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Preliminary Assessment of GeoOptics and Spire CubeSat RO Performance by Comparing with COSMIC-2",
     "authors": "Jaehee Chang and Hyeyeon Chang and Jiyun Lee",
     "venue": "BIEN 2021, Daejeon, 2021",
@@ -854,7 +854,7 @@
   {
     "id": 72,
     "year": 2020,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Effects of CICERO Receiver Characteristics on the Quality of Radio Occultation Data",
     "authors": "Hyeyeon Chang and Jiyun Lee and Yang Wang and Brian Breitsch and Y. Jade Morton",
     "venue": "AGU Fall Meeting 2020, 2020",
@@ -866,7 +866,7 @@
   {
     "id": 73,
     "year": 2020,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Preliminary Assessment of CICERO Radio Occultation Performance by Comparing with COSMIC I Data",
     "authors": "Hyeyeon Chang and Jiyun Lee and Yang Wang and Brian Breitsch and Y. Jade Morton",
     "venue": "Proceedings of the 33rd International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2020), 2020",
@@ -890,7 +890,7 @@
   {
     "id": 75,
     "year": 2020,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Performance Benefit from Dual-Frequency GNSS-based Aviation Applications under Ionospheric Scintillation: A New Approach to Fading Process Modeling",
     "authors": "Kiyoung Sun and Hyeyeon Chang and Jiyun Lee and Jiwon Seo and Y.T. Jade Morton and Sam Pullen",
     "venue": "Proceedings of the 2020 International Technical Meeting of The Institute of Navigation, 2020",
@@ -902,7 +902,7 @@
   {
     "id": 76,
     "year": 2020,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Optimal Continuity Allocation for a Tightly-coupled KF-based GNSS/IMU Navigation System with Redundant IMUs",
     "authors": "Jinsil Lee and Dongwoo Kim and Dongchan Min and Gihun Nam and Jiyun Lee",
     "venue": "Proceedings of the 2020 International Technical Meeting of The Institute of Navigation, 2020",
@@ -938,7 +938,7 @@
   {
     "id": 79,
     "year": 2019,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Integrity Algorithm to Protect against Sensor Faults in Tightly-coupled KF State Prediction",
     "authors": "Jinsil Lee and Minchan Kim and Dongchan Min and Jiyun Lee",
     "venue": "Proceedings of the 32nd International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2019), 2019",
@@ -974,7 +974,7 @@
   {
     "id": 82,
     "year": 2019,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Use of Local-area Differential GNSS System for Polar Exploration",
     "authors": "Dongwoo Kim and Minchan Kim and Jinsil Lee and Jiyun Lee",
     "venue": "The 13th International Symposium on Antarctic Earth Sciences, 2019",
@@ -998,7 +998,7 @@
   {
     "id": 84,
     "year": 2019,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Deep Neural Network Based Multipath Mitigation Method for Carrier Based Differential GNSS Systems",
     "authors": "Dongchan Min and Minchan Kim and Jinsil Lee and Jiyun Lee",
     "venue": "Proceedings of the ION 2019 Pacific PNT Meeting (2019 ION PNT), 2019",
@@ -1010,7 +1010,7 @@
   {
     "id": 85,
     "year": 2019,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Assessment and Mitigation of Ionospheric Spatial Decorrelation on GBAS: Lessons Learned",
     "authors": "Jiyun Lee",
     "venue": "Proceedings of the ION 2019 Pacific PNT Meeting (2019 ION PNT), 2019",
@@ -1022,7 +1022,7 @@
   {
     "id": 86,
     "year": 2019,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Assessment of Ionospheric Spatial Decorrelation for Daytime Operations of GBAS in the Brazilian Region",
     "authors": "Hyeyeon Chang and Moonseok Yoon and Jiyun Lee and Sam Pullen and Leonardo Marini Pereira",
     "venue": "Proceedings of the 2019 International Technical Meeting of The Institute of Navigation (ION ITM 2019), 2019",
@@ -1034,7 +1034,7 @@
   {
     "id": 87,
     "year": 2019,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Integrity Risk Evaluation of Impact of Ionospheric Anomalies on GAST D GBAS",
     "authors": "Moonseok Yoon and Jiyun Lee and Sam Pullen",
     "venue": "Proceedings of the 2019 International Technical Meeting of The Institute of Navigation (ION ITM 2019), 2019",
@@ -1046,7 +1046,7 @@
   {
     "id": 88,
     "year": 2018,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Ionospheric Scintillation Effects on GBAS Ground Station Pseudorange Errors",
     "authors": "Kiyoung Sun and Moonseok Yoon and Michael Felux and Jiyun Lee",
     "venue": "AGU Fall Meeting 2018, 2018",
@@ -1058,7 +1058,7 @@
   {
     "id": 89,
     "year": 2018,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Neural Network Aided Reconstruction of Ionospheric Tomography for Limited GNSS Measurements",
     "authors": "Kiyoung Sun and Pil Hun Choi and Sunjin Kim and Jiyun Lee",
     "venue": "2018 10th Kyushu University-KAIST Symposium on Aerospace Engineering, 2018",
@@ -1070,7 +1070,7 @@
   {
     "id": 90,
     "year": 2018,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Performance Comparison of Neural Networks for Geomagnetic Field Based Indoor Positioning System",
     "authors": "Hyojin Lee and Harhee Park and Dongchan Min and Jiyun Lee",
     "venue": "2018 10th Kyushu University-KAIST Symposium on Aerospace Engineering, 2018",
@@ -1082,7 +1082,7 @@
   {
     "id": 91,
     "year": 2018,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Integrity Assurance of Kalman-Filter based GNSS/IMU Integrated Systems Against IMU Faults for UAV Applications",
     "authors": "Jinsil Lee and Minchan Kim and Jiyun Lee and Sam Pullen",
     "venue": "Proceedings of the 31st International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2018), 2018",
@@ -1118,7 +1118,7 @@
   {
     "id": 94,
     "year": 2017,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Assessment of Ionospheric Gradient Statistics for Operating GBAS in Geomagnetic Equatorial Region",
     "authors": "Hyeyeon Chang and Jiyun Lee",
     "venue": "AGU Fall Meeting 2017, 2017",
@@ -1130,7 +1130,7 @@
   {
     "id": 95,
     "year": 2017,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Ionospheric Scintillation Effects on GBAS Ground Multipath Error in Low-latitude Regions",
     "authors": "Kiyoung Sun and Jiyun Lee",
     "venue": "2017 9th Kyushu University-KAIST Symposium on Aerospace Engineering, 2017",
@@ -1142,7 +1142,7 @@
   {
     "id": 96,
     "year": 2017,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Case study for GBAS Operation in Equatorial Region on Nominal day at Daytime",
     "authors": "Hyeyeon Chang and Jiyun Lee",
     "venue": "2017 9th Kyushu University-KAIST Symposium on Aerospace Engineering, 2017",
@@ -1154,7 +1154,7 @@
   {
     "id": 97,
     "year": 2017,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Analysis on the Casualty risk from UAS Collision for Deriving Safe Separation Distance",
     "authors": "Giseon Hong and Jiyun Lee",
     "venue": "2017 9th Kyushu University-KAIST Symposium on Aerospace Engineering, 2017",
@@ -1166,7 +1166,7 @@
   {
     "id": 98,
     "year": 2017,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Vertical Protection Level (VPL) derivation of multi-sensor integrated LAD-GNSS for UAV applications",
     "authors": "Jinsil Lee and Jiyun Lee",
     "venue": "ITSNT 2017, 2017",
@@ -1190,7 +1190,7 @@
   {
     "id": 100,
     "year": 2017,
-    "type": "conference",
+    "type": "conference-int",
     "title": "High-Integrity and Low-Cost Local-Area Differential GNSS Prototype for UAV Applications",
     "authors": "Dongwoo Kim and Jinsil Lee and Minchan Kim and Jiyun Lee and Sam Pullen",
     "venue": "Proceedings of the 30th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2017), 2017",
@@ -1274,7 +1274,7 @@
   {
     "id": 107,
     "year": 2017,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Design of Local Area DGNSS Architecture to Support Unmanned Aerial Vehicle Networks: Concept of Operations and Safety Requirements Validation",
     "authors": "Minchan Kim and Jinsil Lee and Dongwoo Kim and Jiyun Lee",
     "venue": "Proceedings of the ION 2017 Pacific PNT Meeting, 2017",
@@ -1286,7 +1286,7 @@
   {
     "id": 108,
     "year": 2017,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Monte Carlo Simulation for Impact of Anomalous Ionospheric Gradient on GAST-D GBAS",
     "authors": "Dongwoo Kim and Moonseok Yoon and Jiyun Lee and Sam Pullen and Doug Weed",
     "venue": "Proceedings of the ION 2017 Pacific PNT Meeting, 2017",
@@ -1334,7 +1334,7 @@
   {
     "id": 112,
     "year": 2016,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Near Real-time GNSS-based Ionospheric Model using Expanded Kriging in the East Asia Region",
     "authors": "Pil Hun Choi and Eugene Bang and Jiyun Lee",
     "venue": "AGU Fall Meeting 2015, 2016",
@@ -1346,7 +1346,7 @@
   {
     "id": 113,
     "year": 2016,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Validation of Large Ionospheric Gradient Observed in India on 15th, February 2015",
     "authors": "Hyeyeon Chang and Moonseok Yoon and Jiyun Lee",
     "venue": "2016 8th Kyushu University-KAIST Symposium on Aerospace Engineering, 2016",
@@ -1358,7 +1358,7 @@
   {
     "id": 114,
     "year": 2016,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Application of Weighted Least Square RAIM to Multi-Sensor Navigation Integrated with Space-Based Augmentation System",
     "authors": "Eunjeong Hyeon and Jiyun Lee",
     "venue": "2016 8th Kyushu University-KAIST Symposium on Aerospace Engineering, 2016",
@@ -1370,7 +1370,7 @@
   {
     "id": 115,
     "year": 2016,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Integration of Onboard Sensors and Local Area DGNSS to Support High Integrity Unmanned Aerial Vehicles (UAV) Navigation",
     "authors": "Jinsil Lee and Minchan Kim and Jiyun Lee",
     "venue": "Proceedings of the 29th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2016), 2016",
@@ -1382,7 +1382,7 @@
   {
     "id": 116,
     "year": 2016,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Expanded Ionospheric Estimation and Threat Model Algorithms for SBAS",
     "authors": "Eugene Bang",
     "venue": "Proceedings of the 29th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2016), 2016",
@@ -1394,7 +1394,7 @@
   {
     "id": 117,
     "year": 2016,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Vertical Position Error Bounding for Integrated GNSS/Onboard Sensors to Support Unmanned Aerial Vehicle (UAV)",
     "authors": "Jinsil Lee and Eunjeong Hyeon and Minchan Kim and Jiyun Lee",
     "venue": "ICCAS 2016, 2016",
@@ -1406,7 +1406,7 @@
   {
     "id": 118,
     "year": 2016,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Equatorial Plasma Bubble Effects on GBAS and Its Mitigation Techniques",
     "authors": "Jiyun Lee",
     "venue": "International Beacon Satellite Symposium 2016, 2016",
@@ -1430,7 +1430,7 @@
   {
     "id": 120,
     "year": 2016,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Assessment of Equatorial Plasma Bubble Impacts on Ground-Based Augmentation Systems in the Brazilian Region",
     "authors": "Moonseok Yoon and Dongwoo kim and Jiyun Lee and Sarawoot Rungruengwajiake and Sam Pullen",
     "venue": "Proceedings of the 2016 International Technical Meeting of The Institute of Navigation, 2016",
@@ -1442,7 +1442,7 @@
   {
     "id": 121,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Ionospheric Signatures of the Earthquake in South Korea on 31 March 2014",
     "authors": "Pilhoon Choi and Moonseok Yoon and Yu-ming Yang and Jiyun Lee and Attila Komjathy",
     "venue": "AGU Fall Meeting 2015, 2015",
@@ -1454,7 +1454,7 @@
   {
     "id": 122,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Statistical Assessment of Ionospheric Perturbation Amplitudes Caused by Tohoku-Oki Earthquake in Japan",
     "authors": "Kiyoung Sun and Moonseok Yoon and Jiyun Lee",
     "venue": "2015 7th Kyushu University-KAIST Symposium on Aerospace Engineering, 2015",
@@ -1466,7 +1466,7 @@
   {
     "id": 123,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Validation of Code Carrier Divergence Monitor for GBAS Category II/III Operations",
     "authors": "Dong-Kyeong Lee and Jiyun Lee",
     "venue": "2015 7th Kyushu University-KAIST Symposium on Aerospace Engineering, 2015",
@@ -1478,7 +1478,7 @@
   {
     "id": 124,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Validation of DSIGMA Monitor for GBAS Category II/III Operations",
     "authors": "Validation of DSIGMA Monitor for GBAS Category II/III Operations",
     "venue": "2015 7th Kyushu University-KAIST Symposium on Aerospace Engineering, 2015",
@@ -1502,7 +1502,7 @@
   {
     "id": 126,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Vertical Position Error Bounding for Integrated Sensors to Support Unmanned Aerial Vehicles (UAV)",
     "authors": "Jinsil Lee and Sam Pullen and Jiyun Lee",
     "venue": "SCPNT 2015, 2015",
@@ -1514,7 +1514,7 @@
   {
     "id": 127,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Characterization of GLONASS Clock and Ephemeris Error for Advanced Receiver Autonomous Integrity Monitor (ARAIM)",
     "authors": "Dongwoo Kim and Kihun Lee and Jaekyu Jang and Jiyun Lee",
     "venue": "ISGNSS 2015, 2015",
@@ -1526,7 +1526,7 @@
   {
     "id": 128,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Optimal Scheduling of Arrivals at Low-Latitude Airports under Severe Ionospheric Spatial Gradients",
     "authors": "Sam Pullen and Jiyun Lee and Moonseok Yoon",
     "venue": "The 4th ENRI International Workshop on ATM/CNS, 2015",
@@ -1538,7 +1538,7 @@
   {
     "id": 129,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Preliminary Results from Ionospheric Threat Model Development to Support GBAS Operations in the Brazilian Region",
     "authors": "Jiyun Lee and Moonseok Yoon and Sam Pullen and Joseph Gillespie and Navin Mather and Rich Cole and Jonas Rodrigues de Souza and Patricia Doherty and Rezy Pradipta",
     "venue": "Proceedings of the 28th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2015), 2015",
@@ -1550,7 +1550,7 @@
   {
     "id": 130,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Evaluation of GPS L5, Galileo E1 and Galileo E5a Performance in Flight Trials for Multi Frequency Multi Constellation GBAS",
     "authors": "Mihaela-Simona Circiu and Michael Felux and Boubeker Belabbas and Michael Meurer and Jiyun Lee and Minchan Kim and Sam Pullen",
     "venue": "Proceedings of the 28th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2015), 2015",
@@ -1610,7 +1610,7 @@
   {
     "id": 135,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Total System Performance in GBAS-based Landings",
     "authors": "Michael Felux and Jiyun Lee and Florian Holzapfel",
     "venue": "Proceedings of the ION 2015 Pacific PNT Meeting, 2015",
@@ -1622,7 +1622,7 @@
   {
     "id": 136,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Multi-dimensional Verification Methodology of Ionospheric Gradient Observation during Plasma Bubble Events in the Brazilian Region",
     "authors": "Moonseok Yoon and Dongwoo Kim and Jiyun Lee and Sam Pullen",
     "venue": "Proceedings of the ION 2015 Pacific PNT Meeting, 2015",
@@ -1634,7 +1634,7 @@
   {
     "id": 137,
     "year": 2015,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Conceptual Study of Mobile Differential GNSS Architecture Utilizing UAV Networks",
     "authors": "Minchan Kim and Dong-Kyeong Lee and Eugene Bang and Jiyun Lee",
     "venue": "Proceedings of the ION 2015 Pacific PNT Meeting, 2015",
@@ -1658,7 +1658,7 @@
   {
     "id": 139,
     "year": 2014,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Observing Large Ionospheric Spatial Decorrelation for Ground-Based Augmentation System in the Brazilian Region",
     "authors": "Dongwoo Kim and Moonseok Yoon and Pilhoon Choi and Jiyun Lee",
     "venue": "AGU Fall Meeting 2014, 2014",
@@ -1670,7 +1670,7 @@
   {
     "id": 140,
     "year": 2014,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Space Weather Prediction Error Bounding for Real-Time Ionospheric Threat Adaptation of GNSS Augmentation Systems",
     "authors": "Jinsil Lee and Moonseok Yoon and Jiyun Lee",
     "venue": "AGU Fall Meeting 2014, 2014",
@@ -1682,7 +1682,7 @@
   {
     "id": 141,
     "year": 2014,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Ionospheric Signatures of North Korean Nuclear Test on 12 February 2013",
     "authors": "Moonseok Yoon and Dongwoo Kim and Yu-ming Yang and Attila Komjathy and Jiyun Lee",
     "venue": "AGU Fall Meeting 2014, 2014",
@@ -1694,7 +1694,7 @@
   {
     "id": 142,
     "year": 2014,
-    "type": "conference",
+    "type": "conference-int",
     "title": "The Use of SBAS GIVE for Improving CAT-I GBAS Availability in the Korean Region",
     "authors": "Moonseok Yoon and Eugene Bang and Jiyun Lee",
     "venue": "ISGNSS 2014, 2014",
@@ -1706,7 +1706,7 @@
   {
     "id": 143,
     "year": 2014,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Ionospheric Delay Estimation using Kriging for Korean SBAS",
     "authors": "Eugene Bang and Jinsil Lee and Jiyun Lee",
     "venue": "ISGNSS 2014, 2014",
@@ -1718,7 +1718,7 @@
   {
     "id": 144,
     "year": 2014,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Fast location survey of DGNSS reference station to support UAV navigation",
     "authors": "Dong-Kyeong Lee and Minchan Kim and Kiwan Kim and Jiyun Lee",
     "venue": "2014 14th International Conference on Control, Automation and Systems (ICCAS 2014), 2014",
@@ -1730,7 +1730,7 @@
   {
     "id": 145,
     "year": 2014,
-    "type": "conference",
+    "type": "conference-int",
     "title": "High Integrity GNSS Navigation and Safe Separation Distance to Support Local-Area UAV Networks",
     "authors": "Minchan Kim and Kiwan Kim and Jiyun Lee and Sam Pullen",
     "venue": "Proceedings of the 27th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2014), 2014",
@@ -1742,7 +1742,7 @@
   {
     "id": 146,
     "year": 2014,
-    "type": "conference",
+    "type": "conference-int",
     "title": "VPL Parameter Determination for Improved Performance of Advanced RAIM",
     "authors": "Jinsil Lee and Dongwoo Kim and Jiyun Lee and Todd Walter",
     "venue": "Proceedings of the 27th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2014), 2014",
@@ -1766,7 +1766,7 @@
   {
     "id": 148,
     "year": 2014,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Selection of Korea SBAS Reference Stations By Analyzing GPS Satellite Clock and Ephemeris Error Bound",
     "authors": "Pilhoon Choi and Jiyun Lee",
     "venue": "2014 APNN & MAPWiST, 2014",
@@ -1826,7 +1826,7 @@
   {
     "id": 153,
     "year": 2014,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Conceptual Study of Real-time Ionospheric Threat Adaptation Using Space Weather Forecasting for GNSS Augmentation Systems",
     "authors": "Jinsil Lee and Jiyun Lee and Sam Pullen and Seebany Datta-Barua",
     "venue": "Proceedings of the 2014 International Technical Meeting of The Institute of Navigation, 2014",
@@ -1838,7 +1838,7 @@
   {
     "id": 154,
     "year": 2013,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Analysis of Correlation between Ionospheric Spatial Gradients and Space Weather Intensity under Nominal Conditions for Ground-Based Augmentation Systems",
     "authors": "Jinsil Lee and Jiyun Lee",
     "venue": "AGU Fall Meeting 2013, 2013",
@@ -1874,7 +1874,7 @@
   {
     "id": 157,
     "year": 2013,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Investigating Natural Hazards Using GNSS Measurements: The Chelyabinsk Meteor Ionospheric Impact",
     "authors": "Yu-ming Yang and Attila Komjathy and Mark D. Butala and Anthony J. Mannucci and Richard B. Langley and Jonathan Snively and Michael P. Hickey and David Galvan and Jiyun Lee",
     "venue": "Proceedings of the 26th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2013), 2013",
@@ -1898,7 +1898,7 @@
   {
     "id": 159,
     "year": 2013,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Characteristics of Ionospheric Irregularities during Storm-Induced Traveling Ionospheric Disturbances over the Korean Region",
     "authors": "Moonseok Yoon and Jiyun Lee",
     "venue": "The 6th KAIST-Kyushu University joint workshop, 2013",
@@ -1910,7 +1910,7 @@
   {
     "id": 160,
     "year": 2013,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Guidance, Navigation, and Separation Assurance for Local-Area UAV Networks: Putting the Pieces Together",
     "authors": "Sam Pullen and Jiyun Lee",
     "venue": "Proceedings of the ION 2013 Pacific PNT Meeting, 2013",
@@ -1922,7 +1922,7 @@
   {
     "id": 161,
     "year": 2013,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Constructing Ionospheric Irregularity Threat Model for Korean SBAS",
     "authors": "Eugene Bang and Jinsil Lee and Jiyun Lee and Jiwon Seo and Todd Walter",
     "venue": "Proceedings of the ION 2013 Pacific PNT Meeting, 2013",
@@ -1934,7 +1934,7 @@
   {
     "id": 162,
     "year": 2013,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Assessing the availability of a single-frequency satellite based augmentation system in the Korea region",
     "authors": "Eugene Bang and Jinsil Lee and Jiyun Lee",
     "venue": "ENRI International Workshop on ATM/CNS, 2013",
@@ -1946,7 +1946,7 @@
   {
     "id": 163,
     "year": 2013,
-    "type": "conference",
+    "type": "conference-int",
     "title": "High-Integrity Local-Area Differential GNSS Architectures Optimized to Support Unmanned Aerial Vehicles (UAVs)",
     "authors": "Sam Pullen and Per Enge and Jiyun Lee",
     "venue": "Proceedings of the 2013 International Technical Meeting of The Institute of Navigation, 2013",
@@ -1958,7 +1958,7 @@
   {
     "id": 164,
     "year": 2013,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Optimized GNSS Network Station Selection to Support the Development of Ionospheric Threat Models for GBAS",
     "authors": "Minchan Kim and Jiyun Lee and Sam Pullen and Joseph Gillespie",
     "venue": "Proceedings of the 2013 International Technical Meeting of The Institute of Navigation, 2013",
@@ -1970,7 +1970,7 @@
   {
     "id": 165,
     "year": 2012,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Extreme Ionospheric Gradients Observed in South Korea during the Last Solar Cycle",
     "authors": "Yunjung Choi and Minchan Kim and Jiyun Lee",
     "venue": "AGU Fall Meeting 2012, 2012",
@@ -1982,7 +1982,7 @@
   {
     "id": 166,
     "year": 2012,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Algorithm Analysis for GNSS Spoofing Detection System",
     "authors": "Seongkyun Jeong and Sanguk Lee and Jiyun Lee",
     "venue": "2012 APISAT, 2012",
@@ -1994,7 +1994,7 @@
   {
     "id": 167,
     "year": 2012,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Design analysis of precision Navigation System",
     "authors": "Seongkyun Jeong and Taehee Kim and Jae-Eun Lee and Sanguk Lee and Jiyun Lee",
     "venue": "2012 12th International Conference on Control, Automation and Systems, 2012",
@@ -2006,7 +2006,7 @@
   {
     "id": 168,
     "year": 2012,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Data Quality Improvements and Applications of Long-Term Monitoring of Ionospheric Anomalies for GBAS",
     "authors": "Minchan Kim and Jiyun Lee and Sam Pullen and Joseph Gillespie",
     "venue": "Proceedings of the 25th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS 2012), 2012",
@@ -2018,7 +2018,7 @@
   {
     "id": 169,
     "year": 2012,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Ionospheric Observations of the November 2004 Storm in South Korea",
     "authors": "Yunjung Choi and Minchan Kim and Jiyun Lee",
     "venue": "The 5th KAIST-Kyushu University joint workshop, 2012",
@@ -2066,7 +2066,7 @@
   {
     "id": 173,
     "year": 2012,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Automated Ionospheric Front Velocity Estimation Algorithm for Ground-Based Augmentation Systems",
     "authors": "Eugene Bang and Jiyun Lee and Jiwon Seo and Sam Pullen and Sigrid Close",
     "venue": "Proceedings of the 2012 International Technical Meeting of The Institute of Navigation, 2012",
@@ -2078,7 +2078,7 @@
   {
     "id": 174,
     "year": 2012,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Results from Automated Ionospheric Data Analysis for Ground-Based Augmentation Systems (GBAS)",
     "authors": "Jiyun Lee and Sungwook Jung and Minchan Kim and Jiwon Seo and Sam Pullen and Sigrid Close",
     "venue": "Proceedings of the 2012 International Technical Meeting of The Institute of Navigation, 2012",
@@ -2126,7 +2126,7 @@
   {
     "id": 178,
     "year": 2011,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Automated Front Speed Computation of Ionospheric Anomalies for Ground-Based Augmentation Systems",
     "authors": "Jiyun Lee and Eugene Bang and Sungwook Jung and Sam Pullen",
     "venue": "The 13th International Ionospheric Effects Symposium (IES2011), 2011",
@@ -2138,7 +2138,7 @@
   {
     "id": 179,
     "year": 2011,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Enhancements of Long Term Ionospheric Anomaly Monitoring for the Ground-Based Augmentation System",
     "authors": "Jiyun Lee and Sungwook Jung and Sam Pullen",
     "venue": "Proceedings of the 2011 International Technical Meeting of The Institute of Navigation, 2011",
@@ -2150,7 +2150,7 @@
   {
     "id": 180,
     "year": 2010,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Estimation of GPS Receiver Inter-Frequency Bias for Operational Ionosphere Monitoring in GBAS",
     "authors": "Jiyun Lee and Sungwook Jung and Eugene Bang",
     "venue": "ENRI International workshop on ATM/CNS, 2010",
@@ -2162,7 +2162,7 @@
   {
     "id": 181,
     "year": 2010,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Long Term Monitoring of Ionospheric Anomalies to Support the Local Area Augmentation System",
     "authors": "Jiyun Lee and Sungwook Jung and Eugene Bang and Sam Pullen and Per Enge",
     "venue": "Proceedings of the 23rd International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS 2010), 2010",
@@ -2198,7 +2198,7 @@
   {
     "id": 184,
     "year": 2009,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Methodology and Case Studies of Signal-in-Space Error Calculation Top-down Meets Bottom-up",
     "authors": "Grace Xingxin Gao and Haochen Tang and Juan Blanch and Jiyun Lee and Todd Walter and Per Enge",
     "venue": "Proceedings of the 22nd International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS 2009), 2009",
@@ -2210,7 +2210,7 @@
   {
     "id": 185,
     "year": 2008,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Targeted Ephemeris Decorrelation Parameter Inflation for Improved LAAS Availability During Severe Ionosphere Anomalies",
     "authors": "Shankararaman Ramakrishnan and Jiyun Lee and Sam Pullen and Per Enge",
     "venue": "Proceedings of the 2008 National Technical Meeting of The Institute of Navigation, 2008",
@@ -2222,7 +2222,7 @@
   {
     "id": 186,
     "year": 2007,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Data-Replay Analysis of LAAS Safety during Ionosphere Storms",
     "authors": "Young Shin Park and Godwin Zhang and Sam Pullen and Jiyun Lee and Per Enge",
     "venue": "Proceedings of the 20th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS 2007), 2007",
@@ -2246,7 +2246,7 @@
   {
     "id": 188,
     "year": 2006,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Position-Domain Geometry Screening to Maximize LAAS Availability in the Presence of Ionosphere Anomalies",
     "authors": "Jiyun Lee and Ming Luo and Sam Pullen and Young Shin Park and Per Enge and Mats Brenner",
     "venue": "Proceedings of the 19th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS 2006), 2006",
@@ -2282,7 +2282,7 @@
   {
     "id": 191,
     "year": 2006,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Assessment of Nominal Ionosphere Spatial Decorrelation for LAAS",
     "authors": "Jiyun Lee and Sam Pullen and Seebany Datta-Barua and Per Enge",
     "venue": "Proceedings of IEEE/ION PLANS 2006, 2006",
@@ -2294,7 +2294,7 @@
   {
     "id": 192,
     "year": 2004,
-    "type": "conference",
+    "type": "conference-int",
     "title": "LAAS Position Domain Monitor Analysis and Test Results for CAT II/III Operations",
     "authors": "Jiyun Lee",
     "venue": "Proceedings of the 17th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS 2004), 2004",
@@ -2306,7 +2306,7 @@
   {
     "id": 193,
     "year": 2003,
-    "type": "conference",
+    "type": "conference-int",
     "title": "CUSUM-Based Real-Time Risk Metrics for Augmented GPS and GNSS",
     "authors": "Sam Pullen and Jiyun Lee and Gang Xie and Per Enge",
     "venue": "Proceedings of the 16th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GPS/GNSS 2003), 2003",
@@ -2318,7 +2318,7 @@
   {
     "id": 194,
     "year": 2002,
-    "type": "conference",
+    "type": "conference-int",
     "title": "LAAS Ground Facility Design Improvements to Meet Proposed Requirements for Category II/III Operations",
     "authors": "Sam Pullen and Ming Luo and Gang Xie and Jiyun Lee and R. Eric Phelts and Dennis Akos and Per Enge",
     "venue": "Proceedings of the 15th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GPS 2002), 2002",
@@ -2330,7 +2330,7 @@
   {
     "id": 195,
     "year": 2001,
-    "type": "conference",
+    "type": "conference-int",
     "title": "The Next Generation Integrity Monitor Testbed (IMT) for Ground System Development and Validation Testing",
     "authors": "Per-Ludvig Normark and Gang Xie and Dennis Akos and Sam Pullen and Ming Luo and Jiyun Lee and Per Enge and Boris Pervan",
     "venue": "Proceedings of the 14th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GPS 2001), 2001",
@@ -2342,7 +2342,7 @@
   {
     "id": 196,
     "year": 2001,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Ephemeris Protection Level Equations and Monitor Algorithms for GBAS",
     "authors": "Sam Pullen and Jiyun Lee and Ming Luo and Boris Pervan and Fang-Cheng Chan and Livio Gratton",
     "venue": "Proceedings of the 14th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GPS 2001), 2001",
@@ -2354,7 +2354,7 @@
   {
     "id": 197,
     "year": 2001,
-    "type": "conference",
+    "type": "conference-int",
     "title": "Integrity Design and Updated Test Results for the Stanford LAAS Integrity Monitor Testbed",
     "authors": "Gang Xie and Sam Pullen and Ming Luo and Per-Ludvig Normark and Dennis Akos and Jiyun Lee and Per Enge and Boris Pervan",
     "venue": "Proceedings of the 57th Annual Meeting of The Institute of Navigation (2001), 2001",
@@ -2366,7 +2366,7 @@
   {
     "id": 198,
     "year": 2001,
-    "type": "conference",
+    "type": "conference-int",
     "title": "LAAS Sigma-Mean Monitor Analysis and Failure-Test Verification",
     "authors": "Jiyun Lee and Sam Pullen and Gang Xie and Per Enge",
     "venue": "Proceedings of the 57th Annual Meeting of The Institute of Navigation (2001), 2001",
@@ -2378,7 +2378,7 @@
   {
     "id": 199,
     "year": 2001,
-    "type": "conference",
+    "type": "conference-int",
     "title": "LAAS Sigma-Mean Monitor Analysis and Failure-Test Verification",
     "authors": "Jiyun Lee and Sam Pullen and Gang Xie and Per Enge",
     "venue": "Proceedings of the 57th Annual Meeting of The Institute of Navigation (2001), 2001",
