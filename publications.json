@@ -1,0 +1,2433 @@
+[
+  {
+    "id": 1757,
+    "title": "Integrity Risk Evaluation of Impact of Ionospheric Anomalies on GAST D GBAS",
+    "authors": "Moonseok Yoon, Jiyun Lee, and Sam Pullen",
+    "conference": "ION ITM 2019, Reston, VA, January, 2019",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 977,
+    "title": "UTM의 Zone 타입 비행공역 설정을 위한 최소분리거리 도출 연구",
+    "authors": "김민찬, 민동찬, 이지윤",
+    "conference": "항공우주시스템공학회 춘계학술대회, 제주, 2019년 4월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://gnss.kaist.ac.kr/?page_id=114",
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 641,
+    "title": "Ionospheric Scintillation Effects on GBAS Ground Station Pseudorange Errors",
+    "authors": "Kiyoung Sun, Moonseok Yoon, and Jiyun Lee",
+    "conference": "AGU 2018, Washington D.C., NW, December, 2018",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 640,
+    "title": "Performance Comparison of Neural Networks for Geomagnetic Field Based Indoor Positioning System",
+    "authors": "Hyojin Lee, Harhee Park, Dongchan Min, and Jiyun Lee",
+    "conference": "The 10th KAIST-Kyushu University Symposium on Aerospace Engineering, Daejeon, Korea, December, 2018",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 639,
+    "title": "Neural Network Aided Reconstruction of Ionospheric Tomography for Limited GNSS Measurements",
+    "authors": "Kiyoung Sun, Pil Hun Choi, Sunjin Kim, and Jiyun Lee",
+    "conference": "The 10th KAIST-Kyushu University Symposium on Aerospace Engineering, Daejeon, Korea, December, 2018",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 636,
+    "title": "Integrity Assurance of Kalman-Filter based GNSS/IMU Integrated Systems Against IMU Faults for UAV Applications",
+    "authors": "Jinsil Lee, Minchan Kim, Jiyun Lee, and Sam Pullen",
+    "conference": "ION GNSS 2018, Miami, FL, September, 2018",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 635,
+    "title": "무인기의 정밀항법 지원을 위한 고안전성 RTK-GNSS 시스템 성능 분석",
+    "authors": "김민찬, 민동찬, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2018년 11월 ",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 634,
+    "title": "위성항법/관성항법 융합시스템을 위한 무결성 보호수준 산출 연구",
+    "authors": "이진실, 김민찬, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2018년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 632,
+    "title": "SBAS 신호 단절 상황에서의 반송파 기반 코스팅 기법 성능 평가",
+    "authors": "최필훈, 김민찬, 이철수, 부성춘, 이기훈, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2018년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 631,
+    "title": "GBAS 지상 무결성 모니터에 대한 전리층 신틸레이션의 영향 분석",
+    "authors": "선기영, 윤문석, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2018년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 630,
+    "title": "극지 무인탐사 지원을 위한 GPS/GLONASS 기반 보강항법시스템 설계",
+    "authors": "김동우, 김민찬, 이진실, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2018년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 629,
+    "title": "GAST D GBAS 전리층 위협 완화를 위한 위험도 기반의 무결성 파라미터 팽창 기법",
+    "authors": "윤문석, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2018년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 628,
+    "title": "반송파 기반 무인기 착륙 지원 시스템의 성능 향상을 위한 딥러닝 기반 다중 경로 오차 완화 기법 개발",
+    "authors": "민동찬, 김민찬, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2018년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 627,
+    "title": "무인기 분리거리 결정을 위한 파라미터 민감도 분석",
+    "authors": "홍기선, 김민찬, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2018년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 626,
+    "title": "무인기 안전 운용을 위한 항법 무결성 요구조건 설계 방법론",
+    "authors": "김동우, 이진실, 김민찬, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2018년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 625,
+    "title": "무인기 분리 거리를 위한 실험 기반 비행기술 오차 분석",
+    "authors": "민동찬, 홍기선, 김민찬, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2018년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 633,
+    "title": "무인항공기 고신뢰성 항법 지원을 위한 칼만 필터 이노베이션 기반 관성항법센서 고장 모니터 성능분석 연구",
+    "authors": "이진실, 이지윤",
+    "conference": "항공우주학회 춘계학술대회, 강원, 4월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 454,
+    "title": "Assessment of Ionospheric Gradient Statistics for Operating GBAS in Geomagnetic Equatorial Region",
+    "authors": "Hyeyeon Chang, and Jiyun Lee",
+    "conference": "AGU 2017, San Francisco, CA, December, 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 453,
+    "title": "Analysis on the Casualty risk from UAS Collision for Deriving Safe Separation Distance",
+    "authors": "Giseon Hong, and Jiyun Lee",
+    "conference": "The 9th KAIST-Kyushu University Symposium on Aerospace Engineering, Kyushu University, Korea, December, 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 452,
+    "title": "Case study for GBAS Operation in Equatorial Region on Nominal day at Daytime",
+    "authors": "Hyeyeon Chang, and Jiyun Lee",
+    "conference": "The 9th KAIST-Kyushu University Symposium on Aerospace Engineering, Kyushu University, Korea, December, 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 451,
+    "title": "Ionospheric Scintillation Effects on GBAS Ground Multipath Error in Low-latitude Regions",
+    "authors": "Kiyoung Sun, and Jiyun Lee",
+    "conference": "The 9th KAIST-Kyushu University Symposium on Aerospace Engineering, Kyushu University, Korea, December, 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 450,
+    "title": "Vertical Protection Level (VPL) derivation of multi-sensor integrated LAD-GNSS for UAV applications",
+    "authors": "Jinsil Lee, and Jiyun Lee",
+    "conference": "ITSNT, ENAC, Toulouse, France, November, 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 449,
+    "title": "High-Integrity and Low-Cost Local-Area Differential GNSS Prototype for UAV Applications",
+    "authors": "Dongwoo Kim, Jinsil Lee, Minchan Kim, Jiyun Lee, and Sam Pullen",
+    "conference": "ION GNSS 2017, Portland, CA, September, 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 448,
+    "title": "Monte Carlo Simulation for Impact of Anomalous Ionospheric Gradients on GAST-D GBAS",
+    "authors": "Dongwoo Kim, Moonseok Yoon, Sam Pullen, Doug Weed, and Jiyun Lee",
+    "conference": "ION PNT 2017, Honolulu, HI, April, 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 447,
+    "title": "Design of Local Area DGNSS Architecture to Support Unmanned Aerial Vehicle Networks: Concept of Operations and Safety Requirements Validation",
+    "authors": "Minchan Kim, Jinsil Lee, Dongwoo Kim, and Jiyun Lee",
+    "conference": "ION PNT 2017, Honolulu, HI, April, 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 446,
+    "title": "Near Real-time GNSS-based Ionospheric Model using Expanded Kriging in the East Asia Region.",
+    "authors": "Pil Hun Choi, Eugene Bang, and Jiyun Lee",
+    "conference": "AGU 2016, San Francisco, CA, December, 2016",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 445,
+    "title": "Application of Weighted Least Square RAIM to Multi-Sensor Navigation Integrated with Space-Based Augmentation System",
+    "authors": "Eunjeong Hyeon, and Jiyun Lee",
+    "conference": "The 8th KAIST-Kyushu University Symposium on Aerospace Engineering, Daejeon, Korea, December, 2016",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 444,
+    "title": "Validation of Large Ionospheric Gradient Observed in India on 15th, February 2015",
+    "authors": "Hyeyeon Chang, Moonseok Yoon, and Jiyun Lee",
+    "conference": "The 8th KAIST-Kyushu University Symposium on Aerospace Engineering, Daejeon, Korea, December, 2016",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 443,
+    "title": "Vertical Position Error Bounding for Integrated GNSS/Onboard Sensors to Support Unmanned Aerial Vehicle (UAV)",
+    "authors": "Jinsil Lee, Eunjeong Hyeon, Minchan Kim, and Jiyun Lee",
+    "conference": "ICCAS 2016, Daejeon, Korea, September, 2016",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 442,
+    "title": "Expanded Ionospheric Estimation and Threat Model Algorithms for SBAS",
+    "authors": "Eugene Bang",
+    "conference": "ION GNSS 2016, Portland, CA, September, 2016",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 441,
+    "title": "Integration of INS/Barometer and Local Area DGNSS to Support High Integrity Unmanned Aerial Vehicle (UAV) Navigation",
+    "authors": "Jinsil Lee, Minchan Kim, and Jiyun Lee",
+    "conference": "ION GNSS 2016, Portland, CA, September, 2016",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 440,
+    "title": "Equatorial Plasma Bubble Effects on GBAS and Its Mitigation Techniques",
+    "authors": "Jiyun Lee",
+    "conference": "International Beacon Satellite Symposium 2016, Trieste, Italy, June, 2016",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 439,
+    "title": "Assessment of EPB Impacts on GBAS in the Brazilian Region",
+    "authors": "Moonseok Yoon, Dongwoo Kim, Jiyun Lee, Sarawoot Rungraengwajiake, and Sam Pullen",
+    "conference": "ION ITM 2016, Monterey, CA, January, 2016",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 438,
+    "title": "Validation of DSIGMA Monitor for GBAS Category II/III Operations",
+    "authors": "Eunjeong Hyeon, and Jiyun Lee",
+    "conference": "The 7th KAIST-Kyushu University Symposium on Aerospace Engineering, Kyushu University, December, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 437,
+    "title": "Validation of Code Carrier Divergence Monitor for GBAS Category II/III Operations",
+    "authors": "Dong-kyeong lee, and Jiyun Lee",
+    "conference": "The 7th KAIST-Kyushu University Symposium on Aerospace Engineering, Kyushu University, December, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 436,
+    "title": "Statistical Assessment of Ionospheric Perturbation Amplitudes Caused by Tohoku-Oki Earthquake in Japan",
+    "authors": "Kiyoung Sun, Moonseok Yoon, and Jiyun Lee",
+    "conference": "The 7th KAIST-Kyushu University Symposium on Aerospace Engineering, Kyushu University, December, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 435,
+    "title": "Ionospheric Signatures of the Earthquake in South Korea on 31 March 2014",
+    "authors": "Pilhoon Choi, Moonseok Yoon, Yu-ming Yang, Jiyun Lee, and Attila Komjathy",
+    "conference": "AGU 2015, San Francisco, CA, December, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 434,
+    "title": "Characterization of GLONASS Clock and Ephemeris Error for Advanced Receiver Autonomous Integrity Monitor (ARAIM)",
+    "authors": "Dongwoo Kim, Kihun Lee, Jaekyu Jang, and Jiyun Lee",
+    "conference": "ISGNSS 2015, Kyoto, Japan, November, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 433,
+    "title": "Vertical Position Error Bounding for Integrated Sensors to Support Unmanned Aerial Vehicles (UAV)",
+    "authors": "Jinsil Lee, Sam Pullen, and Jiyun Lee",
+    "conference": "SCPNT 2015, Stanford, CA, November, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 432,
+    "title": "Optimal Scheduling of Arrivals at Low-Latitude Airports under Severe Ionospheric Spatial Gradients",
+    "authors": "Sam Pullen, Jiyun Lee, and Moonseok Yoon",
+    "conference": "The 4th ENRI International Workshop on ATM/CNS, Tokyo, Japan, November, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 431,
+    "title": "Evaluation of GPS L5, Galileo E1 and E5a Performance in Flight Trails for Multi Frequency Multi Constellation GBAS",
+    "authors": "Mihaela-Simona Circiu, Michael Felux, Boubeker Belabbas, Michael Meurer, Jiyun Lee, Minchan Kim, and Sam Pullen",
+    "conference": "ION GNSS 2015, Tampa, FL, September, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 430,
+    "title": "Preliminary Results from Ionospheric Threat Model Development to Support GBAS Operations in the Brazilian Region",
+    "authors": "Jiyun Lee, Moonseok Yoon, Sam Pullen, Joseph Gillespie, Navin Mather and Rich Cole, Jonas Rodrigues de Souza, Patricia Doherty and Rezy Pradipta",
+    "conference": "ION GNSS 2015, Tampa, FL, September, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 429,
+    "title": "Conceptual Study of Mobile Differential GNSS Architecture Utilizing UAV Networks",
+    "authors": "Minchan Kim, Dong-kyeong Lee, Eugene Bang, and Jiyun Lee",
+    "conference": "ION PNT 2015, Honolulu, HI, April, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 428,
+    "title": "Multi-dimensional Verification Methodology of Ionospheric Gradient Observation during Plasma Bubble Events in the Brazilian Region",
+    "authors": "Moonseok Yoon, Dongwoo Kim, Jiyun Lee, and Sam Pullen",
+    "conference": "ION PNT 2015, Honolulu, HI, April, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 427,
+    "title": "Total System Performance in GBAS Based Landings",
+    "authors": "Michael Felux, and Jiyun Lee",
+    "conference": "ION PNT 2015, Honolulu, HI, April, 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 426,
+    "title": "Ionospheric Signatures of North Korean Nuclear Test on 12 February 2013",
+    "authors": "Moonseok Yoon, Dongwoo Kim, Yu-ming Yang, Attila Komjathy, and Jiyun Lee",
+    "conference": "AGU 2014, San Francisco, CA, December, 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 425,
+    "title": "Space Weather Prediction Error Bounding for Real-Time Ionospheric Threat Adaptation of GNSS Augmentation Systems",
+    "authors": "Jinsil Lee, Moonseok Yoon, and Jiyun Lee",
+    "conference": "AGU 2014, San Francisco, CA, December, 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 424,
+    "title": "Observing Large Ionospheric Spatial Decorrelation for Ground-Based Augmentation System in the Brazilian Region",
+    "authors": "Dongwoo Kim, Moonseok Yoon, and Jiyun Lee",
+    "conference": "AGU 2014, San Francisco, CA, December, 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 423,
+    "title": "Ionospheric Delay Estimation using Kriging for Korean SBAS",
+    "authors": "Eugene Bang, Jinsil Lee, and Jiyun Lee",
+    "conference": "ISGNSS 2014, Jeju, Korea, October, 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 422,
+    "title": "The Use of SBAS GIVE for Improving CAT-I GBAS Availability in the Korean Region",
+    "authors": "Moonseok Yoon, Eugene Bang, and Jiyun Lee",
+    "conference": "ISGNSS 2014, Jeju, Korea, October, 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 421,
+    "title": "Fast Location Survey of DGNSS Reference Station to Support UAV Navigation",
+    "authors": "Dong-kyeong Lee, Minchan Kim, Kiwan Kim, and Jiyun Lee",
+    "conference": "ICCAS 2014, Seoul, October, 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 420,
+    "title": "VPL Parameter Determination for Improved Performance of Advanced RAIM",
+    "authors": "Jinsil Lee, Dongwoo Kim, Jiyun Lee, and Todd Walter",
+    "conference": "ION GNSS 2014, Tampa, FL, September, 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 419,
+    "title": "High Integrity GNSS Navigation and Safe Separation Distance to Support Local-Area UAV Networks",
+    "authors": "Minchan Kim, Kiwan Kim, Jiyun Lee, and Sam Pullen",
+    "conference": "ION GNSS 2014, Tampa, FL, September, 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 418,
+    "title": "Selection of Korea SBAS Reference Stations By Analyzing GPS Satellite Clock and Ephemeris Error Bound",
+    "authors": "Pilhoon Choi, and Jiyun Lee",
+    "conference": "2014 APNN & MAPWiST, Seoul, August, 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 417,
+    "title": "Conceptual Study of Real-time Ionospheric Threat Adaptation Using Space Weather Forecasting for GNSS Augmentation Systems",
+    "authors": "Jinsil Lee, and Jiyun Lee",
+    "conference": "ION ITM 2014, San Deigo, CA, January, 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 416,
+    "title": "Characteristics of Ionospheric Irregularities during Storm-Induced Traveling Ionospheric Disturbances over the Korean Region",
+    "authors": "Moonseok Yoon, and Jiyun Lee",
+    "conference": "The 6th KAIST-Kyushu University joint workshop, Deajeon, Korea, September, 2013",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 415,
+    "title": "Analysis of Correlation between Ionospheric Spatial Gradients and Space Weather Intensity under Nominal Conditions for Ground-Based Augmentation Systems",
+    "authors": "Jinsil Lee, and Jiyun Lee",
+    "conference": "AGU 2013, San Francisco, CA, December, 2013",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 414,
+    "title": "Ionospheric of Natural Hazard Detection Using GNSS Measurements: Investing the Chelyabinsk Meteor Impact",
+    "authors": "Yu-ming Yang, Attila Komjathy, Mark D Butala, R. B. Langley, Anthony J. Mannucci, David A. Galvin, Jiyun Lee, Jonathan Snively, and Michael Hickey",
+    "conference": "ION GNSS 2013, Nashville, TN, September, 2013",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 413,
+    "title": "Constructing Ionospheric Irregularity Threat Model for Korean SBAS",
+    "authors": "Eugene Bang, Jinsil Lee, Jiyun Lee, Jiwon Seo, and Todd Walter",
+    "conference": "ION PNT 2013, Honolulu, HI, April, 2013",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 412,
+    "title": "Guidance, Navigation, and Separation Assurance for Local-Area UAV Networks: Putting the Pieces Together",
+    "authors": "Sam Pullen, and Jiyun Lee",
+    "conference": "ION PNT 2013, Honolulu, HI, April, 2013",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 411,
+    "title": "Assessing the availability of a single-frequency satellite based augmentation system in the Korea region",
+    "authors": "Eugene Bang, Jinsil Lee, and Jiyun Lee",
+    "conference": "The 3rd ENRI International Workshop on ATM/CNS, Tokyo, Japan, February, 2013",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 410,
+    "title": "Optimized GNSS Network Station Selection to Support the Development of Ionospheric Threat Models for GBAS",
+    "authors": "Minchan Kim, Jiyun Lee, Sam Pullen, and Joseph Gillespie",
+    "conference": "ION ITM 2013, San Deigo, CA, January, 2013",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 409,
+    "title": "High-Integrity Local-Area Differential GNSS Architectures Optimized to Support Unmanned Aerial Vehicles (UAVs)",
+    "authors": "Sam Pullen, Jiyun Lee, and Per Enge",
+    "conference": "ION ITM 2013, San Deigo, CA, January, 2013",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 408,
+    "title": "Extreme Ionospheric Gradients Observed in South Korea during the Last Solar Cycle",
+    "authors": "Yun-Jung Choi, Minchan Kim, an Jiyun Lee",
+    "conference": "AGU 2012, San Francisco, CA, December, 2012",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 407,
+    "title": "Algorithm Analysis for GNSS Spoofing Detection System",
+    "authors": "Seongkyun Jeong, Sanguk Lee, and Jiyun Lee",
+    "conference": "2012 APISAT, Jeju, Korea, November, 2012",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 406,
+    "title": "Design Analysis of Precision Navigation System”, 2012 12th International Conference on Control, Automation and Systems",
+    "authors": "Seongkyun Jeong, Taehee Kim, Jae-Eun Lee, Sanguk Lee, and Jiyun Lee",
+    "conference": "The 12th ICCAS, Jeju, Korea, October, 2012",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 405,
+    "title": "Data Quality Improvements and Applications of Long-Term Monitoring of Ionospheric Anomalies for GBAS",
+    "authors": "Minchan Kim, Jiyun Lee, Sam Pullen, and Joseph Gillespie",
+    "conference": "ION GNSS 2012, Nashville, TN, September, 2012",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 404,
+    "title": "Ionospheric Observations of the November 2004 Storm in South Korea",
+    "authors": "Yun-Jung Choi, Minchan Kim, an Jiyun Lee",
+    "conference": "The 5th KAIST-Kyushu University joint workshop, Deajeon, Korea, September, 2012",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 403,
+    "title": "Results from Automated Ionospheric Data Analysis for Ground-Based Augmentation Systems (GBAS)",
+    "authors": "Jiyun Lee, Sungwook Jung, and Minchan Kim",
+    "conference": "ION ITM 2012, Newport Beach, CA, January, 2012",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 402,
+    "title": "Automated Ionospheric Front Velocity Estimation Algorithm for Ground-Based Augmentation Systems",
+    "authors": "Eugene Bang, Jiyun Lee, Jiwon Seo, Sam Pullen, and Sigrid Close",
+    "conference": "ION ITM 2012, Newport Beach, CA, January, 2012",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 397,
+    "title": "Automated Front Speed Computation of Ionospheric Anomalies for Ground-Based Augmentation Systems",
+    "authors": "Jiyun Lee, Eugene Bang, Sungwook Jung, and Sam Pullen",
+    "conference": "Ionospheric Effects Symposium 2011, Alexandria, VA, May,  2011",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 396,
+    "title": "Enhancements of Long Tem Ionospheric Anomalies Monitoring for the Ground-Based Augmentation System",
+    "authors": "Jiyun Lee, Sungwook Jung, and Sam Pullen",
+    "conference": "ION NTM 2011, San Diego, CA, January, 2011",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 395,
+    "title": "Estimation of GPS Receiver Inter-Frequency Bias for Operational Ionosphere Monitoring in GBAS",
+    "authors": "Jiyun Lee, Sungwook Jung, and Eugene Bang",
+    "conference": "ENRI International workshop on ATM/CNS, Tokyo, Japan, November 2010",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 394,
+    "title": "Long Tem Monitoring of Ionospheric Anomalies to Support the Local Area Augmentation System",
+    "authors": "Jiyun Lee, Sungwook Jung, Euegene Bang, Sam Pullen, and Per Enge",
+    "conference": "ION GNSS 2010, Portland, OR, September, 2010",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 393,
+    "title": "Methodology and Case Studies of Signal-in-Space Error Calculation: Top-down Meets Bottom-up",
+    "authors": "Grace Xingxin Gao, Haochen Tang, Juan Blanch, Jiyun Lee, Todd Walter, and Per Enge",
+    "conference": "ION GNSS 2009, Savannah, GA, September, 2009",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 392,
+    "title": "Targeted Ephemeris Decorrelation Parameter Inflation for Improved LAAS Availability during Severe Ionosphere Anomalies",
+    "authors": "Shankararaman Ramakrishnan, Jiyun Lee, Sam Pullen, and Per Enge",
+    "conference": "ION NTM 2008, San Diego, CA, January, 2008",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 391,
+    "title": "Data-Replay Analysis of LAAS Safety During Ionosphere Storms",
+    "authors": "Young Shin Park, Godwin Zhang, Sam Pullen, Jiyun Lee, and Per Enge",
+    "conference": "ION GPS 2007, Fort Worth, TX, September, 2007",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 390,
+    "title": "Position-Domain Geometry Screening to Maximize LAAS Availability in the Presence of Ionosphere Anomalies",
+    "authors": "Jiyun Lee, Ming Luo, Sam Pullen, Young Shin Park, and Per Enge",
+    "conference": "ION GPS 2006, Fort Worth, TX, September, 2006",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 389,
+    "title": "Assessment of Nominal Ionosphere Spatial Decorrelation for LAAS",
+    "authors": "Jiyun Lee, Sam Pullen, Seebany Datta-Barua, and Per Enge",
+    "conference": "the IEEE/ION Position Location and Navigation Symposium, San Diego, CA, April, 2006",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 388,
+    "title": "LAAS Position Domain Monitor Analysis and Test Results for CAT II/III Operations",
+    "authors": "Jiyun Lee",
+    "conference": "ION GPS 2004, Portland, OR, September, 2004",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 387,
+    "title": "CUSUM-based Real-Time Risk Metrics for Augmented GPS and GNSS",
+    "authors": "Sam Pullen, Jiyun Lee, Gang Xie, and Per Enge",
+    "conference": "ION GPS 2003, Portland, OR, September, 2003",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 386,
+    "title": "LAAS Position Domain Monitor Analysis and Failure-Test Verification",
+    "authors": "Jiyun Lee, Sam Pullen, and Per Enge",
+    "conference": "21st AIAA ICSSC, Yokohama, Japan, April, 2003",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 385,
+    "title": "LAAS Ground Facility Design Improvements to Meet Proposed Requirements for Category II/III Operations",
+    "authors": "Sam Pullen, Ming Luo, Gang Xie, Jiyun Lee, Eric Phelts, Dennis Akos, and Per Enge",
+    "conference": "ION GPS 2002, Portland, OR, September, 2002",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 384,
+    "title": "Ephemeris Protection Level Equations and Monitor Algorithms for GBAS",
+    "authors": "Sam Pullen, Jiyun Lee, Ming Luo, Boris Pervan, Fang-Cheng Chan, and Livio Gratton",
+    "conference": "ION GPS 2001, Salt Lake City, UT, September, 2001",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 383,
+    "title": "LAAS Sigma Monitor Analysis and Failure-Test Verification",
+    "authors": "Jiyun Lee, Sam Pullen, Gang Xie, and Per Enge",
+    "conference": "ION NTM 2001, Albuquerque, NM, June, 2001",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 382,
+    "title": "Integrity Design and Updated Test Results for the Stanford LAAS Integrity Monitor Testbed",
+    "authors": "Gang Xie, Sam Pullen, Ming Luo, Per-Ludvig Normark, Dennis Akos, Jiyun Lee, Boris Pervan, and Per Enge",
+    "conference": "ION NTM 2001, Albuquerque, NM, June, 2001 ",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 381,
+    "title": "The Next Generation Integrity Monitor Testbed for Ground System Development and Validation Testing",
+    "authors": "Per-Ludvig Normark, Gang Xie, Dennis Akos, Sam Pullen, Ming Luo, Jiyun Lee, Boris Pervan, and Per Enge",
+    "conference": "ION GPS 2001, Salt Lake City, UT, September, 2001",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "International Conferences"
+    ]
+  },
+  {
+    "id": 380,
+    "title": "LADGNSS 항법지원을 받는 무인항공기의 비행 기술 오차 모델링 기법",
+    "authors": "김기완, 김민찬, 이동경, 이지윤",
+    "conference": "한국항공우주학회지, 43(12), 2015년 12월호",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Journals"
+    ]
+  },
+  {
+    "id": 379,
+    "title": "종합적 품질평가 기법을 이용한 국내 GPS 상시관측소의 데이터 품질 분석",
+    "authors": "김민찬, 이지윤",
+    "conference": "한국항공우주학회지, 41 (9), 597-604,  2013년 9월호",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Journals"
+    ]
+  },
+  {
+    "id": 378,
+    "title": "무인기 항법 안전성 확보를 위한 LAD-GNSS의 전리층 위협 완화 기법",
+    "authors": "김동우, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2017년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 377,
+    "title": "무인항공기 항법지원을 위한 LAD-GNSS 운용 요구조건 분석",
+    "authors": "김민찬, 이진실, 김동우, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2017년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 376,
+    "title": "무인기 충돌 위험성 평가 기반 안전 분리기준 분석",
+    "authors": "홍기선, 김민찬, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2017년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 375,
+    "title": "한국형 위성항법시스템 아키텍처 설계를 위한 의사거리 오차요소 분배 최적화 알고리즘",
+    "authors": "민동찬, 이진실, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2017년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 374,
+    "title": "GAST D GBAS의 시스템 안전성 검증을 위한 확률적 전리층 위협 평가",
+    "authors": "윤문석, 김동우, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2017년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 373,
+    "title": "한반도 지역에서의 Expanded Kriging 기반 전리층 추정 기법을 위한 1차 Gauss-Markov 프로세스 모델 파라미터 디자인",
+    "authors": "최필훈, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2017년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 372,
+    "title": "전리층 신틸레이션에 의한 GBAS 지상시스템 오차 영향 분석",
+    "authors": "선기영, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2017년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 371,
+    "title": "지자기 적도지역의 GBAS 운용을 위한 주간 정상상태 전리층 기울기 통계치 추정결과",
+    "authors": "장혜연, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2017년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 370,
+    "title": "무인항공기 항법 안전성 보장을 위한 다중센서 기반 LAD-GNSS 프로토타입 개발",
+    "authors": "이진실, 김민찬, 김동우, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2017년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 369,
+    "title": "KASS 운용시험 및 성능감시를 위한 Range Domain 분석 알고리즘 설계",
+    "authors": "최필훈, 이지윤, 기창돈, 박병운, 서지원, 김의호, 최광식, 이은성",
+    "conference": "한국항행학회 종합학술대회, 서울, 2017년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 368,
+    "title": "코드-반송파 발산 검정통계량에 대한 전리층 신틸레이션 영향 분석",
+    "authors": "선기영, 윤문석, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2017년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 367,
+    "title": "지자기 적도지역에서의 GBAS 운용을 위한 낮 시간대 수직 전리층 기울기 통계치 추정 사례연구",
+    "authors": "장혜연, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2017년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 366,
+    "title": "한국형 위성항법시스템의 Signal-In-Space 모니터링 정확도 분석",
+    "authors": "민동찬, 이진실, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2017년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 365,
+    "title": "Expanded kriging 추정기법을 활용한 SBAS 전리층 모델링",
+    "authors": "최필훈, 방유진, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2016년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 364,
+    "title": "무인항공기의 고신뢰성 항법지원을 위한 다중센서 융합시스템 성능분석",
+    "authors": "이진실, 김민찬, 김동우, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2016년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 363,
+    "title": "무인항공기의 고성능 항법지원을 위한 LAD-GNSS 성능분석",
+    "authors": "김민찬, 이진실, 김동우, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2016년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 362,
+    "title": "다중 IMU를 이용한 분리해 기반의 관성항법장치 고장 감시 기법",
+    "authors": "김동우, 이진실, 김민찬, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2016년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 361,
+    "title": "위성항법 지역보강시스템(GBAS)을 위한 몬테카를로 시뮬레이션 기반 전리층 공간기울기 위협 분석",
+    "authors": "윤문석, 김동우, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2016년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 360,
+    "title": "광역보강시스템(SBAS) 가용성 향상을 위한 전리층 불균질 모델링 기법",
+    "authors": "방유진, 최필훈, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2016년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 359,
+    "title": "Expanded kriging 기반 전리층 추정기법을 위한 1차 Gauss-Markov 프로세스 모델링",
+    "authors": "최필훈, 방유진, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2016년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 358,
+    "title": "광역보강시스템을 위한 위성 중심의 전리층 지연오차 추정 기법 연구",
+    "authors": "한준영, 방유진, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2016년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 357,
+    "title": "적도 지역의 CAT-I GBAS 운용을 위한 낮 시간의 수직 방향 전리층 기울기 통계치 산출 기법",
+    "authors": "장혜연, 윤문석, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2016년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 356,
+    "title": "적도 지역의 CAT-I GBAS를 위한 확률적 전리층 위협 완화 기법",
+    "authors": "윤문석, 김동우, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2016년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 355,
+    "title": "이동형 DGNSS 지상국 실측위치오차 분석",
+    "authors": "김민찬, 방유진, 이동경, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2015년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 354,
+    "title": "한반도 광역보강시스템(SBAS)의 전리층 보정 및 무결성 알고리즘 예비 설계를 위한 전리층 불균질 위협모델 구축",
+    "authors": "방유진, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2015년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 353,
+    "title": "이동형 DGNSS 지상국 위치선정기준 및 다중경로오차 분석",
+    "authors": "김민찬, 이동경, 한준영, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2015년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 352,
+    "title": "GBAS를 위한 전리층 공간 비상관성 위협 시각화 기법",
+    "authors": "윤문석, 김동우, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2015년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 351,
+    "title": "Characterization of Equatorial Plasma Bubbles for Analyzing Ionospheric Impacts on Ground-Based Augmentation System",
+    "authors": "윤문석, 이지윤",
+    "conference": "한국우주과학회 추계학술발표회, 서울, 2015년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 350,
+    "title": "한반도 SBAS를 위한 태양주기 24의 영향분석",
+    "authors": "방유진, 최필훈, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2015년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 349,
+    "title": "가중위치 기반의 고속실측위치 추정 기법 연구",
+    "authors": "이동경, 김민찬, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2015년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 348,
+    "title": "GNSS 네트워크 기반 자연재해 이동성 전리층 교란의 통계 분석: 2011년 일본 동부 대지진 사례 연구",
+    "authors": "선기영, 윤문석, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2015년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 347,
+    "title": "ADS-B 기반 무인기 충돌 회피를 위한 보호공역 산출 기법 연구",
+    "authors": "한준영, 김민찬, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2015년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 346,
+    "title": "전리층 지연 추정 정확도 향상을 위한 준 실시간 베리오그램 모델링 기법",
+    "authors": "최필훈, 방유진, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2015년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 345,
+    "title": "한반도 광역보강시스템(SBAS)를 위한 실시간 FOM 산출 기법 연구",
+    "authors": "현은정, 방유진, 이지윤",
+    "conference": "한국항행학회 종합학술대회, 서울, 2015년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 344,
+    "title": "Equatorial Plasma Bubble Events observed during the Peak of Solar Cycle 23: Case Studies in the Korean Region",
+    "authors": "최필훈, 윤문석, 이지윤",
+    "conference": "한국우주과학회 봄학술발표회, 정선, 2015년 4월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 343,
+    "title": "Case Studies of Equatorial Ionospheric Effects on GPS-Based Navigation Systems during Scintillation days",
+    "authors": "김동우, 윤문석, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2014년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 342,
+    "title": "LADGNSS 지원 환경에서의 무인항공기 항법 정확도 평가를 위한 비행실험",
+    "authors": "김기완, 김민찬, 이동경, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2014년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 341,
+    "title": "한반도 광역보강시스템(SBAS)를 위한 전리층 공간적 상관 분석,” 2014년도 한국위성항법시스템학회 정기학술대회",
+    "authors": "방유진, 이진실, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2014년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 340,
+    "title": "무인기 고신뢰성 항법지원을 위한 이동형 DGPS 개념 연구",
+    "authors": "류초롱, 이진실, 김민찬, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2013년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 339,
+    "title": "ARAIM을 위한 GPS 위성 궤도력 및 시계 오차 통계치 분석 연구",
+    "authors": "류초롱, 김동우, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2013년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 338,
+    "title": "위성 비가용성 상황에 강인한 한국형 위성항법 궤도 설계 및 항법 성능 분석",
+    "authors": "최문석, 원대희, 성상경, 이지윤, 김정래, 박준표, 박흥원, 이영재",
+    "conference": "한국위성항법시스템학회, 제주, 2013년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 337,
+    "title": "한국형 SBAS에 사용가능한 정지궤도 위성 Inmarsat-4 F1의 궤도력 및 시계 보정오차 무결성 분석",
+    "authors": "이진실, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2013년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 336,
+    "title": "LADGNSS 지원 환경에서의 무인항공기간 분리거리 추정을 위한 다중경로 오차와 경로추종 오차 분석",
+    "authors": "김기완, 김민찬, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2013년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 335,
+    "title": "Statistical Results from Ionospheric Data Analysis on Nominal Days for GBAS CAT-I Operations in South Korea",
+    "authors": "김동우, 이진실, 김민찬, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2013년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 334,
+    "title": "한반도 광역보강시스템(SBAS)의 가용성 예비 평가를 위한 전리층 위협모델 구축",
+    "authors": "방유진, 이진실, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2013년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 333,
+    "title": "한반도 전리층 위협 모델을 적용한 CAT-I GBAS 성능 평가 방법론 연구",
+    "authors": "윤문석, 김민찬, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2013년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 332,
+    "title": "2004년 11월 10일 한반도 지역의 Medium-scale Traveling Ionospheric Disturbances 특성 분석",
+    "authors": "윤문석, 이지윤",
+    "conference": "한국우주과학회 추계학술발표회, 여수, 2013년 10월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 331,
+    "title": "전리층 신틸레이션 검출을 위한 자동화 알고리즘 설계",
+    "authors": "이진실, 서지원, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2012년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 330,
+    "title": "민수용 무인항공기 통제 및 항법 기반구축 사전연구",
+    "authors": "심현철, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2012년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 329,
+    "title": "GNSS 보강시스템의 전리층 분석 성능 향상을 위한 데이터 품질평가 기법 연구",
+    "authors": "김민찬, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2012년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 328,
+    "title": "위성항법 지역보강시스템(GBAS) CAT-I 운용을 위한 한반도 전리층 위협 모델 개발",
+    "authors": "최윤정, 김민찬, 윤문석, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2012년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 327,
+    "title": "상향식 접근법을 이용한 GPS 위성 궤도력 및 시계 오차 분석",
+    "authors": "류초롱, 이지윤",
+    "conference": "한국위성항법시스템학회, 제주, 2012년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 326,
+    "title": "WDOP을 이용한 한국형 위성항법 시스템 궤도 설계 및 항법 성능 분석",
+    "authors": "최문석, 원대희, 성상경, 이지윤, 김정래, 이영재, 박준표, 박흥원",
+    "conference": "한국위성항법시스템학회, 제주, 2012년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 325,
+    "title": "한국형 달 탐사를 위한 임무 및 최적 항행 경로의 설계",
+    "authors": "노희건, 김소형, 박호진, 안광호, 안재명, 이지윤, 조수장, 피재환",
+    "conference": "한국우주과학회 봄학술발표회, 제천, 2012년 4월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 324,
+    "title": "지상기반 위성항법보강시스템을 위한 알레스카 지역의 전리층 이상 현상 분석",
+    "authors": "김민찬, 정성욱, 이지윤",
+    "conference": "한국우주과학회 봄학술발표회, 제천, 2012년 4월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 323,
+    "title": "한반도 GPS 관측 데이터를 이용한 GBAS 전리층 위협 현상 분석",
+    "authors": "최윤정, 정성욱, 김민찬, 이지윤",
+    "conference": "한국우주과학회 봄학술발표회, 제천, 2012년 4월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 322,
+    "title": "국내 IGS 상시관측소의 수신기 주파수간 바이어스 추정 및 시계열 분석",
+    "authors": "정성욱, 정광섭, 김민찬, 방유진, 이지윤",
+    "conference": "The 18th GNSS workshop, 제주 Phoenix Island, 2011년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 320,
+    "title": "전리층 경사면의 속도 추정 자동화를 위한 K-means 알고리즘의 적용",
+    "authors": "방유진, 정성욱, 이지윤",
+    "conference": "The 18th GNSS workshop, 제주 Phoenix Island, 2011년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 319,
+    "title": "한국형 QZSS의 가용성 분석",
+    "authors": "최문석, 원대희, 성상경, 이지윤, 김정래, 이영재, 박준표, 박흥원",
+    "conference": "한국통신학회 하계종합학술발표회, 제주, 2011년 6월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 318,
+    "title": "다중위성항법스스템을 이용한 한국지역의 가용성 분석",
+    "authors": "안종선, 원대희, 성상경, 이지윤, 김정래, 이영재, 박준표, 박흥원",
+    "conference": "한국통신학회 하계종합학술발표회, 제주, 2011년 6월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 317,
+    "title": "CAT-I GBSA 한반도 전리층 위협모델 구축을 위한 알고리즘 설계",
+    "authors": "정성욱, 방유진, 이지윤",
+    "conference": "항공우주학회 춘계학술대회, 경주, 2011년 4월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 316,
+    "title": "지상기반 보강시스템의 상시 전리층 감시를 위한 우주 기상 데이터의 이용",
+    "authors": "방유진, 정성욱, 이지윤",
+    "conference": "The 17th GNSS workshop, 제주 해비치호텔, 2010년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 315,
+    "title": "GPS 신호의 전리층 지연오차 추정을 위한 전처리 알고리즘",
+    "authors": "정성욱, 방유진, 이지윤",
+    "conference": "항공우주학회 추계학술대회, 제주, 2010년 11월",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": null,
+    "categories": [
+      "Domestic Conferences"
+    ]
+  },
+  {
+    "id": 253,
+    "title": "Conceptual Satellite Orbit Design for Korean Navigation Satellite System",
+    "authors": "Moonseok Choi, Dae Hee Won, Jongsun Ahn, Sangkyoung Sung, Jiyun Lee, Jeongrae Kim, Jae-Gyu Jang, and Young Jae Lee",
+    "conference": "Transactions of the Japan Society for Aeronautical and Space Sciences, 2018",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://www.jstage.jst.go.jp/article/tjsass/61/1/61_T-17-21/_article/-char/ja/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 251,
+    "title": "Advances in Signal Processing for GNSSs",
+    "authors": "Pau Closas, Marco Luise, Jose-Angel Avila-Rodriguez, Christopher Hegarty, and Jiyun Lee",
+    "conference": "IEEE-INST ELECTRICAL ELECTRONICS ENGINEERS INC",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://ieeexplore.ieee.org/document/8026110/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 250,
+    "title": "Ionospheric delay gradient model for GBAS in the Asia-Pacific region",
+    "authors": "Susumu Saito, Surendra Sunda, Jiyun Lee, Sam Pullen, Slamet Supriadi, Takayuki Yoshihara, Michael Terkildsen, Frédéric LecatICAO APANPIRG Ionospheric Studies Task Force",
+    "conference": "GPS Solutions, Vol. 21, Issue 4, October 2017, pp 1937-1947,  2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://link.springer.com/article/10.1007/s10291-017-0662-1",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 249,
+    "title": "Equatorial Plasma Bubble Threat Parameterization to Support GBAS Operations in the Brazilian Region",
+    "authors": "Moonseok Yoon, Jiyun Lee, Sam Pullen, Joseph Gillespie, Navin Mather and Rich Cole, Jonas Rodrigues de Souza, Patricia Doherty and Rezy Pradipta",
+    "conference": "Navigation, 30 March 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://www.ion.org/publications/abstract.cfm?articleID=13040",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 248,
+    "title": "Design and Evaluation of Symmetric Space-Time Adaptive Processing of an Array Antenna for Precise Global Navigation Satellite System Receivers",
+    "authors": "Kihoon Lee, and Jiyun Lee",
+    "conference": "IET Signal Processing, 15 March 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://ieeexplore.ieee.org/document/8000812/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 247,
+    "title": "Monitoring and Mitigation of Ionospheric Anomalies for GNSS-Based Safety Critical Systems",
+    "authors": "Jiyun Lee, Y. T. Jade Morton, Jinsil Lee, Hee-Seung Moon, and Jiwon Seo",
+    "conference": "IEEE Signal Processing Magazine, 17 March 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://ieeexplore.ieee.org/document/8026593/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 246,
+    "title": "Ionospheric Gradient Threat Mitigation in Future Dual Frequency GBAS",
+    "authors": "Michael Felux, Mihaela-Simona Circiu, Jiyun Lee, and Florian Holzapfel",
+    "conference": "International Journal of Aerospace Engineering, vol. 2017, Article ID 4326018, 10 pages, 27 February 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://www.hindawi.com/journals/ijae/2017/4326018/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 245,
+    "title": "Feasibility Studies for Applications of Long-Term Ionospheric Anomaly Monitor",
+    "authors": "Minchan Kim, Eugene Bang, Sam Pullen, Young Jae Lee, and Jiyun Lee",
+    "conference": "IEEE Transactions on Aerospace and Electronic Systems, 20 February 2017",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://ieeexplore.ieee.org/document/7859336/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 244,
+    "title": "Optimized GNSS Station Selection to Support Long-Term Monitoring of Ionospheric Anomalies for Aircraft Landing Systems",
+    "authors": "Jiyun Lee, and Minchan Kim",
+    "conference": "IEEE Transactions on Aerospace and Electronic Systems, Vol 53. No. 1, February 2017, pp 1-11",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://ieeexplore.ieee.org/document/7812708/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 242,
+    "title": "Validation of Ionospheric Spatial Decorrelation Observed During Equatorial Plasma Bubble Events",
+    "authors": "Moonseok Yoon, Dongwoo Kim, and Jiyun Lee",
+    "conference": "IEEE Transactions on Geoscience and Remote Sensing, Vol. 55, Issue 1, January 2017, pp 261 – 271",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://ieeexplore.ieee.org/document/7572894/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 243,
+    "title": "Real-time Ionospheric Threat Adaptation by Using Space Weather Prediction for GNSS-Based Aircraft Landing Systems",
+    "authors": "Jinsil Lee, Sam Pullen, Seebany Datta-Barua, and Jiyun Lee",
+    "conference": "IEEE Transactions on Intelligent Transportation Systems, 06 December 2016",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://ieeexplore.ieee.org/document/7774997/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 241,
+    "title": "Preliminary Availability Assessment to Support Single Frequency SBAS Development in the Korean Region",
+    "authors": "Eugene Bang, Jinsil Lee, Todd Walter, and Jiyun Lee",
+    "conference": "GPS Solutions, Vol. 20, Issue 3, July 2016, pp 299 -312,  2016",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://link.springer.com/article/10.1007/s10291-016-0522-4",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 240,
+    "title": "Automatic Ionospheric Scintillation Detector for Global Navigation Satellite System Receivers",
+    "authors": "Devanaboyina Venkata Ratna, Gampala Sivavaraprasad, and Jiyun Lee",
+    "conference": "IET Radar, Sonar & Navigation (2015), Vol. 9, Issue 6, pp 702-711, June  2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://ieeexplore.ieee.org/document/7127162/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 237,
+    "title": "GBAS Ground Monitoring Requirements from an Airworthiness Perspective",
+    "authors": "Michael Felux, Jiyun Lee, and Florian Holzapfel",
+    "conference": "GPS Solutions, July 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://link.springer.com/article/10.1007/s10291-014-0398-0",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 235,
+    "title": "GBAS Ionospheric Threat Model Assessment for Category I Operation in the Korean Region",
+    "authors": "Minchan Kim, Yunjung Choi, Hyang-Sig Jun, and Jiyun Lee",
+    "conference": "GPS Solutions, Vol. 19, Issue 3, pp 443-456,  July 2015",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://link.springer.com/article/10.1007/s10291-014-0404-6",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 239,
+    "title": "RAIM Algorithm Considering Simultaneous Multiple Ramp Failures",
+    "authors": "Ho Yun, Deokhwa Han, Changdon Kee, Jiyun Lee, and Moon Beom Heo",
+    "conference": "Aircraft Engineering and Aerospace Technology (2015), Vol. 87, Issue 4, pp 357 – 367",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://www.emeraldinsight.com/doi/full/10.1108/AEAT-07-2013-0126",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 238,
+    "title": "Equatorial Ionospheric Anomaly (EIA) and comparison with IRI model during descending phase of solar activity (2005- 2009)",
+    "authors": "Sanjay Kumar, A. K. Singh, and Jiyun Lee",
+    "conference": "Advances in Space Research, Vol. 53, Issue 5. March 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://www.sciencedirect.com/science/article/pii/S0273117713008168",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 255,
+    "title": "Considerations on Ionospheric Correction and Integrity Algorithm for Korean SBAS",
+    "authors": "Eugene Bang, and Jiyun Lee",
+    "conference": "Journal of Positioning, Navigation, and Timing, March 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://www.researchgate.net/publication/264171343_Considerations_on_Ionospheric_Correction_and_Integrity_Algorithm_for_Korean_SBAS",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 236,
+    "title": "Medium-scale Travelling Ionospheric Disturbances in the Korean Region on 10 November 2004: Potential impact on GPS-Based navigation Systems",
+    "authors": "Moonseok Yoon, and Jiyun Lee",
+    "conference": "Space Weather, Vol. 12, Issue 4, pp 173-186, April 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1002/2013SW001002",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 234,
+    "title": "A Comprehensive Method for GNSS Data Quality Determination to Improve Ionospheric Data Analysis",
+    "authors": "Minchan Kim, Jiwon Seo, and Jiyun Lee",
+    "conference": "Sensors 2014, 14(8), 14971-14993",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://www.mdpi.com/1424-8220/14/8/14971",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 233,
+    "title": "Selective Integration of GNSS, Vision Sensor, and INS Using Weighted DOP under GNSS-challenged Environments",
+    "authors": "Dae Hee Won, Eunsung Lee, Moonbeom Heo, Seung-Woo Lee, Jiyun Lee, Jeongrae Kim, Sangkyung Sung, and Young Jae Lee",
+    "conference": "IEEE Transactions on Instrumentation & Measurement, Vol. 63, No. 9, pp 2288-2298, September 2014",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://ieeexplore.ieee.org/document/6755510/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 232,
+    "title": "Methodology of automated ionosphere front velocity estimation for ground-based augmentation of GNSS",
+    "authors": "Eugene Bang, and Jiyun Lee",
+    "conference": "Radio Science, 48, 659–670, November 2013",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://ieeexplore.ieee.org/document/7771147/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 231,
+    "title": "Geometrical Distortion Integrated Performance Index for Vision-Based Navigation System",
+    "authors": "Dae Hee Won, Sebum Chun, Seung-Woo Lee, Sangkyung Sung, Jiyun Lee, Jeongrae Kim, and Young Jae Lee",
+    "conference": "International Journal of Control, Automation, and Systems, Vol 11, No. 6, December 2013, pp 1196 – 1203",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://link.springer.com/article/10.1007/s12555-012-0194-y",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 230,
+    "title": "GNSS Integration with Vision-based Navigation for Low GNSS Visibility Conditions",
+    "authors": "Dae Hee Won, Eunsung Lee, Moonbeom Heo, Sangkyung Sung, Jiyun Lee, and Young Jae Lee",
+    "conference": "GPS Solutions, March 2013",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://link.springer.com/article/10.1007/s10291-013-0318-8",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 229,
+    "title": "Long Term Ionospheric Anomaly Monitoring for Ground Based Augmentation Systems",
+    "authors": "Sungwook Jeong, and Jiyun Lee",
+    "conference": "Radio Science, 47, RS4006, July 2012",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://koasas.kaist.ac.kr/bitstream/10203/103238/1/000306912200002.pdf",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 227,
+    "title": "Weighted  DOP with Consideration on Elevation-Dependent Range Errors of GNSS Satellites",
+    "authors": "Dae Hee Won, Jongsun Ahn, Seung-Woo Lee, Jiyun Lee, Sankyung Sung, Heung-Won Park, Jun-Pyo Park, and Young Jae Lee",
+    "conference": "IEEE Transactions on Instrumentation & Measurement,  Vol.61, Issue.12, Dec. 2012, pp.3241-3250",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://ieeexplore.ieee.org/document/6237526/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 226,
+    "title": "Targeted Parameter Inflation within Ground-Based Augmentation Systems to Minimize Anomalous Ionospheric Impact",
+    "authors": "Jiwon Seo, Jiyun Lee, Sam Pullen, Per Enge, and Sigrid Close",
+    "conference": "AIAA Journal of Aircraft. Vol 49. No. 2, March-April 2012, pp 587-599",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://arc.aiaa.org/doi/abs/10.2514/1.C031601",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 222,
+    "title": "A Real-Time Capable Software-Defined Receiver Using GPU for Adaptive Anti-Jam GPS Sensors",
+    "authors": "Jiwon Seo, YH. Chen, D. De Lorenzo, S. Lo, Per Enge, Daniel Akos, and Jiyun Lee",
+    "conference": "Sensors  2011, 11(9), 8966-8991",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://www.ncbi.nlm.nih.gov/pubmed/22164116",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 221,
+    "title": "Observations of low-elevation ionospheric anomalies for ground-based augmentation of GNSS",
+    "authors": "Jiyun Lee, Seebany Datta-Barua, Godwin Zhang, Sam Pullen, and Per Enge",
+    "conference": "Radio Science, Vol.46, No. 6, December 2011",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://onlinelibrary.wiley.com/doi/10.1029/2011RS004776/abstract",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 220,
+    "title": "Ionospheric Threat Mitigation by Geometry Screening in Ground-Based Augmentation Systems",
+    "authors": "Jiyun Lee, Jiwon Seo, Young Shin Park, Sam Pullen, and Per Enge",
+    "conference": "AIAA Journal of Aircraft. Vol 48. No. 4, July-August 2011, pp 1422-1433",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://arc.aiaa.org/doi/abs/10.2514/1.C031309",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 219,
+    "title": "Ionospheric Threat Parameterization for Local Area Global-Positioning-System-Based Aircraft Landing Systems",
+    "authors": "Seebany Datta-Barua, Jiyun Lee, Sam Pullen, Ming Luo, Alexandru Ene, Di Qiu, Godwin Zhang, and Per Enge",
+    "conference": "AIAA Journal of Aircraft. Vol 47. No. 4, July-August 2010, pp 1141-1151",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://arc.aiaa.org/doi/abs/10.2514/1.46719",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 218,
+    "title": "Sigma Overbounding Using a Position Domain Method for the Local Area Augmentation of GPS",
+    "authors": "Jiyun Lee, Sam Pullen, and Per Enge",
+    "conference": "IEEE Transactions on Aerospace and Electronic Systems, Vol 45. No. 4, October 2009, pp 1262-1274",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://ieeexplore.ieee.org/abstract/document/5310297/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 217,
+    "title": "Assessment of Ionosphere Spatial Decorrelation for Global Positioning System-Based Aircraft Landing Systems",
+    "authors": "Jiyun Lee, Sam Pullen, Seebany Datta-Baura, and Per Enge",
+    "conference": "AIAA Journal of Aircraft. Vol 44. No. 5, September-October 2007, pp 1662-1669.",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://arc.aiaa.org/doi/abs/10.2514/1.28199",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 214,
+    "title": "Sigma-Mean Monitoring for the Local Area Augmentation of GPS",
+    "authors": "Jiyun Lee, Sam Pullen, and Per Enge",
+    "conference": "IEEE Transactions on Aerospace and Electronic Systems",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "http://ieeexplore.ieee.org/abstract/document/1642577/",
+    "categories": [
+      "International Journals"
+    ]
+  },
+  {
+    "id": 174,
+    "title": "Monitoring GPS Satellite Orbit Errors for Aircraft Landing Systems",
+    "authors": "Jiyun Lee, Sam Pullen, and Per Enge",
+    "conference": "AIAA Journal of Aircraft, 2006",
+    "pdf": null,
+    "bibtex": null,
+    "slides": null,
+    "website": "https://arc.aiaa.org/doi/pdf/10.2514/1.17339",
+    "categories": [
+      "International Journals"
+    ]
+  }
+]
