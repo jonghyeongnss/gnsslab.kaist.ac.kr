@@ -608,39 +608,20 @@
 // ─── DATA ───────────────────────────────────────────────────────────────────
 let PUBS = [];
 
-function getYear(conference) {
-  if (!conference) return null;
-  let m = conference.match(/(20\d{2})년/);
-  if (m) return parseInt(m[1]);
-  m = conference.match(/\b(20\d{2})\b/);
-  if (m) return parseInt(m[1]);
-  return null;
-}
-
-function getType(categories) {
-  if (categories.some(c => c.includes('Journal'))) return 'journal';
-  return 'conference';
-}
-
 fetch('publications.json')
   .then(r => r.json())
   .then(data => {
-    PUBS = data
-      .filter(p => getYear(p.conference) !== null)
-      .map(p => ({
-        id: p.id,
-        year: getYear(p.conference),
-        type: getType(p.categories),
-        title: p.title,
-        authors: p.authors,
-        venue: p.conference,
-        venueShort: p.conference,
-        abstract: '',
-        doi: p.website || '#',
-        pdf: p.pdf || '#'
-      }));
+    PUBS = data.filter(p => p.year);
+
+    // 연도 버튼 동적 생성
+    const years = [...new Set(PUBS.map(p => p.year))].sort((a, b) => b - a);
+    const yearFilters = document.getElementById('year-filters');
+    yearFilters.innerHTML = `<button class="filter-btn active" data-year="all">All Years</button>`
+      + years.map(y => `<button class="filter-btn" data-year="${y}">${y}</button>`).join('');
+
     render();
-  });
+  })
+  .catch(err => console.error('fetch 실패:', err));
 
 // ─── STATE ───────────────────────────────────────────────────────────────────
 let activeType = 'all';
