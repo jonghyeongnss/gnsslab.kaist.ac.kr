@@ -128,7 +128,10 @@
       backdrop-filter: blur(16px);
       border-bottom: 1px solid #a0b8d0;
       padding: 1rem 5rem;
-      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      display: flex; flex-direction: column; gap: 0.7rem;
+    }
+    .controls-top {
+      display: flex; align-items: center; gap: 1rem; flex-wrap: nowrap;
     }
     .search-wrap {
       position: relative; flex: 1; min-width: 160px; max-width: 240px;
@@ -144,9 +147,8 @@
     .search-wrap input::placeholder { color: #7a9ab8; }
     .search-wrap input:focus { border-color: var(--cyan); }
     .search-icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: #7a9ab8; font-size: clamp(0.82rem, 1.4vw, 1.4rem); pointer-events: none; }
-    .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-	#type-filters { flex-wrap: nowrap; overflow-x: auto; }
-	#year-filters { flex-wrap: nowrap; overflow-x: auto; }
+    .filter-group { display: flex; gap: 0.5rem; flex-wrap: nowrap; overflow-x: auto; }
+	#year-filters .filter-btn[data-year="all"] { white-space: nowrap; }
     .filter-btn {
       font-family: var(--mono); font-size: clamp(0.82rem, 1.4vw, 1.4rem);
       letter-spacing: 0.08em; text-transform: uppercase;
@@ -156,7 +158,7 @@
     }
     .filter-btn:hover { color: #1c2b3a; border-color: #7a9ab8; }
     .filter-btn.active { color: #fff; background: var(--cyan); border-color: var(--cyan); }
-    .filter-divider { width: 1px; height: 1.5rem; background: #a0b8d0; }
+    .filter-divider { width: 100%; height: 1px; background: #a0b8d0; }
     .result-count { font-family: var(--mono); font-size: clamp(0.82rem, 1.4vw, 1.4rem); color: #7a9ab8; letter-spacing: 0.06em; margin-left: auto; }
     .result-count span { color: var(--cyan); }
 
@@ -325,11 +327,6 @@
 		padding-left: 0;
 		margin-left: 0;
 	  }
-	  .filter-divider {
-		width: 100%;
-		height: 1px;
-		/* 기존 width:1px, height:1.5rem 이 가로선으로 바뀜 */
-	  }
 	  .filter-divider:first-of-type { display: none; }
 	  /* 점 제거 */
 	  .pub-item::before { display: none; }
@@ -360,6 +357,7 @@
 	}
 	@media (max-width: 640px) {
 	  .controls { gap: 0.8rem; }
+	  .controls-top { flex-wrap: wrap; }
 	  .footer-grid { grid-template-columns: 1fr 1fr; }
 	  .footer-brand { grid-column: 1 / -1; }
 	  .footer-col:empty { display: none; }
@@ -533,26 +531,27 @@
 </div>
 
 <div class="controls">
-  <div class="search-wrap">
-    <span class="search-icon">⌕</span>
-    <input type="text" id="search-input" placeholder="Search..."/>
-  </div>
-  <div class="filter-divider"></div>
-  <div class="filter-group" id="type-filters">
-    <button class="filter-btn active" data-type="all">All</button>
-    <button class="filter-btn" data-type="journal">Journal</button>
-    <button class="filter-btn" data-type="conference-int">Int. Conference</button>
-    <button class="filter-btn" data-type="conference-dom">Dom. Conference</button>
+  <div class="controls-top">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="search-input" placeholder="Search..."/>
+    </div>
+    <div class="filter-group" id="type-filters">
+      <button class="filter-btn active" data-type="all">All</button>
+      <button class="filter-btn" data-type="journal">Journal</button>
+      <button class="filter-btn" data-type="conference-int">Int. Conference</button>
+      <button class="filter-btn" data-type="conference-dom">Dom. Conference</button>
+    </div>
+    <div class="result-count" style="margin-left:auto; white-space:nowrap;"><span id="count">0</span> papers</div>
   </div>
   <div class="filter-divider"></div>
   <div class="filter-group" id="year-filters">
-    <button class="filter-btn active" data-year="all">All</button>
+    <button class="filter-btn active" data-year="all">All Years</button>
     <button class="filter-btn" data-year="2025">2025</button>
     <button class="filter-btn" data-year="2024">2024</button>
     <button class="filter-btn" data-year="2023">2023</button>
     <button class="filter-btn" data-year="2022">2022</button>
   </div>
-  <div class="result-count"><span id="count">0</span> papers</div>
 </div>
 
 <div class="pub-wrap" id="pub-wrap"></div>
@@ -616,7 +615,7 @@ fetch('publications.json')
     // 연도 버튼 동적 생성
     const years = [...new Set(PUBS.map(p => p.year))].sort((a, b) => b - a);
     const yearFilters = document.getElementById('year-filters');
-    yearFilters.innerHTML = `<button class="filter-btn active" data-year="all">All</button>`
+    yearFilters.innerHTML = `<button class="filter-btn active" data-year="all">All Years</button>`
       + years.map(y => `<button class="filter-btn" data-year="${y}">${y}</button>`).join('');
 
     render();
