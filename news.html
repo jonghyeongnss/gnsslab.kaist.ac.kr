@@ -268,12 +268,12 @@
       background: #fff;
       border: 1px solid #a0b8d0;
       box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-      max-width: 1000px; width: 100%;
-      padding: clamp(1.2rem, 4vw, 3.5rem);
+      max-width: 860px; width: 100%;
+      padding: clamp(1.2rem, 4vw, 3rem);
       position: relative;
       transform: translateY(20px);
       transition: transform 0.3s ease;
-      max-height: 90vh;
+      max-height: 92vh;
       overflow-y: auto;
     }
     .modal-overlay.open .modal { transform: translateY(0); }
@@ -289,26 +289,32 @@
     .modal-close:hover { color: #1c2b3a; }
 
     .modal-date {
-      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
-      color: #7a9ab8; letter-spacing: 0.06em;
-      margin-bottom: 0.8rem;
+      font-family: var(--mono); font-size: clamp(0.68rem, 0.9vw, 0.9rem);
+      color: #7a9ab8; letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 0.5rem;
     }
     .modal-title {
-      font-family: var(--ui); font-size: clamp(1.1rem, 2vw, 2.0rem); font-weight: 600;
-      color: #0e1e2e; line-height: 1.4; margin-bottom: 0.5rem;
+      font-family: var(--ui); font-size: clamp(0.95rem, 1.5vw, 1.5rem); font-weight: 600;
+      color: #0e1e2e; line-height: 1.35; margin-bottom: 1.2rem;
+      padding-bottom: 1.0rem; border-bottom: 1px solid #e4edf5;
     }
-    .modal-venue {
-      font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #3d5a78;
-      margin-bottom: 1.6rem; padding-bottom: 1.4rem;
-      border-bottom: 1px solid #e4edf5;
-    }
-    .modal-desc {
-      font-family: var(--serif); font-size: clamp(0.95rem, 1.6vw, 1.6rem);
+    .modal-body {
+      font-family: var(--serif); font-size: clamp(0.82rem, 1.1vw, 1.05rem);
       color: #2a3a4a; line-height: 1.85;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.2rem;
     }
+    .modal-body img {
+      max-width: 80%; height: auto;
+      display: block; margin: 1.2rem auto;
+      border-radius: 2px;
+    }
+    .modal-body p { margin-bottom: 0.75rem; }
+    .modal-body p:empty { display: none; }
+    .modal-body figure { margin: 1.2rem 0; }
+    .modal-body figcaption { font-size: 0.8rem; color: #7a9ab8; text-align: center; margin-top: 0.4rem; }
+    .modal-body .wp-block-image { text-align: center; }
     .modal-link {
-      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
+      font-family: var(--mono); font-size: clamp(0.68rem, 0.9vw, 0.95rem);
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--cyan); text-decoration: none;
       border: 1px solid #c0d0e0;
@@ -645,6 +651,7 @@ fetch('news.json')
         title: item.title.replace(/&#8217;/g, "'").replace(/&amp;/g, '&').replace(/&#[0-9]+;/g, ''),
         venue: '',
         desc: item.excerpt.replace(/<[^>]+>/g, '').replace(/&#8217;/g, "'").replace(/&#8230;/g, '...').replace(/&amp;/g, '&').replace(/&#[0-9]+;/g, '').trim(),
+        content: item.content || '',
         link: '#'
       };
     });
@@ -724,12 +731,16 @@ function render() {
 function openModal(id) {
   const n = NEWS.find(x => x.id === id);
   if (!n) return;
+  const bodyHTML = n.content
+    ? n.content
+        .replace(/&#8217;/g, "'").replace(/&#8230;/g, '...').replace(/&amp;/g, '&')
+        .replace(/&#[0-9]+;/g, '').replace(/srcset="[^"]*"/g, '').replace(/sizes="[^"]*"/g, '')
+        .replace(/loading="lazy"/g, 'loading="lazy"')
+    : `<p>${n.desc}</p>`;
   document.getElementById('modal-content').innerHTML = `
     <div class="modal-date">${n.date}</div>
     <h2 class="modal-title">${n.title}</h2>
-    <p class="modal-venue">${n.venue}</p>
-    <p class="modal-desc">${n.desc}</p>
-    ${n.link !== '#' ? `<a href="${n.link}" class="modal-link">View &rarr;</a>` : ''}
+    <div class="modal-body">${bodyHTML}</div>
   `;
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
