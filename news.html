@@ -731,12 +731,19 @@ function render() {
 function openModal(id) {
   const n = NEWS.find(x => x.id === id);
   if (!n) return;
-  const bodyHTML = n.content
-    ? n.content
-        .replace(/&#8217;/g, "'").replace(/&#8230;/g, '...').replace(/&amp;/g, '&')
-        .replace(/&#[0-9]+;/g, '').replace(/srcset="[^"]*"/g, '').replace(/sizes="[^"]*"/g, '')
-        .replace(/loading="lazy"/g, 'loading="lazy"')
-    : `<p>${n.desc}</p>`;
+
+  let bodyHTML;
+  if (n.content) {
+    bodyHTML = n.content
+      .replace(/&#8217;/g, "'").replace(/&#8230;/g, '...').replace(/&amp;/g, '&')
+      .replace(/&#[0-9]+;/g, '')
+      .replace(/srcset="[^"]*"/g, '').replace(/sizes="[^"]*"/g, '')
+      .replace(/src="https?:\/\/gnss\.kaist\.ac\.kr\/wp-content\/uploads\/[^"]+\.(jpg|jpeg|png|gif|webp)"/gi,
+        (match, ext) => `src="images/news-${n.title}.${ext.toLowerCase()}"`);
+  } else {
+    bodyHTML = `<p>${n.desc}</p>`;
+  }
+
   document.getElementById('modal-content').innerHTML = `
     <div class="modal-date">${n.date}</div>
     <h2 class="modal-title">${n.title}</h2>
