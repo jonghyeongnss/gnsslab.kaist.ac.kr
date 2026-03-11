@@ -200,7 +200,7 @@
 
     section { position: relative; z-index: 1; }
     .sec-label {
-      display: inline-flex; align-items: center; gap: 2rem;
+      display: inline-flex; align-items: center; gap: 4rem;
       font-family: var(--mono); font-size: clamp(1.0rem, 1.8vw, 1.8rem);
       letter-spacing: 0.16em; text-transform: uppercase;
       color: #8a6e2f; margin-bottom: 0.8rem;
@@ -738,48 +738,7 @@
     </div>
     <a href="news.html" class="view-all-btn reveal">All News &rarr;</a>
   </div>
-  <div class="news-list">
-    <div class="news-item">
-      <span class="news-date">2025. 06</span>
-      <div class="news-body">
-        <p class="news-title">New paper accepted — Wavelet-Transform Phase Matching for Lower Troposphere RO</p>
-        <p class="news-detail">Journal of Geophysical Research · Atmospheres</p>
-      </div>
-      <a href="#" class="news-link">Read &rarr;</a>
-    </div>
-    <div class="news-item">
-      <span class="news-date">2025. 05</span>
-      <div class="news-body">
-        <p class="news-title">Best Student Paper Award at ION GNSS+ 2025</p>
-        <p class="news-detail">Institute of Navigation · Tampa, FL</p>
-      </div>
-      <a href="#" class="news-link">Read &rarr;</a>
-    </div>
-    <div class="news-item">
-      <span class="news-date">2025. 03</span>
-      <div class="news-body">
-        <p class="news-title">Presentation at EGU General Assembly 2025 — Vienna, Austria</p>
-        <p class="news-detail">Session on GNSS Remote Sensing and Atmospheric Applications</p>
-      </div>
-      <a href="#" class="news-link">Read &rarr;</a>
-    </div>
-    <div class="news-item">
-      <span class="news-date">2025. 02</span>
-      <div class="news-body">
-        <p class="news-title">We are recruiting MS/PhD students for Fall 2025</p>
-        <p class="news-detail">Interested candidates please contact Prof. Jiyun Lee</p>
-      </div>
-      <a href="#" class="news-link">Read &rarr;</a>
-    </div>
-    <div class="news-item">
-      <span class="news-date">2024. 12</span>
-      <div class="news-body">
-        <p class="news-title">LSW Algorithm paper published — Local Spectral Width for Multipath Detection</p>
-        <p class="news-detail">GPS Solutions · Springer</p>
-      </div>
-      <a href="#" class="news-link">Read &rarr;</a>
-    </div>
-  </div>
+  <div class="news-list" id="home-news-list"></div>
 </section>
 
 <footer>
@@ -867,6 +826,33 @@
   initStars();
   requestAnimationFrame(drawStars);
   window.addEventListener('resize', () => { resize(); initStars(); });
+
+  // ── News fetch ──
+  fetch('news.json')
+    .then(r => r.json())
+    .then(data => {
+      const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      const latest = data.slice(0, 5);
+      const list = document.getElementById('home-news-list');
+      list.innerHTML = latest.map(item => {
+        const d = new Date(item.date);
+        const date = `${d.getFullYear()}. ${MONTHS[d.getMonth()]}`;
+        const title = item.title.replace(/&#8217;/g, "'").replace(/&amp;/g, '&').replace(/&#[0-9]+;/g, '');
+        const desc = item.excerpt.replace(/<[^>]+>/g, '').replace(/&#8217;/g, "'").replace(/&#8230;/g, '...').replace(/&amp;/g, '&').replace(/&#[0-9]+;/g, '').trim();
+        return `
+        <div class="news-item">
+          <span class="news-date">${date}</span>
+          <div class="news-body">
+            <p class="news-title">${title}</p>
+            <p class="news-detail">${desc.slice(0, 80)}${desc.length > 80 ? '...' : ''}</p>
+          </div>
+          <a href="news.html" class="news-link">Read &rarr;</a>
+        </div>`;
+      }).join('');
+      // reveal 애니메이션 적용
+      document.querySelectorAll('.news-item').forEach(el => io.observe(el));
+    })
+    .catch(() => {});
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
