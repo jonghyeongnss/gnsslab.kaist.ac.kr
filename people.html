@@ -41,7 +41,7 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 64px;
-      display: flex; align-items: center; justify-content: space-between; padding: 2rem 3rem;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 3rem;
       background: rgba(245,247,250,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #a0b8d0;
@@ -101,7 +101,7 @@
       background: #F5F7FA;
     }
     .page-header-eyebrow {
-      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem);
       letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.8rem;
       display: flex; align-items: center; gap: 0.8rem;
@@ -114,7 +114,7 @@
     }
     .page-header-desc {
       font-family: var(--serif); font-style: italic;
-      font-size: clamp(1.2rem, 1.4vw, 2.0rem); color: #3d5a78; max-width: 48ch;
+      font-size: clamp(1.1rem, 2vw, 2.0rem); color: #3d5a78; max-width: 48ch;
     }
 
     /* SECTION */
@@ -183,6 +183,20 @@
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 1.5rem;
     }
+    .phd-grid { grid-template-columns: repeat(6, 1fr); margin-bottom: 2.5rem; }
+    .ms-grid  { grid-template-columns: repeat(6, 1fr); }
+    .degree-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 1.5rem 0 1rem;
+    }
+    .degree-divider::before, .degree-divider::after {
+      content: ''; flex: 1; height: 1px; background: #d0dce8;
+    }
+    .degree-label {
+      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--cyan); white-space: nowrap;
+    }
 
     .person-card {
       background: #fff;
@@ -228,29 +242,29 @@
 
     /* FOOTER */
     footer {
-	  background: #0e1e2e;
-	  border-top: 1px solid #1a3050;
-	  padding: 4rem 5rem 2.5rem; position: relative; z-index: 1;
-	}
-	.footer-grid {
-	  display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
-	  gap: 3rem; padding-bottom: 3rem;
-	  border-bottom: 1px solid #1a3050; margin-bottom: 2rem;
-	}
-	.footer-brand-name { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
-	.footer-brand-name span { color: var(--gold); }
-	.footer-brand-sub { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
-	.footer-col-title { font-family: var(--mono); font-size: clamp(1.0rem, 1.4vw, 1.4rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
-	.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-	.footer-col ul a { font-size: clamp(1.0rem, 1.5vw, 1.5rem); color: var(--dim); text-decoration: none; transition: color 0.2s; }
-	.footer-col ul a:hover { color: var(--bright); }
-	.footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
-	.footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
-	.footer-info-icon { font-size: clamp(1.0rem, 1.6vw, 1.6rem); opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
-	.footer-info-text { font-size: clamp(1.0rem, 1.5vw, 1.5rem); color: var(--dim); line-height: 1.6; }
-	.footer-info-text a { color: var(--cyan); text-decoration: none; }
-	.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-	.footer-bottom span { font-family: var(--mono); font-size: clamp(0.95rem, 1.4vw, 1.4rem); color: var(--dim); letter-spacing: 0.05em; }
+      background: #0e1e2e;
+      border-top: 1px solid #1a3050;
+      padding: 4rem 5rem 2.5rem;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 3rem; padding-bottom: 3rem;
+      border-bottom: 1px solid #1a3050; margin-bottom: 2rem;
+    }
+    .footer-brand-name { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-sub { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-col-title { font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 1.1rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: clamp(0.78rem, 1.2vw, 1.2rem); color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--bright); }
+    .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-info-row { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .footer-info-icon { font-size: clamp(0.85rem, 1.3vw, 1.3rem); opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
+    .footer-info-text { font-size: clamp(0.78rem, 1.2vw, 1.2rem); color: var(--dim); line-height: 1.6; }
+    .footer-info-text a { color: var(--cyan); text-decoration: none; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom span { font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 1.1rem); color: var(--dim); letter-spacing: 0.05em; }
 
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
     .reveal { opacity:1; transform:none; }
@@ -262,16 +276,19 @@
     .reveal-d5 { transition-delay: 0.25s; }
 
     @media (max-width: 960px) {
-      .page-header, .people-section, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+      .page-header, .people-section, footer { padding-left: 2rem; padding-right: 2rem; }
       .professor-card { flex-direction: column; gap: 2rem; }
       .professor-photo { width: 160px; height: 192px; }
       .people-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .phd-grid, .ms-grid { grid-template-columns: repeat(3, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-	  .footer-col:empty { display: none; }
-	  footer { padding-left: 2rem; padding-right: 2rem; }
       nav { padding: 0 1.5rem; }
     }
-
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .people-grid { grid-template-columns: repeat(2, 1fr); }
+      .phd-grid, .ms-grid { grid-template-columns: repeat(2, 1fr); }
+    }
 
     /* ── HAMBURGER ── */
     .nav-hamburger {
@@ -361,12 +378,6 @@
       .nav-hamburger { display: flex; }
       .nav-links { display: none; }
     }
-	@media (max-width: 640px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-	  .footer-brand { grid-column: 1 / -1; }
-	  .footer-col:empty { display: none; }
-      .people-grid { grid-template-columns: repeat(2, 1fr); }
-    }
   </style>
 </head>
 <body>
@@ -434,7 +445,7 @@
 <div class="nav-overlay" id="nav-overlay"></div>
 
 <div class="page-header">
-  <div class="page-header-eyebrow">GNSS Lab</div>
+  <div class="page-header-eyebrow">GNSS Lab · KAIST</div>
   <h1>People</h1>
   <p class="page-header-desc">Meet the researchers, students, and staff behind our work in satellite navigation and remote sensing.</p>
 </div>
@@ -466,88 +477,110 @@
   </div>
 </section>
 
-<!-- STUDENTS -->
-<section class="people-section" id="students">
-  <h2 class="section-title reveal">Students</h2>
-
+<!-- STAFF -->
+<section class="people-section" id="staff">
+  <h2 class="section-title reveal">Staff</h2>
   <div class="people-grid">
 
     <div class="person-card reveal">
-      <div class="person-photo">PHOTO</div>
+      <div class="person-photo"><img src="images/people-Minchan Kim.jpg" alt="Minchan Kim"></div>
       <div class="person-info">
-        <p class="person-name">Hyeon Park</p>
-        <p class="person-role">PhD Student</p>
-        <p class="person-detail">GNSS Radio Occultation · Wavelet Signal Processing</p>
-        <a href="/cdn-cgi/l/email-protection#f09889959f9e8091829bb09b91998384de9193de9b82" class="person-email"><span class="__cf_email__" data-cfemail="0c64756963627c6d7e674c676d657f78226d6f22677e">[email&#160;protected]</span></a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d1">
-      <div class="person-photo">PHOTO</div>
-      <div class="person-info">
-        <p class="person-name">Student Name</p>
-        <p class="person-role">PhD Student</p>
-        <p class="person-detail">GNSS Integrity · Aviation</p>
-        <a href="/cdn-cgi/l/email-protection#94e7e0e1f0f1fae0d4fff5fde7e0baf5f7baffe6" class="person-email"><span class="__cf_email__" data-cfemail="681b1c1d0c0d061c280309011b1c46090b46031a">[email&#160;protected]</span></a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d2">
-      <div class="person-photo">PHOTO</div>
-      <div class="person-info">
-        <p class="person-name">Student Name</p>
-        <p class="person-role">MS Student</p>
-        <p class="person-detail">LEO PNT · Positioning Algorithms</p>
-        <a href="/cdn-cgi/l/email-protection#6c1f1819080902182c070d051f18420d0f42071e" class="person-email"><span class="__cf_email__" data-cfemail="691a1d1c0d0c071d290208001a1d47080a47021b">[email&#160;protected]</span></a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d3">
-      <div class="person-photo">PHOTO</div>
-      <div class="person-info">
-        <p class="person-name">Student Name</p>
-        <p class="person-role">MS Student</p>
-        <p class="person-detail">Ionospheric Modeling · KPS</p>
-        <a href="/cdn-cgi/l/email-protection#6c1f1819080902182c070d051f18420d0f42071e" class="person-email"><span class="__cf_email__" data-cfemail="c8bbbcbdacada6bc88a3a9a1bbbce6a9abe6a3ba">[email&#160;protected]</span></a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d4">
-      <div class="person-photo">PHOTO</div>
-      <div class="person-info">
-        <p class="person-name">Student Name</p>
-        <p class="person-role">MS Student</p>
-        <p class="person-detail">Remote Sensing · GNSS-R</p>
-        <a href="/cdn-cgi/l/email-protection#0271767766676c764269636b71762c63612c6970" class="person-email"><span class="__cf_email__" data-cfemail="cdbeb9b8a9a8a3b98da6aca4beb9e3acaee3a6bf">[email&#160;protected]</span></a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d5">
-      <div class="person-photo">PHOTO</div>
-      <div class="person-info">
-        <p class="person-name">Student Name</p>
-        <p class="person-role">MS Student</p>
-        <p class="person-detail">Signal Processing · RO</p>
-        <a href="/cdn-cgi/l/email-protection#5e2d2a2b3a3b302a1e353f372d2a703f3d70352c" class="person-email"><span class="__cf_email__" data-cfemail="f487808190919a80b49f959d8780da9597da9f86">[email&#160;protected]</span></a>
+        <p class="person-name">Minchan Kim</p>
+        <p class="person-role">Research Engineer</p>
+        <p class="person-detail">Lab Management · System Administration</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- STAFF -->
-<section class="people-section" id="staff">
-  <h2 class="section-title reveal">Staff</h2>
+<!-- STUDENTS -->
+<section class="people-section" id="students">
+  <h2 class="section-title reveal">Students</h2>
 
-  <div class="people-grid">
+  <div class="degree-divider">
+    <span class="degree-label">Ph.D.</span>
+  </div>
+
+  <div class="people-grid phd-grid">
 
     <div class="person-card reveal">
-      <div class="person-photo">PHOTO</div>
+      <div class="person-photo"><img src="images/people-Yunjung Choi.jpg" alt="Yunjung Choi"></div>
       <div class="person-info">
-        <p class="person-name">Staff Name</p>
-        <p class="person-role">Research Engineer</p>
-        <p class="person-detail">Lab Management · System Administration</p>
-        <a href="/cdn-cgi/l/email-protection#87f4f3e6e1e1c7ece6eef4f3a9e6e4a9ecf5" class="person-email"><span class="__cf_email__" data-cfemail="750601141313351e141c06015b14165b1e07">[email&#160;protected]</span></a>
+        <p class="person-name">Yunjung Choi</p>
+        <p class="person-role">PhD Student</p>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d1">
+      <div class="person-photo"><img src="images/people-Gihun Nam.jpg" alt="Gihun Nam"></div>
+      <div class="person-info">
+        <p class="person-name">Gihun Nam</p>
+        <p class="person-role">PhD Student</p>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d2">
+      <div class="person-photo"><img src="images/people-Jaehee Chang.jpg" alt="Jaehee Chang"></div>
+      <div class="person-info">
+        <p class="person-name">Jaehee Chang</p>
+        <p class="person-role">PhD Student</p>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d3">
+      <div class="person-photo"><img src="images/people-Junsoo Kim.jpg" alt="Junsoo Kim"></div>
+      <div class="person-info">
+        <p class="person-name">Junsoo Kim</p>
+        <p class="person-role">PhD Student</p>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d4">
+      <div class="person-photo"><img src="images/people-Jihyeok Park.jpg" alt="Jihyeok Park"></div>
+      <div class="person-info">
+        <p class="person-name">Jihyeok Park</p>
+        <p class="person-role">PhD Student</p>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d5">
+      <div class="person-photo"><img src="images/people-Jimin Do.jpg" alt="Jimin Do"></div>
+      <div class="person-info">
+        <p class="person-name">Jimin Do</p>
+        <p class="person-role">PhD Student</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="degree-divider">
+    <span class="degree-label">M.S.</span>
+  </div>
+
+  <div class="people-grid ms-grid">
+
+    <div class="person-card reveal">
+      <div class="person-photo"><img src="images/people-Minseong Kim.jpg" alt="Minseong Kim"></div>
+      <div class="person-info">
+        <p class="person-name">Minseong Kim</p>
+        <p class="person-role">MS Student</p>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d1">
+      <div class="person-photo"><img src="images/people-Jonghyeon Park.jpg" alt="Jonghyeon Park"></div>
+      <div class="person-info">
+        <p class="person-name">Jonghyeon Park</p>
+        <p class="person-role">MS Student</p>
+      </div>
+    </div>
+
+    <div class="person-card reveal reveal-d2">
+      <div class="person-photo"><img src="images/people-Seungjun Heo.jpg" alt="Seungjun Heo"></div>
+      <div class="person-info">
+        <p class="person-name">Seungjun Heo</p>
+        <p class="person-role">MS Student</p>
       </div>
     </div>
 
@@ -560,7 +593,17 @@
       <div class="footer-brand-name">GNSS <span>KAIST</span></div>
       <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
     </div>
-    <div class="footer-col"></div>
+    <div class="footer-col">
+      <p class="footer-col-title">Quick Links</p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
     <div class="footer-col">
       <p class="footer-col-title">Research</p>
       <ul>
@@ -571,25 +614,30 @@
       </ul>
     </div>
     <div class="footer-col">
-      <p class="footer-col-title">Contact</p>
+      <p class="footer-col-title">Contact & Location</p>
       <div class="footer-info">
         <div class="footer-info-row">
           <span class="footer-info-icon">📍</span>
-          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
+          <span class="footer-info-text">          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea<br>KAIST, Aerospace Eng. Bldg.</span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#dbbcb5a8a8b7bab99bb0bab2a8aff5bab8f5b0a9"><span class="__cf_email__" data-cfemail="bfd8d1ccccd3deddffd4ded6cccb91dedc91d4cd">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#97f0f9e4e4fbf6f5d7fcf6fee4e3b9f6f4b9fce5"><span class="__cf_email__" data-cfemail="3d5a534e4e515c5f7d565c544e49135c5e13564f">[email&#160;protected]</span></a></span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">🔗</span>
+          <span class="footer-info-text"><a href="https://ae.kaist.ac.kr" target="_blank">ae.kaist.ac.kr</a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#610b0818140f0d0404210a000812154f00024f0a13"><span class="__cf_email__" data-cfemail="bdd7d4c4c8d3d1d8d8fdd6dcd4cec993dcde93d6cf">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#503a3929253e3c3535103b313923247e31337e3b22"><span class="__cf_email__" data-cfemail="761c1f0f03181a1313361d171f0502581715581d04">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
     <span>&copy; 2026 GNSS Lab · KAIST Department of Aerospace Engineering</span>
+    <span>Built with GitHub Pages</span>
   </div>
 </footer>
 
