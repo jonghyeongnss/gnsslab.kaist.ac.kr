@@ -443,120 +443,53 @@
 </footer>
 
 <script>
-const PHOTOS = [
-  {
-    src: 'images/gallery/ion-gnss-2024.jpg',
-    title: 'ION GNSS+ 2024',
-    desc: 'Lab members at the ION GNSS+ 2024 conference in Baltimore, MD. Three papers were presented.',
-    tag: 'Conference',
-    date: 'September 2024'
-  },
-  {
-    src: 'images/gallery/fieldwork-mountain.jpg',
-    title: 'Mountain Fieldwork',
-    desc: 'RO signal collection campaign in the mountainous terrain of Gangwon Province.',
-    tag: 'Fieldwork',
-    date: 'August 2024',
-    tall: true
-  },
-  {
-    src: 'images/gallery/lab-group-2024.jpg',
-    title: 'Lab Group Photo 2024',
-    desc: 'Annual GNSS Lab group photo at KAIST Aerospace Engineering building.',
-    tag: 'Lab Life',
-    date: 'March 2024'
-  },
-  {
-    src: 'images/gallery/ion-gnss-2023.jpg',
-    title: 'ION GNSS+ 2023',
-    desc: 'Presenting research on NeQuick-G ionospheric model adaptation for KPS at ION GNSS+ 2023.',
-    tag: 'Conference',
-    date: 'September 2023'
-  },
-  {
-    src: 'images/gallery/kaist-campus.jpg',
-    title: 'KAIST Campus',
-    desc: 'KAIST main campus, Daejeon. Home to the GNSS Lab in the Department of Aerospace Engineering.',
-    tag: 'Campus',
-    date: '2024',
-    tall: true
-  },
-  {
-    src: 'images/gallery/cosmic2-antenna.jpg',
-    title: 'COSMIC-2 Ground Antenna',
-    desc: 'Ground antenna setup for COSMIC-2 data reception during an international collaboration visit.',
-    tag: 'Fieldwork',
-    date: 'June 2023'
-  },
-  {
-    src: 'images/gallery/seminar-2024.jpg',
-    title: 'Lab Seminar',
-    desc: 'Weekly research seminar \u2014 lab members presenting progress on LEO PNT and RO retrieval algorithms.',
-    tag: 'Lab Life',
-    date: 'November 2024'
-  },
-  {
-    src: 'images/gallery/ion-itm-2024.jpg',
-    title: 'ION ITM 2024',
-    desc: 'Attending the ION International Technical Meeting 2024 in Long Beach, CA.',
-    tag: 'Conference',
-    date: 'January 2024'
-  },
-  {
-    src: 'images/gallery/gnss-receiver-setup.jpg',
-    title: 'GNSS Receiver Setup',
-    desc: 'Setting up a multi-constellation GNSS receiver array for integrity monitoring experiments.',
-    tag: 'Fieldwork',
-    date: 'May 2024',
-    tall: true
-  },
-  {
-    src: 'images/gallery/graduation-2024.jpg',
-    title: 'Graduation Ceremony 2024',
-    desc: 'Congratulations to graduating lab members \u2014 PhD and Master\'s graduates of the class of 2024.',
-    tag: 'Lab Life',
-    date: 'February 2024'
-  },
-  {
-    src: 'images/gallery/ion-gnss-2022.jpg',
-    title: 'ION GNSS+ 2022',
-    desc: 'Lab representation at ION GNSS+ 2022 in Denver, CO.',
-    tag: 'Conference',
-    date: 'September 2022'
-  },
-  {
-    src: 'images/gallery/cubesat-collab.jpg',
-    title: 'CubeSat Collaboration',
-    desc: 'Joint research meeting on CubeSat-based GNSS Radio Occultation mission planning.',
-    tag: 'Research',
-    date: 'October 2023'
-  },
-];
+let PHOTOS = [];
 
-// \u2500\u2500\u2500 RENDER MASONRY \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-const masonry = document.getElementById('masonry');
+fetch('media.json')
+  .then(r => r.json())
+  .then(data => {
+    const seen = new Set();
+    PHOTOS = data.filter(item => {
+      if (!item.title) return false;
+      if (seen.has(item.title)) return false;
+      seen.add(item.title);
+      return true;
+    }).map(item => {
+      const ext = item.mime_type === 'image/png' ? 'png' : 'jpg';
+      const d = item.date ? item.date.slice(0,7) : '';
+      return {
+        src: `images/gallery-${item.title}.${ext}`,
+        title: item.title,
+        desc: '',
+        tag: '',
+        date: d
+      };
+    });
+    renderMasonry();
+  })
+  .catch(() => {});
 
-PHOTOS.forEach((p, i) => {
-  const item = document.createElement('div');
-  item.className = 'masonry-item reveal';
-  item.dataset.idx = i;
-
-  // placeholder \ubc30\uacbd (\uc774\ubbf8\uc9c0 \uc5c6\uc744 \ub54c graceful fallback)
-  item.style.background = '#c8d8e8';
-  if (p.tall) item.style.gridRowEnd = 'span 2';
-
-  item.innerHTML = `
-    <img src="${p.src}" alt="${p.title}" loading="lazy"
-         onerror="this.style.display='none'; this.parentElement.style.minHeight='${p.tall ? '420px' : '220px'}'; this.parentElement.style.background='#c8d8e8';">
-    <div class="masonry-item-overlay">
-      <p class="masonry-item-title">${p.title}</p>
-      <p class="masonry-item-caption">${p.date}</p>
-    </div>
-  `;
-
-  item.addEventListener('click', () => openLightbox(i));
-  masonry.appendChild(item);
-});
+function renderMasonry() {
+  const masonry = document.getElementById('masonry');
+  masonry.innerHTML = '';
+  PHOTOS.forEach((p, i) => {
+    const item = document.createElement('div');
+    item.className = 'masonry-item reveal';
+    item.dataset.idx = i;
+    item.style.background = '#c8d8e8';
+    item.innerHTML = `
+      <img src="${p.src}" alt="${p.title}" loading="lazy"
+           onerror="this.style.display='none';this.parentElement.style.minHeight='220px';this.parentElement.style.background='#c8d8e8';">
+      <div class="masonry-item-overlay">
+        <p class="masonry-item-title">${p.title}</p>
+        <p class="masonry-item-caption">${p.date}</p>
+      </div>
+    `;
+    item.addEventListener('click', () => openLightbox(i));
+    masonry.appendChild(item);
+    setTimeout(() => item.classList.add('visible'), 50 * i);
+  });
+}
 
 // \u2500\u2500\u2500 LIGHTBOX \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 let currentIdx = 0;
