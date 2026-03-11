@@ -94,28 +94,11 @@
 	}
 	
     /* PAGE HEADER */
-    .page-header {
-      position: relative; z-index: 1;
-      padding: 9rem 5rem 4rem;
-      border-bottom: 1px solid #a0b8d0;
-      background: #F5F7FA;
-    }
-    .page-header-eyebrow {
-      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem);
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 0.8rem;
-      display: flex; align-items: center; gap: 0.8rem;
-    }
+    .page-header { padding: 9rem 5rem 4rem; border-bottom: 1px solid #d0dce8; }
+    .page-header-eyebrow { font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 1.5rem); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
     .page-header-eyebrow::before { content:''; width:2rem; height:1px; background:var(--gold); }
-    .page-header h1 {
-      font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem);
-      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
-      margin-bottom: 1rem;
-    }
-    .page-header-desc {
-      font-family: var(--serif); font-style: italic;
-      font-size: clamp(1.1rem, 2vw, 2.0rem); color: #3d5a78; max-width: 48ch;
-    }
+    .page-header h1 { font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem); letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem; }
+    .page-header-desc { font-family: var(--serif); font-style: italic; font-size: clamp(1.2rem, 1.4vw, 2.0rem); color: #3d5a78; max-width: 52ch; }
 
     /* SECTION */
     .people-section {
