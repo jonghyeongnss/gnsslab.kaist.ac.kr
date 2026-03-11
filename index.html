@@ -203,34 +203,34 @@
       display: inline-flex; align-items: center; gap: 4rem;
       font-family: var(--mono); font-size: clamp(1.0rem, 1.8vw, 1.8rem);
       letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 0.8rem;
+      color: #8a6e2f; margin-bottom: 0.8rem;
     }
-    .sec-label::before { content:''; width:1.8rem; height:1px; background:var(--gold); }
+    .sec-label::before { content:''; width:1.8rem; height:1px; background:#8a6e2f; }
     h2.sec-title {
       font-family: var(--display);
       font-size: clamp(2.4rem, 4.5vw, 4.5rem);
       letter-spacing: 0.05em;
-      color: var(--bright);
+      color: #0e1e2e;
       margin-bottom: 0.5rem;
     }
-    .sec-desc { font-size: clamp(1.0rem, 1.8vw, 1.8rem); font-weight: 500 ;color: var(--mid); max-width: 80ch; line-height: 1.8; }
+    .sec-desc { font-size: clamp(1.0rem, 1.8vw, 1.8rem); font-weight: 500; color: #4a6070; max-width: 80ch; line-height: 1.8; }
 
     .research-section {
       background: #ffffff;
       padding: 6rem 5rem;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid #d0dce8;
+      border-bottom: 1px solid #d0dce8;
     }
     .research-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; }
     .view-all-btn {
       font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 1.1rem);
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--cyan); text-decoration: none;
-      border: 1px solid var(--border2);
+      border: 1px solid #a0b8d0;
       padding: 0.5rem 1.2rem;
       transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
-    .view-all-btn:hover { background: #ffffff; color: var(--navy); border-color: var(--cyan); }
+    .view-all-btn:hover { background: var(--cyan); color: var(--navy); border-color: var(--cyan); }
 
     .research-grid {
 	  display: grid;
@@ -284,7 +284,7 @@
 	.res-card-arrow { font-family: var(--mono); font-size: 0.7rem; color: var(--cyan); margin-top: 0.8rem; display: block; opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease; }
 	.res-card:hover .res-card-arrow { opacity: 1; transform: translateX(4px); }
 
-    .news-section { background: #ffffff; padding: 6rem 5rem; }
+    .news-section { background: #ffffff; padding: 6rem 5rem; border-top: 1px solid #d0dce8; }
     .news-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
     .news-list { display: flex; flex-direction: column; gap: 0; }
     .news-item {
@@ -292,17 +292,17 @@
       grid-template-columns: 110px auto 1fr auto;
       gap: 0 2rem;
       padding: 1.6rem 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #d0dce8;
       align-items: start;
       opacity: 0; transform: translateY(12px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    .news-item:first-child { border-top: 1px solid var(--border); }
+    .news-item:first-child { border-top: 1px solid #d0dce8; }
     .news-item.visible { opacity: 1; transform: translateY(0); }
-    .news-date { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); font-weight: 500; color: var(--dim); letter-spacing: 0.04em; padding-top: 0.1rem; white-space: nowrap}
-    .news-title { font-size: clamp(1.0rem, 1.8vw, 1.8rem); font-weight: 500; color: var(--bright); margin-bottom: 0.2rem; line-height: 1.4; }
-    .news-detail { font-size: clamp(0.82rem, 1.3vw, 1.3rem); color: var(--mid); }
-    .news-link { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: var(--dim); text-decoration: none; letter-spacing: 0.06em; padding-top: 0.1rem; transition: color 0.2s; white-space: nowrap; align-self: start; }
+    .news-date { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); font-weight: 500; color: #5a7898; letter-spacing: 0.04em; padding-top: 0.1rem; white-space: nowrap}
+    .news-title { font-size: clamp(1.0rem, 1.8vw, 1.8rem); font-weight: 500; color: #0e1e2e; margin-bottom: 0.2rem; line-height: 1.4; }
+    .news-detail { font-size: clamp(0.82rem, 1.3vw, 1.3rem); color: #4a6070; }
+    .news-link { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #5a7898; text-decoration: none; letter-spacing: 0.06em; padding-top: 0.1rem; transition: color 0.2s; white-space: nowrap; align-self: start; }
     .news-link:hover { color: var(--cyan); }
 
     footer {
@@ -788,7 +788,8 @@
       <div class="footer-brand-name">GNSS <span>KAIST</span></div>
       <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
     </div>
-    <div class="footer-col"></div>
+    <div class="footer-col">
+    </div>
     <div class="footer-col">
       <p class="footer-col-title">Research</p>
       <ul>
@@ -799,19 +800,23 @@
       </ul>
     </div>
     <div class="footer-col">
-      <p class="footer-col-title">Contact</p>
+      <p class="footer-col-title">Contact & Location</p>
       <div class="footer-info">
         <div class="footer-info-row">
           <span class="footer-info-icon">📍</span>
-          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
+          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea<br>KAIST, Aerospace Eng. Bldg.</span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#dbbcb5a8a8b7bab99bb0bab2a8aff5bab8f5b0a9"><span class="__cf_email__" data-cfemail="bfd8d1ccccd3deddffd4ded6cccb91dedc91d4cd">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#63040d10100f02012308020a10174d02004d0811"><span class="__cf_email__" data-cfemail="583f362b2b34393a183339312b2c76393b76332a">[email&#160;protected]</span></a></span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">🔗</span>
+          <span class="footer-info-text"><a href="https://ae.kaist.ac.kr" target="_blank">ae.kaist.ac.kr</a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#610b0818140f0d0404210a000812154f00024f0a13"><span class="__cf_email__" data-cfemail="bdd7d4c4c8d3d1d8d8fdd6dcd4cec993dcde93d6cf">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#cca6a5b5b9a2a0a9a98ca7ada5bfb8e2adafe2a7be"><span class="__cf_email__" data-cfemail="a1cbc8d8d4cfcdc4c4e1cac0c8d2d58fc0c28fcad3">[email&#160;protected]</span></a></span>
         </div>
       </div>
     </div>
@@ -833,13 +838,13 @@
 
   function initStars() {
     stars = [];
-    const count = Math.floor((canvas.width * canvas.height) / 8000);
+    const count = Math.floor((canvas.width * canvas.height) / 5000);
     for (let i = 0; i < count; i++) {
       stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        r: Math.random() * 2.0 + 0.5,
-        alpha: Math.random() * 0.8 + 0.3,
+        r: Math.random() * 1.2 + 0.2,
+        alpha: Math.random() * 0.7 + 0.1,
         speed: Math.random() * 0.003 + 0.001,
         phase: Math.random() * Math.PI * 2
       });
@@ -849,7 +854,7 @@
   function drawStars(t) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     stars.forEach(s => {
-      const a = s.alpha * (0.2 + 1.6 * Math.sin(t * s.speed + s.phase));
+      const a = s.alpha * (0.5 + 1.0 * Math.sin(t * s.speed + s.phase));
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(200,220,255,${a})`;
