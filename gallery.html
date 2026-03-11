@@ -443,31 +443,33 @@
 </footer>
 
 <script>
-let PHOTOS = [];
+/* ── 갤러리 이미지 목록 (이미지 추가 시 아래 배열에 항목 추가) ──
+   형식: { src: 'images/gallery-파일명.확장자', title: '표시 제목', date: 'YYYY-MM' }
+   날짜 내림차순으로 정렬되어 있습니다.
+*/
+const PHOTOS = [
+  { src: 'images/gallery-2025 IPNT Conference.jpg',    title: '2025 IPNT Conference',    date: '2026-02' },
+  { src: 'images/gallery-2026 GNC Conference.jpg',     title: '2026 GNC Conference',     date: '2026-02' },
+  { src: 'images/gallery-2026 Graduation Ceremony.jpg',title: '2026 Graduation Ceremony',date: '2026-02' },
+  { src: 'images/gallery-2024 IPNT.jpg',               title: '2024 IPNT',               date: '2026-02' },
+  { src: 'images/gallery-2026/01/16 Soccer Game.jpg',  title: '2026/01/16 Soccer Game',  date: '2026-01' },
+  { src: 'images/gallery-2023 Cherry Blossoms.jpg',    title: '2023 Cherry Blossoms',    date: '2026-01' },
+  { src: 'images/gallery-2022 ION GNSS+ Conference.jpg',title: '2022 ION GNSS+ Conference', date: '2025-12' },
+  { src: 'images/gallery-2023 ION ITM Conference.jpg', title: '2023 ION ITM Conference', date: '2025-12' },
+  { src: 'images/gallery-2024/05/24 Soccer Game.jpg',  title: '2024/05/24 Soccer Game',  date: '2025-12' },
+  { src: 'images/gallery-2024 Lab MT.jpg',             title: '2024 Lab MT',             date: '2025-12' },
+  { src: "images/gallery-2024 Celebrating Teacher's Day.jpg", title: "2024 Celebrating Teacher's Day", date: '2025-12' },
+  { src: 'images/gallery-2024 Cherry Blossoms.jpg',    title: '2024 Cherry Blossoms',    date: '2025-12' },
+  { src: "images/gallery-Celebrating Prof. Jiyun Lee's 2023 Thurlow Award.jpg", title: "Celebrating Prof. Jiyun Lee's 2023 Thurlow Award", date: '2025-12' },
+  { src: 'images/gallery-Dr.Sam Pullen Seminar.jpg',   title: 'Dr.Sam Pullen Seminar',   date: '2025-12' },
+  { src: 'images/gallery-Dr. Bradford Parkinson Seminar.jpg', title: 'Dr. Bradford Parkinson Seminar', date: '2025-12' },
+  { src: 'images/gallery-KakaoTalk_20240222_190927664.jpg', title: 'KakaoTalk_20240222_190927664', date: '2024-02' },
+  { src: 'images/gallery-KakaoTalk_20240222_185942522.jpg', title: 'KakaoTalk_20240222_185942522', date: '2024-02' },
+  { src: 'images/gallery-단체사진_vF.png',               title: '단체사진_vF',              date: '2022-07' },
+  { src: 'images/gallery-2022 Lab MT.jpg',             title: '2022 Lab MT',             date: '2022-07' },
+];
 
-fetch('media.json')
-  .then(r => r.json())
-  .then(data => {
-    const seen = new Set();
-    PHOTOS = data.filter(item => {
-      if (!item.title) return false;
-      if (seen.has(item.title)) return false;
-      seen.add(item.title);
-      return true;
-    }).map(item => {
-      const ext = item.mime_type === 'image/png' ? 'png' : 'jpg';
-      const d = item.date ? item.date.slice(0,7) : '';
-      return {
-        src: `images/gallery-${item.title}.${ext}`,
-        title: item.title,
-        desc: '',
-        tag: '',
-        date: d
-      };
-    });
-    renderMasonry();
-  })
-  .catch(() => {});
+renderMasonry();
 
 function renderMasonry() {
   const masonry = document.getElementById('masonry');
@@ -499,9 +501,9 @@ function openLightbox(idx) {
   const p = PHOTOS[idx];
   document.getElementById('lb-img').src = p.src;
   document.getElementById('lb-img').alt = p.title;
-  document.getElementById('lb-tag').textContent = p.tag;
+  document.getElementById('lb-tag').textContent = p.tag || '';
   document.getElementById('lb-title').textContent = p.title;
-  document.getElementById('lb-desc').textContent = p.desc;
+  document.getElementById('lb-desc').textContent = p.desc || '';
   document.getElementById('lb-meta').textContent = p.date;
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
