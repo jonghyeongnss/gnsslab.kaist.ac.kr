@@ -27,471 +27,166 @@
       --ui:      'Rajdhani', sans-serif;
       --mono:    'DM Mono', monospace;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      background: #F5F7FA;
-      color: #1c2b3a;
-      font-family: var(--ui);
-      font-weight: 300;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
+    body { background: #F5F7FA; color: #1c2b3a; font-family: var(--ui); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
     #stars-canvas { display: none; }
 
     /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 2rem 3rem;
-      background: rgba(245,247,250,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #a0b8d0;
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 2rem 3rem; background: rgba(245,247,250,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #a0b8d0; }
     .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
     .nav-brand-main { font-family: var(--display); font-size: clamp(1.4rem, 2.5vw, 2.5rem); letter-spacing: 0.06em; color: #0e1e2e; line-height: 1; }
     .nav-brand-main span { color: var(--cyan); }
     .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
     .nav-links li { position: relative; }
-    .nav-links a {
-      display: block; padding: 0 1.2rem;
-      font-family: var(--ui); font-size: clamp(0.82rem, 1.3vw, 1.3rem); font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: #3d5a78; text-decoration: none; transition: color 0.2s;
-    }
+    .nav-links a { display: block; padding: 0 1.2rem; font-family: var(--ui); font-size: clamp(0.82rem, 1.3vw, 1.3rem); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #3d5a78; text-decoration: none; transition: color 0.2s; }
     .nav-links a.active { color: var(--cyan); }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: 0; left: 1.2rem; right: 1.2rem;
-      height: 2px; background: var(--gold);
-      transform: scaleX(0); transition: transform 0.25s ease;
-    }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 1.2rem; right: 1.2rem; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s ease; }
     .nav-links a:hover { color: var(--cyan); }
     .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
-	.has-dropdown { position: relative; }
-	.dropdown {
-	  position: absolute; top: 100%; left: 0;
-	  background: rgba(245,247,250,0.98);
-	  backdrop-filter: blur(12px);
-	  border: 1px solid #a0b8d0;
-	  min-width: 140px; list-style: none;
-	  opacity: 0; pointer-events: none;
-	  transform: translateY(6px);
-	  transition: opacity 0.2s ease, transform 0.2s ease;
-	  z-index: 200;
-	}
-	.has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
-	.dropdown a {
-	  display: block; padding: 0.6rem 1.2rem;
-	  font-size: 1.1rem !important; font-weight: 600 !important;
-	  color: #3d5a78 !important;
-	  border-bottom: 1px solid #e4edf5;
-	  letter-spacing: 0.08em;
-	}
-	.dropdown li:last-child a { border-bottom: none; }
-	.dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
-	.dropdown a::after { display: none !important; }
-	.has-dropdown:has(a[href="research.html"]) .dropdown {
-		min-width: 200px;
-	}
-	
+    .has-dropdown { position: relative; }
+    .dropdown { position: absolute; top: 100%; left: 0; background: rgba(245,247,250,0.98); backdrop-filter: blur(12px); border: 1px solid #a0b8d0; min-width: 140px; list-style: none; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s ease, transform 0.2s ease; z-index: 200; }
+    .has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown a { display: block; padding: 0.6rem 1.2rem; font-size: 1.1rem !important; font-weight: 600 !important; color: #3d5a78 !important; border-bottom: 1px solid #e4edf5; letter-spacing: 0.08em; }
+    .dropdown li:last-child a { border-bottom: none; }
+    .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
+    .dropdown a::after { display: none !important; }
+    .has-dropdown:has(a[href="research.html"]) .dropdown { min-width: 200px; }
+
     /* PAGE HEADER */
-    .page-header {
-      position: relative; z-index: 1;
-      padding: 9rem 5rem 4rem;
-      border-bottom: 1px solid #a0b8d0;
-      background: #F5F7FA;
-    }
-    .page-header-eyebrow {
-      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 1.5rem);;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 0.8rem;
-      display: flex; align-items: center; gap: 0.8rem;
-    }
+    .page-header { position: relative; z-index: 1; padding: 9rem 5rem 4rem; border-bottom: 1px solid #a0b8d0; background: #F5F7FA; }
+    .page-header-eyebrow { font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 1.5rem); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
     .page-header-eyebrow::before { content:''; width:2rem; height:1px; background:var(--gold); }
-    .page-header h1 {
-      font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem);
-      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
-      margin-bottom: 1rem;
-    }
-    .page-header-desc {
-      font-family: var(--serif); font-style: italic;
-      font-size: clamp(1.2rem, 1.4vw, 2.0rem); color: #3d5a78; max-width: 48ch;
-    }
+    .page-header h1 { font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem); letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem; }
+    .page-header-desc { font-family: var(--serif); font-style: italic; font-size: clamp(1.2rem, 1.4vw, 2.0rem); color: #3d5a78; max-width: 48ch; }
 
     /* CONTROLS */
-    .controls {
-      position: sticky; top: 64px; z-index: 50;
-      background: rgba(245,247,250,0.95);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid #a0b8d0;
-      padding: 1rem 5rem;
-      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
-    }
-
-    .search-wrap {
-      position: relative; flex: 1; min-width: 160px; max-width: 240px;
-    }
-    .search-wrap input {
-      width: 100%;
-      background: #fff;
-      border: 1px solid #c0d0e0;
-      color: #4a6070;
-      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
-      letter-spacing: 0.05em;
-      padding: 0.55rem 0.8rem 0.55rem 2.2rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
+    .controls { position: sticky; top: 64px; z-index: 50; background: rgba(245,247,250,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #a0b8d0; padding: 1rem 5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .search-wrap { position: relative; flex: 1; min-width: 160px; max-width: 240px; }
+    .search-wrap input { width: 100%; background: #fff; border: 1px solid #c0d0e0; color: #4a6070; font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); letter-spacing: 0.05em; padding: 0.55rem 0.8rem 0.55rem 2.2rem; outline: none; transition: border-color 0.2s; }
     .search-wrap input::placeholder { color: #7a9ab8; }
     .search-wrap input:focus { border-color: var(--cyan); }
-    .search-icon {
-      position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%);
-      color: #4a6070; font-size: clamp(0.85rem, 1.4vw, 1.4rem); pointer-events: none;
-    }
-
+    .search-icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: #4a6070; font-size: clamp(0.85rem, 1.4vw, 1.4rem); pointer-events: none; }
     .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .filter-btn {
-      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
-      letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.35rem 0.9rem;
-      border: 1px solid #c0d0e0;
-      color: #4a6070;
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
+    .filter-btn { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.9rem; border: 1px solid #c0d0e0; color: #4a6070; background: transparent; cursor: pointer; transition: all 0.2s; }
     .filter-btn:hover { color: #1c2b3a; border-color: #7a9ab8; }
     .filter-btn.active { color: #fff; background: var(--cyan); border-color: var(--cyan); }
-
     .filter-divider { width: 2px; height: 1.5rem; background: #a0b8d0; }
-
-    .result-count {
-      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
-      color: #7a9ab8; letter-spacing: 0.06em;
-      margin-left: auto;
-    }
+    .result-count { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #7a9ab8; letter-spacing: 0.06em; margin-left: auto; }
     .result-count span { color: var(--cyan); }
 
-    .timeline-wrap {
-      position: relative; z-index: 1;
-      padding: 0 5rem 6rem;
-      background: #F5F7FA;
-    }
-
+    /* TIMELINE */
+    .timeline-wrap { position: relative; z-index: 1; padding: 0 5rem 6rem; background: #F5F7FA; }
     .year-block { margin-top: 4rem; }
-
-    .year-label {
-      display: flex; align-items: center; gap: 1.5rem;
-      margin-bottom: 0; position: relative;
-    }
-    .year-label h2 {
-      font-family: var(--display); font-size: clamp(2.8rem, 5vw, 5.5rem);
-      color: #5a7898; letter-spacing: 0.08em;
-      line-height: 1; user-select: none;
-      transition: color 0.3s;
-    }
+    .year-label { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0; position: relative; }
+    .year-label h2 { font-family: var(--display); font-size: clamp(2.8rem, 5vw, 5.5rem); color: #5a7898; letter-spacing: 0.08em; line-height: 1; user-select: none; transition: color 0.3s; }
     .year-block:hover .year-label h2 { color:#1a6f8f; }
-    .year-line {
-      flex: 1; height: 1.5px;
-      background: linear-gradient(to right, #a0b8d0, transparent);
-    }
-
-    .timeline-items {
-      padding-left: 2rem;
-      border-left: 1px solid #a0b8d0;
-      margin-left: 1rem;
-      margin-top: 0.5rem;
-      display: flex; flex-direction: column; gap: 0;
-    }
-
-    .news-item {
-      position: relative;
-      display: grid;
-      grid-template-columns: 90px 1fr auto;
-      gap: 0 2rem;
-      padding: 1.5rem 1.5rem 1.5rem 2rem;
-      border-bottom: 1px solid #e4edf5;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
+    .year-line { flex: 1; height: 1.5px; background: linear-gradient(to right, #a0b8d0, transparent); }
+    .timeline-items { padding-left: 2rem; border-left: 1px solid #a0b8d0; margin-left: 1rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0; }
+    .news-item { position: relative; display: grid; grid-template-columns: 90px 1fr auto; gap: 0 2rem; padding: 1.5rem 1.5rem 1.5rem 2rem; border-bottom: 1px solid #e4edf5; cursor: pointer; transition: background 0.2s; }
     .news-item:first-child { border-top: 1px solid #e4edf5; }
     .news-item:hover { background: #edf3f9; }
-
-    .news-item::before {
-      content: '';
-      position: absolute; left: -5px; top: 50%; transform: translateY(-50%);
-      width: 9px; height: 9px; border-radius: 50%;
-      background: #c0d0e0;
-      border: 1px solid #a0b8cc;
-      transition: background 0.2s, border-color 0.2s;
-    }
+    .news-item::before { content: ''; position: absolute; left: -5px; top: 50%; transform: translateY(-50%); width: 9px; height: 9px; border-radius: 50%; background: #c0d0e0; border: 1px solid #a0b8cc; transition: background 0.2s, border-color 0.2s; }
     .news-item:hover::before { background: var(--cyan); border-color: var(--cyan); }
-
-    .news-date {
-      font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem);
-      color: #7a9ab8; letter-spacing: 0.04em;
-      padding-top: 0.15rem; align-self: start;
-    }
-
+    .news-date { font-family: var(--mono); font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #7a9ab8; letter-spacing: 0.04em; padding-top: 0.15rem; align-self: start; }
     .news-body { align-self: center; }
-    .news-title {
-      font-size: clamp(1.1rem, 2vw, 2.0rem); font-weight: 500;
-      color: #1c2b3a; margin-bottom: 0.2rem; line-height: 1.45;
-      transition: color 0.2s;
-    }
+    .news-title { font-size: clamp(1.1rem, 2vw, 2.0rem); font-weight: 500; color: #1c2b3a; margin-bottom: 0.2rem; line-height: 1.45; transition: color 0.2s; }
     .news-item:hover .news-title { color: #0e7fa8; }
     .news-detail { font-size: clamp(0.85rem, 1.4vw, 1.4rem); color: #3d5a78; }
-
-    .news-arrow {
-      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem);
-      color: #a0b8cc; align-self: center;
-      transition: color 0.2s, transform 0.2s;
-      white-space: nowrap;
-    }
+    .news-arrow { font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem); color: #a0b8cc; align-self: center; transition: color 0.2s, transform 0.2s; white-space: nowrap; }
     .news-item:hover .news-arrow { color: var(--cyan); transform: translateX(4px); }
 
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 200;
-      background: rgba(180,200,220,0.5);
-      backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: center;
-      padding: 2rem;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
+    /* MODAL */
+    .modal-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(180,200,220,0.5); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
     .modal-overlay.open { opacity: 1; pointer-events: all; }
-
-    .modal {
-      background: #fff;
-      border: 1px solid #a0b8d0;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-      max-width: 860px; width: 100%;
-      padding: clamp(1.2rem, 4vw, 3rem);
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.3s ease;
-      max-height: 92vh;
-      overflow-y: auto;
-    }
+    .modal { background: #fff; border: 1px solid #a0b8d0; box-shadow: 0 20px 60px rgba(0,0,0,0.12); max-width: 860px; width: 100%; padding: clamp(1.2rem, 4vw, 3rem); position: relative; transform: translateY(20px); transition: transform 0.3s ease; max-height: 92vh; overflow-y: auto; }
     .modal-overlay.open .modal { transform: translateY(0); }
-
-    .modal-close {
-      position: absolute; top: 1.2rem; right: 1.4rem;
-      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
-      color: #7a9ab8; cursor: pointer;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      background: none; border: none;
-      transition: color 0.2s;
-    }
+    .modal-close { position: absolute; top: 1.2rem; right: 1.4rem; font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); color: #7a9ab8; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; background: none; border: none; transition: color 0.2s; }
     .modal-close:hover { color: #1c2b3a; }
-
-    .modal-date {
-      font-family: var(--mono); font-size: clamp(0.68rem, 0.9vw, 0.9rem);
-      color: #7a9ab8; letter-spacing: 0.08em; text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-    .modal-title {
-      font-family: var(--ui); font-size: clamp(0.95rem, 1.5vw, 1.5rem); font-weight: 600;
-      color: #0e1e2e; line-height: 1.35; margin-bottom: 1.2rem;
-      padding-bottom: 1.0rem; border-bottom: 1px solid #e4edf5;
-    }
-    .modal-body {
-      font-family: var(--serif); font-size: clamp(0.82rem, 1.1vw, 1.05rem);
-      color: #2a3a4a; line-height: 1.85;
-      margin-bottom: 1.2rem;
-    }
-    .modal-body img {
-      max-width: 80%; height: auto;
-      display: block; margin: 1.2rem auto;
-      border-radius: 2px;
-    }
+    .modal-date { font-family: var(--mono); font-size: clamp(0.68rem, 0.9vw, 0.9rem); color: #7a9ab8; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .modal-title { font-family: var(--ui); font-size: clamp(0.95rem, 1.5vw, 1.5rem); font-weight: 600; color: #0e1e2e; line-height: 1.35; margin-bottom: 1.2rem; padding-bottom: 1.0rem; border-bottom: 1px solid #e4edf5; }
+    .modal-body { font-family: var(--serif); font-size: clamp(0.82rem, 1.1vw, 1.05rem); color: #2a3a4a; line-height: 1.85; margin-bottom: 1.2rem; }
+    .modal-body img { max-width: 80%; height: auto; display: block; margin: 1.2rem auto; border-radius: 2px; }
     .modal-body p { margin-bottom: 0.75rem; }
     .modal-body p:empty { display: none; }
     .modal-body figure { margin: 1.2rem 0; }
     .modal-body figcaption { font-size: 0.8rem; color: #7a9ab8; text-align: center; margin-top: 0.4rem; }
     .modal-body .wp-block-image { text-align: center; }
-    .modal-link {
-      font-family: var(--mono); font-size: clamp(0.68rem, 0.9vw, 0.95rem);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--cyan); text-decoration: none;
-      border: 1px solid #c0d0e0;
-      padding: 0.5rem 1.2rem;
-      display: inline-block;
-      transition: background 0.2s, color 0.2s;
-    }
-    .modal-link:hover { background: var(--cyan); color: #fff; }
 
-    .no-results {
-      display: none; text-align: center;
-      padding: 5rem 2rem;
-      font-family: var(--mono); font-size: 0.8rem;
-      color: #7a9ab8; letter-spacing: 0.08em;
-    }
+    .no-results { display: none; text-align: center; padding: 5rem 2rem; font-family: var(--mono); font-size: 0.8rem; color: #7a9ab8; letter-spacing: 0.08em; }
     .no-results.visible { display: block; }
 
-    footer {
-	  background: #0e1e2e;
-	  border-top: 1px solid #1a3050;
-	  padding: 4rem 5rem 2.5rem; position: relative; z-index: 1;
-	}
-	.footer-grid {
-	  display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
-	  gap: 3rem; padding-bottom: 3rem;
-	  border-bottom: 1px solid #1a3050; margin-bottom: 2rem;
-	}
-	.footer-brand-name { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
-	.footer-brand-name span { color: var(--gold); }
-	.footer-brand-sub { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
-	.footer-col-title { font-family: var(--mono); font-size: clamp(1.0rem, 1.4vw, 1.4rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
-	.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-	.footer-col ul a { font-size: clamp(1.0rem, 1.5vw, 1.5rem); color: var(--dim); text-decoration: none; transition: color 0.2s; }
-	.footer-col ul a:hover { color: var(--bright); }
-	.footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
-	.footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
-	.footer-info-icon { font-size: clamp(1.0rem, 1.6vw, 1.6rem); opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
-	.footer-info-text { font-size: clamp(1.0rem, 1.5vw, 1.5rem); color: var(--dim); line-height: 1.6; }
-	.footer-info-text a { color: var(--cyan); text-decoration: none; }
-	.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-	.footer-bottom span { font-family: var(--mono); font-size: clamp(0.95rem, 1.4vw, 1.4rem); color: var(--dim); letter-spacing: 0.05em; }
+    /* FOOTER */
+    footer { background: #0e1e2e; border-top: 1px solid #1a3050; padding: 4rem 5rem 2.5rem; position: relative; z-index: 1; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #1a3050; margin-bottom: 2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 3.0rem); letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-sub { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-col-title { font-family: var(--mono); font-size: clamp(1.0rem, 1.4vw, 1.4rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: clamp(1.0rem, 1.5vw, 1.5rem); color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--bright); }
+    .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
+    .footer-info-icon { font-size: clamp(1.0rem, 1.6vw, 1.6rem); opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
+    .footer-info-text { font-size: clamp(1.0rem, 1.5vw, 1.5rem); color: var(--dim); line-height: 1.6; }
+    .footer-info-text a { color: var(--cyan); text-decoration: none; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom span { font-family: var(--mono); font-size: clamp(0.95rem, 1.4vw, 1.4rem); color: var(--dim); letter-spacing: 0.05em; }
 
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
     .year-block { animation: fadeUp 0.5s ease both; }
 
+    /* HAMBURGER */
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; margin-left: auto; position: relative; z-index: 110; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: #0e1e2e; border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+
+    /* DRAWER */
+    .nav-drawer { position: fixed; top: 0; right: 0; width: min(320px, 85vw); height: 100vh; background: #0e1e2e; border-left: 1px solid #1a3050; z-index: 200; display: flex; flex-direction: column; transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; }
+    .nav-drawer.open { transform: translateX(0); }
+    .nav-drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; border-bottom: 1px solid #1a3050; }
+    .nav-drawer-brand { font-family: var(--display); font-size: 1.6rem; letter-spacing: 0.06em; color: #eaf2fc; }
+    .nav-drawer-brand span { color: #3EC1D3; }
+    .nav-drawer-close { background: none; border: none; cursor: pointer; color: #7a9ab8; font-size: 1.1rem; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.2s, color 0.2s; }
+    .nav-drawer-close:hover { background: #1a3050; color: #eaf2fc; }
+    .nav-drawer-links { list-style: none; padding: 1rem 0; flex: 1; }
+    .nav-drawer-links > li > a { display: block; padding: 0.9rem 1.5rem; font-family: var(--ui); font-size: 1.05rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #7a9ab8; text-decoration: none; border-bottom: 1px solid #1a3050; transition: color 0.2s, background 0.2s; }
+    .nav-drawer-links > li > a:hover { color: #eaf2fc; background: #0e2040; }
+    .drawer-group { border-bottom: 1px solid #1a3050; }
+    .drawer-group-title { display: block; padding: 0.9rem 1.5rem; font-family: var(--ui); font-size: 1.05rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a84b; text-decoration: none; cursor: pointer; transition: color 0.2s; }
+    .drawer-group-title:hover { color: #e8c96a; }
+    .drawer-group ul { list-style: none; padding: 0 0 0.5rem 0; }
+    .drawer-group ul li a { display: block; padding: 0.55rem 1.5rem 0.55rem 2.5rem; font-family: var(--ui); font-size: 0.95rem; color: #3d5a78; text-decoration: none; transition: color 0.2s; }
+    .drawer-group ul li a:hover { color: #3EC1D3; }
+    .nav-overlay { position: fixed; inset: 0; z-index: 190; background: rgba(2,8,16,0.6); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .nav-overlay.open { opacity: 1; pointer-events: all; }
+
     @media (max-width: 960px) {
       nav { padding: 0 1.5rem; }
       .page-header, .timeline-wrap, .controls { padding-left: 1.2rem; padding-right: 1.2rem; }
-      /* 타임라인 세로선 제거 */
-      .timeline-items {
-        border-left: none;
-        padding-left: 0;
-        margin-left: 0;
-      }
-      /* 점 제거 */
+      .timeline-items { border-left: none; padding-left: 0; margin-left: 0; }
       .news-item::before { display: none; }
-      /* 아이템: 날짜 위, 내용 전체 폭 */
-      .news-item {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-        padding: 1.1rem 0.5rem;
-      }
+      .news-item { display: flex; flex-direction: column; gap: 0.3rem; padding: 1.1rem 0.5rem; }
       .news-date { margin-bottom: 0.2rem; padding-top: 0; }
       .news-body { width: 100%; }
       .news-tag, .news-arrow { display: none; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-	  .footer-col:empty { display: none; }
-	  footer { padding-left: 2rem; padding-right: 2rem; }
+      .footer-col:empty { display: none; }
+      footer { padding-left: 2rem; padding-right: 2rem; }
     }
-    @media (max-width: 640px) {
-      .controls { gap: 0.8rem; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-	  .footer-brand { grid-column: 1 / -1; }
-	  .footer-col:empty { display: none; }
-    }
-
-    /* ── HAMBURGER ── */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column; justify-content: center; gap: 5px;
-      width: 36px; height: 36px;
-      background: none; border: none; cursor: pointer; padding: 4px;
-      margin-left: auto;
-      position: relative; z-index: 110;
-    }
-    .nav-hamburger span {
-      display: block; width: 22px; height: 2px;
-      background: #0e1e2e; border-radius: 2px;
-      transition: transform 0.25s, opacity 0.25s;
-    }
-
-    /* ── DRAWER ── */
-    .nav-drawer {
-      position: fixed; top: 0; right: 0;
-      width: min(320px, 85vw); height: 100vh;
-      background: #0e1e2e;
-      border-left: 1px solid #1a3050;
-      z-index: 200;
-      display: flex; flex-direction: column;
-      transform: translateX(100%);
-      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-      overflow-y: auto;
-    }
-    .nav-drawer.open { transform: translateX(0); }
-
-    .nav-drawer-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 1.5rem;
-      border-bottom: 1px solid #1a3050;
-    }
-    .nav-drawer-brand {
-      font-family: var(--display); font-size: 1.6rem;
-      letter-spacing: 0.06em; color: #eaf2fc;
-    }
-    .nav-drawer-brand span { color: #3EC1D3; }
-    .nav-drawer-close {
-      background: none; border: none; cursor: pointer;
-      color: #7a9ab8; font-size: 1.1rem;
-      width: 32px; height: 32px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
-      transition: background 0.2s, color 0.2s;
-    }
-    .nav-drawer-close:hover { background: #1a3050; color: #eaf2fc; }
-
-    .nav-drawer-links {
-      list-style: none; padding: 1rem 0; flex: 1;
-    }
-    .nav-drawer-links > li > a {
-      display: block; padding: 0.9rem 1.5rem;
-      font-family: var(--ui); font-size: 1.05rem; font-weight: 500;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: #7a9ab8; text-decoration: none;
-      border-bottom: 1px solid #1a3050;
-      transition: color 0.2s, background 0.2s;
-    }
-    .nav-drawer-links > li > a:hover { color: #eaf2fc; background: #0e2040; }
-
-    .drawer-group { border-bottom: 1px solid #1a3050; }
-    .drawer-group-title {
-      display: block; padding: 0.9rem 1.5rem;
-      font-family: var(--ui); font-size: 1.05rem; font-weight: 500;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: #c8a84b;
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .drawer-group-title:hover { color: #e8c96a; }
-    .drawer-group ul { list-style: none; padding: 0 0 0.5rem 0; }
-    .drawer-group ul li a {
-      display: block; padding: 0.55rem 1.5rem 0.55rem 2.5rem;
-      font-family: var(--ui); font-size: 0.95rem;
-      color: #3d5a78; text-decoration: none;
-      transition: color 0.2s;
-    }
-    .drawer-group ul li a:hover { color: #3EC1D3; }
-
-    /* ── OVERLAY ── */
-    .nav-overlay {
-      position: fixed; inset: 0; z-index: 190;
-      background: rgba(2,8,16,0.6);
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.3s;
-    }
-    .nav-overlay.open { opacity: 1; pointer-events: all; }
-
     @media (max-width: 768px) {
       .nav-hamburger { display: flex; }
       .nav-links { display: none; }
     }
+    @media (max-width: 640px) {
+      .controls { gap: 0.8rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-col:empty { display: none; }
+    }
   </style>
 </head>
 <body>
-
-<canvas id="stars-canvas"></canvas>
 
 <nav>
   <a href="index.html" class="nav-brand">
@@ -524,7 +219,6 @@
   </button>
 </nav>
 
-<!-- Mobile drawer -->
 <div class="nav-drawer" id="nav-drawer">
   <div class="nav-drawer-header">
     <div class="nav-drawer-brand"><span>GNSS</span> KAIST</div>
@@ -566,26 +260,14 @@
     <span class="search-icon">⌕</span>
     <input type="text" id="search-input" placeholder="Search..."/>
   </div>
-
   <div class="filter-divider"></div>
-
-  <div class="filter-group" id="year-filters">
-    <button class="filter-btn active" data-year="all">All Years</button>
-    <button class="filter-btn" data-year="2025">2025</button>
-    <button class="filter-btn" data-year="2024">2024</button>
-    <button class="filter-btn" data-year="2023">2023</button>
-  </div>
-
-  <div class="result-count"><span id="count">10</span> items</div>
+  <div class="filter-group" id="year-filters"></div>
+  <div class="result-count"><span id="count">0</span> items</div>
 </div>
 
-<div class="timeline-wrap" id="timeline">
-  <!-- populated by JS -->
-</div>
-
+<div class="timeline-wrap" id="timeline"></div>
 <div class="no-results" id="no-results">No results found.</div>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal" id="modal">
     <button class="modal-close" id="modal-close">✕ Close</button>
@@ -605,7 +287,7 @@
       <ul>
         <li><a href="research-integrity.html">GNSS Integrity</a></li>
         <li><a href="research-leo.html">LEO PNT</a></li>
-        <li><a href="research-remote.html">REMOTE SENSING</a></li>
+        <li><a href="research-remote.html">Remote Sensing</a></li>
         <li><a href="publications.html">Publications</a></li>
       </ul>
     </div>
@@ -618,11 +300,11 @@
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">✉️</span>
-          <span class="footer-info-text"><a href="/cdn-cgi/l/email-protection#dbbcb5a8a8b7bab99bb0bab2a8aff5bab8f5b0a9"><span class="__cf_email__" data-cfemail="bfd8d1ccccd3deddffd4ded6cccb91dedc91d4cd">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
         </div>
         <div class="footer-info-row">
           <span class="footer-info-icon">👤</span>
-          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="/cdn-cgi/l/email-protection#610b0818140f0d0404210a000812154f00024f0a13"><span class="__cf_email__" data-cfemail="bdd7d4c4c8d3d1d8d8fdd6dcd4cec993dcde93d6cf">[email&#160;protected]</span></a></span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
         </div>
       </div>
     </div>
@@ -632,50 +314,853 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ─── DATA ───────────────────────────────────────────────────────────────────
-let NEWS = [];
+<script>
+const NEWS = [
+  {
+    id: 1923,
+    year: 2025,
+    date: "2025. DEC",
+    title: `Jinyoung Yun Wins Best Paper Award at 2025 IPNT Undergraduate Research Paper Competition`,
+    desc: `GNSS lab's undergraduate student researcher Jinyoung Yun received the Best Paper Award at the 2025 Institute of Positioning, Navigation and Timing (IPNT) Conference Undergraduate Research Paper Competition. 윤진영 학부 연구생은 ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Jinyoung Yun Wins Best Paper Award at 2025 IPNT Undergraduate Research Paper Competition.jpg" alt="" class="wp-image-1924" width="483" height="314" /></figure></div>
+    
+    
+    <p>GNSS lab's undergraduate student researcher Jinyoung Yun received the Best Paper Award at the 2025 Institute of Positioning, Navigation and Timing (IPNT) Conference Undergraduate Research Paper Competition.</p>
+    
+    
+    
+    <p>윤진영 학부 연구생은 2025년 항법시스템학회 정기학술대회 학부생 논문 경진대회에서 우수 논문상을 수상하였다.</p>
+    
+    
+    
+    <p>Title: Field Performance Evaluation of the PISE-RTK for Future Urban Mobility Applications</p>`,
+  },
+  {
+    id: 1920,
+    year: 2025,
+    date: "2025. DEC",
+    title: `Dr. Kiyoung Sun Receives Outstanding Doctoral Dissertation Award from KAIST Aerospace Engineering Alumni Association`,
+    desc: `Dr. Kiyoung Sun received the Outstanding Doctoral Dissertation Award from the KAIST Aerospace Engineering Alumni Association at Air & Space KAIST 2025. 선기영 박사후연구원이 9월 25일 진행된 Air & Space ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Dr. Kiyoung Sun Receives Outstanding Doctoral Dissertation Award from KAIST Aerospace Engineering Alumni Association.jpg" alt="" class="wp-image-1921" width="500" height="329" /></figure></div>
+    
+    
+    <p>Dr. Kiyoung Sun received the Outstanding Doctoral Dissertation Award from the KAIST Aerospace Engineering Alumni Association at Air & Space KAIST 2025.</p>
+    
+    
+    
+    <p>선기영 박사후연구원이 9월 25일 진행된 Air & Space KAIST 2025에서 항공우주동문회 우수논문상을 수상하였다.</p>
+    
+    
+    
+    <p></p>`,
+  },
+  {
+    id: 1915,
+    year: 2025,
+    date: "2025. DEC",
+    title: `Dr. Kiyoung Sun Wins Best Presentation Award at ION GNSS+ 2025`,
+    desc: `Dr. Kiyoung Sun received the Best Presentation Award at ION GNSS+ 2025, held in Baltimore, Maryland, USA, for his presentation titled “A Stochastic Modeling Approach for Phase Transition-Induced Errors in ...`,
+    content: `<p></p>
+    
+    
+    <div class="wp-block-image">
+    <figure class="aligncenter size-large is-resized"><img loading="lazy" src="images/news-Dr. Kiyoung Sun Wins Best Presentation Award at ION GNSS+ 2025.jpg" alt="" class="wp-image-1918" width="679" height="321" /></figure></div>
+    
+    
+    <p>Dr. Kiyoung Sun received the Best Presentation Award at ION GNSS+ 2025, held in Baltimore, Maryland, USA, for his presentation titled “A Stochastic Modeling Approach for Phase Transition-Induced Errors in GBAS under Ionospheric Scintillation.” ION GNSS+ is the world's largest technical meeting in the field of GNSS technology and navigation, and the Best Presentation Award recognizes outstanding presentations delivered during the conference.</p>
+    
+    
+    
+    <p>선기영 박사후연구원이 미국 메릴랜드주 볼티모어에서 열린 ION GNSS+ 2025 학회에서 “A Stochastic Modeling Approach for Phase Transition-Induced Errors in GBAS under Ionospheric Scintillation”라는 제목의 연구를 발표하여 Best Presentation Award를 수상하였다. ION GNSS+ 학회는 GNSS 및 항법 분야의 세계 최고 권위 학술대회로, Best Presentation Award는 학회 중 우수한 발표를 선정하여 수여하는 상이다.</p>
+    
+    
+    
+    <p>Title: A Stochastic Modeling Approach for Phase Transition-Induced Errors in GBAS under Ionospheric Scintillation</p>`,
+  },
+  {
+    id: 1876,
+    year: 2024,
+    date: "2024. DEC",
+    title: `Prof. Jiyun Lee Receives KSAS-Keumkok Young Researcher Award`,
+    desc: `Professor Jiyun Lee was awarded the KSAS-Keumkok Young Researcher Award for her significant contributions in pioneering innovative navigation technologies that support safe and autonomous operation of Uncrewed Air Vehicles and ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Prof. Jiyun Lee Receives KSAS-Keumkok Young Researcher Award.jpg" alt="" class="wp-image-1877" width="560" height="375" /></figure></div>
+    
+    
+    <p>Professor Jiyun Lee was awarded the KSAS-Keumkok Young Researcher Award for her significant contributions in pioneering innovative navigation technologies that support safe and autonomous operation of Uncrewed Air Vehicles and Urban Air Mobility. The award ceremony was held at the KSAS general assembly on November 14<sup>th</sup>.</p>
+    
+    
+    
+    <p>이지윤 교수는 지난 11월 14일에 개최된 한국항공우주학회 정기총회에서 KSAS-금곡 젊은연구자상을 수상하였다. 이지윤 교수는 지능형 항공교통시스템 및 자율 무인시스템을 위한 혁신적인 항법 기술 연구를 주도하고, 특히 항법 무결성 아키텍처 설계 기술분야의 훌륭한 연구성과로 우리나라 항공우주 유도제어 분야 학술 발전에 크게 기여한 공로를 인정받아 이 상을 수상하였다.</p>
+    
+    
+    
+    <p></p>`,
+  },
+  {
+    id: 1873,
+    year: 2024,
+    date: "2024. DEC",
+    title: `Ph.D. Student Jaehee Chang awarded Best Paper Award at IPNT 2024`,
+    desc: `Ph.D. student Jaehee Chang received the Best Paper Award at the 2024 Institute of Positioning, Navigation, and Timing (IPNT) conference. Title: Preliminary Assessment of Residual Bending Error in GNSS-RO Total ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Ph.D. Student Jaehee Chang awarded Best Paper Award at IPNT 2024.jpg" alt="" class="wp-image-1874" width="476" height="328" /></figure></div>
+    
+    
+    <p></p>
+    
+    
+    
+    <p>Ph.D. student Jaehee Chang received the Best Paper Award at the 2024 Institute of Positioning, Navigation, and Timing (IPNT) conference.</p>
+    
+    
+    
+    <p>Title:  Preliminary Assessment of Residual Bending Error in GNSS-RO Total Electron Content Using Ray Tracing Simulation</p>
+    
+    
+    
+    <p>장재희 박사과정은 11월 6일부터 8일까지 진행된 항법시스템학회 주관의 2024년 항법시스템학회 정기학술대회에서 ‘우수논문상’을 수상하였다.</p>
+    
+    
+    
+    <p>논문 제목: 광선 추적 시뮬레이션을 활용한 GNSS-RO 총전자량의 잔여 굴절 오차 분석</p>`,
+  },
+  {
+    id: 1863,
+    year: 2024,
+    date: "2024. NOV",
+    title: `Ph.D. Student Junsoo Kim awarded  Best of Conference (1st Place) Award at DASC 2024`,
+    desc: `Ph.D. Student Junsoo Kim received the Best of Conference (1st Place) Award at the 43rd Digital Avionics Systems Conference (DASC) conference. 김준수 박사과정은 43rd Digital Avionics Systems Conference (DASC) 학회에서 ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Ph.D. Student Junsoo Kim awarded Best of Conference (1st Place) Award at DASC 2024.jpg" alt="" class="wp-image-1865" width="621" height="300" /></figure></div>
+    
+    
+    <p></p>
+    
+    
+    
+    <p>Ph.D. Student Junsoo Kim received the Best of Conference (1<sup>st</sup> Place) Award at the 43<sup>rd</sup> Digital Avionics Systems Conference (DASC) conference.</p>
+    
+    
+    
+    <p>김준수 박사과정은 43<sup>rd</sup> Digital Avionics Systems Conference (DASC) 학회에서 ‘최우수논문상’을 수상하였다.</p>
+    
+    
+    
+    <p>Title: Minimum Separation Boundary for UAM Tactical Deconfliction based on Avoidance Risk Ratio Model</p>`,
+  },
+  {
+    id: 1858,
+    year: 2024,
+    date: "2024. NOV",
+    title: `Ph.D. Student Kiyoung Sun awarded  Best Presentation Award at ION GNSS+ 2024`,
+    desc: `Ph.D. Student Kiyoung Sun received the Best Presentation Award at the ION (Institute of Navigation) GNSS+ 2024 conference. 선기영 박사과정은 2024년 9월 미국 메릴랜드 볼티모어에서 열린 ION (Institute of Navigation) ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Ph.D. Student Kiyoung Sun awarded Best Presentation Award at ION GNSS+ 2024.jpg" alt="" class="wp-image-1860" width="643" height="318" /></figure></div>
+    
+    
+    <p>Ph.D. Student Kiyoung Sun received the Best Presentation Award at the ION (Institute of Navigation) GNSS+ 2024 conference.</p>
+    
+    
+    
+    <p>선기영 박사과정은 2024년 9월 미국 메릴랜드 볼티모어에서 열린 ION (Institute of Navigation) GNSS+ 2024 학회에서 ‘우수논문상’을 수상하였다.</p>
+    
+    
+    
+    <p>Title: Impact of Phase Transitions due to Ionospheric Scintillation on GBAS Integrity</p>`,
+  },
+  {
+    id: 1848,
+    year: 2024,
+    date: "2024. MAR",
+    title: `Prof. Jiyun Lee Receives 2023 Thurlow Award`,
+    desc: `Professor Jiyun Lee received the 2023 Thurlow Award from the Institute of Navigation (ION) for her significant contributions in guaranteeing the safety of satellite-based navigation systems for aviation. The Thurlow ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Prof. Jiyun Lee Receives 2023 Thurlow Award.jpg" alt="" class="wp-image-1800" width="443" height="290" /></figure></div>
+    
+    
+    <p></p>
+    
+    
+    
+    <p>Professor Jiyun Lee received the 2023 Thurlow Award from the Institute of Navigation (ION) for her significant contributions in guaranteeing the safety of satellite-based navigation systems for aviation. The Thurlow Award was established in 1945 to honor Colonel Thomas L. Thurlow, who made significant contributions to the development of navigation equipment and the training of navigators.&nbsp;Professor Lee is the first Korean to receive this award.</p>
+    
+    
+    
+    <p></p>
+    
+    
+    
+    <p>이지윤 교수가 위성 항법 분야 업적으로 미국 항법학회(ION)의 터로상(Thurlow Award)을 수상하였다. 터로상은 항법 장비 개발과 항해사 훈련에 크게 기여한 토마스 L. 터로 대령을 기리기 위해 1945년 제정된 것으로, 이지윤 교수는 항공용 위성 기반 항법 시스템의 안전을 보장하는 기술 진보에 크게 기여한 공로를 인정받아 한국 연구자 최초로 이 상을 받았다.</p>`,
+  },
+  {
+    id: 1824,
+    year: 2023,
+    date: "2023. NOV",
+    title: `M.S. Student Junsoo Kim awarded Best Paper Award at IPNT 2023`,
+    desc: `M.S. Student Junsoo Kim received the Best Paper Award at the 2023 Institute of Positioning, Navigation, and Timing (IPNT) conference. Title:&nbsp; Sensitivity Analysis of Minimum Separation Distance in UAM for ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-M.S. Student Junsoo Kim awarded Best Paper Award at IPNT 2023.jpg" alt="" class="wp-image-1826" width="474" height="320" /></figure></div>
+    
+    
+    <p></p>
+    
+    
+    
+    <p>M.S. Student Junsoo Kim received the Best Paper Award at the 2023 Institute of Positioning, Navigation, and Timing (IPNT) conference.</p>
+    
+    
+    
+    <p>Title:&nbsp; Sensitivity Analysis of Minimum Separation Distance in UAM for Collision Detection and Avoidance Performance</p>
+    
+    
+    
+    <p>김준수 석사과정은 11월 1일부터 3일까지 진행된 항법시스템학회 주관의 2023년 항법시스템학회 정기학술대회에서 ‘우수논문상’을 수상하였다.</p>
+    
+    
+    
+    <p>논문 제목: UAM의 충돌 검출 및 회피 성능에 따른 최소 분리거리 민감도 분석</p>`,
+  },
+  {
+    id: 1819,
+    year: 2023,
+    date: "2023. NOV",
+    title: `Ph.D. Student Minchan Kim awarded Best Presentation Award at ION GNSS+ 2023`,
+    desc: `Ph.D. Student Minchan Kim received the Best Presentation Award at the ION (Institute of Navigation) GNSS+ 2023 conference. 김민찬 박사과정은 2023년 9월 미국 콜로라도 덴버에서 열린 ION (Institute of Navigation) ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Ph.D. Student Minchan Kim awarded Best Presentation Award at ION GNSS+ 2023.jpg" alt="" class="wp-image-1820" width="608" height="285" /></figure></div>
+    
+    
+    <p></p>
+    
+    
+    
+    <p>Ph.D. Student Minchan Kim received the Best Presentation Award at the ION (Institute of Navigation) GNSS+ 2023 conference.</p>
+    
+    
+    
+    <p>김민찬 박사과정은 2023년 9월 미국 콜로라도 덴버에서 열린 ION (Institute of Navigation) GNSS+ 2023 학회에서 ‘우수발표상’을 수상하였다.</p>
+    
+    
+    
+    <p>Title: Integrity Assurance of LIRTK Using SS-RAIM Against Sensor Faults for UAV Applications</p>`,
+  },
+  {
+    id: 1817,
+    year: 2023,
+    date: "2023. NOV",
+    title: `Prof. Jiyun Lee Appointed as KAIST Endowed Chair Professor`,
+    desc: `Professor Jiyun Lee was appointed as the KAIST Endowed Chair Professor as of March 1st , 2023. The KAIST Endowed Chair Professor is selected among faculty in their forties, holding ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-large is-resized"><img loading="lazy" src="images/news-Prof. Jiyun Lee Appointed as KAIST Endowed Chair Professor.jpg" alt="" class="wp-image-1596" width="202" height="305" /></figure></div>
+    
+    
+    <p></p>
+    
+    
+    
+    <p>Professor Jiyun Lee was appointed as the KAIST Endowed Chair Professor as of March 1<sup>st</sup> , 2023. </p>
+    
+    
+    
+    <p>The KAIST Endowed Chair Professor is selected among faculty in their forties, holding the position of Professor or Associate Professor, who has outstanding achievements in education, research, and service, and thereby contributes significantly to the advancement of KAIST.</p>
+    
+    
+    
+    <p>이지윤 교수는 2023년 3월 1일부로 KAIST 지정석좌교수로 임명되었다. </p>
+    
+    
+    
+    <p>KAIST 지정석좌교수는 전임직교원 중 40대 정교수 또는 부교수로서 교육 · 연구 · 기여봉사 업적이 탁월하여 한국과학기술원 발전에 크게 기여할 수 있는 자로 선정된다.</p>`,
+  },
+  {
+    id: 1799,
+    year: 2023,
+    date: "2023. JAN",
+    title: `Prof. Jiyun Lee elected as ION Satellite Division Secretary`,
+    desc: `Professor Jiyun Lee was elected to the Institute of Navigation(ION)’s 2022-2024 Satellite Division Executive Committee as Secretary, and took office as of September 23 at the conclusion of ION GNSS+ ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Prof. Jiyun Lee elected as ION Satellite Division Secretary.jpg" alt="" class="wp-image-1800" width="458" height="300" /></figure></div>
+    
+    
+    <p></p>
+    
+    
+    
+    <p>Professor Jiyun Lee was elected to the Institute of Navigation(ION)’s 2022-2024 Satellite Division Executive Committee as Secretary, and took office as of September 23 at the conclusion of ION GNSS+ 2022.</p>
+    
+    
+    
+    <p>The purpose of the Satellite Division is to encourage the development, operation and use of navigation and position determination systems incorporating satellite-based elements.</p>
+    
+    
+    
+    <p>이지윤 교수는 2022년 9월 23일부로 Institute of Navigation(ION)의 Satellite Division Secretary(선출직)으로 위촉되었다. (임기: 2022-2024)</p>
+    
+    
+    
+    <p>ION은 1945년에 설립된 위성항법 분야 최우수 학회로서, Satellite Division에서는 위성을 이용한 항법 및 위치 결정 시스템의 기술 발전에 기여하고 있다.</p>`,
+  },
+  {
+    id: 1795,
+    year: 2023,
+    date: "2023. JAN",
+    title: `Ph.D. Student Gihun Nam awarded Best Paper Award at IPNT 2022`,
+    desc: `Ph.D. Student Gihun Nam received the Best Paper Award at the 2022 Institute of Positioning, Navigation, and Timing (IPNT) conference. 남기훈 박사과정은 11월 2일부터 4일까지 진행된 항법시스템학회 주관의 2022년 항법시스템학회 ...`,
+    content: `<p></p>
+    
+    
+    <div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Ph.D. Student Gihun Nam awarded Best Paper Award at IPNT 2022.jpg" alt="" class="wp-image-1796" width="490" height="351" /></figure></div>
+    
+    
+    <p></p>
+    
+    
+    
+    <p>Ph.D. Student Gihun Nam received the Best Paper Award at the 2022 Institute of Positioning, Navigation, and Timing (IPNT) conference.</p>
+    
+    
+    
+    <p>남기훈 박사과정은 11월 2일부터 4일까지 진행된 항법시스템학회 주관의 2022년 항법시스템학회 정기학술대회에서 ‘우수논문상’을 수상하였다.</p>
+    
+    
+    
+    <p>Title:&nbsp; Kalman Filter RAIM Based Along-Track Position Error Bound</p>
+    
+    
+    
+    <p>논문 제목: 칼만필터 RAIM 기반 종방향 위치 오차 경계 산출 방법</p>`,
+  },
+  {
+    id: 1761,
+    year: 2022,
+    date: "2022. AUG",
+    title: `M.S. Student Yun-Jung Kim awarded Best Paper Award at the Korea Society for Naval Science and Technology 2021 Winter Conference`,
+    desc: `Yun-Jung Kim, M.S. student of the commissioned education, received the Best Paper Award at the Korea Society for Naval Science and Technology 2021 Winter Conference.. 김윤중 석사과정 군 위탁 장교는 ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-M.S. Student Yun-Jung Kim awarded Best Paper Award at the Korea Society for Naval Science and Technology 2021 Winter Conference.jpg" alt="" class="wp-image-1762" width="506" height="344" /></figure></div>
+    
+    
+    <p></p>
+    
+    
+    
+    <p>Yun-Jung Kim, M.S. student of the commissioned education, received the Best Paper Award at the Korea Society for Naval Science and Technology 2021 Winter Conference..</p>
+    
+    
+    
+    <p>김윤중 석사과정 군 위탁 장교는 한국해군과학기술학회가 주관하고 전력분석시험평가단이 후원한 2021년도 동계 학술대회에서 우수논문상을 수상하였다.</p>
+    
+    
+    
+    <p class="has-text-align-left has-base-2-background-color has-background">Title : 위성궤도 고장 상황에서 위성 가림현상을 고려한 자율 공중급유 시스템 무결성 향상 연구</p>`,
+  },
+  {
+    id: 1751,
+    year: 2022,
+    date: "2022. AUG",
+    title: `Prof. Jiyun Lee appointed as KAIST Ombudsperson`,
+    desc: `Professor Jiyun Lee was appointed as KAIST Ombudsperson as of August 1, 2022. The Ombudsperson system was introduced to provide counseling to members of KAIST and to guarantee individual rights ...`,
+    content: `<p></p>
+    
+    
+    <div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Prof. Jiyun Lee appointed as KAIST Ombudsperson.jpg" alt="" class="wp-image-1752" width="506" height="373" /></figure></div>
+    
+    
+    <p>Professor Jiyun Lee was appointed as KAIST Ombudsperson as of August 1, 2022. </p>
+    
+    
+    
+    <p>The Ombudsperson system was introduced to provide counseling to members of KAIST and to guarantee individual rights against any unjust and irrational systems.</p>
+    
+    
+    
+    <p>이지윤 교수는 2022년 8월 1일부로 KAIST 청렴옴부즈퍼슨으로 위촉되었다.</p>
+    
+    
+    
+    <p>청렴옴부즈퍼슨은 KAIST의 청렴한 문화 조성 및 자정 역량을 제고하기 위해 추진되었으며, 구성원들의 고충을 듣고 발생할 수 있는 문제를 사전에 인지하여 예방하는 역할을 수행한다.</p>`,
+  },
+  {
+    id: 1610,
+    year: 2022,
+    date: "2022. JUL",
+    title: `이지윤 교수, 한국항공우주학회 항공우주교육상 수상`,
+    desc: `이지윤 교수는 항공우주공학분야 교육&nbsp;및&nbsp;연구 증진에 크게 기여했음을 인정받아&nbsp;2021년 한국항공우주학회 항공우주교육상을 수상하였다.`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full"><img loading="lazy" width="461" height="340" src="images/news-이지윤 교수, 한국항공우주학회 항공우주교육상 수상.jpg" alt="" class="wp-image-1611" /></figure></div>
+    
+    
+    <p>이지윤 교수는 항공우주공학분야 교육&nbsp;및&nbsp;연구 증진에 크게 기여했음을 인정받아&nbsp;2021년 한국항공우주학회 항공우주교육상을 수상하였다.</p>`,
+  },
+  {
+    id: 1606,
+    year: 2022,
+    date: "2022. JUL",
+    title: `Ph.D. Student Ki-young Sun awarded Excellent Paper Award at IPNT 2021`,
+    desc: `Ki-young Sun (Ph.D. student) received the Excellent Paper Award at the 2021 Institute of Positioning, Navigation, and Timing (IPNT) conference. 선기영 박사과정은 2021 항법시스템학회 우수 논문상을 수상하였다. Title : Impacts ...`,
+    content: `<div class="wp-container-3 wp-block-columns">
+    <div class="wp-container-1 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Ph.D. Student Ki-young Sun awarded Excellent Paper Award at IPNT 2021.jpg" alt="" class="wp-image-620" width="355" height="382" /></figure></div></div>
+    
+    
+    
+    <div class="wp-container-2 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Ph.D. Student Ki-young Sun awarded Excellent Paper Award at IPNT 2021.jpg" alt="" class="wp-image-1608" width="327" height="462" /></figure></div></div>
+    </div>
+    
+    
+    
+    <p>Ki-young Sun (Ph.D. student) received the Excellent Paper Award at the 2021 Institute of Positioning, Navigation, and Timing (IPNT) conference.</p>
+    
+    
+    
+    <p>선기영 박사과정은 2021 항법시스템학회 우수 논문상을 수상하였다.</p>
+    
+    
+    
+    <p class="has-text-align-left has-base-2-background-color has-background">Title : Impacts of Ionospheric Scintillation on Ground CCD Monitor Performance for GAST D Operation in the Equatorial Region (2021)</p>`,
+  },
+  {
+    id: 1601,
+    year: 2022,
+    date: "2022. JUL",
+    title: `M.S. Student Yun-jung Kim awarded Grand Prize at the 2021 National Defense Academic Conference`,
+    desc: `Yun-jung Kim, M.S. student of the commissioned education, received the Grand Prize at the 2021 Graduate Student National Defense Academic Conference sponsored by the Korea National Defense University. 김윤중 석사과정 ...`,
+    content: `<div class="wp-container-5 wp-block-columns">
+    <div class="wp-container-4 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-full"><img loading="lazy" width="714" height="497" src="images/news-M.S. Student Yun-jung Kim awarded Grand Prize at the 2021 National Defense Academic Conference.jpg" alt="" class="wp-image-1604" /></figure></div>
+    
+    
+    <p>Yun-jung Kim, M.S. student of the commissioned education, received the Grand Prize at the 2021 Graduate Student National Defense Academic Conference sponsored by the Korea National Defense University.</p>
+    
+    
+    
+    <p>김윤중 석사과정 군 위탁 장교는 국방대학교에서 주최하는 2021년 대학원생 국방학술대회에서 대상을 수상하였다.</p>
+    
+    
+    
+    <p class="has-base-2-background-color has-background">Title : Integrity Assurance Method for JAPLS-based Autonomous Airborne Refueling under Ephemeris Fault Condition</p>
+    </div>
+    </div>`,
+  },
+  {
+    id: 1598,
+    year: 2022,
+    date: "2022. JUL",
+    title: `이지윤 교수, 우주개발진흥실무위원회 제8기 민간위원 연임`,
+    desc: `이지윤 교수는 2021년 11월부로 우주개발진흥실무위 제7기에 이어 제8기 민간위원으로 연임되었다. 우주개발진흥실무위는 우주개발 관계부처의 주요 안건을 전문가적 관점으로 심의·확정하거나, 국가우주위원회 상정 안건을 사전 검토·심의하는 자리이다. 2년 임기의 우주개발진흥실무위 민간위원은 우주 분야에 ...`,
+    content: `<div class="wp-container-8 wp-block-columns">
+    <div class="wp-container-6 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-large is-resized"><img loading="lazy" src="images/news-이지윤 교수, 우주개발진흥실무위원회 제8기 민간위원 연임.jpg" alt="" class="wp-image-1596" width="245" height="371" /></figure></div></div>
+    
+    
+    
+    <div class="wp-container-7 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-이지윤 교수, 우주개발진흥실무위원회 제8기 민간위원 연임.jpg" alt="" class="wp-image-1599" width="336" height="224" /></figure></div></div>
+    </div>
+    
+    
+    
+    <p>이지윤 교수는 2021년 11월부로 우주개발진흥실무위 제7기에 이어 제8기 민간위원으로 연임되었다. </p>
+    
+    
+    
+    <p>우주개발진흥실무위는 우주개발 관계부처의 주요 안건을 전문가적 관점으로 심의·확정하거나, 국가우주위원회 상정 안건을 사전 검토·심의하는 자리이다. </p>
+    
+    
+    
+    <p>2년 임기의 우주개발진흥실무위 민간위원은 우주 분야에 관한 전문지식과 경험이 풍부한 민간 전문가 12인으로 구성되었다.</p>`,
+  },
+  {
+    id: 1594,
+    year: 2022,
+    date: "2022. JUL",
+    title: `Prof. Jiyun Lee appointed as a member of the Science and Technology Diplomacy Advisory Committee`,
+    desc: `Professor Jiyun Lee was appointed as a member of the Science and Technology Diplomacy Advisory Committee of the Ministry of Foreign Affairs. The Science and Technology Diplomacy Advisory Committee deliberates ...`,
+    content: `<div class="wp-container-11 wp-block-columns">
+    <div class="wp-container-9 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-large is-resized"><img loading="lazy" src="images/news-Prof. Jiyun Lee appointed as a member of the Science and Technology Diplomacy Advisory Committee.jpg" alt="" class="wp-image-1596" width="300" height="454" /></figure></div></div>
+    
+    
+    
+    <div class="wp-container-10 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-large is-resized"><img loading="lazy" src="images/news-Prof. Jiyun Lee appointed as a member of the Science and Technology Diplomacy Advisory Committee.jpg" alt="" class="wp-image-1595" width="355" height="489" /></figure></div></div>
+    </div>
+    
+    
+    
+    <p>Professor Jiyun Lee was appointed as a member of the Science and Technology Diplomacy Advisory Committee of the Ministry of Foreign Affairs.</p>
+    
+    
+    
+    <p>The Science and Technology Diplomacy Advisory Committee deliberates on&nbsp;major issues in science and technology diplomacy of the Ministry of Foreign Affairs and establishes a plan for science and technology diplomacy.</p>
+    
+    
+    
+    <p>이지윤 교수는 2021년 11월 30일부로 외교부 과학기술외교자문위원회 우주분과 자문위원으로 위촉되었다.</p>
+    
+    
+    
+    <p>과학기술외교자문위는 외교부 과학기술외교 주요 안건을 전문가적 관점으로 심의하고, 과학기술외교 추진 방향을 수립하는 역할을 수행한다.</p>`,
+  },
+  {
+    id: 1590,
+    year: 2022,
+    date: "2022. JUL",
+    title: `Ph.D. Student Hyeyeon Chang awarded Excellent Paper Award at KONI 2020`,
+    desc: `Hyeyeon Chang (Ph.D. Student) received the Excellent Paper Award at the 2020 KONI (Korean Navigation Institute) Conference which was held on Oct. 23, 2020. 장혜연 박사과정은 지난 10월 23일 한국항행학회에서 ...`,
+    content: `<div class="wp-container-14 wp-block-columns">
+    <div class="wp-container-12 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Ph.D. Student Hyeyeon Chang awarded Excellent Paper Award at KONI 2020.jpg" alt="" class="wp-image-1573" width="285" height="380" /></figure></div></div>
+    
+    
+    
+    <div class="wp-container-13 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Ph.D. Student Hyeyeon Chang awarded Excellent Paper Award at KONI 2020.jpg" alt="" class="wp-image-1591" width="329" height="456" /></figure></div></div>
+    </div>
+    
+    
+    
+    <p>Hyeyeon Chang (Ph.D. Student) received the Excellent Paper Award at the 2020 KONI (Korean Navigation Institute) Conference which was held on Oct. 23, 2020.</p>
+    
+    
+    
+    <p>장혜연 박사과정은 지난 10월 23일 한국항행학회에서 주관한 2020년도 종합학술대회에서 ‘우수논문상’을 수상하였다.</p>
+    
+    
+    
+    <p class="has-base-2-background-color has-background">논문 제목: Neural Network 기반의 브라질 지역 전리층 지연값 예측 예비 결과</p>`,
+  },
+  {
+    id: 1584,
+    year: 2022,
+    date: "2022. JUL",
+    title: `Ph.D. Student Minchan Kim awarded Excellent Paper Award at IPNT 2020`,
+    desc: `Minchan Kim (Ph.D. Student) received the Excellent Paper Award at the 2020 IPNT (Institute of Positioning, Navigation, and Timing) Conference which was held on Nov. 11-13, 2020. 김민찬 박사과정은 지난 ...`,
+    content: `<div class="wp-container-17 wp-block-columns">
+    <div class="wp-container-15 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Ph.D. Student Minchan Kim awarded Excellent Paper Award at IPNT 2020.jpg" alt="" class="wp-image-647" width="252" height="336" /></figure></div></div>
+    
+    
+    
+    <div class="wp-container-16 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="images/news-Ph.D. Student Minchan Kim awarded Excellent Paper Award at IPNT 2020.jpg" alt="" class="wp-image-1585" width="325" height="455" /></figure></div></div>
+    </div>
+    
+    
+    
+    <p>Minchan Kim (Ph.D. Student) received the Excellent Paper Award at the 2020 IPNT (Institute of Positioning, Navigation, and Timing) Conference which was held on Nov. 11-13, 2020. </p>
+    
+    
+    
+    <p>김민찬 박사과정은 지난 11월 11일부터 13일까지 진행된 항법시스템학회 주관의 2020년 항법시스템학회 정기학술대회에서 ‘우수논문상’을 수상하였다.</p>
+    
+    
+    
+    <p class="has-base-2-background-color has-background">논문 제목: Johnson 분포를 활용한 무인항공기의 비행 기술 오차 모델링 기법 연구</p>`,
+  },
+  {
+    id: 1577,
+    year: 2022,
+    date: "2022. JUL",
+    title: `정성균 박사, 상명대학교 휴먼지능로봇공학과 신임교수 임용`,
+    desc: `졸업생 정성균 박사가 2020년 9월부로 상명대학교 휴먼지능로봇공학과 신임교수로 임용되었다. &nbsp; 정성균 박사는 이지윤 교수의 지도 하에 2020년 2월 박사학위를 취득하였으며, 한국전자통신연구원과 과학기술정보통신부에서 재직하였다. 정성균 박사는 항법, 위성관제, 제어, 자율주행, 무인운송에 ...`,
+    content: `<div class="wp-block-image">
+    <figure class="aligncenter size-full"><img loading="lazy" width="310" height="323" src="images/news-정성균 박사, 상명대학교 휴먼지능로봇공학과 신임교수 임용.jpg" alt="" class="wp-image-1578" /></figure></div>
+    
+    
+    <p>졸업생 정성균 박사가 2020년 9월부로 상명대학교 휴먼지능로봇공학과 신임교수로 임용되었다. &nbsp;</p>
+    
+    
+    
+    <p>정성균 박사는 이지윤 교수의 지도 하에 2020년 2월 박사학위를 취득하였으며, 한국전자통신연구원과 과학기술정보통신부에서 재직하였다. 정성균 박사는 항법, 위성관제, 제어, 자율주행, 무인운송에 관한 연구를 수행해왔다.</p>`,
+  },
+  {
+    id: 1572,
+    year: 2022,
+    date: "2022. JUL",
+    title: `Ph.D. Student Hyeyeon Chang awarded Outstanding Student Presentation Award at AGU Fall Meeting 2020`,
+    desc: `Hyeyeon Chang (Ph.D. Student) received the 'Outstanding Student Presentation Award' at the American Geophysical Union (AGU) 2020 Fall Meeting. 장혜연 박사과정은 American Geophysical Union (AGU) 2020 Fall Meeting 우수 논문상을 ...`,
+    content: `<div class="wp-container-20 wp-block-columns">
+    <div class="wp-container-18 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized"><img loading="lazy" src="https://gnss.kaist.ac.kr/wp-content/uploads/2022/07/장혜연.jpg" alt="" class="wp-image-1573" width="276" height="367" /></figure></div></div>
+    
+    
+    
+    <div class="wp-container-19 wp-block-column"><div class="wp-block-image">
+    <figure class="aligncenter size-full"><img loading="lazy" width="482" height="371" src="https://gnss.kaist.ac.kr/wp-content/uploads/2022/07/장혜연_award_AGU2020.jpg" alt="" class="wp-image-1574" /></figure></div></div>
+    </div>
+    
+    
+    
+    <p>Hyeyeon Chang (Ph.D. Student) received the 'Outstanding Student Presentation Award' at the American Geophysical Union (AGU) 2020 Fall Meeting. </p>
+    
+    
+    
+    <p>장혜연 박사과정은 American Geophysical Union (AGU) 2020 Fall Meeting 우수 논문상을 수상하였다.</p>
+    
+    
+    
+    <p class="has-base-2-background-color has-background">논문 제목: Effects of CICERO Receiver Characteristics on the Quality of Radio Occultation Data (2020)</p>`,
+  },
+  {
+    id: 1451,
+    year: 2020,
+    date: "2020. MAR",
+    title: `이지윤 교수, 공역위원회 민간위원 위촉`,
+    desc: `이지윤 교수가 2020년 3월 27일부로 국토교통부 산하의 공역위원회 신규 민간위원으로 위촉되었다. 공역위원회는 항공안전법 제78조의 규정에 의한 공역의 설정 및 관리에 필요한 사항을 심의하며, 당연직 13명 위촉직 2명으로 구성되어 있다.`,
+    content: `<div class="wp-container-23 wp-block-columns has-2-columns">
+    <div class="wp-container-21 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="384" height="538" src="images/news-이지윤 교수, 공역위원회 민간위원 위촉.jpg" alt="" class="wp-image-1452" /></figure>
+    </div>
+    
+    
+    
+    <div class="wp-container-22 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="747" height="1024" src="images/news-이지윤 교수, 공역위원회 민간위원 위촉.jpg" alt="" class="wp-image-1453" /></figure>
+    </div>
+    </div>
+    
+    
+    
+    <p>이지윤 교수가 2020년 3월 27일부로 국토교통부 산하의 공역위원회 신규 민간위원으로 위촉되었다.</p>
+    
+    
+    
+    <p>공역위원회는 항공안전법 제78조의 규정에 의한 공역의 설정 및 관리에 필요한 사항을 심의하며, 당연직 13명 위촉직 2명으로 구성되어 있다.</p>`,
+  },
+  {
+    id: 1400,
+    year: 2019,
+    date: "2019. NOV",
+    title: `Ph.D. Candidate Dongwoo Kim awarded Excellent Paper Award at KONI 2019`,
+    desc: `Dong woo Kim (Ph.D. Candidate) got "KONI Excellent Paper Award" at the Korea Navigation Institute Awards which was held on Nov. 01, 2019 at Seoul KBIZ, Korea. 김동우 박사과정은 지난 ...`,
+    content: `<div class="wp-container-26 wp-block-columns has-2-columns">
+    <div class="wp-container-24 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="200" height="267" src="images/news-Ph.D. Candidate Dongwoo Kim awarded Excellent Paper Award at KONI 2019.jpg" alt="" class="wp-image-1402"/><figcaption>Dongwoo Kim (Ph.D. Candidate)</figcaption></figure>
+    </div>
+    
+    
+    
+    <div class="wp-container-25 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="1024" height="1024" src="images/news-Ph.D. Candidate Dongwoo Kim awarded Excellent Paper Award at KONI 2019.jpg" alt="" class="wp-image-1403" /><figcaption> <em>  KONI 2019 Excellent Paper Award  </em> </figcaption></figure>
+    </div>
+    </div>
+    
+    
+    
+    <p>Dong woo Kim (Ph.D. Candidate) got "KONI Excellent Paper Award" at the Korea Navigation Institute Awards which was held on Nov. 01, 2019 at Seoul KBIZ, Korea.</p>
+    
+    
+    
+    <p>김동우 박사과정은 지난 11월 1일  2019년도 한국항행학회 종합학술대회에서 ‘우수논문상’을 수상하였다.</p>
+    
+    
+    
+    <p></p>
+    
+    
+    
+    <p><br> Title: GPS Heading Fault Detection Monitor using Tightly Coupled Kalman Filter Innovation)</p>
+    
+    
+    
+    <p>논문 제목:  강결합 칼만필터 이노베이션을 이용한 GPS 헤딩 측정치 고장 검출 모니터 설계</p>`,
+  },
+  {
+    id: 1391,
+    year: 2019,
+    date: "2019. NOV",
+    title: `Ph.D. Candidate Pilhun Choi awarded Excellent Paper Award at IPNT 2019`,
+    desc: `Pil Hun Choi awarded (Ph.D. Candidate) "IPNT Excellent Paper Award " at the Institute of Positioning, Navigation, and Timing (IPNT) 2019 which was held on Nov. 01, 2019 at Jeju ...`,
+    content: `<p></p>
+    
+    
+    
+    <div class="wp-container-29 wp-block-columns has-2-columns">
+    <div class="wp-container-27 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="466" height="590" src="images/news-Ph.D. Candidate Pilhun Choi awarded Excellent Paper Award at IPNT 2019.jpg" alt="" class="wp-image-1392" /><figcaption> <em>Pilhun Choi (Ph.D. Candidate)</em> </figcaption></figure>
+    </div>
+    
+    
+    
+    <div class="wp-container-28 wp-block-column">
+    <figure class="wp-block-image is-resized"><img loading="lazy" src="images/news-Ph.D. Candidate Pilhun Choi awarded Excellent Paper Award at IPNT 2019.jpg" alt="" class="wp-image-1393" width="267" height="377" /><figcaption> <em> IPNT 2019 Excellent Paper Award </em> </figcaption></figure>
+    </div>
+    </div>
+    
+    
+    
+    <p>Pil Hun Choi awarded (Ph.D. Candidate) "IPNT Excellent Paper Award " at the Institute of Positioning, Navigation, and Timing (IPNT) 2019 which was held on Nov. 01, 2019 at Jeju RAMADA, Korea.</p>
+    
+    
+    
+    <p>최필훈 박사과정은 지난 10월 29일부터 11월 1일까지 진행된  2019년도 항법시스템학회 정기학술대회에서 ‘우수논문상’을 수상하였다.</p>
+    
+    
+    
+    <p> Title: Integrity Risk Optimization Method based on Landmark Dilution of Precision (DOP) in Lidar-based Navigation System</p>
+    
+    
+    
+    <p>논문 제목: LiDAR 기반 항법 시스템의 무결성 성능 최적화를 위한 DOP 기반 Landmark 선정 기법</p>`,
+  },
+  {
+    id: 1447,
+    year: 2019,
+    date: "2019. JUL",
+    title: `이지윤 교수, 우주개발진흥실무위원회  제7기 민간위원 위촉`,
+    desc: `이지윤 교수가 2019년 7월부로 우주개발진흥실무위 제7기 민간위원으로 위촉되었다. 우주개발진흥실무위는 우주개발 관계부처의 주요 안건을 전문가적 관점으로 심의·확정하거나, 국가우주위원회 상정 안건을 사전 검토·심의하는 자리이다. 2년 임기의 우주개발진흥실무위 민간위원은 우주 분야에 관한 전문지식과 ...`,
+    content: `<div class="wp-container-32 wp-block-columns has-2-columns">
+    <div class="wp-container-30 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="384" height="538" src="images/news-이지윤 교수, 우주개발진흥실무위원회 제7기 민간위원 위촉.jpg" alt="" class="wp-image-1448" /></figure>
+    </div>
+    
+    
+    
+    <div class="wp-container-31 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="491" height="431" src="images/news-이지윤 교수, 우주개발진흥실무위원회 제7기 민간위원 위촉.jpg" alt="" class="wp-image-1449" /></figure>
+    
+    
+    
+    <p></p>
+    </div>
+    </div>
+    
+    
+    
+    <p>이지윤 교수가 2019년 7월부로 우주개발진흥실무위 제7기 민간위원으로 위촉되었다.</p>
+    
+    
+    
+    <p>우주개발진흥실무위는 우주개발 관계부처의 주요 안건을 전문가적 관점으로 심의·확정하거나, 국가우주위원회 상정 안건을 사전 검토·심의하는 자리이다.</p>
+    
+    
+    
+    <p>2년 임기의 우주개발진흥실무위 민간위원은 우주 분야에 관한 전문지식과 경험이 풍부한 민간 전문가 12인으로 구성되었다.</p>`,
+  },
+  {
+    id: 1443,
+    year: 2019,
+    date: "2019. JUN",
+    title: `Selected as Top Downloaded Article 2017-2018 of NAVIGATION`,
+    desc: `윤문석 박사가 제 1저자로 작성한 논문이 항법분야 세계 최우수 학술지 NAVIGATION의 Top Downloaded Article 2017-2018에 선정되었다. Title : Equatorial Plasma Bubble Threat Parameterization to Support GBAS Operations in the Brazilian ...`,
+    content: `<div class="wp-container-35 wp-block-columns has-2-columns">
+    <div class="wp-container-33 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="319" height="434" src="images/news-Selected as Top Downloaded Article 2017-2018 of NAVIGATION.jpg" alt="" class="wp-image-1444" /></figure>
+    </div>
+    
+    
+    
+    <div class="wp-container-34 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="640" height="457" src="images/news-Selected as Top Downloaded Article 2017-2018 of NAVIGATION.jpg" alt="" class="wp-image-1445" /></figure>
+    </div>
+    </div>
+    
+    
+    
+    <p>윤문석 박사가 제 1저자로 작성한 논문이 항법분야 세계 최우수 학술지 NAVIGATION의 Top Downloaded Article 2017-2018에 선정되었다.</p>
+    
+    
+    
+    <p>Title : Equatorial Plasma Bubble Threat Parameterization to Support GBAS Operations in the Brazilian Region</p>`,
+  },
+  {
+    id: 1439,
+    year: 2019,
+    date: "2019. JUN",
+    title: `Ph.D. Minchan Kim Awarded Excellent Paper Award at 2019 SASE Spring Conference`,
+    desc: `김민찬 박사는 지난 4월 26일 항공우주시스템공학회에서 주관한 2019년도 춘계학술대회에서 논문을 발표하여 ‘우수발표논문상’을 수상하였다. 논문 제목: UTM의 Zone 타입 비행공역 설정을 위한 최소분리거리 도출 연구`,
+    content: `<div class="wp-container-38 wp-block-columns has-2-columns">
+    <div class="wp-container-36 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="448" height="542" src="images/news-Ph.D. Minchan Kim Awarded Excellent Paper Award at 2019 SASE Spring Conference.jpg" alt="" class="wp-image-1440" /></figure>
+    </div>
+    
+    
+    
+    <div class="wp-container-37 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="402" height="546" src="images/news-Ph.D. Minchan Kim Awarded Excellent Paper Award at 2019 SASE Spring Conference.jpg" alt="" class="wp-image-1441" /></figure>
+    </div>
+    </div>
+    
+    
+    
+    <p>김민찬 박사는 지난 4월 26일 항공우주시스템공학회에서 주관한 2019년도 춘계학술대회에서 논문을 발표하여 ‘우수발표논문상’을 수상하였다.</p>
+    
+    
+    
+    <p>논문
+    제목:
+    UTM의
+    Zone
+    타입
+    비행공역
+    설정을 위한 최소분리거리 도출 연구</p>`,
+  },
+  {
+    id: 1432,
+    year: 2019,
+    date: "2019. JUN",
+    title: `Professor Jiyun Lee Elected as ION Officer Technical Representative`,
+    desc: `GNSS 연구실 이지윤 교수가 2019년 1월 31일부로 Institute of Navigation (ION)의 Technical Representative(선출직)으로 위촉되었다. ION은 1945년에 설립되어 현재까지 2800 여명의 회원이 가입되어있는 위성항법 분야 최우수 학회로서, 위성항법분야 기술 최고 전문가 ...`,
+    content: `<div class="wp-container-41 wp-block-columns has-2-columns">
+    <div class="wp-container-39 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="384" height="538" src="images/news-Professor Jiyun Lee Elected as ION Officer Technical Representative.jpg" alt="" class="wp-image-1433" /></figure>
+    </div>
+    
+    
+    
+    <div class="wp-container-40 wp-block-column">
+    <figure class="wp-block-image"><img loading="lazy" width="431" height="538" src="images/news-Professor Jiyun Lee Elected as ION Officer Technical Representative.jpg" alt="" class="wp-image-1435" /></figure>
+    </div>
+    </div>
+    
+    
+    
+    <p>GNSS 연구실 이지윤 교수가 2019년 1월 31일부로 Institute of Navigation (ION)의 Technical Representative(선출직)으로 위촉되었다. </p>
+    
+    
+    
+    <p>ION은 1945년에 설립되어 현재까지 2800  여명의 회원이 가입되어있는 위성항법 분야 최우수 학회로서, 위성항법분야 기술 최고 전문가 8인을 Technical Representative로 위촉하였으며 국내에서는 이지윤 교수가 유일하게 선출되었다. </p>`,
+  },
+  {
+    id: 1425,
+    year: 2019,
+    date: "2019. JAN",
+    title: `Professor Jiyun Lee Appointed as General Chair of ION ITM 2019`,
+    desc: `이지윤 교수가 2019년 1월 28-31일 진행된 Institute of Navigation International Technical Meeting (ION ITM) 2019의 General Chair로 임명되었다.`,
+    content: `<figure class="wp-block-image"><img loading="lazy" width="692" height="358" src="images/news-Professor Jiyun Lee Appointed as General Chair of ION ITM 2019.jpg" alt="" class="wp-image-1429" /><figcaption>ION ITM/PTTI 2019 Program Committees</figcaption></figure>
+    
+    
+    
+    <p>이지윤 교수가 2019년 1월 28-31일 진행된 Institute of Navigation International Technical Meeting (ION ITM) 2019의 General Chair로 임명되었다. </p>`,
+  },
+];
 
-fetch('news.json')
-  .then(r => r.json())
-  .then(data => {
-    NEWS = data.map(item => {
-      const d = new Date(item.date);
-      const year = d.getFullYear();
-      const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-      const month = MONTHS[d.getMonth()];
-      return {
-        id: item.id,
-        year: year,
-        date: `${year}. ${month}`,
-        title: item.title.replace(/&#8217;/g, "'").replace(/&amp;/g, '&').replace(/&#[0-9]+;/g, ''),
-        venue: '',
-        desc: item.excerpt.replace(/<[^>]+>/g, '').replace(/&#8217;/g, "'").replace(/&#8230;/g, '...').replace(/&amp;/g, '&').replace(/&#[0-9]+;/g, '').trim(),
-        content: item.content || '',
-        link: '#'
-      };
-    });
-
-    // 연도 버튼 동적 생성
-    const years = [...new Set(NEWS.map(n => n.year))].sort((a, b) => b - a);
-    const yearFilters = document.getElementById('year-filters');
-    yearFilters.innerHTML = `<button class="filter-btn active" data-year="all">All Years</button>`
-      + years.map(y => `<button class="filter-btn" data-year="${y}">${y}</button>`).join('');
-
-    render();
-  })
-  .catch(err => console.error('fetch 실패:', err));
-
-// ─── STATE ──────────────────────────────────────────────────────────────────
+// ─── STATE ───────────────────────────────────────────────────────────────────
 let activeYear = 'all';
 let searchQuery = '';
 
-// ─── RENDER ─────────────────────────────────────────────────────────────────
+// ─── INIT YEAR FILTERS ───────────────────────────────────────────────────────
+(function initFilters() {
+  const years = [...new Set(NEWS.map(n => n.year))].sort((a, b) => b - a);
+  const container = document.getElementById('year-filters');
+  container.innerHTML =
+    `<button class="filter-btn active" data-year="all">All Years</button>` +
+    years.map(y => `<button class="filter-btn" data-year="${y}">${y}</button>`).join('');
+})();
+
+// ─── RENDER ──────────────────────────────────────────────────────────────────
 function filtered() {
   return NEWS.filter(n => {
     const yearOk = activeYear === 'all' || n.year === parseInt(activeYear);
     const q = searchQuery.toLowerCase();
-    const searchOk = !q || n.title.toLowerCase().includes(q) || n.venue.toLowerCase().includes(q) || n.desc.toLowerCase().includes(q);
+    const searchOk = !q || n.title.toLowerCase().includes(q) || n.desc.toLowerCase().includes(q);
     return yearOk && searchOk;
   });
 }
@@ -713,7 +1198,6 @@ function render() {
             <span class="news-date">${n.date.replace(/^\d{4}\. /, '')}</span>
             <div class="news-body">
               <p class="news-title">${n.title}</p>
-              <p class="news-detail">${n.venue}</p>
             </div>
             <span class="news-arrow">→</span>
           </div>
@@ -727,22 +1211,14 @@ function render() {
   });
 }
 
-// ─── MODAL ──────────────────────────────────────────────────────────────────
+// ─── MODAL ───────────────────────────────────────────────────────────────────
 function openModal(id) {
   const n = NEWS.find(x => x.id === id);
   if (!n) return;
 
-  let bodyHTML;
-  if (n.content) {
-    bodyHTML = n.content
-      .replace(/srcset="[^"]*"/g, '').replace(/sizes="[^"]*"/g, '')
-      .replace(/src="https?:\/\/gnss\.kaist\.ac\.kr\/wp-content\/uploads\/[^"]+\.(jpg|jpeg|png|gif|webp)"/gi,
-        (match, ext) => `src="images/news-${n.title}.${ext.toLowerCase()}"`)
-      .replace(/&#8217;/g, "'").replace(/&#8230;/g, '...').replace(/&amp;/g, '&')
-      .replace(/&#[0-9]+;/g, '');
-  } else {
-    bodyHTML = `<p>${n.desc}</p>`;
-  }
+  const bodyHTML = n.content
+    ? n.content
+    : `<p>${n.desc}</p>`;
 
   document.getElementById('modal-content').innerHTML = `
     <div class="modal-date">${n.date}</div>
@@ -764,7 +1240,7 @@ document.getElementById('modal-overlay').addEventListener('click', e => {
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-// ─── FILTERS ────────────────────────────────────────────────────────────────
+// ─── FILTERS ─────────────────────────────────────────────────────────────────
 document.getElementById('year-filters').addEventListener('click', e => {
   const btn = e.target.closest('.filter-btn');
   if (!btn) return;
@@ -779,64 +1255,22 @@ document.getElementById('search-input').addEventListener('input', e => {
   render();
 });
 
-// ─── STARS ──────────────────────────────────────────────────────────────────
-const canvas = document.getElementById('stars-canvas');
-const ctx = canvas.getContext('2d');
-let stars = [];
-function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-function initStars() {
-  stars = [];
-  const count = Math.floor((canvas.width * canvas.height) / 6000);
-  for (let i = 0; i < count; i++) {
-    stars.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height,
-      r: Math.random()*1.1+0.2, alpha: Math.random()*0.6+0.1,
-      speed: Math.random()*0.003+0.001, phase: Math.random()*Math.PI*2 });
-  }
-}
-function drawStars(t) {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  stars.forEach(s => {
-    const a = s.alpha*(0.5+1.0*Math.sin(t*s.speed+s.phase));
-    ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(200,220,255,${a})`; ctx.fill();
-  });
-  requestAnimationFrame(drawStars);
-}
-resize();
-  initStars();
-  requestAnimationFrame(drawStars);
-  window.addEventListener('resize', () => { resize(); initStars(); });
+// ─── MOBILE DRAWER ───────────────────────────────────────────────────────────
+const hamburger = document.getElementById('nav-hamburger');
+const drawer    = document.getElementById('nav-drawer');
+const overlay   = document.getElementById('nav-overlay');
+const closeBtn  = document.getElementById('nav-drawer-close');
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+function openDrawer() { drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
 
-  render();
+hamburger.addEventListener('click', openDrawer);
+closeBtn.addEventListener('click', closeDrawer);
+overlay.addEventListener('click', closeDrawer);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
-  // ── Mobile drawer ──
-  const hamburger = document.getElementById('nav-hamburger');
-  const drawer    = document.getElementById('nav-drawer');
-  const overlay   = document.getElementById('nav-overlay');
-  const closeBtn  = document.getElementById('nav-drawer-close');
-
-  function openDrawer() {
-    drawer.classList.add('open');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeDrawer() {
-    drawer.classList.remove('open');
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  hamburger.addEventListener('click', openDrawer);
-  closeBtn.addEventListener('click', closeDrawer);
-  overlay.addEventListener('click', closeDrawer);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+// ─── INITIAL RENDER ──────────────────────────────────────────────────────────
+render();
 </script>
 </body>
 </html>
