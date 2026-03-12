@@ -163,10 +163,10 @@
     /* STUDENT / STAFF GRID */
     .people-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fill, 220px);
       gap: 1.5rem;
     }
-    .phd-grid { grid-template-columns: repeat(6, 1fr); margin-bottom: 2.5rem; }
+    .phd-grid { grid-template-columns: repeat(auto-fill, 220px); margin-bottom: 2.5rem; }
     .ms-grid  { grid-template-columns: repeat(6, 1fr); }
     .degree-divider {
       display: flex; align-items: center; gap: 1rem;
@@ -186,6 +186,7 @@
       border: 1px solid #e4edf5;
       transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
       cursor: default;
+	  width: 280px;
     }
     .person-card:hover {
       box-shadow: 0 8px 32px rgba(62,193,211,0.1);
