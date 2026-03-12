@@ -458,10 +458,15 @@
       .nav-hamburger { display: flex; }
       .nav-links { display: none; }
     }
+	.container {
+	  max-width: 1600px;
+	  margin: 0 auto;
+	  padding: 0 24px;
+	}
   </style>
 </head>
 <body>
-
+<div class="container">
 <nav>
   <a href="index.html" class="nav-brand">
     <div class="nav-brand-main"><span>GNSS</span> KAIST</div>
@@ -564,7 +569,7 @@
     <div id="modal-content"></div>
   </div>
 </div>
-
+</div>
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -602,7 +607,6 @@
     <span>&copy; 2026 GNSS KAIST</span>
   </div>
 </footer>
-
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─── DATA ───────────────────────────────────────────────────────────────────
 let PUBS = [];
