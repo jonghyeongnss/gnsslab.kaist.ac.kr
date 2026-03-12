@@ -29,7 +29,7 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background: #F5F7FA; color: #1c2b3a; font-family: var(--ui); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    body { background: #F5F7FA; color: #1c2b3a; font-family: var(--ui); font-weight: 300; line-height: 1.7; font-size: 0.95rem; overflow-x: hidden; }
     #stars-canvas { display: none; }
 
     /* NAV */
@@ -184,10 +184,15 @@
       .footer-brand { grid-column: 1 / -1; }
       .footer-col:empty { display: none; }
     }
+	.container {
+	  max-width: 1200px;
+	  margin: 0 auto;
+	  padding: 0 40px;
+	}
   </style>
 </head>
 <body>
-
+<div class="container">
 <nav>
   <a href="index.html" class="nav-brand">
     <div class="nav-brand-main"><span>GNSS</span> KAIST</div>
@@ -1238,5 +1243,6 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(
 // ─── INITIAL RENDER ──────────────────────────────────────────────────────────
 render();
 </script>
+</div>
 </body>
 </html>
