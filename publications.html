@@ -288,6 +288,14 @@
       display: inline-block; transition: background 0.2s, color 0.2s;
     }
     .modal-link:hover { background: var(--cyan); color: #fff; }
+    .modal-link.pdf-link { background: rgba(62,193,211,0.06); }
+    .modal-link.pdf-link:hover { background: var(--cyan); color: #fff; }
+    .dl-badge {
+      font-family: var(--mono); font-size: 1.0rem;
+      color: #7a9ab8; letter-spacing: 0.05em;
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .dl-badge .dl-num { color: var(--cyan); font-weight: 600; }
 
     .no-results { display: none; text-align: center; padding: 5rem 2rem; font-family: var(--mono); font-size: 1.1rem; color: #7a9ab8; letter-spacing: 0.08em; }
     .no-results.visible { display: block; }
@@ -711,7 +719,11 @@ function openModal(p) {
     <p class="modal-abstract">${p.abstract}</p>
     <div class="modal-links">
       ${p.doi !== '#' ? `<a href="${p.doi}" target="_blank" class="modal-link">DOI →</a>` : ''}
-      ${p.pdf !== '#' ? `<a href="${p.pdf}" target="_blank" class="modal-link">PDF →</a>` : ''}
+      ${p.pdf !== '#' ? `
+        <a href="${p.pdf}" download class="modal-link pdf-link" onclick="trackDownload(${p.id})">PDF ↓</a>
+        <span class="dl-badge" id="dl-badge-${p.id}">
+          <span class="dl-num">${getDownloadCount(p.id)}</span> downloads
+        </span>` : ''}
     </div>
   `;
   document.getElementById('modal-overlay').classList.add('open');
@@ -753,6 +765,20 @@ document.getElementById('search-input').addEventListener('input', e => {
   render();
 });
 
+
+// ─── DOWNLOAD TRACKING ───────────────────────────────────────────────────────
+function getDownloadCount(id) {
+  return parseInt(localStorage.getItem('dl_' + id) || '0');
+}
+
+function trackDownload(id) {
+  const count = getDownloadCount(id) + 1;
+  localStorage.setItem('dl_' + id, count);
+  const badge = document.getElementById('dl-badge-' + id);
+  if (badge) {
+    badge.querySelector('.dl-num').textContent = count;
+  }
+}
 
   // ── Mobile drawer ──
   const hamburger = document.getElementById('nav-hamburger');
