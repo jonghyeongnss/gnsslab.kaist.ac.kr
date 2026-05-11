@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>People · GNSS Lab KAIST</title>
+  <title>Professor Jiyun Lee · GNSS Lab KAIST</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <style>
     :root {
@@ -20,9 +20,9 @@
       --dim:     #3d5a78;
       --mid:     #9FB3C8;
       --serif:   Arial, Helvetica, sans-serif;
-	  --display: Arial, Helvetica, sans-serif;
-	  --ui:      Arial, Helvetica, sans-serif;
-	  --mono:    Arial, Helvetica, sans-serif;
+      --display: Arial, Helvetica, sans-serif;
+      --ui:      Arial, Helvetica, sans-serif;
+      --mono:    Arial, Helvetica, sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -88,10 +88,10 @@
     .dropdown li:last-child a { border-bottom: none; }
     .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
     .dropdown a::after { display: none !important; }
-	.has-dropdown:has(a[href="research.html"]) .dropdown {
-		min-width: 200px;
-	}
-	
+    .has-dropdown:has(a[href="research.html"]) .dropdown {
+      min-width: 200px;
+    }
+
     /* PAGE HEADER */
     .page-header { padding: 9rem 5rem 4rem; border-bottom: 1px solid #d0dce8; }
     .page-header-eyebrow { font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 1.2rem); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
@@ -99,57 +99,57 @@
     .page-header h1 { font-family: var(--display); font-size: clamp(3.5rem, 7vw, 5rem); letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem; }
     .page-header-desc { font-family: var(--serif); font-style: italic; font-size: clamp(1.2rem, 1.4vw, 1.5rem); color: #3d5a78; max-width: 90ch; }
 
-    /* SECTION */
-    .people-section {
+    /* PROFESSOR DETAIL */
+    .prof-section {
+      padding: 5rem 5rem 4rem;
+      border-bottom: 1px solid #e4edf5;
+      max-width: 1600px;
+    }
+    .prof-section:last-of-type { border-bottom: none; }
+
+    .prof-hero {
+      display: flex; gap: 4rem; align-items: flex-start;
       padding: 5rem 5rem 4rem;
       border-bottom: 1px solid #e4edf5;
     }
-    .people-section:last-of-type { border-bottom: none; }
+    .prof-hero-photo {
+      width: 320px; flex-shrink: 0;
+    }
+    .prof-hero-photo img { width: 100%; height: auto; display: block; }
+    .prof-hero-info { padding-top: 0.5rem; }
 
-    .section-label {
-      display: inline-flex; align-items: center; gap: 0.8rem;
-      font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem);
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 0.6rem;
-    }
-    .section-label::before { content:''; width:1.8rem; height:1px; background:var(--gold); }
-    .section-title {
-      font-family: var(--display); font-size: clamp(2.5rem, 5vw, 3rem);
-      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
-      margin-bottom: 3rem;
-    }
-
-    /* PROFESSOR — featured large card */
-    .professor-card {
-      display: flex; gap: 3.5rem; align-items: flex-start;
-      max-width: 1600px;
-    }
-    .professor-photo {
-      width: 300px; height: auto; flex-shrink: 0;
-      object-fit: cover;
-      background: none;
-      display: flex; align-items: center; justify-content: center;
-      color: #7a9ab8; font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 2.0rem);
-      letter-spacing: 0.1em;
-    }
-    .professor-photo img { width: 100%; height: auto; display: block; }
-    .professor-info { padding-top: 0.5rem; }
-    .professor-name {
-      font-family: var(--display); font-size: clamp(2.0rem, 4vw, 2.5rem);
+    .prof-name {
+      font-family: var(--display); font-size: clamp(2.5rem, 5vw, 3.5rem);
       letter-spacing: 0.04em; color: #0e1e2e; line-height: 1;
       margin-bottom: 0.4rem;
     }
-    .professor-title {
-      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 0.9rem);
+    .prof-title-line {
+      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 0.95rem);
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--cyan); margin-bottom: 1.2rem;
+      color: var(--cyan); margin-bottom: 1.8rem;
     }
-    .professor-bio {
-      font-family: var(--serif); font-size: clamp(1.1rem, 2vw, 1.5rem);
+    .prof-bio {
+      font-family: var(--serif); font-size: clamp(1.1rem, 1.6vw, 1.35rem);
       color: #3a4a5a; line-height: 1.85;
-      margin-bottom: 1.5rem; max-width: 72ch;
+      margin-bottom: 2rem; max-width: 72ch;
     }
-    .professor-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .prof-contact-grid {
+      display: flex; flex-direction: column; gap: 0.55rem;
+      margin-bottom: 2rem;
+    }
+    .prof-contact-row {
+      display: flex; gap: 1rem; align-items: flex-start;
+      font-size: clamp(1.0rem, 1.4vw, 1.15rem); color: #3d5a78;
+    }
+    .prof-contact-label {
+      font-family: var(--mono); font-size: clamp(0.72rem, 1vw, 0.82rem);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--mid); min-width: 6rem; flex-shrink: 0; padding-top: 0.1rem;
+    }
+    .prof-contact-row a { color: var(--cyan); text-decoration: none; }
+    .prof-contact-row a:hover { text-decoration: underline; }
+
+    .prof-links { display: flex; gap: 1rem; flex-wrap: wrap; }
     .prof-link {
       font-family: var(--mono); font-size: clamp(0.6rem, 1.3vw, 1.0rem);
       letter-spacing: 0.1em; text-transform: uppercase;
@@ -159,74 +159,61 @@
     }
     .prof-link:hover { color: var(--cyan); border-color: var(--cyan); }
 
-    /* STUDENT / STAFF GRID */
-    .people-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 220px);
-      gap: 1.5rem;
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      font-family: var(--mono); font-size: clamp(0.9rem, 1.4vw, 1.0rem);
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.6rem;
     }
-    .phd-grid { grid-template-columns: repeat(6, 1fr); margin-bottom: 2.5rem; }
-    .ms-grid  { grid-template-columns: repeat(6, 1fr); }
-    .degree-divider {
-      display: flex; align-items: center; gap: 1rem;
-      margin: 1.5rem 0 1rem;
-    }
-    .degree-divider::before, .degree-divider::after {
-      content: ''; flex: 1; height: 1px; background: #d0dce8;
-    }
-    .degree-label {
-      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.2rem);
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--cyan); white-space: nowrap;
+    .section-label::before { content:''; width:1.8rem; height:1px; background:var(--gold); }
+    .section-heading {
+      font-family: var(--display); font-size: clamp(2rem, 4vw, 2.5rem);
+      letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
+      margin-bottom: 2.5rem;
     }
 
-    .person-card {
-      background: #fff;
-      border: 1px solid #e4edf5;
-      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
-      cursor: default;
-	  width: 200px;
+    /* Education table */
+    .edu-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+    .edu-item {
+      display: grid; grid-template-columns: 5rem 1fr;
+      gap: 0 2rem; align-items: baseline;
     }
-    .person-card:hover {
-      box-shadow: 0 8px 32px rgba(62,193,211,0.1);
-      transform: translateY(-3px);
-      border-color: #b0d4e0;
+    .edu-year {
+      font-family: var(--mono); font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+      letter-spacing: 0.08em; color: var(--cyan); text-align: right;
     }
-    .person-photo {
-      width: 100%; aspect-ratio: 3/4;
-      background: #dce8f0;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-      color: #7a9ab8; font-family: var(--mono); font-size: 0.6rem;
-      letter-spacing: 0.08em;
+    .edu-degree {
+      font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1c2b3a; font-weight: 500;
     }
-    .person-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .person-info { padding: 1rem 1rem 1.1rem; }
-    .person-name {
-      font-family: var(--ui); font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 600;
-      color: #0e1e2e; margin-bottom: 0.2rem; line-height: 1.3;
+    .edu-school {
+      grid-column: 2; font-size: clamp(0.9rem, 1.3vw, 1.05rem); color: #3d5a78;
     }
-    .person-role {
-      font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.0rem);
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--cyan); margin-bottom: 0.5rem;
+
+    /* Awards list */
+    .award-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+    .award-item {
+      display: grid; grid-template-columns: 4.5rem 1fr;
+      gap: 0 2rem; align-items: baseline;
     }
-    .person-detail {
-      font-size: clamp(0.72rem, 1vw, 0.7rem); color: #3d5a78; line-height: 1.5;
-      margin-bottom: 0.5rem;
+    .award-year {
+      font-family: var(--mono); font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+      letter-spacing: 0.08em; color: var(--cyan); text-align: right;
     }
-    .person-admitted {
-      font-family: var(--mono); font-size: clamp(0.68rem, 0.9vw, 0.8rem);
-      letter-spacing: 0.06em; color: #8a9ab0;
-      margin-bottom: 0.3rem;
+    .award-text { font-size: clamp(1.0rem, 1.4vw, 1.15rem); color: #1c2b3a; }
+
+    /* Service list */
+    .service-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+    .service-item { font-size: clamp(1.0rem, 1.4vw, 1.15rem); color: #1c2b3a; padding-left: 1.2rem; position: relative; }
+    .service-item::before { content: '—'; position: absolute; left: 0; color: var(--cyan); }
+
+    /* Memberships */
+    .membership-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .membership-tag {
+      font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--dim);
+      border: 1px solid #c0d0e0; padding: 0.3rem 0.9rem;
     }
-    .person-email {
-      font-family: var(--mono); font-size: clamp(0.72rem, 1vw, 1.0rem);
-      color: #7a9ab8; text-decoration: none; letter-spacing: 0.02em;
-      transition: color 0.2s; display: block;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-    .person-email:hover { color: var(--cyan); }
 
     footer { background: #0e1e2e; border-top: 1px solid #1a3050; padding: 4rem 5rem 2.5rem; position: relative; z-index: 1; }
     .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #1a3050; margin-bottom: 2rem; }
@@ -244,40 +231,6 @@
     .footer-info-text a { color: var(--cyan); text-decoration: none; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
     .footer-bottom span { font-family: var(--mono); font-size: clamp(0.95rem, 1.4vw, 1.2rem); color: var(--dim); letter-spacing: 0.05em; }
-
-    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
-    .reveal { opacity:1; transform:none; }
-    .reveal.visible { opacity:1; transform:none; }
-    .reveal-d1 { transition-delay: 0.05s; }
-    .reveal-d2 { transition-delay: 0.10s; }
-    .reveal-d3 { transition-delay: 0.15s; }
-    .reveal-d4 { transition-delay: 0.20s; }
-    .reveal-d5 { transition-delay: 0.25s; }
-
-    @media (max-width: 960px) {
-      .page-header, .people-section, footer { padding-left: 2rem; padding-right: 2rem; }
-      .professor-card { flex-direction: column; gap: 2rem; }
-      .professor-photo { width: 160px; height: 192px; }
-      .people-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-      .phd-grid, .ms-grid { grid-template-columns: repeat(3, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      nav { padding: 0 1.5rem; }
-    }
-    @media (max-width: 640px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .footer-brand { grid-column: 1 / -1; }
-      .footer-col:empty { display: none; }
-      .people-grid { grid-template-columns: repeat(2, 1fr); }
-      .phd-grid, .ms-grid { grid-template-columns: repeat(2, 1fr); }
-      .people-section { padding-left: 1rem; padding-right: 1rem; }
-      .page-header { padding-left: 1rem; padding-right: 1rem; }
-    }
-    @media (max-width: 480px) {
-      .people-grid { gap: 0.75rem; }
-      .phd-grid, .ms-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-      .person-info { padding: 0.7rem 0.7rem 0.8rem; }
-      .people-section { padding-left: 0.75rem; padding-right: 0.75rem; }
-    }
 
     /* ── HAMBURGER ── */
     .nav-hamburger {
@@ -367,12 +320,28 @@
       .nav-hamburger { display: flex; }
       .nav-links { display: none; }
     }
-	
-	.container {
-	  max-width: 1600px;
-	  margin: 0 auto;
-	  padding: 0 24px;
-	}
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    @media (max-width: 960px) {
+      .page-header, .prof-section, .prof-hero, footer { padding-left: 2rem; padding-right: 2rem; }
+      .prof-hero { flex-direction: column; gap: 2rem; }
+      .prof-hero-photo { width: 200px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 1.5rem; }
+    }
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-col:empty { display: none; }
+      .page-header, .prof-section, .prof-hero { padding-left: 1rem; padding-right: 1rem; }
+      .edu-item { grid-template-columns: 4rem 1fr; gap: 0 1rem; }
+      .award-item { grid-template-columns: 4rem 1fr; gap: 0 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -389,7 +358,7 @@
       <ul class="dropdown">
         <li><a href="people.html#professor">Professor</a></li>
         <li><a href="people.html#staff">Staff</a></li>
-		<li><a href="people.html#students">Students</a></li>
+        <li><a href="people.html#students">Students</a></li>
       </ul>
     </li>
     <li class="has-dropdown">
@@ -412,7 +381,7 @@
 <div class="nav-drawer" id="nav-drawer">
   <div class="nav-drawer-header">
     <div class="nav-drawer-brand"><span>GNSS</span> KAIST</div>
-    <button class="nav-drawer-close" id="nav-drawer-close">✕</button>
+    <button class="nav-drawer-close" id="nav-drawer-close">&#10005;</button>
   </div>
   <ul class="nav-drawer-links">
     <li><a href="index.html">Home</a></li>
@@ -420,9 +389,9 @@
     <li class="drawer-group">
       <a href="people.html" class="drawer-group-title">People</a>
       <ul>
-        <li><a href="#professor">Professor</a></li>
-        <li><a href="#students">Students</a></li>
-        <li><a href="#staff">Staff</a></li>
+        <li><a href="people.html#professor">Professor</a></li>
+        <li><a href="people.html#students">Students</a></li>
+        <li><a href="people.html#staff">Staff</a></li>
       </ul>
     </li>
     <li class="drawer-group">
@@ -440,179 +409,146 @@
 <div class="nav-overlay" id="nav-overlay"></div>
 
 <div class="page-header">
-  <div class="page-header-eyebrow">GNSS Lab</div>
-  <h1>People</h1>
-  <p class="page-header-desc">Meet the researchers, students, and staff behind our work in satellite navigation and remote sensing.</p>
+  <div class="page-header-eyebrow">GNSS Lab · People</div>
+  <h1>Jiyun Lee</h1>
+  <p class="page-header-desc">KAIST Endowed Chair Professor · Department of Aerospace Engineering</p>
 </div>
 
-<!-- PROFESSOR -->
-<section class="people-section" id="professor">
-  <h2 class="section-title reveal">Professor</h2>
-
-  <div class="professor-card reveal">
-    <div class="professor-photo">
-      <img src="images/jiyunlee.jpg" alt="Prof. Jiyun Lee">
-    </div>
-    <div class="professor-info">
-      <h3 class="professor-name">Jiyun Lee</h3>
-      <p class="professor-title">KAIST Endowed Chair Professor · Aerospace Engineering</p>
-      <p class="professor-bio">
-        Prof. Jiyun Lee leads the GNSS Lab at KAIST, where her research focuses on
-        GNSS integrity monitoring, satellite-based augmentation systems, ionospheric
-        modeling for Global Navigation Satellite System applications, and GNSS radio
-        occultation for atmospheric remote sensing.
-      </p>
-      <div class="professor-links">
-        <a href="/cdn-cgi/l/email-protection#1c76756569727079795c777d756f68327d7f32776e" class="prof-link">✉ Email</a>
-        <a href="https://ae.kaist.ac.kr" target="_blank" class="prof-link">🔗 Lab Page</a>
-        <a href="professor.html" class="prof-link">Profile</a>
-        <a href="publications.html" class="prof-link">Publications</a>
+<!-- HERO: photo + contact -->
+<div class="prof-hero">
+  <div class="prof-hero-photo">
+    <img src="images/jiyunlee.jpg" alt="Prof. Jiyun Lee">
+  </div>
+  <div class="prof-hero-info">
+    <h2 class="prof-name">Jiyun Lee</h2>
+    <p class="prof-title-line">KAIST Endowed Chair Professor &middot; Department of Aerospace Engineering</p>
+    <p class="prof-bio">
+      Prof. Jiyun Lee leads the GNSS Lab at KAIST, where her research focuses on
+      GNSS integrity monitoring, satellite-based augmentation systems, ionospheric
+      modeling for Global Navigation Satellite System applications, and GNSS radio
+      occultation for atmospheric remote sensing. She has made foundational
+      contributions to ground-based and satellite-based augmentation system (GBAS/SBAS)
+      integrity standards and has pioneered the use of CubeSat platforms for ionospheric
+      and space weather monitoring.
+    </p>
+    <div class="prof-contact-grid">
+      <div class="prof-contact-row">
+        <span class="prof-contact-label">Office</span>
+        <span>N7-2 #4305, KAIST, Daejeon, Republic of Korea</span>
       </div>
+      <div class="prof-contact-row">
+        <span class="prof-contact-label">Email</span>
+        <span><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+      </div>
+      <div class="prof-contact-row">
+        <span class="prof-contact-label">Phone</span>
+        <span>+82-42-350-3725</span>
+      </div>
+    </div>
+    <div class="prof-links">
+      <a href="mailto:jiyunlee@kaist.ac.kr" class="prof-link">&#9993; Email</a>
+      <a href="https://ae.kaist.ac.kr" target="_blank" class="prof-link">&#128279; Lab Page</a>
+      <a href="publications.html" class="prof-link">Publications</a>
+      <a href="people.html" class="prof-link">&#8592; Back to People</a>
     </div>
   </div>
-</section>
-
-<!-- STAFF -->
-<section class="people-section" id="staff">
-  <h2 class="section-title reveal">Staff</h2>
-  <div class="degree-divider">
-    <span class="degree-label">Post-doctoral Researcher</span>
-  </div>
-  <div class="people-grid">
-
-    <div class="person-card reveal">
-      <div class="person-photo"><img src="images/people-Minchan Kim.jpg" alt="Minchan Kim"></div>
-      <div class="person-info">
-        <p class="person-name">Minchan Kim</p>
-        <p class="person-role">Post-doctoral researcher</p>
-        <p class="person-admitted">Admitted Spring 2026</p>
-        <a href="/cdn-cgi/l/email-protection#bd" class="person-email">byd04063@kaist.ac.kr</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- STUDENTS -->
-<section class="people-section" id="students">
-  <h2 class="section-title reveal">Students</h2>
-
-  <div class="degree-divider">
-    <span class="degree-label">Ph.D.</span>
-  </div>
-
-  <div class="people-grid phd-grid">
-
-    <div class="person-card reveal">
-      <div class="person-photo"><img src="images/people-Yunjung Choi.jpg" alt="Yunjung Choi"></div>
-      <div class="person-info">
-        <p class="person-name">Yunjung Choi</p>
-        <p class="person-role">Ph.D. Student</p>
-      
-        <p class="person-admitted">Admitted Spring 2021</p>
-        <a href="/cdn-cgi/l/email-protection#bd" class="person-email">clarayj@kaist.ac.kr</a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d1">
-      <div class="person-photo"><img src="images/people-Gihun Nam.jpg" alt="Gihun Nam"></div>
-      <div class="person-info">
-        <p class="person-name">Gihun Nam</p>
-        <p class="person-role">Ph.D. Student</p>
-      
-        <p class="person-admitted">Admitted Fall 2021</p>
-        <a href="/cdn-cgi/l/email-protection#7e" class="person-email">nam0603@kaist.ac.kr</a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d2">
-      <div class="person-photo"><img src="images/people-Jaehee Chang.jpg" alt="Jaehee Chang"></div>
-      <div class="person-info">
-        <p class="person-name">Jaehee Chang</p>
-        <p class="person-role">Ph.D. Student</p>
-      
-        <p class="person-admitted">Admitted Spring 2023</p>
-        <a href="/cdn-cgi/l/email-protection#5e" class="person-email">chang.cathy7@kaist.ac.kr</a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d3">
-      <div class="person-photo"><img src="images/people-Junsoo Kim.jpg" alt="Junsoo Kim"></div>
-      <div class="person-info">
-        <p class="person-name">Junsoo Kim</p>
-        <p class="person-role">Ph.D. Student</p>
-      
-        <p class="person-admitted">Admitted Spring 2024</p>
-        <a href="/cdn-cgi/l/email-protection#7b" class="person-email">jsoo526@kaist.ac.kr</a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d4">
-      <div class="person-photo"><img src="images/people-Jihyeok Park.jpg" alt="Jihyeok Park"></div>
-      <div class="person-info">
-        <p class="person-name">Jihyeok Park</p>
-        <p class="person-role">Ph.D. Student</p>
-      
-        <p class="person-admitted">Admitted Fall 2025</p>
-        <a href="/cdn-cgi/l/email-protection#f1" class="person-email">1999jimmy@kaist.ac.kr</a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d5">
-      <div class="person-photo"><img src="images/people-Jimin Do.jpg" alt="Jimin Do"></div>
-      <div class="person-info">
-        <p class="person-name">Jimin Do</p>
-        <p class="person-role">Ph.D. Student</p>
-      
-        <p class="person-admitted">Admitted Spring 2026</p>
-        <a href="/cdn-cgi/l/email-protection#a0" class="person-email">djm0328@kaist.ac.kr</a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="degree-divider">
-    <span class="degree-label">M.S.</span>
-  </div>
-
-  <div class="people-grid ms-grid">
-
-    <div class="person-card reveal">
-      <div class="person-photo"><img src="images/people-Minseong Kim.jpg" alt="Minseong Kim"></div>
-      <div class="person-info">
-        <p class="person-name">Minseong Kim</p>
-        <p class="person-role">M.S. Student</p>
-      
-        <p class="person-admitted">Admitted Fall 2024</p>
-        <a href="/cdn-cgi/l/email-protection#4f" class="person-email">9574m@kaist.ac.kr</a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d1">
-      <div class="person-photo"><img src="images/people-Jonghyeon Park.jpg" alt="Jonghyeon Park"></div>
-      <div class="person-info">
-        <p class="person-name">Jonghyeon Park</p>
-        <p class="person-role">M.S. Student</p>
-      
-        <p class="person-admitted">Admitted Spring 2025</p>
-        <a href="/cdn-cgi/l/email-protection#c4" class="person-email">bellhyeon@kaist.ac.kr</a>
-      </div>
-    </div>
-
-    <div class="person-card reveal reveal-d2">
-      <div class="person-photo"><img src="images/people-Seungjun Heo.jpg" alt="Seungjun Heo"></div>
-      <div class="person-info">
-        <p class="person-name">Seungjun Heo</p>
-        <p class="person-role">M.S. Student</p>
-      
-        <p class="person-admitted">Admitted Spring 2026</p>
-        <a href="/cdn-cgi/l/email-protection#42" class="person-email">superjunn00@kaist.ac.kr</a>
-      </div>
-    </div>
-
-  </div>
-</section>
 </div>
+
+<!-- EDUCATION -->
+<div class="prof-section">
+  <div class="section-label">Academic Background</div>
+  <h2 class="section-heading">Education</h2>
+  <ul class="edu-list">
+    <li class="edu-item">
+      <span class="edu-year">2005</span>
+      <span class="edu-degree">Ph.D., Aeronautics &amp; Astronautics</span>
+      <span class="edu-school">Stanford University</span>
+    </li>
+    <li class="edu-item">
+      <span class="edu-year">2001</span>
+      <span class="edu-degree">M.S.E., Aeronautics &amp; Astronautics</span>
+      <span class="edu-school">Stanford University</span>
+    </li>
+    <li class="edu-item">
+      <span class="edu-year">1999</span>
+      <span class="edu-degree">M.S.E., Aerospace Engineering</span>
+      <span class="edu-school">University of Colorado Boulder</span>
+    </li>
+    <li class="edu-item">
+      <span class="edu-year">1997</span>
+      <span class="edu-degree">B.S., Astronomy &amp; Atmospheric Sciences</span>
+      <span class="edu-school">Yonsei University</span>
+    </li>
+  </ul>
+</div>
+
+<!-- AWARDS -->
+<div class="prof-section">
+  <div class="section-label">Recognition</div>
+  <h2 class="section-heading">Awards &amp; Honors</h2>
+  <ul class="award-list">
+    <li class="award-item">
+      <span class="award-year">2016</span>
+      <span class="award-text">ION Samuel M. Burka Award for Best Paper of the Year</span>
+    </li>
+    <li class="award-item">
+      <span class="award-year">2016</span>
+      <span class="award-text">KAIST Outstanding Teaching Award</span>
+    </li>
+    <li class="award-item">
+      <span class="award-year">2013</span>
+      <span class="award-text">FAA Recognition Award</span>
+    </li>
+    <li class="award-item">
+      <span class="award-year">2013</span>
+      <span class="award-text">KAIST Outstanding Teaching Award</span>
+    </li>
+    <li class="award-item">
+      <span class="award-year">2010</span>
+      <span class="award-text">KAIST Outstanding Project Advisor Award</span>
+    </li>
+    <li class="award-item">
+      <span class="award-year">2009</span>
+      <span class="award-text">FAA NAVTAC KUDOS Award</span>
+    </li>
+    <li class="award-item">
+      <span class="award-year">2008</span>
+      <span class="award-text">FAA Recognition Award</span>
+    </li>
+    <li class="award-item">
+      <span class="award-year">2004</span>
+      <span class="award-text">ION Best Paper Award</span>
+    </li>
+    <li class="award-item">
+      <span class="award-year">2003</span>
+      <span class="award-text">ION Best Paper Award</span>
+    </li>
+  </ul>
+</div>
+
+<!-- SERVICE -->
+<div class="prof-section">
+  <div class="section-label">Community</div>
+  <h2 class="section-heading">Professional Service</h2>
+  <ul class="service-list">
+    <li class="service-item">ION Satellite Division Secretary (2022&ndash;2024)</li>
+    <li class="service-item">Technical Representative to the ION Council</li>
+    <li class="service-item">Director, Korea Navigation Institute</li>
+    <li class="service-item">Director, Institute of Positioning Navigation and Timing</li>
+    <li class="service-item">Advisory roles to Korean government agencies on navigation and satellite systems</li>
+  </ul>
+
+  <div style="margin-top: 3rem;">
+    <div class="section-label">Memberships</div>
+    <div class="membership-row">
+      <span class="membership-tag">ION</span>
+      <span class="membership-tag">IEEE</span>
+      <span class="membership-tag">AGU</span>
+      <span class="membership-tag">AIAA</span>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -632,15 +568,15 @@
       <p class="footer-col-title">Contact</p>
       <div class="footer-info">
         <div class="footer-info-row">
-          <span class="footer-info-icon">📍</span>
+          <span class="footer-info-icon">&#128205;</span>
           <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
         </div>
         <div class="footer-info-row">
-          <span class="footer-info-icon">✉️</span>
+          <span class="footer-info-icon">&#9993;&#65039;</span>
           <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
         </div>
         <div class="footer-info-row">
-          <span class="footer-info-icon">👤</span>
+          <span class="footer-info-icon">&#128100;</span>
           <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
         </div>
       </div>
@@ -650,15 +586,11 @@
     <span>&copy; 2026 GNSS KAIST</span>
   </div>
 </footer>
+</div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // reveal: 뷰포트 안 요소 즉시 표시
+<script>
   document.querySelectorAll('.reveal').forEach(el => {
     el.classList.add('visible');
-  });
-
-  window.addEventListener('scroll', () => {
-    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 40);
   });
 
   // ── Mobile drawer ──
