@@ -161,13 +161,13 @@
 
     .section-label {
       display: inline-flex; align-items: center; gap: 0.8rem;
-      font-family: var(--mono); font-size: clamp(0.9rem, 1.4vw, 1.0rem);
+      font-family: var(--mono); font-size: clamp(1.0rem, 1.6vw, 1.2rem);
       letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 0.6rem;
     }
     .section-label::before { content:''; width:1.8rem; height:1px; background:var(--gold); }
     .section-heading {
-      font-family: var(--display); font-size: clamp(2rem, 4vw, 2.5rem);
+      font-family: var(--display); font-size: clamp(2.5rem, 5vw, 3rem);
       letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
       margin-bottom: 2.5rem;
     }
@@ -179,37 +179,37 @@
       gap: 0 2rem; align-items: baseline;
     }
     .edu-year {
-      font-family: var(--mono); font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+      font-family: var(--mono); font-size: clamp(1.0rem, 1.4vw, 1.15rem);
       letter-spacing: 0.08em; color: var(--cyan); text-align: right;
     }
     .edu-degree {
-      font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1c2b3a; font-weight: 500;
+      font-size: clamp(1.2rem, 1.8vw, 1.4rem); color: #1c2b3a; font-weight: 500;
     }
     .edu-school {
-      grid-column: 2; font-size: clamp(0.9rem, 1.3vw, 1.05rem); color: #3d5a78;
+      grid-column: 2; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #3d5a78;
     }
 
     /* Awards list */
     .award-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
     .award-item {
-      display: grid; grid-template-columns: 4.5rem 1fr;
+      display: grid; grid-template-columns: 8rem 1fr;
       gap: 0 2rem; align-items: baseline;
     }
     .award-year {
-      font-family: var(--mono); font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+      font-family: var(--mono); font-size: clamp(1.0rem, 1.4vw, 1.15rem);
       letter-spacing: 0.08em; color: var(--cyan); text-align: right;
     }
-    .award-text { font-size: clamp(1.0rem, 1.4vw, 1.15rem); color: #1c2b3a; }
+    .award-text { font-size: clamp(1.15rem, 1.7vw, 1.35rem); color: #1c2b3a; }
 
     /* Service list */
     .service-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
-    .service-item { font-size: clamp(1.0rem, 1.4vw, 1.15rem); color: #1c2b3a; padding-left: 1.2rem; position: relative; }
+    .service-item { font-size: clamp(1.15rem, 1.7vw, 1.35rem); color: #1c2b3a; padding-left: 1.2rem; position: relative; }
     .service-item::before { content: '—'; position: absolute; left: 0; color: var(--cyan); }
 
     /* Memberships */
     .membership-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
     .membership-tag {
-      font-family: var(--mono); font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+      font-family: var(--mono); font-size: clamp(0.9rem, 1.3vw, 1.1rem);
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--dim);
       border: 1px solid #c0d0e0; padding: 0.3rem 0.9rem;
@@ -356,7 +356,7 @@
     <li class="has-dropdown">
       <a href="people.html" class="active">People</a>
       <ul class="dropdown">
-        <li><a href="people.html#professor">Professor</a></li>
+        <li><a href="professor.html">Professor</a></li>
         <li><a href="people.html#staff">Staff</a></li>
         <li><a href="people.html#students">Students</a></li>
       </ul>
@@ -389,7 +389,7 @@
     <li class="drawer-group">
       <a href="people.html" class="drawer-group-title">People</a>
       <ul>
-        <li><a href="people.html#professor">Professor</a></li>
+        <li><a href="professor.html">Professor</a></li>
         <li><a href="people.html#students">Students</a></li>
         <li><a href="people.html#staff">Staff</a></li>
       </ul>
@@ -420,21 +420,12 @@
     <img src="images/jiyunlee.jpg" alt="Prof. Jiyun Lee">
   </div>
   <div class="prof-hero-info">
-    <h2 class="prof-name">Jiyun Lee</h2>
-    <p class="prof-title-line">KAIST Endowed Chair Professor &middot; Department of Aerospace Engineering</p>
-    <p class="prof-bio">
-      Prof. Jiyun Lee leads the GNSS Lab at KAIST, where her research focuses on
-      GNSS integrity monitoring, satellite-based augmentation systems, ionospheric
-      modeling for Global Navigation Satellite System applications, and GNSS radio
-      occultation for atmospheric remote sensing. She has made foundational
-      contributions to ground-based and satellite-based augmentation system (GBAS/SBAS)
-      integrity standards and has pioneered the use of CubeSat platforms for ionospheric
-      and space weather monitoring.
-    </p>
+    <h2 class="prof-name">Jiyun Lee, Ph.D.</h2>
+    <p class="prof-title-line">KAIST Endowed Chair Professor</p>
     <div class="prof-contact-grid">
       <div class="prof-contact-row">
         <span class="prof-contact-label">Office</span>
-        <span>N7-2 #4305, KAIST, Daejeon, Republic of Korea</span>
+        <span>N7-2 #4305</span>
       </div>
       <div class="prof-contact-row">
         <span class="prof-contact-label">Email</span>
@@ -442,16 +433,23 @@
       </div>
       <div class="prof-contact-row">
         <span class="prof-contact-label">Phone</span>
-        <span>+82-42-350-3725</span>
+        <span>042-350-3725</span>
       </div>
     </div>
     <div class="prof-links">
-      <a href="mailto:jiyunlee@kaist.ac.kr" class="prof-link">&#9993; Email</a>
-      <a href="https://ae.kaist.ac.kr" target="_blank" class="prof-link">&#128279; Lab Page</a>
+      <a href="mailto:jiyunlee@kaist.ac.kr" class="prof-link">✉ Email</a>
       <a href="publications.html" class="prof-link">Publications</a>
-      <a href="people.html" class="prof-link">&#8592; Back to People</a>
+      <a href="people.html" class="prof-link">← Back to People</a>
     </div>
   </div>
+</div>
+
+<!-- EXPERTISE -->
+<div class="prof-section">
+  <div class="section-label">Expertise</div>
+  <h2 class="section-heading">Research Interests</h2>
+  <p class="prof-bio">Navigation of aerospace and terrestrial vehicles; integrity assurance for safety-critical systems; remote sensing for atmospheric and space sciences.</p>
+  <p class="prof-bio" style="margin-top:1rem;">GNSS augmentation systems; integrity monitoring and fault detection; robust guidance for unmanned aerial systems; multi-sensor integrated navigation; ionosphere/atmospheric sounding.</p>
 </div>
 
 <!-- EDUCATION -->
@@ -461,22 +459,22 @@
   <ul class="edu-list">
     <li class="edu-item">
       <span class="edu-year">2005</span>
-      <span class="edu-degree">Ph.D., Aeronautics &amp; Astronautics</span>
+      <span class="edu-degree">Ph.D., Aeronautics and Astronautics</span>
       <span class="edu-school">Stanford University</span>
     </li>
     <li class="edu-item">
       <span class="edu-year">2001</span>
-      <span class="edu-degree">M.S.E., Aeronautics &amp; Astronautics</span>
+      <span class="edu-degree">M.S.E., Aeronautics and Astronautics</span>
       <span class="edu-school">Stanford University</span>
     </li>
     <li class="edu-item">
       <span class="edu-year">1999</span>
-      <span class="edu-degree">M.S.E., Aerospace Engineering</span>
-      <span class="edu-school">University of Colorado Boulder</span>
+      <span class="edu-degree">M.S.E., Aerospace Engineering and Sciences</span>
+      <span class="edu-school">University of Colorado at Boulder</span>
     </li>
     <li class="edu-item">
       <span class="edu-year">1997</span>
-      <span class="edu-degree">B.S., Astronomy &amp; Atmospheric Sciences</span>
+      <span class="edu-degree">B.S., Astronomy and Atmospheric Sciences</span>
       <span class="edu-school">Yonsei University</span>
     </li>
   </ul>
@@ -485,43 +483,27 @@
 <!-- AWARDS -->
 <div class="prof-section">
   <div class="section-label">Recognition</div>
-  <h2 class="section-heading">Awards &amp; Honors</h2>
+  <h2 class="section-heading">Selected Honors &amp; Awards</h2>
   <ul class="award-list">
     <li class="award-item">
-      <span class="award-year">2016</span>
-      <span class="award-text">ION Samuel M. Burka Award for Best Paper of the Year</span>
+      <span class="award-year">2003, 2004, 2016</span>
+      <span class="award-text">Institute of Navigation Best Paper Awards</span>
     </li>
     <li class="award-item">
-      <span class="award-year">2016</span>
-      <span class="award-text">KAIST Outstanding Teaching Award</span>
+      <span class="award-year">2008, 2013</span>
+      <span class="award-text">FAA Recognition</span>
     </li>
     <li class="award-item">
-      <span class="award-year">2013</span>
-      <span class="award-text">FAA Recognition Award</span>
-    </li>
-    <li class="award-item">
-      <span class="award-year">2013</span>
-      <span class="award-text">KAIST Outstanding Teaching Award</span>
+      <span class="award-year">2013, 2016</span>
+      <span class="award-text">Outstanding Teaching Award, AE Department</span>
     </li>
     <li class="award-item">
       <span class="award-year">2010</span>
-      <span class="award-text">KAIST Outstanding Project Advisor Award</span>
+      <span class="award-text">Outstanding Project Advisor Award</span>
     </li>
     <li class="award-item">
       <span class="award-year">2009</span>
       <span class="award-text">FAA NAVTAC KUDOS Award</span>
-    </li>
-    <li class="award-item">
-      <span class="award-year">2008</span>
-      <span class="award-text">FAA Recognition Award</span>
-    </li>
-    <li class="award-item">
-      <span class="award-year">2004</span>
-      <span class="award-text">ION Best Paper Award</span>
-    </li>
-    <li class="award-item">
-      <span class="award-year">2003</span>
-      <span class="award-text">ION Best Paper Award</span>
     </li>
   </ul>
 </div>
@@ -529,17 +511,18 @@
 <!-- SERVICE -->
 <div class="prof-section">
   <div class="section-label">Community</div>
-  <h2 class="section-heading">Professional Service</h2>
+  <h2 class="section-heading">Professional Activities</h2>
   <ul class="service-list">
-    <li class="service-item">ION Satellite Division Secretary (2022&ndash;2024)</li>
-    <li class="service-item">Technical Representative to the ION Council</li>
+    <li class="service-item">Secretary of ION Satellite Division (2022&ndash;2024)</li>
+    <li class="service-item">Associate Editor, ION Navigation</li>
+    <li class="service-item">Associate Editor, IEEE Signal Processing Magazine</li>
     <li class="service-item">Director, Korea Navigation Institute</li>
-    <li class="service-item">Director, Institute of Positioning Navigation and Timing</li>
-    <li class="service-item">Advisory roles to Korean government agencies on navigation and satellite systems</li>
+    <li class="service-item">Director, Institute of Positioning, Navigation and Timing</li>
+    <li class="service-item">Multiple government committee memberships</li>
   </ul>
 
   <div style="margin-top: 3rem;">
-    <div class="section-label">Memberships</div>
+    <div class="section-label">Professional Memberships</div>
     <div class="membership-row">
       <span class="membership-tag">ION</span>
       <span class="membership-tag">IEEE</span>
@@ -568,15 +551,15 @@
       <p class="footer-col-title">Contact</p>
       <div class="footer-info">
         <div class="footer-info-row">
-          <span class="footer-info-icon">&#128205;</span>
+          <span class="footer-info-icon">📍</span>
           <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
         </div>
         <div class="footer-info-row">
-          <span class="footer-info-icon">&#9993;&#65039;</span>
+          <span class="footer-info-icon">✉️</span>
           <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
         </div>
         <div class="footer-info-row">
-          <span class="footer-info-icon">&#128100;</span>
+          <span class="footer-info-icon">👤</span>
           <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
         </div>
       </div>
