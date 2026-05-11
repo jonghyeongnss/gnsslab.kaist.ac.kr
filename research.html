@@ -412,21 +412,23 @@
     .area-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-4px); }
     .area-card-img{
 	  width:100%;
-	  height:clamp(180px,25vw,280px);
+	  aspect-ratio:9/16;
 	  background-size:cover;
 	  background-position:center;
 	}
     .area-card-body{
 	  padding:clamp(1.5rem,3vw,2.5rem);
 	}
-    .area-card-num{
-	  font-family:var(--display);
-	  font-size:clamp(3rem,6vw,4rem);
-	  color:#4a6070;
-	}
     .area-card-eyebrow{
+	  display:flex; align-items:baseline; gap:0.5rem;
 	  font-family:var(--mono);
 	  font-size:clamp(1.0rem,1.2vw,1.3rem);
+	  margin-bottom:0.6rem;
+	}
+    .area-card-num{
+	  font-family:var(--mono);
+	  font-size:clamp(1.0rem,1.2vw,1.3rem);
+	  color:#4a6070;
 	}
     .area-card-title{
 	  font-family:var(--display);
@@ -528,8 +530,7 @@
   <a href="research-integrity.html" class="area-card reveal">
     <div class="area-card-img" style="background-image: url('images/research-integrity.png');"></div>
     <div class="area-card-body">
-      <div class="area-card-num">01</div>
-      <p class="area-card-eyebrow">Research Area</p>
+      <p class="area-card-eyebrow">Research Area <span class="area-card-num">01</span></p>
       <h2 class="area-card-title">GNSS Integrity &amp; Augmentation</h2>
       <p class="area-card-desc">Developing safety-critical integrity frameworks and augmentation system architectures — SBAS, GBAS, and AI-enhanced RAIM — for aviation, autonomous vehicles, and urban air mobility.</p>
       <div class="area-card-topics">
@@ -544,8 +545,7 @@
   <a href="research-leo.html" class="area-card reveal">
     <div class="area-card-img" style="background-image: url('images/research-leo.png');"></div>
     <div class="area-card-body">
-      <div class="area-card-num">02</div>
-      <p class="area-card-eyebrow">Research Area</p>
+      <p class="area-card-eyebrow">Research Area <span class="area-card-num">02</span></p>
       <h2 class="area-card-title">Intelligent Multi-Sensor Navigation</h2>
       <p class="area-card-desc">Fusing GNSS with IMU, cameras, LiDAR, and LEO signals through AI-driven algorithms to deliver robust, high-integrity navigation in GNSS-challenged environments.</p>
       <div class="area-card-topics">
@@ -560,8 +560,7 @@
   <a href="research-remote.html" class="area-card reveal">
     <div class="area-card-img" style="background-image: url('images/research-remote.png');"></div>
     <div class="area-card-body">
-      <div class="area-card-num">03</div>
-      <p class="area-card-eyebrow">Research Area</p>
+      <p class="area-card-eyebrow">Research Area <span class="area-card-num">03</span></p>
       <h2 class="area-card-title">Ionosphere &amp; GNSS Remote Sensing</h2>
       <p class="area-card-desc">Characterizing the ionosphere and probing the atmosphere with GNSS signals — from ionospheric threat modeling for navigation integrity to AI-enhanced radio occultation and CubeSat-based sounding.</p>
       <div class="area-card-topics">
@@ -575,8 +574,7 @@
   <a href="research-new.html" class="area-card reveal">
     <div class="area-card-img" style="background-image: url('images/research-leo.png');"></div>
     <div class="area-card-body">
-      <div class="area-card-num">04</div>
-      <p class="area-card-eyebrow">Research Area</p>
+      <p class="area-card-eyebrow">Research Area <span class="area-card-num">04</span></p>
       <h2 class="area-card-title">New Directions</h2>
       <p class="area-card-desc">Pioneering next-generation PNT infrastructure — from LEO satellite navigation and large-scale constellation design to high-reliability centimeter-level positioning for safety-critical applications.</p>
       <div class="area-card-topics">
