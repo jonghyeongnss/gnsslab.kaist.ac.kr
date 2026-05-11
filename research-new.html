@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ionosphere &amp; GNSS Remote Sensing · Research · GNSS Lab KAIST</title>
+  <title>New Directions · Research · GNSS Lab KAIST</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <style>
@@ -203,26 +203,6 @@
 	  padding: clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,5rem) clamp(1rem,3vw,2rem);
 	  border-bottom: none;
 	}
-    .area-header {
-	  display: flex; align-items: flex-start;
-	  gap: clamp(1rem,3vw,2rem); margin-bottom: clamp(2rem,5vw,4rem);
-	}
-    .area-num {
-	  font-family: var(--display); font-size: clamp(3rem,8vw,4rem);
-	  color: #4a6070; line-height: 1; flex-shrink: 0;
-	}
-    .area-eyebrow {
-	  font-family: var(--mono); font-size: clamp(1rem,2vw,1.5rem);
-	  letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
-	}
-    .area-title {
-	  font-family: var(--display); font-size: clamp(2.8rem,5vw,4rem);
-	  letter-spacing: 0.05em; color: #0e1e2e; line-height: 1;
-	}
-    .area-subtitle {
-	  font-size: clamp(1.4rem,2vw,1.6rem); color: #3d5a78;
-	  font-family: var(--serif); font-style: italic;
-	}
 
     /* ── SUBTOPIC ── */
     .subtopic {
@@ -309,7 +289,7 @@
       <ul class="dropdown">
         <li><a href="professor.html">Professor</a></li>
         <li><a href="people.html#staff">Staff</a></li>
-		<li><a href="people.html#students">Students</a></li>
+        <li><a href="people.html#students">Students</a></li>
       </ul>
     </li>
     <li class="has-dropdown">
@@ -363,89 +343,92 @@
 
 <div class="page-header">
   <div class="page-header-eyebrow">GNSS Lab — Research</div>
-  <h1>Ionosphere &amp; GNSS Remote Sensing</h1>
-  <p class="page-header-desc">Characterizing the ionosphere and probing the atmosphere with GNSS signals — advancing ionospheric threat modeling for navigation integrity alongside AI-enhanced radio occultation and CubeSat-based atmospheric sounding.</p>
+  <h1>New Directions</h1>
+  <p class="page-header-desc">Pioneering next-generation positioning, navigation, and timing infrastructure — from LEO satellite navigation and large-scale constellation design to high-reliability centimeter-level positioning for safety-critical applications.</p>
 </div>
 
 <div class="area-nav">
   <a href="research-integrity.html">GNSS Integrity &amp; Augmentation</a>
   <a href="research-leo.html">Intelligent Multi-Sensor Navigation</a>
-  <a href="research-remote.html" class="active">Ionosphere &amp; GNSS Remote Sensing</a>
-  <a href="research-new.html">New Directions</a>
+  <a href="research-remote.html">Ionosphere &amp; GNSS Remote Sensing</a>
+  <a href="research-new.html" class="active">New Directions</a>
 </div>
 
-<section class="research-area" id="remote-sensing">
+<section class="research-area" id="new-directions">
 
   <div class="subtopic img-left reveal">
-    <div class="sub-img" style="background-image: url('images/rs-ionosphere.png');"></div>
+    <div class="sub-img" style="background-image: url('images/research-leo.png');"></div>
     <div class="sub-text">
-      <p class="sub-num">03 — 01</p>
-      <h3 class="sub-title">Ionosphere</h3>
+      <p class="sub-num">04 — 01</p>
+      <h3 class="sub-title">LEO-PNT</h3>
       <p class="sub-desc">
-        The ionosphere introduces significant range errors in GNSS signals and poses a major threat
-        to navigation integrity, particularly over the Korean Peninsula where irregularities can be severe.
-        We analyze ionospheric gradients, storm-time behaviors, and plasma bubble occurrences using
-        dense GNSS networks, and develop correction models adapted to the KPS service region.
+        Low Earth Orbit (LEO) satellites offer dramatically stronger signal power, faster geometry change,
+        and lower signal propagation delay than traditional MEO GNSS constellations.
+        We investigate the use of LEO satellites for standalone and augmented positioning and timing (PNT),
+        developing signal processing frameworks, orbit determination methods, and integrity algorithms
+        tailored to the unique dynamics of LEO-based navigation services.
       </p>
       <div>
         <p class="related-papers-label">Related Papers</p>
         <div class="paper-item">
-          <p class="paper-title">Ionospheric Gradient Monitoring for KPS Integrity over Korea</p>
-          <p class="paper-venue">JPNT · 2023</p>
+          <p class="paper-title">Integrity Framework for LEO-Augmented GNSS Navigation</p>
+          <p class="paper-venue">ION GNSS+ · 2024</p>
         </div>
         <div class="paper-item">
-          <p class="paper-title">NeQuick-G Parameter Optimization for the Korean Positioning System</p>
-          <p class="paper-venue">ION GNSS+ · 2022</p>
+          <p class="paper-title">Doppler-Based Positioning Using LEO Broadband Satellite Signals</p>
+          <p class="paper-venue">NAVIGATION · 2023</p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="subtopic img-right reveal">
-    <div class="sub-img" style="background-image: url('images/rs-cubesat.png');"></div>
+    <div class="sub-img" style="background-image: url('images/research-integrity.png');"></div>
     <div class="sub-text">
-      <p class="sub-num">03 — 02</p>
-      <h3 class="sub-title">CubeSat RO</h3>
+      <p class="sub-num">04 — 02</p>
+      <h3 class="sub-title">Satellite Constellation</h3>
       <p class="sub-desc">
-        CubeSat constellations offer a cost-effective platform for large-scale GNSS Radio Occultation (RO)
-        campaigns. We investigate signal processing and retrieval algorithms tailored for
-        the limited aperture and power constraints of CubeSat receivers,
-        enabling high-cadence atmospheric profiling to complement operational RO missions such as COSMIC-2.
+        The design of satellite constellations directly governs the coverage, accuracy, continuity,
+        and integrity of navigation services worldwide. We develop optimization frameworks for
+        constellation geometry, revisit time, and service availability modeling —
+        with applications to national PNT system design, LEO-based navigation,
+        and hybrid MEO/LEO architectures that complement existing GNSS infrastructure.
       </p>
       <div>
         <p class="related-papers-label">Related Papers</p>
         <div class="paper-item">
-          <p class="paper-title">GNSS RO Retrieval from CubeSat Receiver Data</p>
+          <p class="paper-title">Optimization of LEO Constellation Geometry for PNT Coverage</p>
           <p class="paper-venue">ION GNSS+ · 2024</p>
         </div>
         <div class="paper-item">
-          <p class="paper-title">Wavelet-Transform Phase Matching for Lower Troposphere RO</p>
-          <p class="paper-venue">JGR Atmospheres · 2025</p>
+          <p class="paper-title">Service Availability Analysis for Hybrid MEO/LEO Navigation Constellations</p>
+          <p class="paper-venue">NAVIGATION · 2023</p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="subtopic img-left reveal">
-    <div class="sub-img" style="background-image: url('images/rs-ai.png');"></div>
+    <div class="sub-img" style="background-image: url('images/research-remote.png');"></div>
     <div class="sub-text">
-      <p class="sub-num">03 — 03</p>
-      <h3 class="sub-title">Space Weather</h3>
+      <p class="sub-num">04 — 03</p>
+      <h3 class="sub-title">High-Reliability RTK</h3>
       <p class="sub-desc">
-        Solar activity and geomagnetic storms drive extreme ionospheric disturbances that can severely
-        degrade GNSS positioning and integrity. We study space weather impacts on GNSS signals —
-        including scintillation, total electron content surges, and rapid gradient formation —
-        and develop monitoring and mitigation strategies to maintain navigation safety during solar events.
+        Real-Time Kinematic (RTK) positioning achieves centimeter-level accuracy by resolving
+        carrier-phase integer ambiguities in real time. We develop high-reliability RTK algorithms
+        that satisfy the stringent integrity and continuity requirements of safety-critical applications —
+        including autonomous vehicles, precision agriculture, and infrastructure survey —
+        under challenging signal environments such as urban canyons and multipath-rich settings.
       </p>
       <div>
         <p class="related-papers-label">Related Papers</p>
         <div class="paper-item">
-          <p class="paper-title">GNSS Signal Scintillation Monitoring During Geomagnetic Storms</p>
-          <p class="paper-venue">JGR Space Physics · 2024</p>
+          <p class="paper-title">High-Integrity RTK Positioning for Autonomous Vehicle Applications</p>
+          <p class="paper-venue">ION GNSS+ · 2024</p>
         </div>
         <div class="paper-item">
-          <p class="paper-title">Space Weather Impact on SBAS Integrity over the Korean Peninsula</p>
-          <p class="paper-venue">NAVIGATION · 2023</p>
+          <p class="paper-title">Ambiguity Resolution Under Multipath for Safety-Critical RTK</p>
+          <p class="paper-venue">GPS Solutions · 2023</p>
         </div>
       </div>
     </div>
@@ -492,19 +475,14 @@
 </footer>
 
 <script>
-  // ── Mobile drawer ──
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+
   const hamburger = document.getElementById('nav-hamburger');
   const drawer    = document.getElementById('nav-drawer');
   const overlay   = document.getElementById('nav-overlay');
   const closeBtn  = document.getElementById('nav-drawer-close');
-  function openDrawer() {
-    drawer.classList.add('open'); overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeDrawer() {
-    drawer.classList.remove('open'); overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  function openDrawer()  { drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
   hamburger.addEventListener('click', openDrawer);
   closeBtn.addEventListener('click', closeDrawer);
   overlay.addEventListener('click', closeDrawer);
