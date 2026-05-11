@@ -183,7 +183,7 @@
 	  position: sticky; top: 64px; z-index: 50;
 	  background: rgba(245,247,250,0.95); backdrop-filter: blur(16px);
 	  border-bottom: 1px solid #a0b8d0;
-	  padding: 0 clamp(1.8rem,5vw,5rem); display: flex; gap: 0;
+	  padding: 0 clamp(1.8rem,5vw,5rem); display: flex; flex-wrap: wrap; gap: 0;
 	}
 	.area-nav a {
 	  font-family: var(--mono); font-size: clamp(0.75rem,1.1vw,1.0rem);
@@ -193,7 +193,7 @@
 	  border-bottom: 2px solid transparent;
 	  transition: color 0.2s, border-color 0.2s;
 	  text-align: center; line-height: 1.4;
-	  flex: 1;
+	  flex: 1 1 50%;
 	}
 	.area-nav a:hover { color: #1c2b3a; border-bottom-color: var(--gold); }
 	.area-nav a.active { color: var(--cyan); border-bottom-color: var(--cyan); }
