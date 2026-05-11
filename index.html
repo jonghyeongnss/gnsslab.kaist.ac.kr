@@ -44,73 +44,24 @@
       opacity: 1;
     }
 
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 100px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 2rem 3rem;
-      background: #020B16;
-    }
-
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 100px; display: flex; align-items: center; justify-content: space-between; padding: 2rem 3rem; background: rgba(245,247,250,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #a0b8d0; }
     .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
-    .nav-brand-main {
-      font-family: var(--display);
-      font-size: clamp(1.4rem, 2.5vw, 2.5rem);
-      letter-spacing: 0.06em;
-      color: var(--bright);
-      line-height: 1;
-    }
+    .nav-brand-main { font-family: var(--display); font-size: clamp(1.4rem, 2.5vw, 2.5rem); letter-spacing: 0.06em; color: #0e1e2e; line-height: 1; }
     .nav-brand-main span { color: var(--cyan); }
-
     .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
     .nav-links li { position: relative; }
-    .nav-links a {
-      display: block;
-      padding: 0 1.2rem;
-      height: auto; line-height: normal;
-      font-family: var(--ui);
-      font-size: clamp(0.82rem, 1.3vw, 1.3rem);
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--mid);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 1.2rem; right: 1.2rem;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transition: transform 0.25s ease;
-    }
+    .nav-links a { display: block; padding: 0 1.2rem; font-family: var(--ui); font-size: clamp(0.82rem, 1.3vw, 1.3rem); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #3d5a78; text-decoration: none; transition: color 0.2s; }
+    .nav-links a.active { color: var(--cyan); }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 1.2rem; right: 1.2rem; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s ease; }
     .nav-links a:hover { color: var(--cyan); }
-    .nav-links a:hover::after { transform: scaleX(1); }
-	.has-dropdown { position: relative; }
-	.dropdown {
-	  position: absolute; top: 100%; left: 0;
-	  background: rgba(2,8,16,0.97);
-	  backdrop-filter: blur(12px);
-	  border: 1px solid var(--border2);
-	  min-width: 140px; list-style: none;
-	  opacity: 0; pointer-events: none;
-	  transform: translateY(6px);
-	  transition: opacity 0.2s ease, transform 0.2s ease;
-	  z-index: 200;
-	}
-	.has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
-	.dropdown a {
-	  display: block; padding: 0.6rem 1.2rem;
-	  font-size: 1.0rem !important; font-weight: 500 !important;
-	  color: var(--mid) !important;
-	  border-bottom: 1px solid var(--border);
-	  letter-spacing: 0.08em;
-	}
-	.dropdown li:last-child a { border-bottom: none; }
-	.dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
-	.dropdown a::after { display: none !important; }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+    .has-dropdown { position: relative; }
+    .dropdown { position: absolute; top: 100%; left: 0; background: rgba(245,247,250,0.98); backdrop-filter: blur(12px); border: 1px solid #a0b8d0; min-width: 140px; list-style: none; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s ease, transform 0.2s ease; z-index: 200; }
+    .has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown a { display: block; padding: 0.6rem 1.2rem; font-size: 1.0rem !important; font-weight: 500 !important; color: #3d5a78 !important; border-bottom: 1px solid #e4edf5; letter-spacing: 0.08em; }
+    .dropdown li:last-child a { border-bottom: none; }
+    .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
+    .dropdown a::after { display: none !important; }
 	.has-dropdown:has(a[href="research.html"]) .dropdown {
 		min-width: 200px;
 	}
