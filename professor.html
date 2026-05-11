@@ -172,6 +172,14 @@
       margin-bottom: 2.5rem;
     }
 
+    /* Expertise / Research bullet lists */
+    .topic-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; max-width: 90ch; }
+    .topic-item {
+      font-size: clamp(1.15rem, 1.7vw, 1.35rem); color: #1c2b3a;
+      padding-left: 2rem; position: relative;
+    }
+    .topic-item::before { content: '—'; position: absolute; left: 0; color: var(--cyan); }
+
     /* Education table */
     .edu-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
     .edu-item {
@@ -192,7 +200,7 @@
     /* Awards list */
     .award-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
     .award-item {
-      display: grid; grid-template-columns: 8rem 1fr;
+      display: grid; grid-template-columns: 10rem 1fr;
       gap: 0 2rem; align-items: baseline;
     }
     .award-year {
@@ -202,9 +210,16 @@
     .award-text { font-size: clamp(1.15rem, 1.7vw, 1.35rem); color: #1c2b3a; }
 
     /* Service list */
-    .service-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
-    .service-item { font-size: clamp(1.15rem, 1.7vw, 1.35rem); color: #1c2b3a; padding-left: 1.2rem; position: relative; }
+    .service-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; max-width: 95ch; }
+    .service-item { font-size: clamp(1.1rem, 1.6vw, 1.25rem); color: #1c2b3a; padding-left: 2rem; position: relative; line-height: 1.6; }
     .service-item::before { content: '—'; position: absolute; left: 0; color: var(--cyan); }
+
+    /* Sub-group title within a section */
+    .service-subtitle {
+      font-family: var(--mono); font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--dim); margin-top: 2.2rem; margin-bottom: 1rem;
+    }
 
     /* Memberships */
     .membership-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
@@ -340,7 +355,7 @@
       .footer-col:empty { display: none; }
       .page-header, .prof-section, .prof-hero { padding-left: 1rem; padding-right: 1rem; }
       .edu-item { grid-template-columns: 4rem 1fr; gap: 0 1rem; }
-      .award-item { grid-template-columns: 4rem 1fr; gap: 0 1rem; }
+      .award-item { grid-template-columns: 6rem 1fr; gap: 0 1rem; }
     }
   </style>
 </head>
@@ -447,9 +462,25 @@
 <!-- EXPERTISE -->
 <div class="prof-section">
   <div class="section-label">Expertise</div>
+  <h2 class="section-heading">Areas of Expertise</h2>
+  <ul class="topic-list">
+    <li class="topic-item">Navigation of aerospace and terrestrial vehicle systems</li>
+    <li class="topic-item">Integrity assurance for safety-critical systems</li>
+    <li class="topic-item">Remote sensing for atmospheric and space sciences</li>
+  </ul>
+</div>
+
+<!-- RESEARCH -->
+<div class="prof-section">
+  <div class="section-label">Research</div>
   <h2 class="section-heading">Research Interests</h2>
-  <p class="prof-bio">Navigation of aerospace and terrestrial vehicles; integrity assurance for safety-critical systems; remote sensing for atmospheric and space sciences.</p>
-  <p class="prof-bio" style="margin-top:1rem;">GNSS augmentation systems; integrity monitoring and fault detection; robust guidance for unmanned aerial systems; multi-sensor integrated navigation; ionosphere/atmospheric sounding.</p>
+  <ul class="topic-list">
+    <li class="topic-item">Global Navigation Satellite System (GNSS) augmentation systems</li>
+    <li class="topic-item">Integrity monitoring, fault detection, and fault isolation for safety-critical systems</li>
+    <li class="topic-item">Robust guidance and navigation for Unmanned Aerial System (UAS)</li>
+    <li class="topic-item">Multi-sensor integrated navigation under GNSS-challenged environments</li>
+    <li class="topic-item">GNSS ionosphere/atmospheric sounding and GNSS radio occultation</li>
+  </ul>
 </div>
 
 <!-- EDUCATION -->
@@ -487,19 +518,19 @@
   <ul class="award-list">
     <li class="award-item">
       <span class="award-year">2003, 2004, 2016</span>
-      <span class="award-text">Institute of Navigation Best Paper Awards</span>
+      <span class="award-text">Institute of Navigation (ION) Best Paper Awards</span>
     </li>
     <li class="award-item">
       <span class="award-year">2008, 2013</span>
-      <span class="award-text">FAA Recognition</span>
+      <span class="award-text">U.S. Federal Aviation Administration (FAA) Recognition</span>
     </li>
     <li class="award-item">
       <span class="award-year">2013, 2016</span>
-      <span class="award-text">Outstanding Teaching Award, AE Department</span>
+      <span class="award-text">Outstanding Teaching Award, AE Department, KAIST</span>
     </li>
     <li class="award-item">
       <span class="award-year">2010</span>
-      <span class="award-text">Outstanding Project Advisor Award</span>
+      <span class="award-text">Outstanding Project Advisor Award, School of Engineering, KAIST</span>
     </li>
     <li class="award-item">
       <span class="award-year">2009</span>
@@ -511,23 +542,42 @@
 <!-- SERVICE -->
 <div class="prof-section">
   <div class="section-label">Community</div>
-  <h2 class="section-heading">Professional Activities</h2>
+  <h2 class="section-heading">Selected Professional Activities</h2>
+
+  <div class="service-subtitle">Society Leadership &amp; Editorial</div>
   <ul class="service-list">
-    <li class="service-item">Secretary of ION Satellite Division (2022&ndash;2024)</li>
+    <li class="service-item">Secretary, Institute of Navigation (ION) Satellite Division, 2022–2024</li>
+    <li class="service-item">Technical Representative, Institute of Navigation (ION) Council, 2019–2020</li>
+    <li class="service-item">International Technical Advisor, Institute of Navigation (ION) Satellite Division, 2017–2018</li>
+    <li class="service-item">Councilor, Korean Society for Aeronautical and Space Sciences (KSAS)</li>
     <li class="service-item">Associate Editor, ION Navigation</li>
-    <li class="service-item">Associate Editor, IEEE Signal Processing Magazine</li>
-    <li class="service-item">Director, Korea Navigation Institute</li>
-    <li class="service-item">Director, Institute of Positioning, Navigation and Timing</li>
-    <li class="service-item">Multiple government committee memberships</li>
+    <li class="service-item">Guest Associate Editor, IEEE Signal Processing Magazine</li>
+    <li class="service-item">Associate Editor, Journal of KSAS</li>
+    <li class="service-item">Editorial Board Member, Journal of Positioning, Navigation, and Timing</li>
+    <li class="service-item">Editorial Board Member, Data</li>
+    <li class="service-item">Editorial Board Member, Journal of Astronomy and Space Sciences</li>
+  </ul>
+
+  <div class="service-subtitle">Institute &amp; Government Service</div>
+  <ul class="service-list">
+    <li class="service-item">Director, Korea Navigation Institute (KONI)</li>
+    <li class="service-item">Director, Institute of Positioning, Navigation and Timing (IPNT)</li>
+    <li class="service-item">Member, Research and Development Evaluation Committee, Korea Agency for Infrastructure Technology Advancement</li>
+    <li class="service-item">Member, Satellite Radio Monitoring Committee, Ministry of Science and ICT</li>
+    <li class="service-item">Member, Next-generation Navigation Safety Policy Coordination Committee, Ministry of Land, Infrastructure, and Transport</li>
+    <li class="service-item">Member, SBAS Business Promotion Policy Committee, Ministry of Land, Infrastructure, and Transport</li>
+    <li class="service-item">Member, Technology Consulting Committee, Korea Transportation Safety Authority</li>
+    <li class="service-item">Member, Satellite Research and Development Advisory Committee, Korea Communication Commission (KCC)</li>
+    <li class="service-item">Member, eLoran Development Advisory Committee, Ministry of Oceans and Fisheries</li>
   </ul>
 
   <div style="margin-top: 3rem;">
-    <div class="section-label">Professional Memberships</div>
+    <div class="section-label">Professional Society Memberships</div>
     <div class="membership-row">
-      <span class="membership-tag">ION</span>
-      <span class="membership-tag">IEEE</span>
-      <span class="membership-tag">AGU</span>
-      <span class="membership-tag">AIAA</span>
+      <span class="membership-tag">Institute of Navigation (ION)</span>
+      <span class="membership-tag">Institute of Electrical and Electronics Engineers (IEEE)</span>
+      <span class="membership-tag">American Geophysical Union (AGU)</span>
+      <span class="membership-tag">American Institute of Aeronautics and Astronautics (AIAA)</span>
     </div>
   </div>
 </div>
