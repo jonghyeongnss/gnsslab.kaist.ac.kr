@@ -343,19 +343,27 @@
     }
 
     @media (max-width: 960px) {
-      .page-header, .prof-section, .prof-hero, footer { padding-left: 2rem; padding-right: 2rem; }
-      .prof-hero { flex-direction: column; gap: 2rem; }
-      .prof-hero-photo { width: 200px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
       nav { padding: 0 1.5rem; }
+      .page-header, .timeline-wrap, .controls { padding-left: 1.2rem; padding-right: 1.2rem; }
+      .timeline-items { border-left: none; padding-left: 0; margin-left: 0; }
+      .news-item::before { display: none; }
+      .news-item { display: flex; flex-direction: column; gap: 0.3rem; padding: 1.1rem 0.5rem; }
+      .news-date { margin-bottom: 0.2rem; padding-top: 0; }
+      .news-body { width: 100%; }
+      .news-tag, .news-arrow { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-col:empty { display: none; }
+      footer { padding-left: 2rem; padding-right: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none; }
     }
     @media (max-width: 640px) {
+      .controls { gap: 0.8rem; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .footer-brand { grid-column: 1 / -1; }
       .footer-col:empty { display: none; }
-      .page-header, .prof-section, .prof-hero { padding-left: 1rem; padding-right: 1rem; }
-      .edu-item { grid-template-columns: 4rem 1fr; gap: 0 1rem; }
-      .award-item { grid-template-columns: 6rem 1fr; gap: 0 1rem; }
     }
   </style>
 </head>
