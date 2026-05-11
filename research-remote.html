@@ -184,16 +184,16 @@
 	  background: rgba(245,247,250,0.95); backdrop-filter: blur(16px);
 	  border-bottom: 1px solid #a0b8d0;
 	  padding: 0 clamp(1.8rem,5vw,5rem); display: flex; gap: 0;
-	  overflow-x: auto; white-space: nowrap;
 	}
 	.area-nav a {
-	  font-family: var(--mono); font-size: clamp(0.8rem,1.3vw,1.2rem);
+	  font-family: var(--mono); font-size: clamp(0.62rem,0.9vw,0.82rem);
 	  letter-spacing: 0.1em; text-transform: uppercase;
 	  color: #7a9ab8; text-decoration: none;
 	  padding: clamp(0.8rem,1.2vw,1rem) clamp(1rem,2vw,1.5rem);
 	  border-bottom: 2px solid transparent;
 	  transition: color 0.2s, border-color 0.2s;
-	  flex-shrink: 0;
+	  text-align: center; line-height: 1.4;
+	  flex: 1;
 	}
 	.area-nav a:hover { color: #1c2b3a; border-bottom-color: var(--gold); }
 	.area-nav a.active { color: var(--cyan); border-bottom-color: var(--cyan); }
@@ -374,35 +374,10 @@
 <section class="research-area" id="remote-sensing">
 
   <div class="subtopic img-left reveal">
-    <div class="sub-img" style="background-image: url('images/rs-ai.png');"></div>
-    <div class="sub-text">
-      <p class="sub-num">03 — 01</p>
-      <h3 class="sub-title">AI-Enhanced GNSS Remote Sensing for Atmospheric Monitoring</h3>
-      <p class="sub-desc">
-        Machine learning and deep learning techniques are opening new frontiers in atmospheric retrieval.
-        We integrate AI-based approaches with GNSS remote sensing to improve the accuracy and
-        vertical resolution of tropospheric and stratospheric profile retrievals,
-        leveraging large-scale RO datasets from COSMIC-2 and future constellations for data-driven modeling.
-      </p>
-      <div>
-        <p class="related-papers-label">Related Papers</p>
-        <div class="paper-item">
-          <p class="paper-title">Deep Learning for Improved Bending Angle Retrieval in GNSS RO</p>
-          <p class="paper-venue">JGR Atmospheres · 2024</p>
-        </div>
-        <div class="paper-item">
-          <p class="paper-title">AI-Based Atmospheric Profile Retrieval from COSMIC-2 Data</p>
-          <p class="paper-venue">Remote Sensing · 2023</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="subtopic img-right reveal">
     <div class="sub-img" style="background-image: url('images/rs-ionosphere.png');"></div>
     <div class="sub-text">
-      <p class="sub-num">03 — 02</p>
-      <h3 class="sub-title">Ionospheric Analysis</h3>
+      <p class="sub-num">03 — 01</p>
+      <h3 class="sub-title">Ionosphere</h3>
       <p class="sub-desc">
         The ionosphere introduces significant range errors in GNSS signals and poses a major threat
         to navigation integrity, particularly over the Korean Peninsula where irregularities can be severe.
@@ -423,11 +398,11 @@
     </div>
   </div>
 
-  <div class="subtopic img-left reveal">
+  <div class="subtopic img-right reveal">
     <div class="sub-img" style="background-image: url('images/rs-cubesat.png');"></div>
     <div class="sub-text">
-      <p class="sub-num">03 — 03</p>
-      <h3 class="sub-title">GNSS Radio Occultation Using CubeSat Signals</h3>
+      <p class="sub-num">03 — 02</p>
+      <h3 class="sub-title">CubeSat RO</h3>
       <p class="sub-desc">
         CubeSat constellations offer a cost-effective platform for large-scale GNSS Radio Occultation (RO)
         campaigns. We investigate signal processing and retrieval algorithms tailored for
@@ -443,6 +418,31 @@
         <div class="paper-item">
           <p class="paper-title">Wavelet-Transform Phase Matching for Lower Troposphere RO</p>
           <p class="paper-venue">JGR Atmospheres · 2025</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic img-left reveal">
+    <div class="sub-img" style="background-image: url('images/rs-ai.png');"></div>
+    <div class="sub-text">
+      <p class="sub-num">03 — 03</p>
+      <h3 class="sub-title">Space Weather</h3>
+      <p class="sub-desc">
+        Solar activity and geomagnetic storms drive extreme ionospheric disturbances that can severely
+        degrade GNSS positioning and integrity. We study space weather impacts on GNSS signals —
+        including scintillation, total electron content surges, and rapid gradient formation —
+        and develop monitoring and mitigation strategies to maintain navigation safety during solar events.
+      </p>
+      <div>
+        <p class="related-papers-label">Related Papers</p>
+        <div class="paper-item">
+          <p class="paper-title">GNSS Signal Scintillation Monitoring During Geomagnetic Storms</p>
+          <p class="paper-venue">JGR Space Physics · 2024</p>
+        </div>
+        <div class="paper-item">
+          <p class="paper-title">Space Weather Impact on SBAS Integrity over the Korean Peninsula</p>
+          <p class="paper-venue">NAVIGATION · 2023</p>
         </div>
       </div>
     </div>

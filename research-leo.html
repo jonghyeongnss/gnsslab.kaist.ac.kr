@@ -184,16 +184,16 @@
 	  background: rgba(245,247,250,0.95); backdrop-filter: blur(16px);
 	  border-bottom: 1px solid #a0b8d0;
 	  padding: 0 clamp(1.8rem,5vw,5rem); display: flex; gap: 0;
-	  overflow-x: auto; white-space: nowrap;
 	}
 	.area-nav a {
-	  font-family: var(--mono); font-size: clamp(0.8rem,1.3vw,1.2rem);
+	  font-family: var(--mono); font-size: clamp(0.62rem,0.9vw,0.82rem);
 	  letter-spacing: 0.1em; text-transform: uppercase;
 	  color: #7a9ab8; text-decoration: none;
 	  padding: clamp(0.8rem,1.2vw,1rem) clamp(1rem,2vw,1.5rem);
 	  border-bottom: 2px solid transparent;
 	  transition: color 0.2s, border-color 0.2s;
-	  flex-shrink: 0;
+	  text-align: center; line-height: 1.4;
+	  flex: 1;
 	}
 	.area-nav a:hover { color: #1c2b3a; border-bottom-color: var(--gold); }
 	.area-nav a.active { color: var(--cyan); border-bottom-color: var(--cyan); }
@@ -377,22 +377,22 @@
     <div class="sub-img" style="background-image: url('images/leo-sop.png');"></div>
     <div class="sub-text">
       <p class="sub-num">02 — 01</p>
-      <h3 class="sub-title">Signals of Opportunity (SOP)</h3>
+      <h3 class="sub-title">Multi-Sensor Fusion</h3>
       <p class="sub-desc">
-        Broadband LEO constellations such as Starlink and OneWeb transmit high-power signals that can be
-        opportunistically received for positioning and timing — without any dedicated PNT payload.
-        We develop signal acquisition, tracking, and Doppler-based positioning algorithms
-        for LEO SOP, enabling resilient navigation in GNSS-denied or degraded environments.
+        Reliable navigation in GNSS-challenged environments requires seamless integration of diverse
+        sensor modalities — GNSS, IMU, cameras, LiDAR, and LEO signals.
+        We develop tightly-coupled fusion architectures with rigorous integrity monitoring,
+        delivering continuous, high-accuracy positioning for autonomous vehicles and aerial platforms.
       </p>
       <div>
         <p class="related-papers-label">Related Papers</p>
         <div class="paper-item">
-          <p class="paper-title">Doppler Positioning Using Starlink Signals of Opportunity</p>
+          <p class="paper-title">Tightly-Coupled GNSS/IMU/LiDAR Fusion for Urban Navigation</p>
           <p class="paper-venue">ION GNSS+ · 2024</p>
         </div>
         <div class="paper-item">
-          <p class="paper-title">Acquisition and Tracking of LEO Broadband SOP for Navigation</p>
-          <p class="paper-venue">ION ITM · 2023</p>
+          <p class="paper-title">Integrity Monitoring for Multi-Sensor Fusion in Autonomous Driving</p>
+          <p class="paper-venue">NAVIGATION · 2023</p>
         </div>
       </div>
     </div>
@@ -402,22 +402,72 @@
     <div class="sub-img" style="background-image: url('images/leo-errormodel.png');"></div>
     <div class="sub-text">
       <p class="sub-num">02 — 02</p>
-      <h3 class="sub-title">Error Model</h3>
+      <h3 class="sub-title">DNN</h3>
       <p class="sub-desc">
-        Accurate error characterization is fundamental to any positioning and integrity system.
-        We develop stochastic error models for LEO satellite signals, accounting for clock instability,
-        atmospheric delays, multipath, and orbital uncertainties.
-        These models support both high-accuracy navigation and rigorous integrity bounding for LEO-augmented PNT.
+        Deep Neural Networks offer powerful tools for learning complex sensor error patterns,
+        environment representations, and navigation state estimates directly from data.
+        We design DNN-based positioning and fault detection algorithms that adapt to
+        dynamic urban environments, improving robustness beyond classical model-based methods.
       </p>
       <div>
         <p class="related-papers-label">Related Papers</p>
         <div class="paper-item">
-          <p class="paper-title">Stochastic Error Modeling for LEO PNT Signal Quality Assessment</p>
-          <p class="paper-venue">NAVIGATION · 2024</p>
+          <p class="paper-title">Deep Learning for GNSS Multipath Mitigation in Urban Canyons</p>
+          <p class="paper-venue">ION GNSS+ · 2024</p>
         </div>
         <div class="paper-item">
-          <p class="paper-title">Clock and Tropospheric Error Characterization for LEO Navigation Signals</p>
-          <p class="paper-venue">GPS Solutions · 2023</p>
+          <p class="paper-title">DNN-Based Fault Detection for Integrated Navigation Systems</p>
+          <p class="paper-venue">NAVIGATION · 2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic img-left reveal">
+    <div class="sub-img" style="background-image: url('images/leo-sop.png');"></div>
+    <div class="sub-text">
+      <p class="sub-num">02 — 03</p>
+      <h3 class="sub-title">LiDAR</h3>
+      <p class="sub-desc">
+        LiDAR provides dense 3D point clouds of the surrounding environment, making it indispensable
+        for autonomous navigation in complex scenes. We develop LiDAR-based localization and
+        mapping algorithms tightly integrated with GNSS and inertial sensors,
+        enabling centimeter-level positioning and robust scene understanding in urban and indoor environments.
+      </p>
+      <div>
+        <p class="related-papers-label">Related Papers</p>
+        <div class="paper-item">
+          <p class="paper-title">LiDAR-GNSS Tightly-Coupled Localization for Autonomous Vehicles</p>
+          <p class="paper-venue">ION GNSS+ · 2023</p>
+        </div>
+        <div class="paper-item">
+          <p class="paper-title">3D Map Matching Using LiDAR Point Clouds for Urban Positioning</p>
+          <p class="paper-venue">GPS Solutions · 2022</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic img-right reveal">
+    <div class="sub-img" style="background-image: url('images/leo-errormodel.png');"></div>
+    <div class="sub-text">
+      <p class="sub-num">02 — 04</p>
+      <h3 class="sub-title">FastSLAM</h3>
+      <p class="sub-desc">
+        Simultaneous Localization and Mapping (SLAM) enables a vehicle to build a map of an
+        unknown environment while tracking its own position within it.
+        We apply FastSLAM and particle filter frameworks fused with GNSS and inertial measurements,
+        supporting real-time mapping and navigation for autonomous ground and aerial vehicles.
+      </p>
+      <div>
+        <p class="related-papers-label">Related Papers</p>
+        <div class="paper-item">
+          <p class="paper-title">FastSLAM with GNSS Aiding for Outdoor Autonomous Navigation</p>
+          <p class="paper-venue">ION GNSS+ · 2024</p>
+        </div>
+        <div class="paper-item">
+          <p class="paper-title">Particle Filter SLAM with Multi-Sensor Integration for UAV Mapping</p>
+          <p class="paper-venue">NAVIGATION · 2023</p>
         </div>
       </div>
     </div>

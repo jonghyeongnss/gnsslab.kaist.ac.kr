@@ -184,16 +184,16 @@
 	  background: rgba(245,247,250,0.95); backdrop-filter: blur(16px);
 	  border-bottom: 1px solid #a0b8d0;
 	  padding: 0 clamp(1.8rem,5vw,5rem); display: flex; gap: 0;
-	  overflow-x: auto; white-space: nowrap;
 	}
 	.area-nav a {
-	  font-family: var(--mono); font-size: clamp(0.8rem,1.3vw,1.2rem);
+	  font-family: var(--mono); font-size: clamp(0.62rem,0.9vw,0.82rem);
 	  letter-spacing: 0.1em; text-transform: uppercase;
 	  color: #7a9ab8; text-decoration: none;
 	  padding: clamp(0.8rem,1.2vw,1rem) clamp(1rem,2vw,1.5rem);
 	  border-bottom: 2px solid transparent;
 	  transition: color 0.2s, border-color 0.2s;
-	  flex-shrink: 0;
+	  text-align: center; line-height: 1.4;
+	  flex: 1;
 	}
 	.area-nav a:hover { color: #1c2b3a; border-bottom-color: var(--gold); }
 	.area-nav a.active { color: var(--cyan); border-bottom-color: var(--cyan); }
@@ -374,40 +374,15 @@
 <section class="research-area" id="integrity">
 
   <div class="subtopic img-left reveal">
-    <div class="sub-img" style="background-image: url('images/integrity-ai.png');"></div>
-    <div class="sub-text">
-      <p class="sub-num">01 — 01</p>
-      <h3 class="sub-title">AI Safety (Vision AI)</h3>
-      <p class="sub-desc">
-        As AI-driven perception systems become integral to autonomous navigation, ensuring their reliability and
-        safety is critical. We investigate integrity monitoring frameworks for Vision AI pipelines —
-        including camera-based localization and object detection — developing fault detection and
-        alert mechanisms that provide quantifiable safety guarantees for aviation and autonomous vehicle applications.
-      </p>
-      <div>
-        <p class="related-papers-label">Related Papers</p>
-        <div class="paper-item">
-          <p class="paper-title">Integrity Framework for Vision-Based Navigation in Urban Environments</p>
-          <p class="paper-venue">ION GNSS+ · 2024</p>
-        </div>
-        <div class="paper-item">
-          <p class="paper-title">Protection Level Computation for AI-Based Localization Systems</p>
-          <p class="paper-venue">NAVIGATION · 2023</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="subtopic img-right reveal">
     <div class="sub-img" style="background-image: url('images/integrity-augmentation.png');"></div>
     <div class="sub-text">
-      <p class="sub-num">01 — 02</p>
-      <h3 class="sub-title">GNSS Augmentation System</h3>
+      <p class="sub-num">01 — 01</p>
+      <h3 class="sub-title">GBAS/SBAS</h3>
       <p class="sub-desc">
-        Satellite-Based Augmentation Systems (SBAS) and Ground-Based Augmentation Systems (GBAS)
+        Ground-Based Augmentation Systems (GBAS) and Satellite-Based Augmentation Systems (SBAS)
         broadcast differential corrections and integrity bounding data to support precision navigation.
         We develop augmentation system architectures for the Korean Positioning System (KPS),
-        targeting compliance with ICAO standards for precision approach, landing, and urban air mobility operations.
+        targeting compliance with ICAO standards for precision approach and landing operations.
       </p>
       <div>
         <p class="related-papers-label">Related Papers</p>
@@ -423,16 +398,16 @@
     </div>
   </div>
 
-  <div class="subtopic img-left reveal">
+  <div class="subtopic img-right reveal">
     <div class="sub-img" style="background-image: url('images/integrity-multisensor.png');"></div>
     <div class="sub-text">
-      <p class="sub-num">01 — 03</p>
-      <h3 class="sub-title">Integrity for Multi-Sensor Navigation Systems</h3>
+      <p class="sub-num">01 — 02</p>
+      <h3 class="sub-title">RAIM/ARAIM</h3>
       <p class="sub-desc">
-        Modern navigation platforms fuse GNSS with inertial measurement units (IMU), cameras, LiDAR, and
-        other sensors to maintain continuous positioning in challenging environments.
-        We develop integrity monitoring methods for tightly-coupled multi-sensor fusion systems,
-        extending RAIM concepts to heterogeneous sensor architectures for autonomous vehicles and UAM platforms.
+        Receiver Autonomous Integrity Monitoring (RAIM) and its advanced evolution (ARAIM) enable
+        aircraft and autonomous vehicles to self-monitor GNSS faults without external augmentation.
+        We develop fault detection, exclusion, and protection level algorithms that meet stringent
+        continuity and integrity requirements for safety-of-life applications globally.
       </p>
       <div>
         <p class="related-papers-label">Related Papers</p>
@@ -441,7 +416,57 @@
           <p class="paper-venue">ION GNSS+ · 2024</p>
         </div>
         <div class="paper-item">
-          <p class="paper-title">Fault Detection in Multi-Sensor Fusion for Autonomous Navigation</p>
+          <p class="paper-title">Fault Detection in Multi-Constellation ARAIM with Dual-Frequency Measurements</p>
+          <p class="paper-venue">NAVIGATION · 2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic img-left reveal">
+    <div class="sub-img" style="background-image: url('images/integrity-ai.png');"></div>
+    <div class="sub-text">
+      <p class="sub-num">01 — 03</p>
+      <h3 class="sub-title">LAD-GNSS</h3>
+      <p class="sub-desc">
+        Large Area Differential GNSS (LAD-GNSS) extends augmentation coverage beyond traditional GBAS
+        service volumes by distributing corrections over wide geographic regions.
+        We investigate error modeling, correction dissemination strategies, and integrity frameworks
+        for LAD-GNSS systems supporting both aviation and terrestrial high-precision applications.
+      </p>
+      <div>
+        <p class="related-papers-label">Related Papers</p>
+        <div class="paper-item">
+          <p class="paper-title">Integrity Framework for Large Area Differential GNSS</p>
+          <p class="paper-venue">ION GNSS+ · 2024</p>
+        </div>
+        <div class="paper-item">
+          <p class="paper-title">Error Characterization and Bounding for LAD-GNSS Corrections</p>
+          <p class="paper-venue">NAVIGATION · 2022</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic img-right reveal">
+    <div class="sub-img" style="background-image: url('images/integrity-augmentation.png');"></div>
+    <div class="sub-text">
+      <p class="sub-num">01 — 04</p>
+      <h3 class="sub-title">UAM</h3>
+      <p class="sub-desc">
+        Urban Air Mobility (UAM) platforms demand extremely high navigation integrity in complex,
+        low-altitude environments where GNSS performance is challenged by multipath and signal blockage.
+        We develop integrity monitoring and augmentation solutions tailored for eVTOL operations,
+        vertiport approaches, and beyond-visual-line-of-sight UAV corridors.
+      </p>
+      <div>
+        <p class="related-papers-label">Related Papers</p>
+        <div class="paper-item">
+          <p class="paper-title">GNSS Integrity Requirements for Urban Air Mobility Operations</p>
+          <p class="paper-venue">ION GNSS+ · 2024</p>
+        </div>
+        <div class="paper-item">
+          <p class="paper-title">Protection Level Computation for eVTOL Vertiport Approaches</p>
           <p class="paper-venue">NAVIGATION · 2023</p>
         </div>
       </div>
