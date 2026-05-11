@@ -1952,8 +1952,8 @@
     "venue": "Proceedings of the 2013 International Technical Meeting of The Institute of Navigation, 2013",
     "venueShort": "Proceedings of the 2013 International Technical Meeting of T",
     "abstract": "As the applications of Unmanned Aerial Vehicles (UAVs) expand, UAVs will be combined into networks that cooperate to perform various missions within 10 to 200 km of a centralized controller. GNSS is the primary source of navigation for UAVs operating over large areas, and UAVs combined into local networks can easily make use of local-area differential corrections integrated into their guidance commands to improve their navigation accuracy and integrity. This paper develops a Local-Area Differential GNSS (LADGNSS) architecture around a concept of local-area UAV network operations that emphasizes low cost for commercial applications and high integrity to allow UAVs to operate in close proximity to each other and potential \"targets \" while minimizing collision risk. Using the well-established Ground-based Augmentation System (GBAS) as a starting point, a simplified LADGNSS architecture is identified that retains most of the performance of GBAS at a far lower cost. Because LADGNSS performance will be limited by the characteristics of UAV receivers and flight dynamics, future work will be focused on identifying and understanding UAV receiver performance through a series of flight tests at the Korea Advanced Institute of Science and Technology (KAIST).",
-    "doi": "#",
-    "pdf": "#"
+    "doi": "https://web.stanford.edu/group/scpnt/gpslab/pubs/papers/Pullen_IONITM_2013_LADGNSSforUAVNetworksITM2013final.pdf",
+    "pdf": "https://web.stanford.edu/group/scpnt/gpslab/pubs/papers/Pullen_IONITM_2013_LADGNSSforUAVNetworksITM2013final.pdf"
   },
   {
     "id": 164,
