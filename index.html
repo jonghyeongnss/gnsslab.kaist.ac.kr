@@ -389,6 +389,68 @@
 	  margin: 0 auto;
 	  padding: 0 24px;
 	}
+
+    /* ── AWARD POPUP ── */
+    .popup-overlay {
+      position: fixed; inset: 0; z-index: 500;
+      background: rgba(5,13,26,0.65);
+      backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .popup-overlay.open { opacity: 1; pointer-events: all; }
+    .popup {
+      background: #fff;
+      max-width: 580px; width: 100%;
+      border: 1px solid #a0b8d0;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+      position: relative;
+      transform: translateY(28px);
+      transition: transform 0.4s ease;
+      max-height: 90vh; overflow-y: auto;
+    }
+    .popup-overlay.open .popup { transform: translateY(0); }
+    .popup-img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .popup-body { padding: 2rem 2.5rem 2.5rem; }
+    .popup-eyebrow {
+      font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold);
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 0.8rem;
+    }
+    .popup-eyebrow::before { content: ""; width: 1.5rem; height: 1px; background: var(--gold); }
+    .popup-title {
+      font-family: var(--display); font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700; color: #0e1e2e; line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    .popup-text {
+      font-family: var(--serif); font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      color: #3a5060; line-height: 1.8; margin-bottom: 1.5rem;
+    }
+    .popup-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .popup-link {
+      font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--cyan);
+      text-decoration: none; border: 1px solid rgba(62,193,211,0.4);
+      padding: 0.45rem 1.1rem; transition: background 0.2s, color 0.2s;
+    }
+    .popup-link:hover { background: var(--cyan); color: #fff; }
+    .popup-close {
+      position: absolute; top: 1rem; right: 1.2rem;
+      background: rgba(255,255,255,0.85); border: 1px solid #c0d0e0;
+      font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #5a7898;
+      padding: 0.3rem 0.7rem; cursor: pointer;
+      transition: color 0.2s, background 0.2s; z-index: 10;
+    }
+    .popup-close:hover { color: #0e1e2e; background: #fff; }
+    @media (max-width: 640px) {
+      .popup-body { padding: 1.5rem; }
+      .popup-img { height: 160px; }
+    }
   </style>
 </head>
 <body>
@@ -470,6 +532,28 @@
   </ul>
 </div>
 <div class="nav-overlay" id="nav-overlay"></div>
+
+<!-- AWARD POPUP -->
+<div class="popup-overlay" id="award-popup">
+  <div class="popup">
+    <button class="popup-close" id="popup-close">&#x2715; Close</button>
+    <img class="popup-img" src="images/news-Prof. Jiyun Lee Receives 2023 Thurlow Award.jpg" alt="Prof. Jiyun Lee Thurlow Award"/>
+    <div class="popup-body">
+      <div class="popup-eyebrow">2023 ION Thurlow Award</div>
+      <h2 class="popup-title">Prof. Jiyun Lee Receives 2023 Thurlow Award</h2>
+      <p class="popup-text">
+        Professor Jiyun Lee received the 2023 Thurlow Award from the Institute of Navigation (ION)
+        for her significant contributions in guaranteeing the safety of satellite-based navigation
+        systems for aviation. The Thurlow Award was established in 1945 to honor Colonel Thomas L.
+        Thurlow. Prof. Lee is the <strong>first Korean</strong> to receive this prestigious award.
+      </p>
+      <div class="popup-footer">
+        <a href="news.html" class="popup-link">Read More &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="hero">
   <div class="hero-visual">
@@ -842,6 +926,21 @@
   closeBtn.addEventListener('click', closeDrawer);
   overlay.addEventListener('click', closeDrawer);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+  // ── Award popup ──
+  (function() {
+    if (sessionStorage.getItem('awardPopupSeen')) return;
+    var popup = document.getElementById('award-popup');
+    var closeBtn = document.getElementById('popup-close');
+    function closePopup() {
+      popup.classList.remove('open');
+      sessionStorage.setItem('awardPopupSeen', '1');
+    }
+    setTimeout(function() { popup.classList.add('open'); }, 600);
+    closeBtn.addEventListener('click', closePopup);
+    popup.addEventListener('click', function(e) { if (e.target === popup) closePopup(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
+  })();
 </script>
 </body>
 </html>
