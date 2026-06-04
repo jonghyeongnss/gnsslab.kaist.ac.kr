@@ -327,7 +327,13 @@
         <li><a href="research-new.html">New Directions</a></li>
       </ul>
     </li>
-    <li><a href="publications.html">Publications</a></li>
+    <li class="has-dropdown">
+      <a href="publications.html">Publications</a>
+      <ul class="dropdown">
+        <li><a href="publications.html">All Publications</a></li>
+        <li><a href="conferences.html">Conferences</a></li>
+      </ul>
+    </li>
     <li><a href="gallery.html" class="active">Gallery</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
@@ -361,7 +367,13 @@
         <li><a href="research-new.html">New Directions</a></li>
       </ul>
     </li>
-    <li><a href="publications.html">Publications</a></li>
+    <li class="drawer-group">
+      <a href="publications.html" class="drawer-group-title">Publications</a>
+      <ul>
+        <li><a href="publications.html">All Publications</a></li>
+        <li><a href="conferences.html">Conferences</a></li>
+      </ul>
+    </li>
     <li><a href="gallery.html">Gallery</a></li>
   </ul>
 </div>
@@ -442,37 +454,37 @@
 */
 const PHOTOS = [
   { src: 'images/gallery-2026 GNC Conference.jpg',     title: '2026 GNC Conference',     date: '2026-02',
-    desc: 'GNSS Lab members at the AIAA SciTech 2026 Guidance, Navigation, and Control Conference, presenting our latest research in navigation integrity and multi-sensor fusion.' },
+    desc: 'Lab members participated in the 2026 GNC Conference, hosted by the Korean Society for Aeronautical and Space Sciences (KSAS), held from February 9 to 11, 2026, at the Daejeon Convention Center (DCC), Daejeon, Korea.' },
   { src: 'images/gallery-2026 Graduation Ceremony.jpg',title: '2026 Graduation Ceremony',date: '2026-02',
-    desc: 'Celebrating the graduation of GNSS Lab members at the KAIST 2026 commencement ceremony. Congratulations to all graduates on their hard-earned achievements.' },
+    desc: 'Congratulations to the Master’s graduation of Jihyeok Park and the Ph.D. graduations of Noah Minchan Kim and Andrew Kiyoung Sun!' },
   { src: 'images/gallery-2026.01.16 Soccer Game.jpg',  title: '2026/01/16 Soccer Game',  date: '2026-01',
     desc: 'A friendly winter soccer match among GNSS Lab members — a fun tradition that keeps the team spirit strong outside the lab.' },
   { src: 'images/gallery-2025 IPNT Conference.jpg',    title: '2025 IPNT Conference',    date: '2025-11',
-    desc: 'GNSS Lab members at the 2025 Korean Institute of Positioning, Navigation, and Timing (IPNT) Conference, sharing advances in satellite navigation research with the community.' },
+    desc: 'Lab members participated in the 2025 IPNT Conference, held from November 4 to 8, 2025, at Lotte Hotel Jeju, Jeju, Korea.' },
   { src: 'images/gallery-Dr. Bradford Parkinson Seminar.jpg', title: '2025/10/22 Dr. Bradford Parkinson Seminar', date: '2025-10',
-    desc: 'An honor to host Dr. Bradford W. Parkinson — widely regarded as the Father of GPS — for a special seminar at KAIST. His pioneering work laid the foundation for modern global navigation.' },
+    desc: 'Members of GNSS Lab attended a public seminar by Dr. Bradford Parkinson, titled “History of the GPS revolution and thoughts about the future of PNT”. The event was held in Busan, Korea, on 22nd October 2025.' },
   { src: 'images/gallery-Dr.Sam Pullen Seminar.jpg',   title: 'Dr. Sam Pullen Seminar',  date: '2025-06',
-    desc: 'Dr. Sam Pullen from the Stanford GPS Research Laboratory visited KAIST to give a seminar on GNSS-based augmentation systems and aviation navigation safety.' },
+    desc: 'The lab hosted an invited seminar by Dr. Sam Pullen from Stanford University in 2025.' },
   { src: 'images/gallery-2024 Lab MT.jpg',             title: '2024 Lab MT',             date: '2024-12',
-    desc: 'GNSS Lab year-end membership training — a time to reflect on the year\'s research milestones, share experiences, and strengthen connections among lab members.' },
+    desc: '2024 Lab MT in Sapporo, Japan' },
   { src: 'images/gallery-2024 IPNT Conference.jpg',   title: '2024 IPNT Conference',    date: '2024-11',
-    desc: 'Lab members at the 2024 IPNT Conference, presenting research and engaging with the broader Korean navigation and positioning community.' },
+    desc: 'Lab members participated in the 2024 IPNT Conference, held from November 6 to 8, 2024, at Phoenix Island Jeju, Jeju, Korea.' },
   { src: 'images/gallery-2024.05.24 Soccer Game.jpg',  title: '2024/05/24 Soccer Game',  date: '2024-05',
-    desc: 'A sunny afternoon soccer match among GNSS Lab members and friends. A great way to unwind and build camaraderie outside the research environment.' },
+    desc: 'Soccer game in May 24, 2024' },
   { src: "images/gallery-2024 Celebrating Teacher’s Day.jpg", title: "2024 Celebrating Teacher's Day", date: '2024-05',
-    desc: 'Students and staff gather to celebrate Teacher\'s Day and express their heartfelt gratitude to Prof. Jiyun Lee for her dedicated mentorship and guidance.' },
+    desc: 'Lab members celebrated Teacher’s Day with Professor Jiyun Lee in 2024.' },
   { src: 'images/gallery-2024 Cherry Blossoms.jpg',    title: '2024 Cherry Blossoms',    date: '2024-03',
-    desc: 'Spring arrives at KAIST — the lab team takes a moment to enjoy the cherry blossoms in full bloom across the beautiful campus.' },
+    desc: 'Cherry blossoms!' },
   { src: "images/gallery-Celebrating Prof. Jiyun Lee’s 2023 Thurlow Award.jpg", title: "Celebrating Prof. Jiyun Lee's 2023 Thurlow Award", date: '2024-01',
-    desc: 'A celebration dinner honoring Prof. Jiyun Lee\'s receipt of the 2023 ION Thurlow Award, which recognizes exceptional contributions to the art, science, and technology of navigation.' },
+    desc: 'Congratulations to Professor Jiyun Lee on receiving the 2024 ION Thurlow Award!' },
   { src: 'images/gallery-2023 Cherry Blossoms.jpg',    title: '2023 Cherry Blossoms',    date: '2023-03',
-    desc: 'The GNSS Lab team gathers for a spring outing to enjoy the cherry blossoms on the KAIST campus — a beloved annual tradition.' },
+    desc: 'Cherry blossoms!' },
   { src: 'images/gallery-2023 ION ITM Conference.jpg', title: '2023 ION ITM Conference', date: '2023-01',
-    desc: 'GNSS Lab at the 2023 ION International Technical Meeting, presenting cutting-edge research in GNSS integrity monitoring, augmentation systems, and navigation algorithms.' },
+    desc: 'Lab members participated in the 2023 ION ITM Conference (co-located with PTTI 2023), held from January 23 to 26, 2023, at the Hyatt Regency Long Beach, Long Beach, California.' },
   { src: 'images/gallery-2022 ION GNSS+ Conference.jpg', title: '2022 ION GNSS+ Conference', date: '2022-09',
-    desc: 'Lab members at the 2022 ION GNSS+ Conference — the flagship annual event for global GNSS research and technology, bringing together leading experts from around the world.' },
+    desc: 'Lab members participated in the 2022 ION GNSS+ Conference, held from September 19 to 23, 2022, in Denver, Colorado.' },
   { src: 'images/gallery-2022 Lab MT.jpg',             title: '2022 Lab MT',             date: '2022-07',
-    desc: 'Summer membership training retreat for the GNSS Lab, combining team-building activities with lively discussions on ongoing research directions.' },
+    desc: '2022 Lab MT in Jeju Island' },
 ];
 
 renderMasonry();

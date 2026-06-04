@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="global.css"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conferences &middot; GNSS Lab KAIST</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    :root {
+      --gold:    #c8a84b;
+      --cyan:    #3EC1D3;
+      --bright:  #F5F7FA;
+      --dim:     #3d5a78;
+      --serif:   Arial, Helvetica, sans-serif;
+      --display: Arial, Helvetica, sans-serif;
+      --ui:      Arial, Helvetica, sans-serif;
+      --mono:    Arial, Helvetica, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #F5F7FA; color: #1c2b3a; font-family: var(--ui); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 100px; display: flex; align-items: center; justify-content: space-between; padding: 2rem 3rem; background: rgba(245,247,250,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #a0b8d0; }
+    .nav-brand { display: flex; flex-direction: column; justify-content: center; text-decoration: none; line-height: 1.15; }
+    .nav-brand-main { font-family: var(--display); font-size: clamp(1.4rem, 2.5vw, 2.5rem); letter-spacing: 0.06em; color: #0e1e2e; line-height: 1; }
+    .nav-brand-main span { color: var(--cyan); }
+    .nav-links { display: flex; list-style: none; align-items: center; gap: 0; }
+    .nav-links li { position: relative; }
+    .nav-links a { display: block; padding: 0 1.2rem; font-family: var(--ui); font-size: clamp(0.82rem, 1.3vw, 1.3rem); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #3d5a78; text-decoration: none; transition: color 0.2s; }
+    .nav-links a.active { color: var(--cyan); }
+    .nav-links a::after { content: ""; position: absolute; bottom: 0; left: 1.2rem; right: 1.2rem; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s ease; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+    .has-dropdown { position: relative; }
+    .dropdown { position: absolute; top: 100%; left: 0; background: rgba(245,247,250,0.98); backdrop-filter: blur(12px); border: 1px solid #a0b8d0; min-width: 180px; list-style: none; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s ease, transform 0.2s ease; z-index: 200; }
+    .has-dropdown:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown a { display: block; padding: 0.6rem 1.2rem; font-size: 1.0rem !important; font-weight: 500 !important; color: #3d5a78 !important; border-bottom: 1px solid #e4edf5; letter-spacing: 0.08em; }
+    .dropdown li:last-child a { border-bottom: none; }
+    .dropdown a:hover { color: var(--cyan) !important; background: rgba(62,193,211,0.06); }
+    .dropdown a::after { display: none !important; }
+    .has-dropdown:has(a[href="research.html"]) .dropdown { min-width: 200px; }
+
+    /* PAGE HEADER */
+    .page-header { position: relative; z-index: 1; padding: 9rem 5rem 4rem; border-bottom: 1px solid #a0b8d0; background: #F5F7FA; }
+    .page-header-eyebrow { font-family: var(--mono); font-size: clamp(1.1rem, 2vw, 1.2rem); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
+    .page-header-eyebrow::before { content:""; width:2rem; height:1px; background:var(--gold); }
+    .page-header h1 { font-family: var(--display); font-size: clamp(3.5rem, 7vw, 5rem); letter-spacing: 0.05em; color: #0e1e2e; line-height: 1; margin-bottom: 1rem; }
+    .page-header-desc { font-family: var(--serif); font-style: italic; font-size: clamp(1.2rem, 1.4vw, 1.5rem); color: #3d5a78; max-width: 90ch; }
+
+    /* CONTROLS */
+    .controls { position: sticky; top: 64px; z-index: 50; background: rgba(245,247,250,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #a0b8d0; padding: 1rem 5rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .filter-group { display: flex; gap: 0.5rem; flex-wrap: nowrap; }
+    .filter-btn { font-family: var(--mono); font-size: clamp(0.82rem, 1.4vw, 1.2rem); letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.9rem; border: 1px solid #c0d0e0; color: #3d5a78; background: transparent; cursor: pointer; transition: all 0.2s; }
+    .filter-btn:hover { color: #1c2b3a; border-color: #7a9ab8; }
+    .filter-btn.active { color: #fff; background: var(--cyan); border-color: var(--cyan); }
+    .result-count { font-family: var(--mono); font-size: clamp(0.82rem, 1.4vw, 1.2rem); color: #7a9ab8; letter-spacing: 0.06em; margin-left: auto; }
+    .result-count span { color: var(--cyan); }
+
+    /* MAIN */
+    .conf-wrap { padding: 0 5rem 6rem; }
+    .year-block { margin-top: 4rem; animation: fadeUp 0.5s ease both; }
+    .year-label { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .year-label h2 { font-family: var(--display); font-size: clamp(2.8rem, 5.5vw, 4.5rem); color: #5a7898; letter-spacing: 0.08em; line-height: 1; user-select: none; transition: color 0.3s; }
+    .year-block:hover .year-label h2 { color: #1a6f8f; }
+    .year-line { flex: 1; height: 1px; background: linear-gradient(to right, #5a7898, transparent); }
+    .year-confs { padding-left: 2rem; border-left: 1px solid #d0dce8; margin-left: 1rem; display: flex; flex-direction: column; gap: 2.5rem; }
+
+    /* CONFERENCE */
+    .conf-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .conf-name { font-family: var(--ui); font-size: clamp(1.05rem, 1.9vw, 1.4rem); font-weight: 600; color: #0e1e2e; line-height: 1.35; flex: 1; min-width: 180px; }
+    .conf-badge { font-family: var(--mono); font-size: clamp(0.7rem, 1.0vw, 0.85rem); letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.55rem; border: 1px solid; white-space: nowrap; flex-shrink: 0; margin-top: 0.3rem; }
+    .conf-badge.conf-int { color: var(--gold); border-color: rgba(200,168,75,0.45); }
+    .conf-badge.conf-dom { color: #78b89a; border-color: rgba(120,184,154,0.45); }
+
+    /* PAPERS */
+    .conf-papers { border-top: 1px solid #e4edf5; }
+    .paper-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; padding: 1rem 0 1rem 1.4rem; border-bottom: 1px solid #e4edf5; position: relative; transition: background 0.2s; }
+    .paper-item::before { content: ""; position: absolute; left: 0; top: 1.4rem; width: 6px; height: 6px; border-radius: 50%; background: #c0d0e0; border: 1px solid #b0c4d8; transition: background 0.2s; }
+    .paper-item:hover { background: #edf3f9; }
+    .paper-item:hover::before { background: var(--cyan); border-color: var(--cyan); }
+    .paper-body { flex: 1; }
+    .paper-title { font-size: clamp(1.0rem, 1.7vw, 1.2rem); font-weight: 500; color: #1c2b3a; line-height: 1.45; display: block; margin-bottom: 0.2rem; }
+    .paper-title-link { font-size: clamp(1.0rem, 1.7vw, 1.2rem); font-weight: 500; color: #1c2b3a; line-height: 1.45; text-decoration: none; display: block; margin-bottom: 0.2rem; transition: color 0.2s; }
+    .paper-item:hover .paper-title-link { color: #0e7fa8; }
+    .paper-authors { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.0rem); color: #3d5a78; letter-spacing: 0.02em; }
+    .paper-links { display: flex; gap: 0.4rem; flex-shrink: 0; padding-top: 0.25rem; }
+    .paper-link { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); text-decoration: none; border: 1px solid rgba(62,193,211,0.4); padding: 0.15rem 0.5rem; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+    .paper-link:hover { background: var(--cyan); color: #fff; }
+
+    .no-results { display: none; text-align: center; padding: 5rem 2rem; font-family: var(--mono); font-size: 1.1rem; color: #7a9ab8; letter-spacing: 0.08em; }
+    .no-results.visible { display: block; }
+
+    /* FOOTER */
+    footer { background: #0e1e2e; border-top: 1px solid #1a3050; padding: 4rem 5rem 2.5rem; position: relative; z-index: 1; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #1a3050; margin-bottom: 2rem; }
+    .footer-brand-name { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.5rem); letter-spacing: 0.06em; color: var(--bright); margin-bottom: 0.2rem; }
+    .footer-brand-name span { color: var(--cyan); }
+    .footer-brand-sub { font-family: var(--mono); font-size: clamp(0.78rem, 1.2vw, 1.0rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .footer-col-title { font-family: var(--mono); font-size: clamp(1.0rem, 1.4vw, 1.2rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: clamp(1.0rem, 1.5vw, 1.2rem); color: var(--dim); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--bright); }
+    .footer-info { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-info-row { display: flex; gap: 0.8rem; align-items: flex-start; }
+    .footer-info-icon { font-size: clamp(1.0rem, 1.6vw, 1.2rem); opacity: 0.6; flex-shrink: 0; margin-top: 2px; }
+    .footer-info-text { font-size: clamp(1.0rem, 1.5vw, 1.2rem); color: var(--dim); line-height: 1.6; }
+    .footer-info-text a { color: var(--cyan); text-decoration: none; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom span { font-family: var(--mono); font-size: clamp(0.95rem, 1.4vw, 1.2rem); color: var(--dim); letter-spacing: 0.05em; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+    /* HAMBURGER */
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; margin-left: auto; position: relative; z-index: 110; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: #0e1e2e; border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+
+    /* DRAWER */
+    .nav-drawer { position: fixed; top: 0; right: 0; width: min(320px, 85vw); height: 100vh; background: #0e1e2e; border-left: 1px solid #1a3050; z-index: 200; display: flex; flex-direction: column; transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; }
+    .nav-drawer.open { transform: translateX(0); }
+    .nav-drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; border-bottom: 1px solid #1a3050; }
+    .nav-drawer-brand { font-family: var(--display); font-size: 1.6rem; letter-spacing: 0.06em; color: #eaf2fc; }
+    .nav-drawer-brand span { color: #3EC1D3; }
+    .nav-drawer-close { background: none; border: none; cursor: pointer; color: #7a9ab8; font-size: 1.1rem; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.2s, color 0.2s; }
+    .nav-drawer-close:hover { background: #1a3050; color: #eaf2fc; }
+    .nav-drawer-links { list-style: none; padding: 1rem 0; flex: 1; }
+    .nav-drawer-links > li > a { display: block; padding: 0.9rem 1.5rem; font-family: var(--ui); font-size: 1.05rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #7a9ab8; text-decoration: none; border-bottom: 1px solid #1a3050; transition: color 0.2s, background 0.2s; }
+    .nav-drawer-links > li > a:hover { color: #eaf2fc; background: #0e2040; }
+    .drawer-group { border-bottom: 1px solid #1a3050; }
+    .drawer-group-title { display: block; padding: 0.9rem 1.5rem; font-family: var(--ui); font-size: 1.05rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a84b; text-decoration: none; cursor: pointer; transition: color 0.2s; }
+    .drawer-group-title:hover { color: #e8c96a; }
+    .drawer-group ul { list-style: none; padding: 0 0 0.5rem 0; }
+    .drawer-group ul li a { display: block; padding: 0.55rem 1.5rem 0.55rem 2.5rem; font-family: var(--ui); font-size: 0.95rem; color: #3d5a78; text-decoration: none; transition: color 0.2s; }
+    .drawer-group ul li a:hover { color: #3EC1D3; }
+    .nav-overlay { position: fixed; inset: 0; z-index: 190; background: rgba(2,8,16,0.6); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .nav-overlay.open { opacity: 1; pointer-events: all; }
+
+    @media (max-width: 960px) {
+      nav { padding: 0 1.5rem; }
+      .page-header, .conf-wrap, .controls { padding-left: 1.2rem; padding-right: 1.2rem; }
+      footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+      .year-confs { border-left: none; padding-left: 0; margin-left: 0; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-col:empty { display: none; }
+    }
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .footer-brand { grid-column: 1 / -1; }
+      .paper-links { display: none; }
+    }
+    .container { max-width: 1600px; margin: 0 auto; padding: 0 24px; }
+  </style>
+</head>
+<body>
+<div class="container">
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-brand-main"><span>GNSS</span> KAIST</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="news.html">News</a></li>
+    <li class="has-dropdown">
+      <a href="people.html">People</a>
+      <ul class="dropdown">
+        <li><a href="professor.html">Professor</a></li>
+        <li><a href="people.html#staff">Staff</a></li>
+        <li><a href="people.html#students">Students</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="research.html">Research</a>
+      <ul class="dropdown">
+        <li><a href="research-integrity.html">GNSS Integrity &amp; Augmentation</a></li>
+        <li><a href="research-leo.html">Intelligent Multi-Sensor Navigation</a></li>
+        <li><a href="research-remote.html">GNSS Remote Sensing</a></li>
+        <li><a href="research-new.html">New Directions</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="publications.html" class="active">Publications</a>
+      <ul class="dropdown">
+        <li><a href="publications.html">All Publications</a></li>
+        <li><a href="conferences.html">Conferences</a></li>
+      </ul>
+    </li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-header">
+    <div class="nav-drawer-brand"><span>GNSS</span> KAIST</div>
+    <button class="nav-drawer-close" id="nav-drawer-close">&#x2715;</button>
+  </div>
+  <ul class="nav-drawer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="news.html">News</a></li>
+    <li class="drawer-group">
+      <a href="people.html" class="drawer-group-title">People</a>
+      <ul>
+        <li><a href="professor.html">Professor</a></li>
+        <li><a href="people.html#students">Students</a></li>
+        <li><a href="people.html#staff">Staff</a></li>
+      </ul>
+    </li>
+    <li class="drawer-group">
+      <a href="research.html" class="drawer-group-title">Research</a>
+      <ul>
+        <li><a href="research-integrity.html">GNSS Integrity &amp; Augmentation</a></li>
+        <li><a href="research-leo.html">Intelligent Multi-Sensor Navigation</a></li>
+        <li><a href="research-remote.html">GNSS Remote Sensing</a></li>
+        <li><a href="research-new.html">New Directions</a></li>
+      </ul>
+    </li>
+    <li class="drawer-group">
+      <a href="publications.html" class="drawer-group-title">Publications</a>
+      <ul>
+        <li><a href="publications.html">All Publications</a></li>
+        <li><a href="conferences.html">Conferences</a></li>
+      </ul>
+    </li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</div>
+<div class="nav-overlay" id="nav-overlay"></div>
+
+<div class="page-header">
+  <div class="page-header-eyebrow">GNSS Lab</div>
+  <h1>Conferences</h1>
+  <p class="page-header-desc">International and domestic conferences attended by GNSS Lab members, organized by year.</p>
+</div>
+
+<div class="controls">
+  <div class="filter-group" id="type-filters">
+    <button class="filter-btn active" data-type="all">All</button>
+    <button class="filter-btn" data-type="conference-int">International</button>
+    <button class="filter-btn" data-type="conference-dom">Domestic</button>
+  </div>
+  <div class="result-count"><span id="count">0</span> conferences</div>
+</div>
+
+<div class="conf-wrap" id="conf-wrap"></div>
+<div class="no-results" id="no-results">No results found.</div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name"><span>GNSS</span> KAIST</div>
+      <div class="footer-brand-sub">Global Navigation Satellite System Lab</div>
+    </div>
+    <div class="footer-col"></div>
+    <div class="footer-col">
+      <p class="footer-col-title">Research</p>
+      <ul>
+        <li><a href="research-integrity.html">GNSS Integrity &amp; Augmentation</a></li>
+        <li><a href="research-leo.html">Intelligent Multi-Sensor Navigation</a></li>
+        <li><a href="research-remote.html">GNSS Remote Sensing</a></li>
+        <li><a href="research-new.html">New Directions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Contact</p>
+      <div class="footer-info">
+        <div class="footer-info-row">
+          <span class="footer-info-icon">&#x1F4CD;</span>
+          <span class="footer-info-text">291 Daehak-ro, Yuseong-gu<br>Daejeon 34141, Republic of Korea</span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">&#x2709;&#xFE0F;</span>
+          <span class="footer-info-text"><a href="mailto:gnsslab@kaist.ac.kr">gnsslab@kaist.ac.kr</a></span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-icon">&#x1F464;</span>
+          <span class="footer-info-text">Prof. Jiyun Lee<br><a href="mailto:jiyunlee@kaist.ac.kr">jiyunlee@kaist.ac.kr</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 GNSS KAIST</span>
+  </div>
+</footer>
+
+<script>
+var PUBS = [];
+var activeType = 'all';
+
+fetch('publications.json')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    PUBS = data.filter(function(p) {
+      return p.type === 'conference-int' || p.type === 'conference-dom';
+    });
+    render();
+  })
+  .catch(function(err) { console.error('fetch failed:', err); });
+
+document.getElementById('type-filters').addEventListener('click', function(e) {
+  if (!e.target.matches('.filter-btn')) return;
+  document.querySelectorAll('#type-filters .filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  e.target.classList.add('active');
+  activeType = e.target.dataset.type;
+  render();
+});
+
+function confDisplayName(venue, year) {
+  return venue.replace(new RegExp(',\s*' + year + '[\s\S]*$'), '').trim();
+}
+
+function esc(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function render() {
+  var items = PUBS.filter(function(p) {
+    return activeType === 'all' || p.type === activeType;
+  });
+
+  var wrap = document.getElementById('conf-wrap');
+  var noResults = document.getElementById('no-results');
+
+  if (items.length === 0) {
+    wrap.innerHTML = '';
+    noResults.classList.add('visible');
+    document.getElementById('count').textContent = '0';
+    return;
+  }
+  noResults.classList.remove('visible');
+
+  var byYear = {};
+  items.forEach(function(p) {
+    if (!byYear[p.year]) byYear[p.year] = {};
+    var key = p.venueShort;
+    if (!byYear[p.year][key]) {
+      byYear[p.year][key] = { venue: p.venue, type: p.type, papers: [] };
+    }
+    byYear[p.year][key].papers.push(p);
+  });
+
+  var years = Object.keys(byYear).sort(function(a, b) { return b - a; });
+
+  var totalConfs = 0;
+  years.forEach(function(y) { totalConfs += Object.keys(byYear[y]).length; });
+  document.getElementById('count').textContent = totalConfs;
+
+  wrap.innerHTML = years.map(function(yr, yi) {
+    var confs = byYear[yr];
+    var confHtml = Object.entries(confs).map(function(entry) {
+      var conf = entry[1];
+      var name = confDisplayName(conf.venue, yr);
+      var isInt = conf.type === 'conference-int';
+      var badgeClass = isInt ? 'conf-int' : 'conf-dom';
+      var badgeLabel = isInt ? 'International' : 'Domestic';
+
+      var papersHtml = conf.papers.map(function(p) {
+        var hasDoi = p.doi && p.doi !== '#';
+        var hasPdf = p.pdf && p.pdf !== '#';
+        var titleHtml = hasDoi
+          ? '<a class="paper-title-link" href="' + esc(p.doi) + '" target="_blank">' + esc(p.title) + '</a>'
+          : '<span class="paper-title">' + esc(p.title) + '</span>';
+        var linksHtml = '';
+        if (hasDoi) linksHtml += '<a class="paper-link" href="' + esc(p.doi) + '" target="_blank">DOI</a>';
+        if (hasPdf) linksHtml += '<a class="paper-link" href="' + esc(p.pdf) + '" target="_blank">PDF</a>';
+        return '<div class="paper-item">'
+          + '<div class="paper-body">' + titleHtml
+          + '<div class="paper-authors">' + esc(p.authors) + '</div></div>'
+          + (linksHtml ? '<div class="paper-links">' + linksHtml + '</div>' : '')
+          + '</div>';
+      }).join('');
+
+      return '<div class="conf-block">'
+        + '<div class="conf-header">'
+        + '<div class="conf-name">' + esc(name) + '</div>'
+        + '<span class="conf-badge ' + badgeClass + '">' + badgeLabel + '</span>'
+        + '</div>'
+        + '<div class="conf-papers">' + papersHtml + '</div>'
+        + '</div>';
+    }).join('');
+
+    return '<div class="year-block" style="animation-delay:' + (yi * 0.07) + 's">'
+      + '<div class="year-label"><h2>' + yr + '</h2><div class="year-line"></div></div>'
+      + '<div class="year-confs">' + confHtml + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+var hamburger = document.getElementById('nav-hamburger');
+var drawer = document.getElementById('nav-drawer');
+var overlay = document.getElementById('nav-overlay');
+var drawerClose = document.getElementById('nav-drawer-close');
+function openDrawer() { drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+if (hamburger) hamburger.addEventListener('click', openDrawer);
+if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+if (overlay) overlay.addEventListener('click', closeDrawer);
+</script>
+</body>
+</html>
